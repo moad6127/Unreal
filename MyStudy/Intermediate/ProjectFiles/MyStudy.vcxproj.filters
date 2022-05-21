@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\MyStudy.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{3C8C3E7B-B34E-4D1F-BE84-14C8CF2F431E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\MyStudy.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\MyStudyEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{09FBD041-DE6E-4832-BD83-B202A08737AF}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\MyStudy">
+      <UniqueIdentifier>{C635FEAA-BBB0-46C0-8966-81E7308A1BC6}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\MyStudy\MyStudy.Build.cs">
+      <Filter>Source\MyStudy</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\MyStudy\MyStudy.cpp">
+      <Filter>Source\MyStudy</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyStudy\MyStudy.h">
+      <Filter>Source\MyStudy</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MyStudy\MyStudyGameModeBase.cpp">
+      <Filter>Source\MyStudy</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyStudy\MyStudyGameModeBase.h">
+      <Filter>Source\MyStudy</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
