@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define MYSTUDY_MyStudyGameModeBase_generated_h
 
-#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_15_SPARSE_DATA
-#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_15_RPC_WRAPPERS
-#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_15_RPC_WRAPPERS_NO_PURE_DECLS
-#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_15_INCLASS_NO_PURE_DECLS \
+#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_17_SPARSE_DATA
+#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_17_RPC_WRAPPERS
+#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS
+#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMyStudyGameModeBase(); \
 	friend struct Z_Construct_UClass_AMyStudyGameModeBase_Statics; \
@@ -25,7 +25,7 @@ public: \
 	DECLARE_SERIALIZER(AMyStudyGameModeBase)
 
 
-#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_15_INCLASS \
+#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_17_INCLASS \
 private: \
 	static void StaticRegisterNativesAMyStudyGameModeBase(); \
 	friend struct Z_Construct_UClass_AMyStudyGameModeBase_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(AMyStudyGameModeBase)
 
 
-#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_15_STANDARD_CONSTRUCTORS \
+#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_17_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AMyStudyGameModeBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AMyStudyGameModeBase) \
@@ -47,7 +47,7 @@ private: \
 public:
 
 
-#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_15_ENHANCED_CONSTRUCTORS \
+#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_17_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AMyStudyGameModeBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -60,28 +60,32 @@ public: \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AMyStudyGameModeBase)
 
 
-#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_15_PRIVATE_PROPERTY_OFFSET
-#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_12_PROLOG
-#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_15_GENERATED_BODY_LEGACY \
+#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_17_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__CurrentWidget() { return STRUCT_OFFSET(AMyStudyGameModeBase, CurrentWidget); } \
+	FORCEINLINE static uint32 __PPO__HUDWidget() { return STRUCT_OFFSET(AMyStudyGameModeBase, HUDWidget); }
+
+
+#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_14_PROLOG
+#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_17_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	MyStudy_Source_MyStudy_MyStudyGameModeBase_h_15_PRIVATE_PROPERTY_OFFSET \
-	MyStudy_Source_MyStudy_MyStudyGameModeBase_h_15_SPARSE_DATA \
-	MyStudy_Source_MyStudy_MyStudyGameModeBase_h_15_RPC_WRAPPERS \
-	MyStudy_Source_MyStudy_MyStudyGameModeBase_h_15_INCLASS \
-	MyStudy_Source_MyStudy_MyStudyGameModeBase_h_15_STANDARD_CONSTRUCTORS \
+	MyStudy_Source_MyStudy_MyStudyGameModeBase_h_17_PRIVATE_PROPERTY_OFFSET \
+	MyStudy_Source_MyStudy_MyStudyGameModeBase_h_17_SPARSE_DATA \
+	MyStudy_Source_MyStudy_MyStudyGameModeBase_h_17_RPC_WRAPPERS \
+	MyStudy_Source_MyStudy_MyStudyGameModeBase_h_17_INCLASS \
+	MyStudy_Source_MyStudy_MyStudyGameModeBase_h_17_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_15_GENERATED_BODY \
+#define MyStudy_Source_MyStudy_MyStudyGameModeBase_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	MyStudy_Source_MyStudy_MyStudyGameModeBase_h_15_PRIVATE_PROPERTY_OFFSET \
-	MyStudy_Source_MyStudy_MyStudyGameModeBase_h_15_SPARSE_DATA \
-	MyStudy_Source_MyStudy_MyStudyGameModeBase_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	MyStudy_Source_MyStudy_MyStudyGameModeBase_h_15_INCLASS_NO_PURE_DECLS \
-	MyStudy_Source_MyStudy_MyStudyGameModeBase_h_15_ENHANCED_CONSTRUCTORS \
+	MyStudy_Source_MyStudy_MyStudyGameModeBase_h_17_PRIVATE_PROPERTY_OFFSET \
+	MyStudy_Source_MyStudy_MyStudyGameModeBase_h_17_SPARSE_DATA \
+	MyStudy_Source_MyStudy_MyStudyGameModeBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	MyStudy_Source_MyStudy_MyStudyGameModeBase_h_17_INCLASS_NO_PURE_DECLS \
+	MyStudy_Source_MyStudy_MyStudyGameModeBase_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
