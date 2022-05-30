@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\MyStudy.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{5D0D66F4-E46C-45C9-AAF6-2A139DAFF263}</UniqueIdentifier>
+      <UniqueIdentifier>{B528C8B7-E5A0-4D1B-AAD6-48FA2037B866}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\MyStudy.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{9C490F91-B46E-44D6-9DB7-AF056520A2B4}</UniqueIdentifier>
+      <UniqueIdentifier>{ADD680DB-5A4C-4C18-ABF9-812BA7F52AB8}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,7 +27,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\MyStudy">
-      <UniqueIdentifier>{D9E64EFB-8A92-4B5E-83CC-1B4E495A2BBE}</UniqueIdentifier>
+      <UniqueIdentifier>{5189D4E5-52A7-47DC-AEB5-30F7CAFAAC5B}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\MyStudy\BasicCharacter.cpp">
       <Filter>Source\MyStudy</Filter>
@@ -54,6 +54,12 @@
       <Filter>Source\MyStudy</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\MyStudy\MyTestActor.h">
+      <Filter>Source\MyStudy</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MyStudy\MyTestAnimNotifyState.cpp">
+      <Filter>Source\MyStudy</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyStudy\MyTestAnimNotifyState.h">
       <Filter>Source\MyStudy</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\MyStudy\MyTestCharacter.cpp">
