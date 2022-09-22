@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\inflearn_TestUnreal.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{AD655322-240F-4F3D-864E-5B096767B108}</UniqueIdentifier>
+      <UniqueIdentifier>{8D818CCB-01A9-4EC0-BEE5-B1194B22C953}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\inflearn_TestUnreal.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{32D677B2-82FB-4CC9-8F99-E2AAF36ECF89}</UniqueIdentifier>
+      <UniqueIdentifier>{A7F4EBCD-20A1-4F8D-A9F5-6CCBE7484380}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -24,7 +24,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\inflearn_TestUnreal">
-      <UniqueIdentifier>{939902BD-A318-4A69-8F09-9521C7F3F344}</UniqueIdentifier>
+      <UniqueIdentifier>{A53D768E-F00B-4906-8215-B7F9C7FC6B54}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\inflearn_TestUnreal\inflearn_TestUnreal.Build.cs">
       <Filter>Source\inflearn_TestUnreal</Filter>
@@ -39,6 +39,12 @@
       <Filter>Source\inflearn_TestUnreal</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\inflearn_TestUnreal\inflearn_TestUnrealGameModeBase.h">
+      <Filter>Source\inflearn_TestUnreal</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\inflearn_TestUnreal\MyActor.cpp">
+      <Filter>Source\inflearn_TestUnreal</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\inflearn_TestUnreal\MyActor.h">
       <Filter>Source\inflearn_TestUnreal</Filter>
     </ClInclude>
   </ItemGroup>
