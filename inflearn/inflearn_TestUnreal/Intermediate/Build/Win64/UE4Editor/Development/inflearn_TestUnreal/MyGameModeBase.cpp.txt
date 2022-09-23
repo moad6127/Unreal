@@ -5,5 +5,11 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
 C:\unreal project\inflearn\inflearn_TestUnreal\Intermediate\Build\Win64\UE4Editor\Inc\inflearn_TestUnreal\MyGameModeBase.generated.h
-C:\unreal project\inflearn\inflearn_TestUnreal\Source\inflearn_TestUnreal\MyPawn.h
-C:\unreal project\inflearn\inflearn_TestUnreal\Intermediate\Build\Win64\UE4Editor\Inc\inflearn_TestUnreal\MyPawn.generated.h
+C:\unreal project\inflearn\inflearn_TestUnreal\Source\inflearn_TestUnreal\MyCharacter.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementReplication.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
+C:\unreal project\inflearn\inflearn_TestUnreal\Intermediate\Build\Win64\UE4Editor\Inc\inflearn_TestUnreal\MyCharacter.generated.h
