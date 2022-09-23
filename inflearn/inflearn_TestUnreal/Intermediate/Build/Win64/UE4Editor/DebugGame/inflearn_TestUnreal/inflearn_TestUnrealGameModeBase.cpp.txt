@@ -1,0 +1,7 @@
+C:\unreal project\inflearn\inflearn_TestUnreal\Intermediate\Build\Win64\UE4Editor\DebugGame\inflearn_TestUnreal\Definitions.inflearn_TestUnreal.h
+C:\unreal project\inflearn\inflearn_TestUnreal\Source\inflearn_TestUnreal\inflearn_TestUnrealGameModeBase.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
+C:\unreal project\inflearn\inflearn_TestUnreal\Intermediate\Build\Win64\UE4Editor\Inc\inflearn_TestUnreal\inflearn_TestUnrealGameModeBase.generated.h

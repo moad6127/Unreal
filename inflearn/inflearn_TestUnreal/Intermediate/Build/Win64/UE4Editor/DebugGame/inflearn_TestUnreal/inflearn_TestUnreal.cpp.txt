@@ -1,0 +1,2 @@
+C:\unreal project\inflearn\inflearn_TestUnreal\Intermediate\Build\Win64\UE4Editor\DebugGame\inflearn_TestUnreal\Definitions.inflearn_TestUnreal.h
+C:\unreal project\inflearn\inflearn_TestUnreal\Source\inflearn_TestUnreal\inflearn_TestUnreal.h
