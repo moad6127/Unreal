@@ -36,7 +36,7 @@ public: \
 
 #define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyAnimInstance_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API UMyAnimInstance(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+	NO_API UMyAnimInstance(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UMyAnimInstance) \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UMyAnimInstance); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UMyAnimInstance); \
@@ -48,8 +48,6 @@ public:
 
 
 #define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyAnimInstance_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API UMyAnimInstance(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API UMyAnimInstance(UMyAnimInstance&&); \
@@ -57,12 +55,13 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UMyAnimInstance); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UMyAnimInstance); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UMyAnimInstance)
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UMyAnimInstance)
 
 
 #define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyAnimInstance_h_15_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__Speed() { return STRUCT_OFFSET(UMyAnimInstance, Speed); } \
-	FORCEINLINE static uint32 __PPO__IsFalling() { return STRUCT_OFFSET(UMyAnimInstance, IsFalling); }
+	FORCEINLINE static uint32 __PPO__IsFalling() { return STRUCT_OFFSET(UMyAnimInstance, IsFalling); } \
+	FORCEINLINE static uint32 __PPO__AttackMontage() { return STRUCT_OFFSET(UMyAnimInstance, AttackMontage); }
 
 
 #define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyAnimInstance_h_12_PROLOG
