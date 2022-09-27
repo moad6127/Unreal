@@ -61,7 +61,8 @@ public: \
 
 
 #define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyAnimInstance_h_15_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__Speed() { return STRUCT_OFFSET(UMyAnimInstance, Speed); }
+	FORCEINLINE static uint32 __PPO__Speed() { return STRUCT_OFFSET(UMyAnimInstance, Speed); } \
+	FORCEINLINE static uint32 __PPO__IsFalling() { return STRUCT_OFFSET(UMyAnimInstance, IsFalling); }
 
 
 #define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyAnimInstance_h_12_PROLOG
