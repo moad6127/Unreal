@@ -14,8 +14,16 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define INFLEARN_TESTUNREAL_MyAnimInstance_generated_h
 
 #define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyAnimInstance_h_15_SPARSE_DATA
-#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyAnimInstance_h_15_RPC_WRAPPERS
-#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyAnimInstance_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyAnimInstance_h_15_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execAnimNotify_Attack);
+
+
+#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyAnimInstance_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execAnimNotify_Attack);
+
+
 #define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyAnimInstance_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUMyAnimInstance(); \

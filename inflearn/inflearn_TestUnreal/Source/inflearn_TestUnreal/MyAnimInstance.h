@@ -19,6 +19,12 @@ public:
 	virtual void NativeUpdateAnimation(float DeltaSeconds) override;
 
 	void PlayAttackMontage();
+	void JumpToSection(int32 SectionIndex);
+
+	FName GetAttackMontateName(int32 SectionIndex);
+private:
+	UFUNCTION()
+	void AnimNotify_Attack();
 private:
 
 	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess= true))

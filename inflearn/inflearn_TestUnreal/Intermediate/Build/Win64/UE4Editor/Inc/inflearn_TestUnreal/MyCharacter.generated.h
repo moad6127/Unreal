@@ -71,7 +71,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__SpringArm() { return STRUCT_OFFSET(AMyCharacter, SpringArm); } \
 	FORCEINLINE static uint32 __PPO__Camera() { return STRUCT_OFFSET(AMyCharacter, Camera); } \
 	FORCEINLINE static uint32 __PPO__IsAttacking() { return STRUCT_OFFSET(AMyCharacter, IsAttacking); } \
-	FORCEINLINE static uint32 __PPO__AnimInstance() { return STRUCT_OFFSET(AMyCharacter, AnimInstance); }
+	FORCEINLINE static uint32 __PPO__AnimInstance() { return STRUCT_OFFSET(AMyCharacter, AnimInstance); } \
+	FORCEINLINE static uint32 __PPO__AttackIndex() { return STRUCT_OFFSET(AMyCharacter, AttackIndex); }
 
 
 #define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_9_PROLOG
