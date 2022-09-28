@@ -31,6 +31,9 @@ public:
 	void LeftRight(float Value);
 	void Yaw(float Value);
 	void Attack();
+
+	UFUNCTION()
+	void OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted);
 private:
 
 	UPROPERTY(VisibleAnywhere)
@@ -38,4 +41,10 @@ private:
 
 	UPROPERTY(VisibleAnywhere)
 	class UCameraComponent* Camera;
+
+	UPROPERTY(VisibleAnywhere, Category = Pawn)
+	bool IsAttacking = false;
+
+	UPROPERTY()
+	class UMyAnimInstance* AnimInstance;
 };

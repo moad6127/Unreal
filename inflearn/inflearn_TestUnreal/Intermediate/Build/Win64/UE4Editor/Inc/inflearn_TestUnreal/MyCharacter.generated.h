@@ -8,14 +8,23 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UAnimMontage;
 #ifdef INFLEARN_TESTUNREAL_MyCharacter_generated_h
 #error "MyCharacter.generated.h already included, missing '#pragma once' in MyCharacter.h"
 #endif
 #define INFLEARN_TESTUNREAL_MyCharacter_generated_h
 
 #define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_SPARSE_DATA
-#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_RPC_WRAPPERS
-#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_RPC_WRAPPERS_NO_PURE_DECLS
+#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execOnAttackMontageEnded);
+
+
+#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execOnAttackMontageEnded);
+
+
 #define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMyCharacter(); \
@@ -60,7 +69,9 @@ public: \
 
 #define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__SpringArm() { return STRUCT_OFFSET(AMyCharacter, SpringArm); } \
-	FORCEINLINE static uint32 __PPO__Camera() { return STRUCT_OFFSET(AMyCharacter, Camera); }
+	FORCEINLINE static uint32 __PPO__Camera() { return STRUCT_OFFSET(AMyCharacter, Camera); } \
+	FORCEINLINE static uint32 __PPO__IsAttacking() { return STRUCT_OFFSET(AMyCharacter, IsAttacking); } \
+	FORCEINLINE static uint32 __PPO__AnimInstance() { return STRUCT_OFFSET(AMyCharacter, AnimInstance); }
 
 
 #define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_9_PROLOG

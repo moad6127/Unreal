@@ -39,6 +39,8 @@ void AMyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	AnimInstance= Cast<UMyAnimInstance>(GetMesh()->GetAnimInstance());
+	AnimInstance->OnMontageEnded.AddDynamic(this,&AMyCharacter::OnAttackMontageEnded);
 }
 
 // Called every frame
@@ -90,11 +92,20 @@ void AMyCharacter::Yaw(float Value)
 
 void AMyCharacter::Attack()
 {
-	auto AnimInstace = Cast<UMyAnimInstance>(GetMesh()->GetAnimInstance());
-	if (AnimInstace)
+
+	if (IsAttacking)
 	{
-		AnimInstace->PlayAttackMontage();
+		return;
 	}
+	
+	AnimInstance->PlayAttackMontage();
+
+	IsAttacking = true;
+}
+
+void AMyCharacter::OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted)
+{
+	IsAttacking = false;
 }
 
 
