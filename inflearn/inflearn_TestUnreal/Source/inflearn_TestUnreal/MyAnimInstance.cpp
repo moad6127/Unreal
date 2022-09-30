@@ -54,5 +54,6 @@ FName UMyAnimInstance::GetAttackMontateName(int32 SectionIndex)
 
 void UMyAnimInstance::AnimNotify_Attack()
 {
-	UE_LOG(LogTemp, Log, TEXT("AnimNotify_Attack"));
+	//UE_LOG(LogTemp, Log, TEXT("AnimNotify_Attack"));
+	OnAttackHit.Broadcast();
 }
