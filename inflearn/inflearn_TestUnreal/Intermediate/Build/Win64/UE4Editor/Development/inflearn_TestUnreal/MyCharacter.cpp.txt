@@ -18,3 +18,5 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\In
 C:\Unreal\inflearn\inflearn_TestUnreal\Source\inflearn_TestUnreal\MyAnimInstance.h
 C:\Unreal\inflearn\inflearn_TestUnreal\Intermediate\Build\Win64\UE4Editor\Inc\inflearn_TestUnreal\MyAnimInstance.generated.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Public\DrawDebugHelpers.h
+C:\Unreal\inflearn\inflearn_TestUnreal\Source\inflearn_TestUnreal\Myweapon.h
+C:\Unreal\inflearn\inflearn_TestUnreal\Intermediate\Build\Win64\UE4Editor\Inc\inflearn_TestUnreal\Myweapon.generated.h
