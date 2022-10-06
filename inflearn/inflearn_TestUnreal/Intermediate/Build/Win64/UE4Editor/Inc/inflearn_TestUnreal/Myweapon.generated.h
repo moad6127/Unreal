@@ -8,14 +8,25 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UPrimitiveComponent;
+class AActor;
+struct FHitResult;
 #ifdef INFLEARN_TESTUNREAL_Myweapon_generated_h
 #error "Myweapon.generated.h already included, missing '#pragma once' in Myweapon.h"
 #endif
 #define INFLEARN_TESTUNREAL_Myweapon_generated_h
 
 #define inflearn_TestUnreal_Source_inflearn_TestUnreal_Myweapon_h_12_SPARSE_DATA
-#define inflearn_TestUnreal_Source_inflearn_TestUnreal_Myweapon_h_12_RPC_WRAPPERS
-#define inflearn_TestUnreal_Source_inflearn_TestUnreal_Myweapon_h_12_RPC_WRAPPERS_NO_PURE_DECLS
+#define inflearn_TestUnreal_Source_inflearn_TestUnreal_Myweapon_h_12_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execOnCharacterOverlap);
+
+
+#define inflearn_TestUnreal_Source_inflearn_TestUnreal_Myweapon_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execOnCharacterOverlap);
+
+
 #define inflearn_TestUnreal_Source_inflearn_TestUnreal_Myweapon_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMyweapon(); \

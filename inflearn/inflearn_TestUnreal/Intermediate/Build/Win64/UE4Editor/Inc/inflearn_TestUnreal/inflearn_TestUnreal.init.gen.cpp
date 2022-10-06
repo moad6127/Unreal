@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeinflearn_TestUnreal_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x1E0A1B0E,
+				0x6B7A1EB3,
 				0xBC03E7D1,
 				METADATA_PARAMS(nullptr, 0)
 			};
