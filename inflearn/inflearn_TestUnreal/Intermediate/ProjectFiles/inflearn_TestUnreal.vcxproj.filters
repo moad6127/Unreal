@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\inflearn_TestUnreal.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{99C3B17D-E1D4-4538-9AE0-C2A6495EDDD0}</UniqueIdentifier>
+      <UniqueIdentifier>{FF545079-72C4-4386-9326-1B253F80F666}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\inflearn_TestUnreal.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{3F0946B1-8AF9-472C-BAA7-6E152B3CE5F6}</UniqueIdentifier>
+      <UniqueIdentifier>{5B3C1B94-C1C5-4794-8C0F-B30F6734BBF9}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,7 +27,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\inflearn_TestUnreal">
-      <UniqueIdentifier>{5994CAD9-E0BB-4154-8525-75FC25127D02}</UniqueIdentifier>
+      <UniqueIdentifier>{4A8D854B-CABF-4826-83A2-3A005E6AE0A0}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\inflearn_TestUnreal\inflearn_TestUnreal.Build.cs">
       <Filter>Source\inflearn_TestUnreal</Filter>
@@ -56,10 +56,28 @@
     <ClInclude Include="..\..\Source\inflearn_TestUnreal\MyCharacter.h">
       <Filter>Source\inflearn_TestUnreal</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\inflearn_TestUnreal\MyCharacterWidget.cpp">
+      <Filter>Source\inflearn_TestUnreal</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\inflearn_TestUnreal\MyCharacterWidget.h">
+      <Filter>Source\inflearn_TestUnreal</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\inflearn_TestUnreal\MyGameInstance.cpp">
+      <Filter>Source\inflearn_TestUnreal</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\inflearn_TestUnreal\MyGameInstance.h">
+      <Filter>Source\inflearn_TestUnreal</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\inflearn_TestUnreal\MyGameModeBase.cpp">
       <Filter>Source\inflearn_TestUnreal</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\inflearn_TestUnreal\MyGameModeBase.h">
+      <Filter>Source\inflearn_TestUnreal</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\inflearn_TestUnreal\MyStatComponent.cpp">
+      <Filter>Source\inflearn_TestUnreal</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\inflearn_TestUnreal\MyStatComponent.h">
       <Filter>Source\inflearn_TestUnreal</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\inflearn_TestUnreal\Myweapon.cpp">

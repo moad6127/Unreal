@@ -1,0 +1,5 @@
+C:\Unreal\inflearn\inflearn_TestUnreal\Intermediate\Build\Win64\UE4Editor\Development\inflearn_TestUnreal\Definitions.inflearn_TestUnreal.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+C:\Unreal\inflearn\inflearn_TestUnreal\Source\inflearn_TestUnreal/MyStatComponent.h
+C:\Unreal\inflearn\inflearn_TestUnreal\Intermediate\Build\Win64\UE4Editor\Inc\inflearn_TestUnreal\MyStatComponent.generated.h
