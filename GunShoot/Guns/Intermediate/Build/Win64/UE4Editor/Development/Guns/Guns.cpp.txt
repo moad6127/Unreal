@@ -1,0 +1,2 @@
+C:\Unreal\GunShoot\Guns\Intermediate\Build\Win64\UE4Editor\Development\Guns\Definitions.Guns.h
+C:\Unreal\GunShoot\Guns\Source\Guns\Guns.h

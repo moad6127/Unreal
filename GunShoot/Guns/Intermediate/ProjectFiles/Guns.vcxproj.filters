@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\Guns.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{55D80500-3B36-4848-9284-68B6EC69031E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\Guns.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\GunsEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{6B7E34A3-2F4F-440A-A03B-E18C42FF3107}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\Guns">
+      <UniqueIdentifier>{0E5AFD17-DA8D-478F-B33E-FBC42600BBF7}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\Guns\Guns.Build.cs">
+      <Filter>Source\Guns</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\Guns\Guns.cpp">
+      <Filter>Source\Guns</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Guns\Guns.h">
+      <Filter>Source\Guns</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Guns\GunsCharacter.cpp">
+      <Filter>Source\Guns</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Guns\GunsCharacter.h">
+      <Filter>Source\Guns</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Guns\GunsGameMode.cpp">
+      <Filter>Source\Guns</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Guns\GunsGameMode.h">
+      <Filter>Source\Guns</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
