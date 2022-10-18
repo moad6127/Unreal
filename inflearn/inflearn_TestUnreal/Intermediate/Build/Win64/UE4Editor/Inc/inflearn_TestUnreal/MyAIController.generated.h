@@ -58,7 +58,11 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AMyAIController)
 
 
-#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyAIController_h_15_PRIVATE_PROPERTY_OFFSET
+#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyAIController_h_15_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__BehaviorTree() { return STRUCT_OFFSET(AMyAIController, BehaviorTree); } \
+	FORCEINLINE static uint32 __PPO__BlackboadData() { return STRUCT_OFFSET(AMyAIController, BlackboadData); }
+
+
 #define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyAIController_h_12_PROLOG
 #define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyAIController_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\inflearn_TestUnreal.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{C8808A71-EF50-4A74-A530-01D5D2162C02}</UniqueIdentifier>
+      <UniqueIdentifier>{D1ECBF24-F3E7-4F17-B754-98251D0D6B41}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\inflearn_TestUnreal.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{CD223869-DEEA-4962-853F-E19F4088FACC}</UniqueIdentifier>
+      <UniqueIdentifier>{10378205-EBF6-4EB8-9D2C-0D2365759CC8}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,8 +27,14 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\inflearn_TestUnreal">
-      <UniqueIdentifier>{C9223002-DE75-4E56-A74E-CB9E6E065D34}</UniqueIdentifier>
+      <UniqueIdentifier>{DEC2A640-F8AC-4956-BC1A-B96009EFF115}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\inflearn_TestUnreal\BTTask_FindPatrolNode.cpp">
+      <Filter>Source\inflearn_TestUnreal</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\inflearn_TestUnreal\BTTask_FindPatrolNode.h">
+      <Filter>Source\inflearn_TestUnreal</Filter>
+    </ClInclude>
     <None Include="..\..\Source\inflearn_TestUnreal\inflearn_TestUnreal.Build.cs">
       <Filter>Source\inflearn_TestUnreal</Filter>
     </None>
