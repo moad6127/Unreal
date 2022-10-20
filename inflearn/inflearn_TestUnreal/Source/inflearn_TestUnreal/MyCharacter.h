@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "MyCharacter.generated.h"
+DECLARE_MULTICAST_DELEGATE(FOnAttackEnd);
+
 
 UCLASS()
 class INFLEARN_TESTUNREAL_API AMyCharacter : public ACharacter
@@ -33,6 +35,8 @@ public:
 	void Yaw(float Value);
 	void Attack();
 	void AttackCheck();
+
+	FOnAttackEnd OnAttackEnd;
 
 	UFUNCTION()
 	void OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted);

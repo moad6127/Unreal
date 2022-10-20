@@ -14,18 +14,18 @@ class UAnimMontage;
 #endif
 #define INFLEARN_TESTUNREAL_MyCharacter_generated_h
 
-#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_SPARSE_DATA
-#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_RPC_WRAPPERS \
+#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_14_SPARSE_DATA
+#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_14_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execOnAttackMontageEnded);
 
 
-#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnAttackMontageEnded);
 
 
-#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_INCLASS_NO_PURE_DECLS \
+#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMyCharacter(); \
 	friend struct Z_Construct_UClass_AMyCharacter_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(AMyCharacter)
 
 
-#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_INCLASS \
+#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_14_INCLASS \
 private: \
 	static void StaticRegisterNativesAMyCharacter(); \
 	friend struct Z_Construct_UClass_AMyCharacter_Statics; \
@@ -43,7 +43,7 @@ public: \
 	DECLARE_SERIALIZER(AMyCharacter)
 
 
-#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_STANDARD_CONSTRUCTORS \
+#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_14_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AMyCharacter(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AMyCharacter) \
@@ -56,7 +56,7 @@ private: \
 public:
 
 
-#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_ENHANCED_CONSTRUCTORS \
+#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AMyCharacter(AMyCharacter&&); \
@@ -67,7 +67,7 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AMyCharacter)
 
 
-#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_PRIVATE_PROPERTY_OFFSET \
+#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_14_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__SpringArm() { return STRUCT_OFFSET(AMyCharacter, SpringArm); } \
 	FORCEINLINE static uint32 __PPO__Camera() { return STRUCT_OFFSET(AMyCharacter, Camera); } \
 	FORCEINLINE static uint32 __PPO__IsAttacking() { return STRUCT_OFFSET(AMyCharacter, IsAttacking); } \
@@ -75,27 +75,27 @@ public: \
 	FORCEINLINE static uint32 __PPO__AttackIndex() { return STRUCT_OFFSET(AMyCharacter, AttackIndex); }
 
 
-#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_9_PROLOG
-#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_GENERATED_BODY_LEGACY \
+#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_11_PROLOG
+#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_14_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_PRIVATE_PROPERTY_OFFSET \
-	inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_SPARSE_DATA \
-	inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_RPC_WRAPPERS \
-	inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_INCLASS \
-	inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_STANDARD_CONSTRUCTORS \
+	inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_14_PRIVATE_PROPERTY_OFFSET \
+	inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_14_SPARSE_DATA \
+	inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_14_RPC_WRAPPERS \
+	inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_14_INCLASS \
+	inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_14_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_GENERATED_BODY \
+#define inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_14_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_PRIVATE_PROPERTY_OFFSET \
-	inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_SPARSE_DATA \
-	inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_INCLASS_NO_PURE_DECLS \
-	inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_12_ENHANCED_CONSTRUCTORS \
+	inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_14_PRIVATE_PROPERTY_OFFSET \
+	inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_14_SPARSE_DATA \
+	inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_14_INCLASS_NO_PURE_DECLS \
+	inflearn_TestUnreal_Source_inflearn_TestUnreal_MyCharacter_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
