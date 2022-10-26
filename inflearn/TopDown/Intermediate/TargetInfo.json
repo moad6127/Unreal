@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "TopDown",
+			"Path": "C:\\Unreal\\inflearn\\TopDown\\Source\\TopDown.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "TopDownEditor",
+			"Path": "C:\\Unreal\\inflearn\\TopDown\\Source\\TopDownEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
