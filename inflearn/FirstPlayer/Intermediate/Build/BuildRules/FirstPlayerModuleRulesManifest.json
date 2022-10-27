@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"C:\\Unreal\\inflearn\\FirstPlayer\\Source\\FirstPlayer\\FirstPlayer.Build.cs",
+		"C:\\Unreal\\inflearn\\FirstPlayer\\Source\\FirstPlayer.Target.cs",
+		"C:\\Unreal\\inflearn\\FirstPlayer\\Source\\FirstPlayerEditor.Target.cs"
+	],
+	"EngineVersion": "4.27.2"
+}

@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "FirstPlayer",
+			"Path": "C:\\Unreal\\inflearn\\FirstPlayer\\Source\\FirstPlayer.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "FirstPlayerEditor",
+			"Path": "C:\\Unreal\\inflearn\\FirstPlayer\\Source\\FirstPlayerEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
