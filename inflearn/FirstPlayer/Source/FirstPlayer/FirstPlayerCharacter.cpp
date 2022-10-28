@@ -82,6 +82,31 @@ AFirstPlayerCharacter::AFirstPlayerCharacter()
 
 	// Uncomment the following line to turn motion controllers on by default:
 	//bUsingMotionControllers = true;
+
+
+	//언리얼에서 STL대신 사용가능한 것들
+	//vector => TArray
+	//map unordered_map =>TMap
+	//string => FString
+
+	TArray<int32> arr;
+	arr.Add(1);
+	arr.Add(2);
+	for (TArray<int32>::TIterator itr = arr.CreateIterator(); itr; itr++)
+	{
+		int32 temp = *itr;
+	}
+	for (int32 e : arr)
+	{
+
+	}
+	arr.Empty(); // vector 의 clear함수에 해당한다
+
+
+	//TMap은 정렬해주지는 않는다
+	TMap<int32, int32> map;
+
+
 }
 
 void AFirstPlayerCharacter::BeginPlay()
