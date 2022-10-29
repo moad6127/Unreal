@@ -88,6 +88,8 @@ public:
 
 protected:
 	
+	void RefreshUI();
+
 	/** Fires a projectile. */
 	void OnFire();
 
@@ -144,5 +146,8 @@ public:
 	/** Returns FirstPersonCameraComponent subobject **/
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
 
+
+	int32 AmmoCount = 5;
+	int32 MaxAmmoCount = 5;
 };
 
