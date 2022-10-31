@@ -1,8 +1,0 @@
-{
-	"SourceFiles": [
-		"C:\\Unreal\\GunShoot\\Guns\\Source\\Guns\\Guns.Build.cs",
-		"C:\\Unreal\\GunShoot\\Guns\\Source\\Guns.Target.cs",
-		"C:\\Unreal\\GunShoot\\Guns\\Source\\GunsEditor.Target.cs"
-	],
-	"EngineVersion": "4.27.2"
-}
