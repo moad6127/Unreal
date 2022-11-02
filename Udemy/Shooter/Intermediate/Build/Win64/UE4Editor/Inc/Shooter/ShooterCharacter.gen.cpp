@@ -18,6 +18,7 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	UPackage* Z_Construct_UPackage__Script_Shooter();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 // End Cross Module References
 	void AShooterCharacter::StaticRegisterNativesAShooterCharacter()
 	{
@@ -36,6 +37,10 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CameraBoom_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_CameraBoom;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FollowCamera_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FollowCamera;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -62,8 +67,20 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AShooterCharacter_Statics::NewProp_CameraBoom = { "CameraBoom", nullptr, (EPropertyFlags)0x00400000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AShooterCharacter, CameraBoom), Z_Construct_UClass_USpringArmComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_CameraBoom_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_CameraBoom_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AShooterCharacter_Statics::NewProp_FollowCamera_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Camera" },
+		{ "Comment", "/*\xc4\xb3???\xcd\xb8? ?????\xd9\xb4\xcf\xb4? \xc4\xab?\xde\xb6?*/" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "ShooterCharacter.h" },
+		{ "ToolTip", "\xc4\xb3???\xcd\xb8? ?????\xd9\xb4\xcf\xb4? \xc4\xab?\xde\xb6?" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AShooterCharacter_Statics::NewProp_FollowCamera = { "FollowCamera", nullptr, (EPropertyFlags)0x00400000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AShooterCharacter, FollowCamera), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_FollowCamera_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_FollowCamera_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AShooterCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_CameraBoom,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_FollowCamera,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AShooterCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AShooterCharacter>::IsAbstract,
@@ -92,7 +109,7 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AShooterCharacter, 1901402120);
+	IMPLEMENT_CLASS(AShooterCharacter, 2003005795);
 	template<> SHOOTER_API UClass* StaticClass<AShooterCharacter>()
 	{
 		return AShooterCharacter::StaticClass();

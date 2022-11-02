@@ -31,7 +31,14 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* CameraBoom;
 
+	/*캐릭터를 따라다니는 카메라*/
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	class UCameraComponent* FollowCamera;
+
 public:
 	/*return CameraBoom subobject*/
 	FORCEINLINE USpringArmComponent* GetCarmeraBoom() const { return CameraBoom; }
+
+	/*카메라 반환, 카메라 게터*/
+	FORCEINLINE UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 };
