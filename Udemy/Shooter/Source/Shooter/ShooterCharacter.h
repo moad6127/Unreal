@@ -35,6 +35,10 @@ protected:
 
 	void LookUpAtRate(float Rate);
 
+	//발사 버튼 누르기
+	void FireWeapon();
+
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
