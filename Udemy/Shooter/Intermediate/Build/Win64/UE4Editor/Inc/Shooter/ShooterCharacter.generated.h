@@ -66,7 +66,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__FireSound() { return STRUCT_OFFSET(AShooterCharacter, FireSound); } \
 	FORCEINLINE static uint32 __PPO__MuzzleFlash() { return STRUCT_OFFSET(AShooterCharacter, MuzzleFlash); } \
 	FORCEINLINE static uint32 __PPO__HipFireMontage() { return STRUCT_OFFSET(AShooterCharacter, HipFireMontage); } \
-	FORCEINLINE static uint32 __PPO__ImpactParticles() { return STRUCT_OFFSET(AShooterCharacter, ImpactParticles); }
+	FORCEINLINE static uint32 __PPO__ImpactParticles() { return STRUCT_OFFSET(AShooterCharacter, ImpactParticles); } \
+	FORCEINLINE static uint32 __PPO__BeamParticles() { return STRUCT_OFFSET(AShooterCharacter, BeamParticles); }
 
 
 #define Shooter_Source_Shooter_ShooterCharacter_h_9_PROLOG
