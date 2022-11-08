@@ -38,6 +38,8 @@ protected:
 	//발사 버튼 누르기
 	void FireWeapon();
 
+	bool GetBeamEndLocation(const FVector& MuzzleSocketLocation, FVector& OutBeamLocation);
+
 
 public:	
 	// Called every frame
@@ -82,6 +84,7 @@ private:
 	//총알의 연기 흔적
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	UParticleSystem* BeamParticles;
+
 
 public:
 	/*return CameraBoom subobject*/

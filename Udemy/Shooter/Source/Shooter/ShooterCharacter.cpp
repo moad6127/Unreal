@@ -104,102 +104,27 @@ void AShooterCharacter::FireWeapon()
 		{
 			UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), MuzzleFlash, SocketTransform);
 		}
-
-		//뷰포트의 사이즈의 정보를 얻기
-		FVector2D ViewportSize;
-		if (GEngine && GEngine->GameViewport)
+		FVector BeamEnd;
+		bool bBeamEnd = GetBeamEndLocation(SocketTransform.GetLocation(),
+			BeamEnd);
+		if (bBeamEnd)
 		{
-			GEngine->GameViewport->GetViewportSize(ViewportSize);
-		}
-
-		//화면에서의 크로스헤어의 위치
-		FVector2D CrosshairLocation(ViewportSize.X / 2.f, ViewportSize.Y / 2.f);
-		CrosshairLocation.Y -= 50.f;
-		FVector CrosshairWorldPosition;
-		FVector CrosshairWorldDirection;
-
-		//크로스 헤어의 월드 포지션과 방향
-		bool bScreenToWorld = UGameplayStatics::DeprojectScreenToWorld(UGameplayStatics::GetPlayerController(this, 0),
-			CrosshairLocation, CrosshairWorldPosition, CrosshairWorldDirection);
-		if (bScreenToWorld)// 성공했으면
-		{
-			FHitResult ScreenTraceHit;
-			const FVector Start{ CrosshairWorldPosition };
-			const FVector End{ CrosshairWorldPosition + CrosshairWorldDirection * 50'000.f };
-
-			//빔 엔드를 추적중인 엔드포인트로 바꿈
-			FVector BeamEndPoint{ End };
-			GetWorld()->LineTraceSingleByChannel(ScreenTraceHit, Start, End, ECollisionChannel::ECC_Visibility);
-			if (ScreenTraceHit.bBlockingHit)//다른 물건에 맞았는지 체크
-			{
-				//빔 엔드포인트는 맞았을시 위치로
-				BeamEndPoint = ScreenTraceHit.Location;
-
-			}
-
-			//중간에 다른물체가 있을경우 그곳으로 엔드 포인트를 설정
-			FHitResult WeaponTraceHit;
-			const FVector WeaponTraceStart{ SocketTransform.GetLocation() };
-			const FVector WeaponTraceEnd{ BeamEndPoint };
-			GetWorld()->LineTraceSingleByChannel(WeaponTraceHit,
-				WeaponTraceStart,
-				WeaponTraceEnd,
-				ECollisionChannel::ECC_Visibility);
-			if (WeaponTraceHit.bBlockingHit)
-			{
-				BeamEndPoint = WeaponTraceHit.Location;
-			}
-			//빔과 포인트를 업데이트후 파티클 생성
 			if (ImpactParticles)
 			{
-				UGameplayStatics::SpawnEmitterAtLocation(
-					GetWorld(),
+				UGameplayStatics::SpawnEmitterAtLocation(GetWorld(),
 					ImpactParticles,
-					BeamEndPoint);
+					BeamEnd);
 			}
-			if (BeamParticles)
+
+			UParticleSystemComponent* Beam = UGameplayStatics::SpawnEmitterAtLocation(
+				GetWorld(),
+				BeamParticles,
+				SocketTransform);
+			if (Beam)
 			{
-				UParticleSystemComponent* Beam = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), BeamParticles, SocketTransform);
-				if (Beam)
-				{
-					Beam->SetVectorParameter(FName("Target"), BeamEndPoint);
-				}
+				Beam->SetVectorParameter(FName("Target"), BeamEnd);
 			}
 		}
-
-
-		//	FHitResult FireHit;
-		//	const FVector Start{ SocketTransform.GetLocation() };
-		//	const FQuat Rotation{ SocketTransform.GetRotation() };
-		//	const FVector RotationAxis{ Rotation.GetAxisX() };
-		//	const FVector End{ Start + RotationAxis * 50'000.f };
-
-		//	FVector BeamEndPoint{ End };
-
-		//	GetWorld()->LineTraceSingleByChannel(FireHit, Start, End,
-		//		ECollisionChannel::ECC_Visibility);
-		//	if (FireHit.bBlockingHit)
-		//	{
-		//		//DrawDebugLine(GetWorld(), Start, End, FColor::Red, false, 2.f);
-		//		//DrawDebugPoint(GetWorld(), FireHit.Location, 5.f, FColor::Red, false, 2.f);
-
-		//		BeamEndPoint = FireHit.Location;
-
-		//		if (ImpactParticles)
-		//		{
-		//			UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ImpactParticles, FireHit.Location);
-		//		}
-		//	}
-		//	if (BeamParticles)
-		//	{
-		//		UParticleSystemComponent* Beam = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), BeamParticles, SocketTransform);
-		//		if (Beam)
-		//		{
-		//			Beam->SetVectorParameter(FName("Target"),BeamEndPoint);
-		//		}
-		//	}
-		//}
-
 
 		UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
 		if (AnimInstance && HipFireMontage)
@@ -208,6 +133,60 @@ void AShooterCharacter::FireWeapon()
 			AnimInstance->Montage_JumpToSection(FName("StartFire"));
 		}
 	}
+}
+
+bool AShooterCharacter::GetBeamEndLocation(
+	const FVector& MuzzleSocketLocation,
+	FVector& OutBeamLocation)
+{
+	//뷰포트의 사이즈의 정보를 얻기
+	FVector2D ViewportSize;
+	if (GEngine && GEngine->GameViewport)
+	{
+		GEngine->GameViewport->GetViewportSize(ViewportSize);
+	}
+
+	//화면에서의 크로스헤어의 위치
+	FVector2D CrosshairLocation(ViewportSize.X / 2.f, ViewportSize.Y / 2.f);
+	CrosshairLocation.Y -= 50.f;
+	FVector CrosshairWorldPosition;
+	FVector CrosshairWorldDirection;
+
+	bool bScreenToWorld = UGameplayStatics::DeprojectScreenToWorld(UGameplayStatics::GetPlayerController(this, 0),
+		CrosshairLocation, CrosshairWorldPosition, CrosshairWorldDirection);
+
+	if (bScreenToWorld)// 성공했으면
+	{
+		FHitResult ScreenTraceHit;
+		const FVector Start{ CrosshairWorldPosition };
+		const FVector End{ CrosshairWorldPosition + CrosshairWorldDirection * 50'000.f };
+
+		//빔 엔드를 추적중인 엔드포인트로 바꿈
+		OutBeamLocation = End;
+
+		GetWorld()->LineTraceSingleByChannel(ScreenTraceHit, Start, End, ECollisionChannel::ECC_Visibility);
+		if (ScreenTraceHit.bBlockingHit)//다른 물건에 맞았는지 체크
+		{
+			//빔 엔드포인트는 맞았을시 위치로
+			OutBeamLocation = ScreenTraceHit.Location;
+
+		}
+
+		//중간에 다른물체가 있을경우 그곳으로 엔드 포인트를 설정
+		FHitResult WeaponTraceHit;
+		const FVector WeaponTraceStart{ MuzzleSocketLocation };
+		const FVector WeaponTraceEnd{ OutBeamLocation };
+		GetWorld()->LineTraceSingleByChannel(WeaponTraceHit,
+			WeaponTraceStart,
+			WeaponTraceEnd,
+			ECollisionChannel::ECC_Visibility);
+		if (WeaponTraceHit.bBlockingHit)
+		{
+			OutBeamLocation = WeaponTraceHit.Location;
+		}
+		return true;
+	}
+	return false;
 }
 
 // Called every frame
