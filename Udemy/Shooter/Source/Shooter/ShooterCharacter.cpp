@@ -104,42 +104,94 @@ void AShooterCharacter::FireWeapon()
 		{
 			UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), MuzzleFlash, SocketTransform);
 		}
-		FHitResult FireHit;
-		const FVector Start{ SocketTransform.GetLocation() };
-		const FQuat Rotation{ SocketTransform.GetRotation() };
-		const FVector RotationAxis{ Rotation.GetAxisX() };
-		const FVector End{ Start + RotationAxis * 50'000.f };
 
-		FVector BeamEndPoint{ End };
-
-		GetWorld()->LineTraceSingleByChannel(FireHit, Start, End,
-			ECollisionChannel::ECC_Visibility);
-		if (FireHit.bBlockingHit)
+		//뷰포트의 사이즈의 정보를 얻기
+		FVector2D ViewportSize;
+		if (GEngine && GEngine->GameViewport)
 		{
-			//DrawDebugLine(GetWorld(), Start, End, FColor::Red, false, 2.f);
-			//DrawDebugPoint(GetWorld(), FireHit.Location, 5.f, FColor::Red, false, 2.f);
+			GEngine->GameViewport->GetViewportSize(ViewportSize);
+		}
 
-			BeamEndPoint = FireHit.Location;
+		//화면에서의 크로스헤어의 위치
+		FVector2D CrosshairLocation(ViewportSize.X / 2.f, ViewportSize.Y / 2.f);
+		CrosshairLocation.Y -= 50.f;
+		FVector CrosshairWorldPosition;
+		FVector CrosshairWorldDirection;
 
-			if (ImpactParticles)
+		//크로스 헤어의 월드 포지션과 방향
+		bool bScreenToWorld = UGameplayStatics::DeprojectScreenToWorld(UGameplayStatics::GetPlayerController(this, 0),
+			CrosshairLocation, CrosshairWorldPosition, CrosshairWorldDirection);
+		if (bScreenToWorld)// 성공했으면
+		{
+			FHitResult ScreenTraceHit;
+			const FVector Start{ CrosshairWorldPosition };
+			const FVector End{ CrosshairWorldPosition + CrosshairWorldDirection * 50'000.f };
+
+			//빔 엔드를 추적중인 엔드포인트로 바꿈
+			FVector BeamEndPoint{ End };
+			GetWorld()->LineTraceSingleByChannel(ScreenTraceHit, Start, End, ECollisionChannel::ECC_Visibility);
+			if (ScreenTraceHit.bBlockingHit)//다른 물건에 맞았는지 체크
 			{
-				UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ImpactParticles, FireHit.Location);
+				//빔 엔드포인트는 맞았을시 위치로
+				BeamEndPoint = ScreenTraceHit.Location;
+				if (ImpactParticles)
+				{
+					UGameplayStatics::SpawnEmitterAtLocation(
+						GetWorld(),
+						ImpactParticles,
+						ScreenTraceHit.Location);
+				}
+			}
+			if (BeamParticles)
+			{
+				UParticleSystemComponent* Beam = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), BeamParticles, SocketTransform);
+				if (Beam)
+				{
+					Beam->SetVectorParameter(FName("Target"), BeamEndPoint);
+				}
 			}
 		}
-		if (BeamParticles)
+
+
+		//	FHitResult FireHit;
+		//	const FVector Start{ SocketTransform.GetLocation() };
+		//	const FQuat Rotation{ SocketTransform.GetRotation() };
+		//	const FVector RotationAxis{ Rotation.GetAxisX() };
+		//	const FVector End{ Start + RotationAxis * 50'000.f };
+
+		//	FVector BeamEndPoint{ End };
+
+		//	GetWorld()->LineTraceSingleByChannel(FireHit, Start, End,
+		//		ECollisionChannel::ECC_Visibility);
+		//	if (FireHit.bBlockingHit)
+		//	{
+		//		//DrawDebugLine(GetWorld(), Start, End, FColor::Red, false, 2.f);
+		//		//DrawDebugPoint(GetWorld(), FireHit.Location, 5.f, FColor::Red, false, 2.f);
+
+		//		BeamEndPoint = FireHit.Location;
+
+		//		if (ImpactParticles)
+		//		{
+		//			UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ImpactParticles, FireHit.Location);
+		//		}
+		//	}
+		//	if (BeamParticles)
+		//	{
+		//		UParticleSystemComponent* Beam = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), BeamParticles, SocketTransform);
+		//		if (Beam)
+		//		{
+		//			Beam->SetVectorParameter(FName("Target"),BeamEndPoint);
+		//		}
+		//	}
+		//}
+
+
+		UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+		if (AnimInstance && HipFireMontage)
 		{
-			UParticleSystemComponent* Beam = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), BeamParticles, SocketTransform);
-			if (Beam)
-			{
-				Beam->SetVectorParameter(FName("Target"),BeamEndPoint);
-			}
+			AnimInstance->Montage_Play(HipFireMontage);
+			AnimInstance->Montage_JumpToSection(FName("StartFire"));
 		}
-	}
-	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
-	if (AnimInstance && HipFireMontage)
-	{
-		AnimInstance->Montage_Play(HipFireMontage);
-		AnimInstance->Montage_JumpToSection(FName("StartFire"));
 	}
 }
 
