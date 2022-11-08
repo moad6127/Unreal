@@ -134,13 +134,28 @@ void AShooterCharacter::FireWeapon()
 			{
 				//빔 엔드포인트는 맞았을시 위치로
 				BeamEndPoint = ScreenTraceHit.Location;
-				if (ImpactParticles)
-				{
-					UGameplayStatics::SpawnEmitterAtLocation(
-						GetWorld(),
-						ImpactParticles,
-						ScreenTraceHit.Location);
-				}
+
+			}
+
+			//중간에 다른물체가 있을경우 그곳으로 엔드 포인트를 설정
+			FHitResult WeaponTraceHit;
+			const FVector WeaponTraceStart{ SocketTransform.GetLocation() };
+			const FVector WeaponTraceEnd{ BeamEndPoint };
+			GetWorld()->LineTraceSingleByChannel(WeaponTraceHit,
+				WeaponTraceStart,
+				WeaponTraceEnd,
+				ECollisionChannel::ECC_Visibility);
+			if (WeaponTraceHit.bBlockingHit)
+			{
+				BeamEndPoint = WeaponTraceHit.Location;
+			}
+			//빔과 포인트를 업데이트후 파티클 생성
+			if (ImpactParticles)
+			{
+				UGameplayStatics::SpawnEmitterAtLocation(
+					GetWorld(),
+					ImpactParticles,
+					BeamEndPoint);
 			}
 			if (BeamParticles)
 			{
