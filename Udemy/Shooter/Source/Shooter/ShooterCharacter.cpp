@@ -14,7 +14,12 @@
 // Sets default values
 AShooterCharacter::AShooterCharacter() :
 	BaseTurnRate(45.f),
-	BaseLookUpRate(45.f)
+	BaseLookUpRate(45.f),
+	bAiming(false),
+	CameraDefaultFOV(0.f), // beginplay에서 설정함
+	CameraZoomedFOV(35.f),
+	CameraCurrentFOV(0.f),
+	ZoomInterSpeed(20.f)
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -22,9 +27,9 @@ AShooterCharacter::AShooterCharacter() :
 	//Create a CameraBoom (pulls in towards the characeter if there is a collision)
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(RootComponent);
-	CameraBoom->TargetArmLength = 300.f;//카메라가 캐릭터 뒤에서 따라다닐 길이
+	CameraBoom->TargetArmLength = 180.f;//카메라가 캐릭터 뒤에서 따라다닐 길이
 	CameraBoom->bUsePawnControlRotation = true;//컨트롤러를 기준으로 회전
-	CameraBoom->SocketOffset = FVector(0.f, 50.f, 50.f);
+	CameraBoom->SocketOffset = FVector(0.f, 50.f, 70.f);
 
 	//카메라 만들기
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
@@ -47,7 +52,11 @@ AShooterCharacter::AShooterCharacter() :
 void AShooterCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	if (FollowCamera)
+	{
+		CameraDefaultFOV = GetFollowCamera()->FieldOfView;
+		CameraCurrentFOV = CameraDefaultFOV;
+	}
 }
 
 void AShooterCharacter::MoveForward(float Value)
@@ -189,11 +198,37 @@ bool AShooterCharacter::GetBeamEndLocation(
 	return false;
 }
 
+void AShooterCharacter::AimingButtonPressed()
+{
+	bAiming = true;
+}
+
+void AShooterCharacter::AimingButtonReleased()
+{
+	bAiming = false;
+}
+
+void AShooterCharacter::CameraInterpZoom(float DeltaTime)
+{
+	if (bAiming)
+	{
+		//에임 버튼이 눌렸는가?
+		CameraCurrentFOV = FMath::FInterpTo(CameraCurrentFOV, CameraZoomedFOV, DeltaTime, ZoomInterSpeed);
+	}
+	else// 에임 버튼이 풀렸을때
+	{
+		CameraCurrentFOV = FMath::FInterpTo(CameraCurrentFOV, CameraDefaultFOV, DeltaTime, ZoomInterSpeed);
+	}
+	GetFollowCamera()->SetFieldOfView(CameraCurrentFOV);
+}
+
 // Called every frame
 void AShooterCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	//자연스러운 화면 전환을 위해서
+	CameraInterpZoom(DeltaTime);
 }
 
 // Called to bind functionality to input
@@ -214,5 +249,8 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
 	PlayerInputComponent->BindAction("FireButton", IE_Pressed, this, &AShooterCharacter::FireWeapon);
+
+	PlayerInputComponent->BindAction("AimingButton", IE_Pressed, this, &AShooterCharacter::AimingButtonPressed);
+	PlayerInputComponent->BindAction("AimingButton", IE_Released, this, &AShooterCharacter::AimingButtonReleased);
 }
 

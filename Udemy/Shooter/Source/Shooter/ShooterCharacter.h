@@ -40,6 +40,11 @@ protected:
 
 	bool GetBeamEndLocation(const FVector& MuzzleSocketLocation, FVector& OutBeamLocation);
 
+	//에임 버튼을눌렀을때 나오는 함수들
+	void AimingButtonPressed();
+	void AimingButtonReleased();
+
+	void CameraInterpZoom(float DeltaTime);
 
 public:	
 	// Called every frame
@@ -85,7 +90,22 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	UParticleSystem* BeamParticles;
 
+	//에임버튼이 눌럿는가?
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Combat, meta = (AllowPrivateAccess = "true"))
+	bool bAiming;
 
+	//기본 카메라 시야값
+	float CameraDefaultFOV;
+
+	//줌했을때 카메라 시야값
+	float CameraZoomedFOV;
+
+	//지금 프레임에서의 카메라 뷰
+	float CameraCurrentFOV;
+	
+	//줌할때 다가가는 속도
+	UPROPERTY(EditAnywhere, BlueprintReadWrite,Category = Combat, meta = (AllowPrivateAccess = "true"))
+	float ZoomInterSpeed;
 public:
 	/*return CameraBoom subobject*/
 	FORCEINLINE USpringArmComponent* GetCarmeraBoom() const { return CameraBoom; }
