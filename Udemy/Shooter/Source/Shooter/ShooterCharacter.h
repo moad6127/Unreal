@@ -112,4 +112,6 @@ public:
 
 	/*카메라 반환, 카메라 게터*/
 	FORCEINLINE UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+
+	FORCEINLINE bool GetAiming() const { return bAiming; }
 };
