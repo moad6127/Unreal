@@ -13,9 +13,23 @@
 
 // Sets default values
 AShooterCharacter::AShooterCharacter() :
+	// 기본 값들
 	BaseTurnRate(45.f),
 	BaseLookUpRate(45.f),
+	//조준할때와 조준하지 않을때 값들
+	HipTurnRate(90.f),
+	HipLookUpRate(90.f),
+	AimingTurnRate(20.f),
+	AimingLookUpRate(20.f),
+	// 마우스의 감도들
+	MouseHipTurnRate(1.0f),
+	MouseHipLookUpRate(1.0f),
+	MouseAimingTurnRate(0.2f),
+	MouseAimingLookUpRate(0.2f),
+
+	//조준을 했는지 않했는지 판단하는 변수
 	bAiming(false),
+	//카메라 뷰 값
 	CameraDefaultFOV(0.f), // beginplay에서 설정함
 	CameraZoomedFOV(35.f),
 	CameraCurrentFOV(0.f),
@@ -96,6 +110,34 @@ void AShooterCharacter::TurnAtRate(float Rate)
 void AShooterCharacter::LookUpAtRate(float Rate)
 {
 	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
+}
+
+void AShooterCharacter::Turn(float Value)
+{
+	float TurnScaleFactor{};
+	if (bAiming)
+	{
+		TurnScaleFactor = MouseAimingTurnRate;
+	}
+	else
+	{
+		TurnScaleFactor = MouseHipTurnRate;
+	}
+	AddControllerYawInput(Value * TurnScaleFactor);
+}
+
+void AShooterCharacter::LookUp(float Value)
+{
+	float LookUpRateScaleFactor{};
+	if (bAiming)
+	{
+		LookUpRateScaleFactor = MouseAimingLookUpRate;
+	}
+	else
+	{
+		LookUpRateScaleFactor = MouseHipLookUpRate;
+	}
+	AddControllerPitchInput(Value * LookUpRateScaleFactor);
 }
 
 void AShooterCharacter::FireWeapon()
@@ -222,6 +264,20 @@ void AShooterCharacter::CameraInterpZoom(float DeltaTime)
 	GetFollowCamera()->SetFieldOfView(CameraCurrentFOV);
 }
 
+void AShooterCharacter::SetLookRates()
+{
+	if (bAiming)
+	{
+		BaseTurnRate = AimingTurnRate;
+		BaseLookUpRate = AimingLookUpRate;
+	}
+	else
+	{
+		BaseTurnRate = HipTurnRate;
+		BaseLookUpRate = HipLookUpRate;
+	}
+}
+
 // Called every frame
 void AShooterCharacter::Tick(float DeltaTime)
 {
@@ -229,6 +285,9 @@ void AShooterCharacter::Tick(float DeltaTime)
 
 	//자연스러운 화면 전환을 위해서
 	CameraInterpZoom(DeltaTime);
+
+	//줌했을때 감도가 달라지게 만들기
+	SetLookRates();
 }
 
 // Called to bind functionality to input
@@ -242,8 +301,8 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 	PlayerInputComponent->BindAxis("TurnRate", this, &AShooterCharacter::TurnAtRate);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &AShooterCharacter::LookUpAtRate);
 
-	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
-	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
+	PlayerInputComponent->BindAxis("Turn", this, &AShooterCharacter::Turn);
+	PlayerInputComponent->BindAxis("LookUp", this, &AShooterCharacter::LookUp);
 
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
