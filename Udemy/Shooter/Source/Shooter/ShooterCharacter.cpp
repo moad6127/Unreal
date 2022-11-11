@@ -300,6 +300,9 @@ void AShooterCharacter::Tick(float DeltaTime)
 
 	//줌했을때 감도가 달라지게 만들기
 	SetLookRates();
+
+	//중앙 크로스헤어의 값을 계산
+	CalculateCrosshairSpread(DeltaTime);
 }
 
 // Called to bind functionality to input
@@ -323,5 +326,10 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 	PlayerInputComponent->BindAction("AimingButton", IE_Pressed, this, &AShooterCharacter::AimingButtonPressed);
 	PlayerInputComponent->BindAction("AimingButton", IE_Released, this, &AShooterCharacter::AimingButtonReleased);
+}
+
+float AShooterCharacter::GetCrosshairSpreadMultiplier() const
+{
+	return CrosshairSpreadMultiplier;
 }
 
