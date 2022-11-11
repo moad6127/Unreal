@@ -170,7 +170,7 @@ private:
 	
 	//쏠때의 십자가의 퍼짐 정도
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Crosshairs, meta = (AllowPrivateAccess = "true"))
-	float CrsoshairShootingFactor;
+	float CrosshairShootingFactor;
 public:
 	/*return CameraBoom subobject*/
 	FORCEINLINE USpringArmComponent* GetCarmeraBoom() const { return CameraBoom; }

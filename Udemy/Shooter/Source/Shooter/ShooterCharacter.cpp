@@ -33,7 +33,14 @@ AShooterCharacter::AShooterCharacter() :
 	CameraDefaultFOV(0.f), // beginplay에서 설정함
 	CameraZoomedFOV(35.f),
 	CameraCurrentFOV(0.f),
-	ZoomInterSpeed(20.f)
+	ZoomInterSpeed(20.f),
+
+	//중앙십자가 퍼짐정도 값들
+	CrosshairSpreadMultiplier(0.f),
+	CrosshairVelocityFactor(0.f),
+	CrosshairInAirFactor(0.f),
+	CrosshairAimFactor(0.f),
+	CrosshairShootingFactor(0.f)
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -287,7 +294,37 @@ void AShooterCharacter::CalculateCrosshairSpread(float DeltaTime)
 
 	CrosshairVelocityFactor = FMath::GetMappedRangeValueClamped(WalkSpeedRange, VelocityMultiplierRange, Velocity.Size());
 
-	CrosshairSpreadMultiplier = 0.5f + CrosshairVelocityFactor;
+	//공중에서 크로스헤어 값 구하기
+	if (GetCharacterMovement()->IsFalling()) 
+	{//공중에 있을때
+		//공중에서 느리게 퍼질때
+		CrosshairInAirFactor = FMath::FInterpTo(CrosshairInAirFactor, 2.25f, DeltaTime, 2.25f);
+	}
+	else//캐릭터가 땅에 있을때
+	{
+		//땅에 닿았을때 빠르게 수축하게 한다
+		CrosshairInAirFactor = FMath::FInterpTo(CrosshairInAirFactor, 0.f, DeltaTime, 30.f);
+	}
+
+	//조준했을때 중앙 십자가의 값 
+	if (bAiming) // 조준을 했는가?
+	{
+		//조준 했을때 
+		//매우 적은 값을 주면서 수축하게 하기
+		CrosshairAimFactor = FMath::FInterpTo(CrosshairAimFactor, 0.6f, DeltaTime, 30.f);
+	}
+	else
+	{
+		//조준을 안했을때
+		//정상으로 돌아갈때 빠르게 되돌리기
+		CrosshairAimFactor = FMath::FInterpTo(CrosshairAimFactor, 0.f, DeltaTime, 30.f);
+	}
+
+	CrosshairSpreadMultiplier =
+		0.5f + 
+		CrosshairVelocityFactor + 
+		CrosshairInAirFactor -
+		CrosshairAimFactor;
 }
 
 // Called every frame

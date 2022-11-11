@@ -90,7 +90,7 @@ public: \
 	FORCEINLINE static uint32 __PPO__CrosshairVelocityFactor() { return STRUCT_OFFSET(AShooterCharacter, CrosshairVelocityFactor); } \
 	FORCEINLINE static uint32 __PPO__CrosshairInAirFactor() { return STRUCT_OFFSET(AShooterCharacter, CrosshairInAirFactor); } \
 	FORCEINLINE static uint32 __PPO__CrosshairAimFactor() { return STRUCT_OFFSET(AShooterCharacter, CrosshairAimFactor); } \
-	FORCEINLINE static uint32 __PPO__CrsoshairShootingFactor() { return STRUCT_OFFSET(AShooterCharacter, CrsoshairShootingFactor); }
+	FORCEINLINE static uint32 __PPO__CrosshairShootingFactor() { return STRUCT_OFFSET(AShooterCharacter, CrosshairShootingFactor); }
 
 
 #define Shooter_Source_Shooter_ShooterCharacter_h_9_PROLOG
