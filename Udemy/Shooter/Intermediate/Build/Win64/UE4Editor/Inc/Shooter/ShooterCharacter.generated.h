@@ -16,12 +16,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define Shooter_Source_Shooter_ShooterCharacter_h_12_SPARSE_DATA
 #define Shooter_Source_Shooter_ShooterCharacter_h_12_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execGetCrosshairSpreadMultiplier);
+	DECLARE_FUNCTION(execGetCrosshairSpreadMultiplier); \
+	DECLARE_FUNCTION(execFinishCrosshairBulletFire);
 
 
 #define Shooter_Source_Shooter_ShooterCharacter_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execGetCrosshairSpreadMultiplier);
+	DECLARE_FUNCTION(execGetCrosshairSpreadMultiplier); \
+	DECLARE_FUNCTION(execFinishCrosshairBulletFire);
 
 
 #define Shooter_Source_Shooter_ShooterCharacter_h_12_INCLASS_NO_PURE_DECLS \

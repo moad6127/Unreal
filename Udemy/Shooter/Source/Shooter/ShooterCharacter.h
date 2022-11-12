@@ -58,7 +58,10 @@ protected:
 
 	void CalculateCrosshairSpread(float DeltaTime);
 
+	void StartCrosshairBulletFire();
 
+	UFUNCTION()
+	void FinishCrosshairBulletFire();
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -171,6 +174,10 @@ private:
 	//쏠때의 십자가의 퍼짐 정도
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Crosshairs, meta = (AllowPrivateAccess = "true"))
 	float CrosshairShootingFactor;
+
+	float ShootTimeDuration;
+	bool bFiringBullet;
+	FTimerHandle CrosshairShootTimer;
 public:
 	/*return CameraBoom subobject*/
 	FORCEINLINE USpringArmComponent* GetCarmeraBoom() const { return CameraBoom; }
