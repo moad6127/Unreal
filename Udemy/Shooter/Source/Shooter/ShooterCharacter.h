@@ -62,6 +62,15 @@ protected:
 
 	UFUNCTION()
 	void FinishCrosshairBulletFire();
+
+	void FireButtonPressed();
+	void FireButtonReleased();
+
+	void StartFireTimer();
+
+	UFUNCTION()
+	void AutoFireReset();
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -178,6 +187,18 @@ private:
 	float ShootTimeDuration;
 	bool bFiringBullet;
 	FTimerHandle CrosshairShootTimer;
+
+	//발사 버튼을 눌렀을때
+	bool bFireButtonPressed;
+
+	// 참일때는 발사 거짓일때는 타이머를 기다린다
+	bool bShouldFire;
+
+	// 자동발사의 간격
+	float AutomaticFireRate;
+
+	//총발사 사이의 타이머
+	FTimerHandle AutoFireTimer;
 public:
 	/*return CameraBoom subobject*/
 	FORCEINLINE USpringArmComponent* GetCarmeraBoom() const { return CameraBoom; }
