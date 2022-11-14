@@ -58,7 +58,11 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AItem)
 
 
-#define Shooter_Source_Shooter_Item_h_12_PRIVATE_PROPERTY_OFFSET
+#define Shooter_Source_Shooter_Item_h_12_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__ItemMesh() { return STRUCT_OFFSET(AItem, ItemMesh); } \
+	FORCEINLINE static uint32 __PPO__CollisionBox() { return STRUCT_OFFSET(AItem, CollisionBox); }
+
+
 #define Shooter_Source_Shooter_Item_h_9_PROLOG
 #define Shooter_Source_Shooter_Item_h_12_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

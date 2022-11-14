@@ -23,4 +23,16 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+private:
+	//아이템에 대한 스켈레톤 메쉬
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = ItemProperties, meta = (AllowPrivateAccess = "true"))
+	USkeletalMeshComponent* ItemMesh;
+
+	//Line trace collides with box to show HUD widgets
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = ItemProperties, meta = (AllowPrivateAccess = "true"))
+	class UBoxComponent* CollisionBox;
+
+
+public:
+
 };
