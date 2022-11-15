@@ -21,9 +21,7 @@ AItem::AItem()
 		ECollisionChannel::ECC_Visibility,
 		ECollisionResponse::ECR_Block);
 
-
-
-	PickupWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("PickUpWidget"));
+	PickupWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("PickupWidget"));
 	PickupWidget->SetupAttachment(GetRootComponent());
 }
 

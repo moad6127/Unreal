@@ -72,7 +72,8 @@ protected:
 	void AutoFireReset();
 
 	//크로스 헤어 바로 아래 추적하기
-	bool TraceUnderCrosshair(FHitResult& OutHitResult);
+	bool TraceUnderCrosshair(FHitResult& OutHitResult,FVector& OutHitLocation);
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

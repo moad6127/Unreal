@@ -209,53 +209,37 @@ bool AShooterCharacter::GetBeamEndLocation(
 	const FVector& MuzzleSocketLocation,
 	FVector& OutBeamLocation)
 {
-	//뷰포트의 사이즈의 정보를 얻기
-	FVector2D ViewportSize;
-	if (GEngine && GEngine->GameViewport)
+	//크로스헤어 추적 
+	FHitResult CrosshairHitResult;
+	bool bCrosshairHit = TraceUnderCrosshair(CrosshairHitResult, OutBeamLocation);
+
+	if (bCrosshairHit)
 	{
-		GEngine->GameViewport->GetViewportSize(ViewportSize);
+		// 여전히 추적 해야한다
+		OutBeamLocation = CrosshairHitResult.Location;
 	}
-
-	//화면에서의 크로스헤어의 위치
-	FVector2D CrosshairLocation(ViewportSize.X / 2.f, ViewportSize.Y / 2.f);
-	FVector CrosshairWorldPosition;
-	FVector CrosshairWorldDirection;
-
-	bool bScreenToWorld = UGameplayStatics::DeprojectScreenToWorld(UGameplayStatics::GetPlayerController(this, 0),
-		CrosshairLocation, CrosshairWorldPosition, CrosshairWorldDirection);
-
-	if (bScreenToWorld)// 성공했으면
+	else //추적 없음
 	{
-		FHitResult ScreenTraceHit;
-		const FVector Start{ CrosshairWorldPosition };
-		const FVector End{ CrosshairWorldPosition + CrosshairWorldDirection * 50'000.f };
+		// OutBeamLocation 이 엔드 위치 이다
+	}
+	//중간에 다른물체가 있을경우 그곳으로 엔드 포인트를 설정
+	FHitResult WeaponTraceHit;
+	const FVector WeaponTraceStart{ MuzzleSocketLocation };
+	const FVector StartToEnd{ OutBeamLocation - MuzzleSocketLocation };
+	const FVector WeaponTraceEnd{ MuzzleSocketLocation + StartToEnd * 1.25f };
 
-		//빔 엔드를 추적중인 엔드포인트로 바꿈
-		OutBeamLocation = End;
-
-		GetWorld()->LineTraceSingleByChannel(ScreenTraceHit, Start, End, ECollisionChannel::ECC_Visibility);
-		if (ScreenTraceHit.bBlockingHit)//다른 물건에 맞았는지 체크
-		{
-			//빔 엔드포인트는 맞았을시 위치로
-			OutBeamLocation = ScreenTraceHit.Location;
-
-		}
-
-		//중간에 다른물체가 있을경우 그곳으로 엔드 포인트를 설정
-		FHitResult WeaponTraceHit;
-		const FVector WeaponTraceStart{ MuzzleSocketLocation };
-		const FVector WeaponTraceEnd{ OutBeamLocation };
-		GetWorld()->LineTraceSingleByChannel(WeaponTraceHit,
-			WeaponTraceStart,
-			WeaponTraceEnd,
-			ECollisionChannel::ECC_Visibility);
-		if (WeaponTraceHit.bBlockingHit)
-		{
-			OutBeamLocation = WeaponTraceHit.Location;
-		}
+	GetWorld()->LineTraceSingleByChannel(WeaponTraceHit,
+		WeaponTraceStart,
+		WeaponTraceEnd,
+		ECollisionChannel::ECC_Visibility);
+	if (WeaponTraceHit.bBlockingHit)
+	{
+		OutBeamLocation = WeaponTraceHit.Location;
 		return true;
+
 	}
 	return false;
+
 }
 
 void AShooterCharacter::AimingButtonPressed()
@@ -398,7 +382,7 @@ void AShooterCharacter::AutoFireReset()
 	}
 }
 
-bool AShooterCharacter::TraceUnderCrosshair(FHitResult& OutHitResult)
+bool AShooterCharacter::TraceUnderCrosshair(FHitResult& OutHitResult,FVector& OutHitLocation)
 {
 	// 뷰포트 사이즈 얻기
 	FVector2D ViewportSize;
@@ -422,6 +406,7 @@ bool AShooterCharacter::TraceUnderCrosshair(FHitResult& OutHitResult)
 		// 크로스헤어 월드 위치 추적
 		const FVector Start{ CrosshairWorldPosition };
 		const FVector End{ CrosshairWorldPosition + CrosshairWorldDirection * 50'000.f };
+		OutHitLocation = End;
 		GetWorld()->LineTraceSingleByChannel(
 			OutHitResult,
 			Start,
@@ -429,6 +414,7 @@ bool AShooterCharacter::TraceUnderCrosshair(FHitResult& OutHitResult)
 			ECollisionChannel::ECC_Visibility);
 		if (OutHitResult.bBlockingHit)
 		{
+			OutHitLocation = OutHitResult.Location;
 			return true;
 		}
 	}
@@ -450,11 +436,12 @@ void AShooterCharacter::Tick(float DeltaTime)
 	CalculateCrosshairSpread(DeltaTime);
 
 	FHitResult ItemTracceResult;
-	TraceUnderCrosshair(ItemTracceResult);
+	FVector HitLocation;
+	TraceUnderCrosshair(ItemTracceResult, HitLocation);
 	if (ItemTracceResult.bBlockingHit)
 	{
 		AItem* HitItem = Cast<AItem>(ItemTracceResult.GetActor());
-		if (HitItem && HitItem->GetPickupWidget())
+		if (HitItem)
 		{
 				// 아이템의 픽업 위젯을 보이게 만들기
 			HitItem->GetPickupWidget()->SetVisibility(true);
