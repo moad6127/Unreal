@@ -20,7 +20,7 @@ protected:
 	virtual void BeginPlay() override;
 
 public:	
-	// Called every frame
+	// Called every frame 
 	virtual void Tick(float DeltaTime) override;
 
 private:
@@ -37,5 +37,5 @@ private:
 	class UWidgetComponent* PickupWidget;
 
 public:
-
+	FORCEINLINE UWidgetComponent* GetPickupWidget() const { return PickupWidget; }
 };

@@ -16,6 +16,12 @@ AItem::AItem()
 
 	CollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("CollisionBox"));
 	CollisionBox->SetupAttachment(ItemMesh);
+	CollisionBox->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+	CollisionBox->SetCollisionResponseToChannel(
+		ECollisionChannel::ECC_Visibility,
+		ECollisionResponse::ECR_Block);
+
+
 
 	PickupWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("PickUpWidget"));
 	PickupWidget->SetupAttachment(GetRootComponent());
@@ -26,6 +32,8 @@ void AItem::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	// PickupWidgetÀ» ¼û±â±â
+	PickupWidget->SetVisibility(false);
 }
 
 // Called every frame
