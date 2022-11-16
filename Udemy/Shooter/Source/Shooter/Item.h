@@ -19,6 +19,22 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	//겹침이 발생했을때 불려지는 함수
+	UFUNCTION()
+	void OnSphereOverlap(UPrimitiveComponent* OverlapComponent,
+		AActor * OtherActor,
+		UPrimitiveComponent* OtherComp,
+		int32 OterBodyIndex,
+		bool bFromSweep,
+		const FHitResult& SweepResult);
+	
+	//겹침이 끝났을때 불려지는 함수
+	UFUNCTION()
+	void OnSphereEndOverlap(UPrimitiveComponent* OverlappedComponent,
+		AActor* OtherActor,
+		UPrimitiveComponent* OtherComp,
+		int32 OterBodyIndex);
+
 public:	
 	// Called every frame 
 	virtual void Tick(float DeltaTime) override;
@@ -36,6 +52,9 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Item Properties", meta = (AllowPrivateAccess = "true"))
 	class UWidgetComponent* PickupWidget;
 
+	//추적이 겹칠때 추적 활성화
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Item Properties", meta = (AllowPrivateAccess = "true"))
+	class USphereComponent* AreaSphere;
 public:
 	FORCEINLINE UWidgetComponent* GetPickupWidget() const { return PickupWidget; }
 };

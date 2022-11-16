@@ -74,6 +74,9 @@ protected:
 	//크로스 헤어 바로 아래 추적하기
 	bool TraceUnderCrosshair(FHitResult& OutHitResult,FVector& OutHitLocation);
 
+	//만약 다른 물건과 겹침이 발생하면 아이템을 추적한다
+	void TraceForItem();
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -202,6 +205,12 @@ private:
 
 	//총발사 사이의 타이머
 	FTimerHandle AutoFireTimer;
+
+	//아이템 추적
+	bool bShouldTraceForItems;
+	
+	//겹친 아이템 수
+	int8 OverlappedItemCount;
 public:
 	/*return CameraBoom subobject*/
 	FORCEINLINE USpringArmComponent* GetCarmeraBoom() const { return CameraBoom; }
@@ -213,4 +222,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	float GetCrosshairSpreadMultiplier() const;
+
+	FORCEINLINE int8 GetOverlappedItemCount() const { return OverlappedItemCount; }
+
+	//오버랩카운트를 더하거나 뺀다 그리고 bShouldTraceForItem을 업데이트 한다
+	void IncrementOverlappedItemCount(int8 Amount);
 };

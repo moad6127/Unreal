@@ -8,14 +8,27 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UPrimitiveComponent;
+class AActor;
+struct FHitResult;
 #ifdef SHOOTER_Item_generated_h
 #error "Item.generated.h already included, missing '#pragma once' in Item.h"
 #endif
 #define SHOOTER_Item_generated_h
 
 #define Shooter_Source_Shooter_Item_h_12_SPARSE_DATA
-#define Shooter_Source_Shooter_Item_h_12_RPC_WRAPPERS
-#define Shooter_Source_Shooter_Item_h_12_RPC_WRAPPERS_NO_PURE_DECLS
+#define Shooter_Source_Shooter_Item_h_12_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execOnSphereEndOverlap); \
+	DECLARE_FUNCTION(execOnSphereOverlap);
+
+
+#define Shooter_Source_Shooter_Item_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execOnSphereEndOverlap); \
+	DECLARE_FUNCTION(execOnSphereOverlap);
+
+
 #define Shooter_Source_Shooter_Item_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAItem(); \
@@ -61,7 +74,8 @@ public: \
 #define Shooter_Source_Shooter_Item_h_12_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__ItemMesh() { return STRUCT_OFFSET(AItem, ItemMesh); } \
 	FORCEINLINE static uint32 __PPO__CollisionBox() { return STRUCT_OFFSET(AItem, CollisionBox); } \
-	FORCEINLINE static uint32 __PPO__PickupWidget() { return STRUCT_OFFSET(AItem, PickupWidget); }
+	FORCEINLINE static uint32 __PPO__PickupWidget() { return STRUCT_OFFSET(AItem, PickupWidget); } \
+	FORCEINLINE static uint32 __PPO__AreaSphere() { return STRUCT_OFFSET(AItem, AreaSphere); }
 
 
 #define Shooter_Source_Shooter_Item_h_9_PROLOG

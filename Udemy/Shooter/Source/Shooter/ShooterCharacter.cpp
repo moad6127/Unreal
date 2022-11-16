@@ -50,7 +50,9 @@ AShooterCharacter::AShooterCharacter() :
 	//자동발사 변수들
 	AutomaticFireRate(0.1f),//간격
 	bShouldFire(true),
-	bFireButtonPressed(false)
+	bFireButtonPressed(false),
+	//itemTrace
+	bShouldTraceForItems(false)
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -421,6 +423,25 @@ bool AShooterCharacter::TraceUnderCrosshair(FHitResult& OutHitResult,FVector& Ou
 	return false;
 }
 
+void AShooterCharacter::TraceForItem()
+{
+	if (bShouldTraceForItems)
+	{
+		FHitResult ItemTracceResult;
+		FVector HitLocation;
+		TraceUnderCrosshair(ItemTracceResult, HitLocation);
+		if (ItemTracceResult.bBlockingHit)
+		{
+			AItem* HitItem = Cast<AItem>(ItemTracceResult.GetActor());
+			if (HitItem)
+			{
+				// 아이템의 픽업 위젯을 보이게 만들기
+				HitItem->GetPickupWidget()->SetVisibility(true);
+			}
+		}
+	}
+}
+
 // Called every frame
 void AShooterCharacter::Tick(float DeltaTime)
 {
@@ -435,18 +456,8 @@ void AShooterCharacter::Tick(float DeltaTime)
 	//중앙 크로스헤어의 값을 계산
 	CalculateCrosshairSpread(DeltaTime);
 
-	FHitResult ItemTracceResult;
-	FVector HitLocation;
-	TraceUnderCrosshair(ItemTracceResult, HitLocation);
-	if (ItemTracceResult.bBlockingHit)
-	{
-		AItem* HitItem = Cast<AItem>(ItemTracceResult.GetActor());
-		if (HitItem)
-		{
-				// 아이템의 픽업 위젯을 보이게 만들기
-			HitItem->GetPickupWidget()->SetVisibility(true);
-		}
-	}
+	//아이템 카운트를 체크하고 트루면 추적한다.
+	TraceForItem();
 }
 
 // Called to bind functionality to input
@@ -476,5 +487,19 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 float AShooterCharacter::GetCrosshairSpreadMultiplier() const
 {
 	return CrosshairSpreadMultiplier;
+}
+
+void AShooterCharacter::IncrementOverlappedItemCount(int8 Amount)
+{
+	if (OverlappedItemCount + Amount <= 0)
+	{
+		OverlappedItemCount = 0;
+		bShouldTraceForItems = false;
+	}
+	else
+	{
+		OverlappedItemCount += Amount;
+		bShouldTraceForItems = true;
+	}
 }
 
