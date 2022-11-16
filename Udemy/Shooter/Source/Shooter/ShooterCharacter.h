@@ -211,6 +211,10 @@ private:
 	
 	//겹친 아이템 수
 	int8 OverlappedItemCount;
+
+	//마지막 프레임에서 얻은 아이템
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Items, meta = (AllowPrivateAccess = "true"))
+	class AItem* TraceHitItemLastFrame;
 public:
 	/*return CameraBoom subobject*/
 	FORCEINLINE USpringArmComponent* GetCarmeraBoom() const { return CameraBoom; }

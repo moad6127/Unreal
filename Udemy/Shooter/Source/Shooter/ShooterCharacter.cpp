@@ -433,13 +433,32 @@ void AShooterCharacter::TraceForItem()
 		if (ItemTracceResult.bBlockingHit)
 		{
 			AItem* HitItem = Cast<AItem>(ItemTracceResult.GetActor());
-			if (HitItem)
+			if (HitItem && HitItem->GetPickupWidget())
 			{
 				// 아이템의 픽업 위젯을 보이게 만들기
 				HitItem->GetPickupWidget()->SetVisibility(true);
 			}
+			//
+			if (TraceHitItemLastFrame)
+			{
+				if (HitItem != TraceHitItemLastFrame)
+				{
+					//이전프레임과 다른 아이템이면 가시성을 끈다
+					//또는 널일경우에도
+					TraceHitItemLastFrame->GetPickupWidget()->SetVisibility(false);
+				}
+			}
+			// hititem을 저장한다
+			TraceHitItemLastFrame = HitItem;
 		}
 	}
+	else if (TraceHitItemLastFrame)
+	{
+		//아무것도 겹치지 않았을때
+		//마지막 프레임의 아이템의 위젯이 표시되면 안된다.
+		TraceHitItemLastFrame->GetPickupWidget()->SetVisibility(false);
+	}
+
 }
 
 // Called every frame
