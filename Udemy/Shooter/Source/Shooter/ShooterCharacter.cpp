@@ -12,6 +12,7 @@
 #include "Particles/ParticleSystemComponent.h"
 #include "Item.h"
 #include "Components/WidgetComponent.h"
+#include "Weapon.h"
 
 // Sets default values
 AShooterCharacter::AShooterCharacter() :
@@ -90,6 +91,8 @@ void AShooterCharacter::BeginPlay()
 		CameraDefaultFOV = GetFollowCamera()->FieldOfView;
 		CameraCurrentFOV = CameraDefaultFOV;
 	}
+	//기본무기를 소환하고 메쉬를 연결한다
+	SpawnDefaultWeapon();
 }
 
 void AShooterCharacter::MoveForward(float Value)
@@ -459,6 +462,26 @@ void AShooterCharacter::TraceForItem()
 		TraceHitItemLastFrame->GetPickupWidget()->SetVisibility(false);
 	}
 
+}
+
+void AShooterCharacter::SpawnDefaultWeapon()
+{
+	//TSubClass변수 확인
+	if (DefaultWeaponClass)
+	{
+		//웨폰 스포
+		AWeapon* DefaultWeapon = GetWorld()->SpawnActor<AWeapon>(DefaultWeaponClass);
+		//핸드 소켓 얻기
+		const USkeletalMeshSocket* HandSocket = GetMesh()->GetSocketByName(
+			FName("RightHandSocket")
+		);
+
+		if (HandSocket)
+		{
+			//손소켓에 무기 연결하기
+			HandSocket->AttachActor(DefaultWeapon, GetMesh());
+		}
+	}
 }
 
 // Called every frame
