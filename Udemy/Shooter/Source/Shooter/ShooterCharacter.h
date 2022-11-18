@@ -77,9 +77,11 @@ protected:
 	//만약 다른 물건과 겹침이 발생하면 아이템을 추적한다
 	void TraceForItem();
 
-	void SpawnDefaultWeapon();
+	//기본 무기 반환
+	class AWeapon* SpawnDefaultWeapon();
 
-
+	//무기를 장착하는 함수
+	void EquipWeapon(AWeapon* WeaponToEquip);
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -221,7 +223,7 @@ private:
 
 	//현재 장착된 무기
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly,Category = Combat, meta = (AllowPrivateAccess = "true"))
-	class AWeapon* EquippedWeapon;
+	AWeapon* EquippedWeapon;
 
 	//블루프린트에 이것을 기본 무기로 사용
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Combat, meta = (AllowPrivateAccess = "true"))
