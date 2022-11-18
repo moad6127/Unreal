@@ -13,8 +13,9 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeItem() {}
 // Cross Module References
-	SHOOTER_API UEnum* Z_Construct_UEnum_Shooter_EItemRarity();
+	SHOOTER_API UEnum* Z_Construct_UEnum_Shooter_EItemState();
 	UPackage* Z_Construct_UPackage__Script_Shooter();
+	SHOOTER_API UEnum* Z_Construct_UEnum_Shooter_EItemRarity();
 	SHOOTER_API UClass* Z_Construct_UClass_AItem_NoRegister();
 	SHOOTER_API UClass* Z_Construct_UClass_AItem();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
@@ -26,6 +27,74 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 	UMG_API UClass* Z_Construct_UClass_UWidgetComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 // End Cross Module References
+	static UEnum* EItemState_StaticEnum()
+	{
+		static UEnum* Singleton = nullptr;
+		if (!Singleton)
+		{
+			Singleton = GetStaticEnum(Z_Construct_UEnum_Shooter_EItemState, Z_Construct_UPackage__Script_Shooter(), TEXT("EItemState"));
+		}
+		return Singleton;
+	}
+	template<> SHOOTER_API UEnum* StaticEnum<EItemState>()
+	{
+		return EItemState_StaticEnum();
+	}
+	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_EItemState(EItemState_StaticEnum, TEXT("/Script/Shooter"), TEXT("EItemState"), false, nullptr, nullptr);
+	uint32 Get_Z_Construct_UEnum_Shooter_EItemState_Hash() { return 2978730205U; }
+	UEnum* Z_Construct_UEnum_Shooter_EItemState()
+	{
+#if WITH_HOT_RELOAD
+		UPackage* Outer = Z_Construct_UPackage__Script_Shooter();
+		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("EItemState"), 0, Get_Z_Construct_UEnum_Shooter_EItemState_Hash(), false);
+#else
+		static UEnum* ReturnEnum = nullptr;
+#endif // WITH_HOT_RELOAD
+		if (!ReturnEnum)
+		{
+			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
+				{ "EItemState::EIS_Pickup", (int64)EItemState::EIS_Pickup },
+				{ "EItemState::EIS_EquipInterping", (int64)EItemState::EIS_EquipInterping },
+				{ "EItemState::EIS_PickedUp", (int64)EItemState::EIS_PickedUp },
+				{ "EItemState::EIS_Equipped", (int64)EItemState::EIS_Equipped },
+				{ "EItemState::EIS_Falling", (int64)EItemState::EIS_Falling },
+				{ "EItemState::EIS_MAX", (int64)EItemState::EIS_MAX },
+			};
+#if WITH_METADATA
+			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+				{ "BlueprintType", "true" },
+				{ "EIS_EquipInterping.DisplayName", "EquipInterping" },
+				{ "EIS_EquipInterping.Name", "EItemState::EIS_EquipInterping" },
+				{ "EIS_Equipped.DisplayName", "Equipped" },
+				{ "EIS_Equipped.Name", "EItemState::EIS_Equipped" },
+				{ "EIS_Falling.DisplayName", "Falling" },
+				{ "EIS_Falling.Name", "EItemState::EIS_Falling" },
+				{ "EIS_MAX.DisplayName", "DefaultMAX" },
+				{ "EIS_MAX.Name", "EItemState::EIS_MAX" },
+				{ "EIS_PickedUp.DisplayName", "PickedUp" },
+				{ "EIS_PickedUp.Name", "EItemState::EIS_PickedUp" },
+				{ "EIS_Pickup.DisplayName", "Pickup" },
+				{ "EIS_Pickup.Name", "EItemState::EIS_Pickup" },
+				{ "ModuleRelativePath", "Item.h" },
+			};
+#endif
+			static const UE4CodeGen_Private::FEnumParams EnumParams = {
+				(UObject*(*)())Z_Construct_UPackage__Script_Shooter,
+				nullptr,
+				"EItemState",
+				"EItemState",
+				Enumerators,
+				UE_ARRAY_COUNT(Enumerators),
+				RF_Public|RF_Transient|RF_MarkAsNative,
+				EEnumFlags::None,
+				UE4CodeGen_Private::EDynamicType::NotDynamic,
+				(uint8)UEnum::ECppForm::EnumClass,
+				METADATA_PARAMS(Enum_MetaDataParams, UE_ARRAY_COUNT(Enum_MetaDataParams))
+			};
+			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
+		}
+		return ReturnEnum;
+	}
 	static UEnum* EItemRarity_StaticEnum()
 	{
 		static UEnum* Singleton = nullptr;
@@ -317,6 +386,11 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ActiveStars_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_ActiveStars;
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_ItemState_Underlying;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ItemState_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_ItemState;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -419,6 +493,16 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 	};
 #endif
 	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AItem_Statics::NewProp_ActiveStars = { "ActiveStars", nullptr, (EPropertyFlags)0x0040000000020015, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AItem, ActiveStars), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AItem_Statics::NewProp_ActiveStars_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AItem_Statics::NewProp_ActiveStars_MetaData)) };
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_AItem_Statics::NewProp_ItemState_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItem_Statics::NewProp_ItemState_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Item Properties" },
+		{ "Comment", "//?????? ???? ????\n" },
+		{ "ModuleRelativePath", "Item.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AItem_Statics::NewProp_ItemState = { "ItemState", nullptr, (EPropertyFlags)0x0040000000020015, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AItem, ItemState), Z_Construct_UEnum_Shooter_EItemState, METADATA_PARAMS(Z_Construct_UClass_AItem_Statics::NewProp_ItemState_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AItem_Statics::NewProp_ItemState_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AItem_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_ItemMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_CollisionBox,
@@ -430,6 +514,8 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_ItemRarity,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_ActiveStars_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_ActiveStars,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_ItemState_Underlying,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_ItemState,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AItem_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AItem>::IsAbstract,
@@ -458,7 +544,7 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AItem, 3265430694);
+	IMPLEMENT_CLASS(AItem, 716532728);
 	template<> SHOOTER_API UClass* StaticClass<AItem>()
 	{
 		return AItem::StaticClass();

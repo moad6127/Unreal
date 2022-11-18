@@ -500,6 +500,7 @@ void AShooterCharacter::EquipWeapon(AWeapon* WeaponToEquip)
 		}
 		//현재 장착중인 무기를 디폴트 웨폰으로 설정하기
 		EquippedWeapon = WeaponToEquip;
+		EquippedWeapon->SetItemState(EItemState::EIS_Equipped);
 	}
 }
 
