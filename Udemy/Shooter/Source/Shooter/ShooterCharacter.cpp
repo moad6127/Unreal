@@ -482,12 +482,6 @@ void AShooterCharacter::EquipWeapon(AWeapon* WeaponToEquip)
 {
 	if (WeaponToEquip)
 	{
-		//areasphere가 모든 채널을 무시하도록 설정
-		WeaponToEquip->GetAreaSphere()->SetCollisionResponseToAllChannels(
-			ECollisionResponse::ECR_Ignore);
-		//CollisionBox가 모든 채널을 무시하도록 설정
-		WeaponToEquip->GetCollisionBox()->SetCollisionResponseToAllChannels(
-			ECollisionResponse::ECR_Ignore);
 
 		//핸드 소켓 얻기
 		const USkeletalMeshSocket* HandSocket = GetMesh()->GetSocketByName(

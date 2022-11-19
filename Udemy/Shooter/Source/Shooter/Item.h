@@ -63,6 +63,9 @@ protected:
 
 	//희귀도를 바탕으로 위젯의 별 활성화 하기 위한 함수
 	void SetActiveStars();
+
+	//상태에 따라 아이템의 속성을 설정 
+	void SetItemProperties(EItemState State);
 public:	
 	// Called every frame 
 	virtual void Tick(float DeltaTime) override;
@@ -108,5 +111,5 @@ public:
 	FORCEINLINE USphereComponent* GetAreaSphere() const { return AreaSphere; }
 	FORCEINLINE UBoxComponent* GetCollisionBox() const { return CollisionBox; }
 	FORCEINLINE EItemState GetItemState()const { return ItemState; }
-	FORCEINLINE void SetItemState(EItemState State) { ItemState = State; }
+	void SetItemState(EItemState State);
 };
