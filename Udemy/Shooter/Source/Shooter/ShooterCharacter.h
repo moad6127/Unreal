@@ -82,6 +82,12 @@ protected:
 
 	//무기를 장착하는 함수
 	void EquipWeapon(AWeapon* WeaponToEquip);
+
+	//아이템을 분리하고 분리된 아이템을 떨어뜨리는 함수
+	void DropWeapon();
+
+	void SelectButtonPressed();
+	void SelectButtonReleased();
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
