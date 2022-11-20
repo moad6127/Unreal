@@ -69,6 +69,9 @@ protected:
 
 	//Called when ItemInterpTimer is finished
 	void FinishInterping();
+
+	//아이템 획득하는 과정에서 강조효과 넣기
+	void ItemInterp(float DeltaTime);
 public:	
 	// Called every frame 
 	virtual void Tick(float DeltaTime) override;

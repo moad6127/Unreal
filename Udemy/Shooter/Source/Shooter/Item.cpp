@@ -171,7 +171,19 @@ void AItem::SetItemProperties(EItemState State)
 		CollisionBox->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 		break;
 	case EItemState::EIS_EquipInterping:
-
+		PickupWidget->SetVisibility(false);
+		//mesh 설정
+		ItemMesh->SetSimulatePhysics(false);
+		ItemMesh->SetEnableGravity(false);
+		ItemMesh->SetVisibility(true);
+		ItemMesh->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+		ItemMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+		//AreaSphere설정
+		AreaSphere->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+		AreaSphere->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+		//CollisionBoc설정
+		CollisionBox->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+		CollisionBox->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 		break;
 	case EItemState::EIS_PickedUp:
 
@@ -183,16 +195,48 @@ void AItem::SetItemProperties(EItemState State)
 
 void AItem::FinishInterping()
 {
+	bInterping = false;
 	if (Character)
 	{
 		Character->GetPickupItem(this);
 	}
 }
 
+void AItem::ItemInterp(float DeltaTime)
+{
+	if (!bInterping) return;
+
+	if (Character && ItemZCurve)
+	{
+		//아이템 인텁 타임을 시작하고 나서 경과시간
+		const float ElapsedTime = GetWorldTimerManager().GetTimerElapsed(ItemInterpTimer);
+		//현재 경과시간에 따른 곡선의 값을 획득
+		const float CurveValue = ItemZCurve->GetFloatValue(ElapsedTime);
+
+		//인터핑이 시작된 아이템의 위치
+		FVector ItemLocation = ItemIterpStartLocation;
+		//카메라 앞의 위치얻기
+		const FVector CameraInterpLocation{ Character->GetCameraInterpLocation() };
+
+		//카메라에 보이는 위치와 아이템의 시작위치 차이(x와 y는 0인)
+		const FVector ItemToCamera{ FVector(0.f,0.f,(CameraInterpLocation - ItemLocation).Z) };
+		//ItemToCamera의 벡터 크기
+		const float DeltaZ = ItemToCamera.Size();
+
+		//초기위치의 Z요소에 곡선값을 추가하고 델타Z로 보충한값
+		ItemLocation.Z += CurveValue * DeltaZ;
+		SetActorLocation(ItemLocation, true, nullptr, ETeleportType::TeleportPhysics);
+	}
+
+}
+
 // Called every frame
 void AItem::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	//아이템이 인터핑상태일때 사용하는 함수
+	ItemInterp(DeltaTime);
 
 }
 
