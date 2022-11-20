@@ -95,6 +95,9 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	//현재 장착된 무기를 떨어뜨리고 바꾸려는 무기를 든다
+	void SwapWeapon(AWeapon* WeaponToSwap);
+
 private:
 	/* Camera boom positioning the behind the character*/
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
@@ -234,6 +237,10 @@ private:
 	//블루프린트에 이것을 기본 무기로 사용
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	TSubclassOf<AWeapon> DefaultWeaponClass;
+
+	//추적중인 아이템(colud be null)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Combat, meta = (AllowPrivateAccess = "true"))
+	AItem* TraceHitItem;
 public:
 	/*return CameraBoom subobject*/
 	FORCEINLINE USpringArmComponent* GetCarmeraBoom() const { return CameraBoom; }

@@ -137,6 +137,7 @@ void AItem::SetItemProperties(EItemState State)
 		CollisionBox->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 		break;
 	case EItemState::EIS_Equipped: //현재 아이템을 캐릭터가 장착한 상태
+		PickupWidget->SetVisibility(false);
 		//mesh 설정
 		ItemMesh->SetSimulatePhysics(false);
 		ItemMesh->SetEnableGravity(false);

@@ -97,7 +97,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__CrosshairShootingFactor() { return STRUCT_OFFSET(AShooterCharacter, CrosshairShootingFactor); } \
 	FORCEINLINE static uint32 __PPO__TraceHitItemLastFrame() { return STRUCT_OFFSET(AShooterCharacter, TraceHitItemLastFrame); } \
 	FORCEINLINE static uint32 __PPO__EquippedWeapon() { return STRUCT_OFFSET(AShooterCharacter, EquippedWeapon); } \
-	FORCEINLINE static uint32 __PPO__DefaultWeaponClass() { return STRUCT_OFFSET(AShooterCharacter, DefaultWeaponClass); }
+	FORCEINLINE static uint32 __PPO__DefaultWeaponClass() { return STRUCT_OFFSET(AShooterCharacter, DefaultWeaponClass); } \
+	FORCEINLINE static uint32 __PPO__TraceHitItem() { return STRUCT_OFFSET(AShooterCharacter, TraceHitItem); }
 
 
 #define Shooter_Source_Shooter_ShooterCharacter_h_9_PROLOG

@@ -437,16 +437,16 @@ void AShooterCharacter::TraceForItem()
 		TraceUnderCrosshair(ItemTracceResult, HitLocation);
 		if (ItemTracceResult.bBlockingHit)
 		{
-			AItem* HitItem = Cast<AItem>(ItemTracceResult.GetActor());
-			if (HitItem && HitItem->GetPickupWidget())
+			TraceHitItem = Cast<AItem>(ItemTracceResult.GetActor());
+			if (TraceHitItem && TraceHitItem->GetPickupWidget())
 			{
 				// 아이템의 픽업 위젯을 보이게 만들기
-				HitItem->GetPickupWidget()->SetVisibility(true);
+				TraceHitItem->GetPickupWidget()->SetVisibility(true);
 			}
 			//
 			if (TraceHitItemLastFrame)
 			{
-				if (HitItem != TraceHitItemLastFrame)
+				if (TraceHitItem != TraceHitItemLastFrame)
 				{
 					//이전프레임과 다른 아이템이면 가시성을 끈다
 					//또는 널일경우에도
@@ -454,7 +454,7 @@ void AShooterCharacter::TraceForItem()
 				}
 			}
 			// hititem을 저장한다
-			TraceHitItemLastFrame = HitItem;
+			TraceHitItemLastFrame = TraceHitItem;
 		}
 	}
 	else if (TraceHitItemLastFrame)
@@ -507,13 +507,17 @@ void AShooterCharacter::DropWeapon()
 
 		EquippedWeapon->SetItemState(EItemState::EIS_Falling);
 		EquippedWeapon->ThrowWeapon();
-		EquippedWeapon = nullptr;
 	}
 }
 
 void AShooterCharacter::SelectButtonPressed()
 {
-	DropWeapon();
+	if (TraceHitItem)
+	{
+		auto TraceHitWeapon = Cast<AWeapon>(TraceHitItem);
+		SwapWeapon(TraceHitWeapon);
+	}
+
 }
 
 void AShooterCharacter::SelectButtonReleased()
@@ -563,6 +567,14 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 	PlayerInputComponent->BindAction("Select", IE_Pressed, this, &AShooterCharacter::SelectButtonPressed);
 	PlayerInputComponent->BindAction("Select", IE_Released, this, &AShooterCharacter::SelectButtonReleased);
+}
+
+void AShooterCharacter::SwapWeapon(AWeapon* WeaponToSwap)
+{
+	DropWeapon();
+	EquipWeapon(WeaponToSwap);
+	TraceHitItem = nullptr;
+	TraceHitItemLastFrame = nullptr;
 }
 
 float AShooterCharacter::GetCrosshairSpreadMultiplier() const
