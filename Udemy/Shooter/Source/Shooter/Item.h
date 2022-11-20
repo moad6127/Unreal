@@ -66,6 +66,9 @@ protected:
 
 	//상태에 따라 아이템의 속성을 설정 
 	void SetItemProperties(EItemState State);
+
+	//Called when ItemInterpTimer is finished
+	void FinishInterping();
 public:	
 	// Called every frame 
 	virtual void Tick(float DeltaTime) override;
@@ -106,6 +109,32 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Item Properties", meta = (AllowPrivateAccess = "true"))
 	EItemState ItemState;
 
+	//the curve asset to use ofr the item's Z location when interping
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Item Properties", meta = (AllowPrivateAccess = "true"))
+	class UCurveFloat* ItemZCurve;
+
+	//Starting Location whit interping begins
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Item Properties", meta = (AllowPrivateAccess = "true"))
+	FVector ItemIterpStartLocation;
+
+	//Target interp location in front of the camera
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Item Properties", meta = (AllowPrivateAccess = "true"))
+	FVector CameraTargetLocation;
+
+	//true when interping
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Item Properties", meta = (AllowPrivateAccess = "true"))
+	bool bInterping;
+
+	//Plays when we Start interping
+	FTimerHandle ItemInterpTimer;
+
+	//Duration of ther curve and Timer
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Item Properties", meta = (AllowPrivateAccess = "true"))
+	float ZCurveTime;
+
+	//pointer to the character
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Item Properties", meta = (AllowPrivateAccess = "true"))
+	class AShooterCharacter* Character;
 public:
 	FORCEINLINE UWidgetComponent* GetPickupWidget() const { return PickupWidget; }
 	FORCEINLINE USphereComponent* GetAreaSphere() const { return AreaSphere; }
@@ -113,4 +142,7 @@ public:
 	FORCEINLINE EItemState GetItemState()const { return ItemState; }
 	void SetItemState(EItemState State);
 	FORCEINLINE USkeletalMeshComponent* GetItemMesh() const { return ItemMesh; }
+
+	//Called from the ShooterCharacter
+	void StartItemCurve(AShooterCharacter* Char);
 };

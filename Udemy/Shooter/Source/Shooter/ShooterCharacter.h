@@ -241,6 +241,14 @@ private:
 	//추적중인 아이템(colud be null)
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	AItem* TraceHitItem;
+
+	//Distance outward from the camera for the interp distination
+	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = Items, meta = (AllowPrivateAccess = "true"))
+	float CameraInterpDistance;
+	
+	// Distance upward from the camera for the interp distination
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Items, meta = (AllowPrivateAccess = "true"))
+	float CameraInterpElevtion;
 public:
 	/*return CameraBoom subobject*/
 	FORCEINLINE USpringArmComponent* GetCarmeraBoom() const { return CameraBoom; }
@@ -257,4 +265,8 @@ public:
 
 	//오버랩카운트를 더하거나 뺀다 그리고 bShouldTraceForItem을 업데이트 한다
 	void IncrementOverlappedItemCount(int8 Amount);
+
+	FVector GetCameraInterpLocation();
+
+	void GetPickupItem(AItem* Item);
 };
