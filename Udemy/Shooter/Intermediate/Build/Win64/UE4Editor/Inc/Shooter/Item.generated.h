@@ -86,7 +86,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__CameraTargetLocation() { return STRUCT_OFFSET(AItem, CameraTargetLocation); } \
 	FORCEINLINE static uint32 __PPO__bInterping() { return STRUCT_OFFSET(AItem, bInterping); } \
 	FORCEINLINE static uint32 __PPO__ZCurveTime() { return STRUCT_OFFSET(AItem, ZCurveTime); } \
-	FORCEINLINE static uint32 __PPO__Character() { return STRUCT_OFFSET(AItem, Character); }
+	FORCEINLINE static uint32 __PPO__Character() { return STRUCT_OFFSET(AItem, Character); } \
+	FORCEINLINE static uint32 __PPO__ItemScaleCurve() { return STRUCT_OFFSET(AItem, ItemScaleCurve); }
 
 
 #define Shooter_Source_Shooter_Item_h_35_PROLOG

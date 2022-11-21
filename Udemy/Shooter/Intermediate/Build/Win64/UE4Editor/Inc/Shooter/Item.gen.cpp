@@ -419,6 +419,10 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Character_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Character;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ItemScaleCurve_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ItemScaleCurve;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -440,7 +444,7 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItem_Statics::NewProp_ItemMesh_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Item Properties" },
+		{ "Category", "ItemProperties" },
 		{ "Comment", "//?????\xdb\xbf? ???? ???\xcc\xb7??? ?\xde\xbd?\n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Item.h" },
@@ -451,7 +455,7 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItem_Statics::NewProp_CollisionBox_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Item Properties" },
+		{ "Category", "ItemProperties" },
 		{ "Comment", "//Line trace collides with box to show HUD widgets\n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Item.h" },
@@ -462,7 +466,7 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItem_Statics::NewProp_PickupWidget_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Item Properties" },
+		{ "Category", "ItemProperties" },
 		{ "Comment", "//?\xc3\xb7??\xcc\xbe\xee\xb0\xa1 ???????? ???? ?\xcb\xbe????? ?????? ???? ????\n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Item.h" },
@@ -473,7 +477,7 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItem_Statics::NewProp_AreaSphere_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Item Properties" },
+		{ "Category", "ItemProperties" },
 		{ "Comment", "//?????? ??\xc4\xa5?? ???? \xc8\xb0??\xc8\xad\n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Item.h" },
@@ -484,7 +488,7 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItem_Statics::NewProp_ItemName_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Item Properties" },
+		{ "Category", "ItemProperties" },
 		{ "Comment", "//?????? ?????? ?????? ?\xcc\xb8?\n" },
 		{ "ModuleRelativePath", "Item.h" },
 		{ "ToolTip", "?????? ?????? ?????? ?\xcc\xb8?" },
@@ -494,7 +498,7 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItem_Statics::NewProp_ItemCount_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Item Properties" },
+		{ "Category", "ItemProperties" },
 		{ "Comment", "//?????? \xc4\xab??\xc6\xae(?\xd1\xbe\xcb\xbc?,????)\n" },
 		{ "ModuleRelativePath", "Item.h" },
 		{ "ToolTip", "?????? \xc4\xab??\xc6\xae(?\xd1\xbe\xcb\xbc?,????)" },
@@ -505,7 +509,7 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItem_Statics::NewProp_ItemRarity_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Item Properties" },
+		{ "Category", "ItemProperties" },
 		{ "Comment", "// ?????? ???\xcd\xb5? - ?????? ???? ?????\xcf\xb1????? ?\xca\xbf?\n" },
 		{ "ModuleRelativePath", "Item.h" },
 		{ "ToolTip", "?????? ???\xcd\xb5? - ?????? ???? ?????\xcf\xb1????? ?\xca\xbf?" },
@@ -516,7 +520,7 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItem_Statics::NewProp_ActiveStars_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Item Properties" },
+		{ "Category", "ItemProperties" },
 		{ "ModuleRelativePath", "Item.h" },
 	};
 #endif
@@ -525,7 +529,7 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItem_Statics::NewProp_ItemState_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Item Properties" },
+		{ "Category", "ItemProperties" },
 		{ "Comment", "//?????? ???? ????\n" },
 		{ "ModuleRelativePath", "Item.h" },
 	};
@@ -534,7 +538,7 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItem_Statics::NewProp_ItemZCurve_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Item Properties" },
+		{ "Category", "ItemProperties" },
 		{ "Comment", "//the curve asset to use ofr the item's Z location when interping\n" },
 		{ "ModuleRelativePath", "Item.h" },
 		{ "ToolTip", "the curve asset to use ofr the item's Z location when interping" },
@@ -544,7 +548,7 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItem_Statics::NewProp_ItemIterpStartLocation_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Item Properties" },
+		{ "Category", "ItemProperties" },
 		{ "Comment", "//Starting Location whit interping begins\n" },
 		{ "ModuleRelativePath", "Item.h" },
 		{ "ToolTip", "Starting Location whit interping begins" },
@@ -554,7 +558,7 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItem_Statics::NewProp_CameraTargetLocation_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Item Properties" },
+		{ "Category", "ItemProperties" },
 		{ "Comment", "//Target interp location in front of the camera\n" },
 		{ "ModuleRelativePath", "Item.h" },
 		{ "ToolTip", "Target interp location in front of the camera" },
@@ -564,7 +568,7 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItem_Statics::NewProp_bInterping_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Item Properties" },
+		{ "Category", "ItemProperties" },
 		{ "Comment", "//true when interping\n" },
 		{ "ModuleRelativePath", "Item.h" },
 		{ "ToolTip", "true when interping" },
@@ -578,7 +582,7 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItem_Statics::NewProp_ZCurveTime_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Item Properties" },
+		{ "Category", "ItemProperties" },
 		{ "Comment", "//Duration of ther curve and Timer\n" },
 		{ "ModuleRelativePath", "Item.h" },
 		{ "ToolTip", "Duration of ther curve and Timer" },
@@ -588,13 +592,23 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItem_Statics::NewProp_Character_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Item Properties" },
+		{ "Category", "ItemProperties" },
 		{ "Comment", "//pointer to the character\n" },
 		{ "ModuleRelativePath", "Item.h" },
 		{ "ToolTip", "pointer to the character" },
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AItem_Statics::NewProp_Character = { "Character", nullptr, (EPropertyFlags)0x0040000000020015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AItem, Character), Z_Construct_UClass_AShooterCharacter_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AItem_Statics::NewProp_Character_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AItem_Statics::NewProp_Character_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItem_Statics::NewProp_ItemScaleCurve_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "ItemProperties" },
+		{ "Comment", "//???????? \xc5\xa9?\xe6\xb8\xa3 ?????\xcf\xb4? \xc4\xbf??\n" },
+		{ "ModuleRelativePath", "Item.h" },
+		{ "ToolTip", "???????? \xc5\xa9?\xe6\xb8\xa3 ?????\xcf\xb4? \xc4\xbf??" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AItem_Statics::NewProp_ItemScaleCurve = { "ItemScaleCurve", nullptr, (EPropertyFlags)0x0040000000010015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AItem, ItemScaleCurve), Z_Construct_UClass_UCurveFloat_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AItem_Statics::NewProp_ItemScaleCurve_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AItem_Statics::NewProp_ItemScaleCurve_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AItem_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_ItemMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_CollisionBox,
@@ -614,6 +628,7 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_bInterping,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_ZCurveTime,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_Character,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_ItemScaleCurve,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AItem_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AItem>::IsAbstract,
@@ -642,7 +657,7 @@ void EmptyLinkFunctionForGeneratedCodeItem() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AItem, 378774249);
+	IMPLEMENT_CLASS(AItem, 347881902);
 	template<> SHOOTER_API UClass* StaticClass<AItem>()
 	{
 		return AItem::StaticClass();
