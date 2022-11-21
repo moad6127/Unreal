@@ -142,6 +142,9 @@ private:
 	//X and Y for the Item while interping in the EquipInterping state;
 	float ItemInterpX;
 	float ItemInterpY;
+
+	//Inital Yaw offset between the camera and the interping item
+	float InterpInitalYawOffset;
 public:
 	FORCEINLINE UWidgetComponent* GetPickupWidget() const { return PickupWidget; }
 	FORCEINLINE USphereComponent* GetAreaSphere() const { return AreaSphere; }

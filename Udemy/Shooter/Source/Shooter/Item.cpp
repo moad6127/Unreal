@@ -6,6 +6,7 @@
 #include "Components/WidgetComponent.h"
 #include "Components/SphereComponent.h"
 #include "ShooterCharacter.h"
+#include "Camera/CameraComponent.h"
 // Sets default values
 AItem::AItem() :
 	ItemName(FString("Default")),
@@ -18,7 +19,8 @@ AItem::AItem() :
 	CameraTargetLocation(FVector(0.f)),
 	bInterping(false),
 	ItemInterpX(0.f),
-	ItemInterpY(0.f)
+	ItemInterpY(0.f),
+	InterpInitalYawOffset(0.f)
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -237,6 +239,12 @@ void AItem::ItemInterp(float DeltaTime)
 		//초기위치의 Z요소에 곡선값을 추가하고 델타Z로 보충한값
 		ItemLocation.Z += CurveValue * DeltaZ;
 		SetActorLocation(ItemLocation, true, nullptr, ETeleportType::TeleportPhysics);
+
+		//이번 프레임에서 카메라 로테이션
+		const FRotator CameraRotation{ Character->GetFollowCamera()->GetComponentRotation() };
+		//카메라 회전율과 기본 YawOffset을 더한 값
+		FRotator ItemRotation{ 0.f,CameraRotation.Yaw + InterpInitalYawOffset,0.f };
+		SetActorRotation(ItemRotation, ETeleportType::TeleportPhysics);
 	}
 
 }
@@ -272,5 +280,12 @@ void AItem::StartItemCurve(AShooterCharacter* Char)
 		this,
 		&AItem::FinishInterping,
 		ZCurveTime);
+
+	//카메라의 Yaw 초기값 얻기
+	const float CameraRotationoYaw{ Character->GetFollowCamera()->GetComponentRotation().Yaw };
+	//아이템의Yaw값 얻기
+	const float ItemRotationYaw{ GetActorRotation().Yaw };
+	//초기 offset Yaw값
+	InterpInitalYawOffset = ItemRotationYaw - CameraRotationoYaw;
 }
 
