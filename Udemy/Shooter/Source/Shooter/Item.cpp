@@ -7,7 +7,7 @@
 #include "Components/SphereComponent.h"
 #include "ShooterCharacter.h"
 // Sets default values
-AItem::AItem():
+AItem::AItem() :
 	ItemName(FString("Default")),
 	ItemCount(0),
 	ItemRarity(EItemRarity::EIR_Common),
@@ -16,7 +16,9 @@ AItem::AItem():
 	ZCurveTime(0.7f),
 	ItemIterpStartLocation(FVector(0.f)),
 	CameraTargetLocation(FVector(0.f)),
-	bInterping(false)
+	bInterping(false),
+	ItemInterpX(0.f),
+	ItemInterpY(0.f)
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -222,6 +224,15 @@ void AItem::ItemInterp(float DeltaTime)
 		const FVector ItemToCamera{ FVector(0.f,0.f,(CameraInterpLocation - ItemLocation).Z) };
 		//ItemToCamera의 벡터 크기
 		const float DeltaZ = ItemToCamera.Size();
+
+		//X와 Y의 값 보간하기
+		const FVector CurrentLocation{ GetActorLocation() };
+		const float InterpXValue = FMath::FInterpTo(CurrentLocation.X, CameraInterpLocation.X, DeltaTime, 30.0f);
+		const float InterpYValue = FMath::FInterpTo(CurrentLocation.Y, CameraInterpLocation.Y, DeltaTime, 30.0f);
+
+		// X와 Y위치 설정
+		ItemLocation.X = InterpXValue;
+		ItemLocation.Y = InterpYValue;
 
 		//초기위치의 Z요소에 곡선값을 추가하고 델타Z로 보충한값
 		ItemLocation.Z += CurveValue * DeltaZ;

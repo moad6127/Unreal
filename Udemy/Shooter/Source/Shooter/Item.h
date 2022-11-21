@@ -138,6 +138,10 @@ private:
 	//pointer to the character
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Item Properties", meta = (AllowPrivateAccess = "true"))
 	class AShooterCharacter* Character;
+
+	//X and Y for the Item while interping in the EquipInterping state;
+	float ItemInterpX;
+	float ItemInterpY;
 public:
 	FORCEINLINE UWidgetComponent* GetPickupWidget() const { return PickupWidget; }
 	FORCEINLINE USphereComponent* GetAreaSphere() const { return AreaSphere; }
