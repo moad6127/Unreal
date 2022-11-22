@@ -6,6 +6,15 @@
 #include "GameFramework/Character.h"
 #include "ShooterCharacter.generated.h"
 
+UENUM(BlueprintType)
+enum class EAmmoType : uint8
+{
+	EAT_9mm UMETA(DisplayName = "9mm"),
+	EAT_AR UMETA(DisplayName = "Assault Rifle"),
+
+	EAT_MAX UMETA(DisplayName = "DefaultMAX")
+};
+
 UCLASS()
 class SHOOTER_API AShooterCharacter : public ACharacter
 {
@@ -88,6 +97,9 @@ protected:
 
 	void SelectButtonPressed();
 	void SelectButtonReleased();
+
+	//≈∫æ‡∏ ¿ª √ ±‚»≠ «—¥Ÿ
+	void InitializeAmmoMap();
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -249,6 +261,18 @@ private:
 	// Distance upward from the camera for the interp distination
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Items, meta = (AllowPrivateAccess = "true"))
 	float CameraInterpElevtion;
+
+	//Map to keep track of ammo of the different ammo type 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Items, meta = (AllowPrivateAccess = "true"))
+	TMap<EAmmoType, int32> AmmoMap;
+
+	//Starting amount of 9mm ammo
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Items, meta = (AllowPrivateAccess = "true")) 
+	int32 Starting9mmAmmo;
+
+	//Starting amount of AR ammo
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Items, meta = (AllowPrivateAccess = "true"))
+	int32 StartingARAmmo;
 public:
 	/*return CameraBoom subobject*/
 	FORCEINLINE USpringArmComponent* GetCarmeraBoom() const { return CameraBoom; }
