@@ -23,7 +23,7 @@ private:
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category = Widget, meta = (AllowPrivateAccess = "true"))
 	TSubclassOf<class UUserWidget> HUDOverlayClass;
 
-	//Variable to hols the HUD Overlay Widget after creating it
+	//Variable to hold the HUD Overlay Widget after creating it
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Widget, meta = (AllowPrivateAccess = "true"))
 	UUserWidget* HUDOverlay;
 };

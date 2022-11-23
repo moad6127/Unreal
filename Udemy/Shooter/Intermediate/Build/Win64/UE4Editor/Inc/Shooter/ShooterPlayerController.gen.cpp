@@ -71,10 +71,10 @@ void EmptyLinkFunctionForGeneratedCodeShooterPlayerController() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AShooterPlayerController_Statics::NewProp_HUDOverlay_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Widget" },
-		{ "Comment", "//Variable to hols the HUD Overlay Widget after creating it\n" },
+		{ "Comment", "//Variable to hold the HUD Overlay Widget after creating it\n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "ShooterPlayerController.h" },
-		{ "ToolTip", "Variable to hols the HUD Overlay Widget after creating it" },
+		{ "ToolTip", "Variable to hold the HUD Overlay Widget after creating it" },
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AShooterPlayerController_Statics::NewProp_HUDOverlay = { "HUDOverlay", nullptr, (EPropertyFlags)0x00400000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AShooterPlayerController, HUDOverlay), Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AShooterPlayerController_Statics::NewProp_HUDOverlay_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AShooterPlayerController_Statics::NewProp_HUDOverlay_MetaData)) };
@@ -109,7 +109,7 @@ void EmptyLinkFunctionForGeneratedCodeShooterPlayerController() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AShooterPlayerController, 1757960299);
+	IMPLEMENT_CLASS(AShooterPlayerController, 2749952395);
 	template<> SHOOTER_API UClass* StaticClass<AShooterPlayerController>()
 	{
 		return AShooterPlayerController::StaticClass();

@@ -58,7 +58,10 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AWeapon)
 
 
-#define Shooter_Source_Shooter_Weapon_h_15_PRIVATE_PROPERTY_OFFSET
+#define Shooter_Source_Shooter_Weapon_h_15_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__Ammo() { return STRUCT_OFFSET(AWeapon, Ammo); }
+
+
 #define Shooter_Source_Shooter_Weapon_h_12_PROLOG
 #define Shooter_Source_Shooter_Weapon_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
