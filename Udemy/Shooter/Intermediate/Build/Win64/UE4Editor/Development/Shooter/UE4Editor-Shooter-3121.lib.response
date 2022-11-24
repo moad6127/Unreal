@@ -3,7 +3,7 @@
 /MACHINE:x64
 /SUBSYSTEM:WINDOWS
 /DEF
-/NAME:"UE4Editor-Shooter-0077.dll"
+/NAME:"UE4Editor-Shooter-3121.dll"
 /IGNORE:4221
 /NODEFAULTLIB
 "C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\ShooterEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
@@ -22,4 +22,4 @@
 "C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\ShooterPlayerController.gen.cpp.obj"
 "C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\Weapon.gen.cpp.obj"
 "C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\Default.rc2.res"
-/OUT:"C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\UE4Editor-Shooter-0077.lib"
+/OUT:"C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\UE4Editor-Shooter-3121.lib"
