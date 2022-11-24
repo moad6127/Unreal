@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SHOOTER_Weapon_generated_h
 
-#define Shooter_Source_Shooter_Weapon_h_15_SPARSE_DATA
-#define Shooter_Source_Shooter_Weapon_h_15_RPC_WRAPPERS
-#define Shooter_Source_Shooter_Weapon_h_15_RPC_WRAPPERS_NO_PURE_DECLS
-#define Shooter_Source_Shooter_Weapon_h_15_INCLASS_NO_PURE_DECLS \
+#define Shooter_Source_Shooter_Weapon_h_25_SPARSE_DATA
+#define Shooter_Source_Shooter_Weapon_h_25_RPC_WRAPPERS
+#define Shooter_Source_Shooter_Weapon_h_25_RPC_WRAPPERS_NO_PURE_DECLS
+#define Shooter_Source_Shooter_Weapon_h_25_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAWeapon(); \
 	friend struct Z_Construct_UClass_AWeapon_Statics; \
@@ -25,7 +25,7 @@ public: \
 	DECLARE_SERIALIZER(AWeapon)
 
 
-#define Shooter_Source_Shooter_Weapon_h_15_INCLASS \
+#define Shooter_Source_Shooter_Weapon_h_25_INCLASS \
 private: \
 	static void StaticRegisterNativesAWeapon(); \
 	friend struct Z_Construct_UClass_AWeapon_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(AWeapon)
 
 
-#define Shooter_Source_Shooter_Weapon_h_15_STANDARD_CONSTRUCTORS \
+#define Shooter_Source_Shooter_Weapon_h_25_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AWeapon(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AWeapon) \
@@ -47,7 +47,7 @@ private: \
 public:
 
 
-#define Shooter_Source_Shooter_Weapon_h_15_ENHANCED_CONSTRUCTORS \
+#define Shooter_Source_Shooter_Weapon_h_25_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AWeapon(AWeapon&&); \
@@ -58,31 +58,32 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AWeapon)
 
 
-#define Shooter_Source_Shooter_Weapon_h_15_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__Ammo() { return STRUCT_OFFSET(AWeapon, Ammo); }
+#define Shooter_Source_Shooter_Weapon_h_25_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__Ammo() { return STRUCT_OFFSET(AWeapon, Ammo); } \
+	FORCEINLINE static uint32 __PPO__WeaponType() { return STRUCT_OFFSET(AWeapon, WeaponType); }
 
 
-#define Shooter_Source_Shooter_Weapon_h_12_PROLOG
-#define Shooter_Source_Shooter_Weapon_h_15_GENERATED_BODY_LEGACY \
+#define Shooter_Source_Shooter_Weapon_h_22_PROLOG
+#define Shooter_Source_Shooter_Weapon_h_25_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Shooter_Source_Shooter_Weapon_h_15_PRIVATE_PROPERTY_OFFSET \
-	Shooter_Source_Shooter_Weapon_h_15_SPARSE_DATA \
-	Shooter_Source_Shooter_Weapon_h_15_RPC_WRAPPERS \
-	Shooter_Source_Shooter_Weapon_h_15_INCLASS \
-	Shooter_Source_Shooter_Weapon_h_15_STANDARD_CONSTRUCTORS \
+	Shooter_Source_Shooter_Weapon_h_25_PRIVATE_PROPERTY_OFFSET \
+	Shooter_Source_Shooter_Weapon_h_25_SPARSE_DATA \
+	Shooter_Source_Shooter_Weapon_h_25_RPC_WRAPPERS \
+	Shooter_Source_Shooter_Weapon_h_25_INCLASS \
+	Shooter_Source_Shooter_Weapon_h_25_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Shooter_Source_Shooter_Weapon_h_15_GENERATED_BODY \
+#define Shooter_Source_Shooter_Weapon_h_25_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Shooter_Source_Shooter_Weapon_h_15_PRIVATE_PROPERTY_OFFSET \
-	Shooter_Source_Shooter_Weapon_h_15_SPARSE_DATA \
-	Shooter_Source_Shooter_Weapon_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	Shooter_Source_Shooter_Weapon_h_15_INCLASS_NO_PURE_DECLS \
-	Shooter_Source_Shooter_Weapon_h_15_ENHANCED_CONSTRUCTORS \
+	Shooter_Source_Shooter_Weapon_h_25_PRIVATE_PROPERTY_OFFSET \
+	Shooter_Source_Shooter_Weapon_h_25_SPARSE_DATA \
+	Shooter_Source_Shooter_Weapon_h_25_RPC_WRAPPERS_NO_PURE_DECLS \
+	Shooter_Source_Shooter_Weapon_h_25_INCLASS_NO_PURE_DECLS \
+	Shooter_Source_Shooter_Weapon_h_25_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -92,5 +93,12 @@ template<> SHOOTER_API UClass* StaticClass<class AWeapon>();
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID Shooter_Source_Shooter_Weapon_h
 
+
+#define FOREACH_ENUM_EWEAPONTYPE(op) \
+	op(EWeaponType::EWT_SubmachineGun) \
+	op(EWeaponType::EWT_AssaultRifle) 
+
+enum class EWeaponType : uint8;
+template<> SHOOTER_API UEnum* StaticEnum<EWeaponType>();
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
