@@ -17,6 +17,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define Shooter_Source_Shooter_ShooterCharacter_h_33_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execGetCrosshairSpreadMultiplier); \
+	DECLARE_FUNCTION(execFinishReloading); \
 	DECLARE_FUNCTION(execAutoFireReset); \
 	DECLARE_FUNCTION(execFinishCrosshairBulletFire);
 
@@ -24,6 +25,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define Shooter_Source_Shooter_ShooterCharacter_h_33_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execGetCrosshairSpreadMultiplier); \
+	DECLARE_FUNCTION(execFinishReloading); \
 	DECLARE_FUNCTION(execAutoFireReset); \
 	DECLARE_FUNCTION(execFinishCrosshairBulletFire);
 
@@ -104,7 +106,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__AmmoMap() { return STRUCT_OFFSET(AShooterCharacter, AmmoMap); } \
 	FORCEINLINE static uint32 __PPO__Starting9mmAmmo() { return STRUCT_OFFSET(AShooterCharacter, Starting9mmAmmo); } \
 	FORCEINLINE static uint32 __PPO__StartingARAmmo() { return STRUCT_OFFSET(AShooterCharacter, StartingARAmmo); } \
-	FORCEINLINE static uint32 __PPO__CombatState() { return STRUCT_OFFSET(AShooterCharacter, CombatState); }
+	FORCEINLINE static uint32 __PPO__CombatState() { return STRUCT_OFFSET(AShooterCharacter, CombatState); } \
+	FORCEINLINE static uint32 __PPO__ReloadMontage() { return STRUCT_OFFSET(AShooterCharacter, ReloadMontage); }
 
 
 #define Shooter_Source_Shooter_ShooterCharacter_h_30_PROLOG

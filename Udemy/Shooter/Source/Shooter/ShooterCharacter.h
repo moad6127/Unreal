@@ -116,11 +116,16 @@ protected:
 	//무기가 탄약이 있는지 체크하는 함수
 	bool WeaponHasAmmo();
 
+	//무기발사 관련 함수
 	void PlayFireSound();
-
 	void SendBullet();
-
 	void PlayGunFireMontage();
+
+	//리로드 키가 눌렸을때 바인딩 할 함수
+	void ReloadButtonPressed();
+
+	//리로드 함수
+	void ReloadWeapon();
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -298,6 +303,13 @@ private:
 	//CombatState, can only fire or reload if Unoccupied
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	ECombatState CombatState;
+
+	//Montage for reload animation
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
+	UAnimMontage* ReloadMontage;
+
+	UFUNCTION(BlueprintCallable)
+	void FinishReloading();
 public:
 	/*return CameraBoom subobject*/
 	FORCEINLINE USpringArmComponent* GetCarmeraBoom() const { return CameraBoom; }

@@ -379,7 +379,7 @@ void AShooterCharacter::AutoFireReset()
 	}
 	else
 	{
-		//ReloadWepon TODO
+		ReloadWeapon();
 	}
 }
 
@@ -589,6 +589,35 @@ void AShooterCharacter::PlayGunFireMontage()
 	}
 }
 
+void AShooterCharacter::ReloadButtonPressed()
+{
+	ReloadWeapon();
+}
+
+void AShooterCharacter::ReloadWeapon()
+{
+	if (CombatState != ECombatState::ECS_Unoccupied)
+	{
+		return;
+	}
+	// 올바른 타입의 탄약이 있는지 확인하기
+	//TODO 올바른 타입의 탄약이 있는지 확인하는 함수 만들기
+	//Create bool CarryingAmmo()
+	if (true)// CarryingAmmo함수로 대채해야됨
+	{
+		//TODO 무기 타입에 따른 enumclass만들기
+		// TODO Switch로 무기타입에 따른 애니메이션 만들기
+		FName MontageSection(TEXT("ReloadSMG"));
+
+		UAnimInstance* Animinstance = GetMesh()->GetAnimInstance();
+		if (Animinstance && ReloadMontage)
+		{
+			Animinstance->Montage_Play(ReloadMontage);
+			Animinstance->Montage_JumpToSection(MontageSection);
+		}
+	}
+}
+
 // Called every frame
 void AShooterCharacter::Tick(float DeltaTime)
 {
@@ -632,6 +661,8 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 	PlayerInputComponent->BindAction("Select", IE_Pressed, this, &AShooterCharacter::SelectButtonPressed);
 	PlayerInputComponent->BindAction("Select", IE_Released, this, &AShooterCharacter::SelectButtonReleased);
+
+	PlayerInputComponent->BindAction("ReloadButton", IE_Pressed, this, &AShooterCharacter::ReloadButtonPressed);
 }
 
 void AShooterCharacter::SwapWeapon(AWeapon* WeaponToSwap)
@@ -640,6 +671,13 @@ void AShooterCharacter::SwapWeapon(AWeapon* WeaponToSwap)
 	EquipWeapon(WeaponToSwap);
 	TraceHitItem = nullptr;
 	TraceHitItemLastFrame = nullptr;
+}
+
+void AShooterCharacter::FinishReloading()
+{
+	// TODO : AMMO map을 업데이트 한다
+
+	CombatState = ECombatState::ECS_Unoccupied;
 }
 
 float AShooterCharacter::GetCrosshairSpreadMultiplier() const
