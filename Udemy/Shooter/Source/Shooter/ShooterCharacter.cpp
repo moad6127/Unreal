@@ -618,6 +618,21 @@ void AShooterCharacter::ReloadWeapon()
 	}
 }
 
+bool AShooterCharacter::CarryingAmmo()
+{
+	if (EquippedWeapon == nullptr)
+	{
+		return false;
+	}
+	auto AmmoType = EquippedWeapon->GetAmmoType();
+
+	if (AmmoMap.Contains(AmmoType))
+	{
+		return AmmoMap[AmmoType] > 0;
+	}
+	return false;
+}
+
 // Called every frame
 void AShooterCharacter::Tick(float DeltaTime)
 {

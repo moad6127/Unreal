@@ -2,4 +2,5 @@ C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\D
 C:\Unreal\Udemy\Shooter\Source\Shooter\Weapon.h
 C:\Unreal\Udemy\Shooter\Source\Shooter\Item.h
 C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\Item.generated.h
+C:\Unreal\Udemy\Shooter\Source\Shooter\AmmoType.h
 C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\Weapon.generated.h
