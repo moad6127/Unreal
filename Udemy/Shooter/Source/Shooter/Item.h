@@ -143,7 +143,7 @@ private:
 	float ItemInterpX;
 	float ItemInterpY;
 
-	//Inital Yaw offset between the camera and the interping item
+	//Inital Yaw offset between the camera and the Finterping item
 	float InterpInitalYawOffset;
 
 	//아이템의 크길르 조절하는 커브
