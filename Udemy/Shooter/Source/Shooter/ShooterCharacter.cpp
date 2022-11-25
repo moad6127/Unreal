@@ -600,20 +600,19 @@ void AShooterCharacter::ReloadWeapon()
 	{
 		return;
 	}
-	// 올바른 타입의 탄약이 있는지 확인하기
-	//TODO 올바른 타입의 탄약이 있는지 확인하는 함수 만들기
-	//Create bool CarryingAmmo()
-	if (true)// CarryingAmmo함수로 대채해야됨
+	if (EquippedWeapon == nullptr)
 	{
-		//TODO 무기 타입에 따른 enumclass만들기
-		// TODO Switch로 무기타입에 따른 애니메이션 만들기
-		FName MontageSection(TEXT("ReloadSMG"));
-
+		return;
+	}
+	//맞는 타입의 탄약이 있는지 확인하기
+	if (CarryingAmmo())
+	{
+		CombatState = ECombatState::ECS_Reloading;
 		UAnimInstance* Animinstance = GetMesh()->GetAnimInstance();
 		if (Animinstance && ReloadMontage)
 		{
 			Animinstance->Montage_Play(ReloadMontage);
-			Animinstance->Montage_JumpToSection(MontageSection);
+			Animinstance->Montage_JumpToSection(EquippedWeapon->GetReloadMontageSection());
 		}
 	}
 }
@@ -690,10 +689,42 @@ void AShooterCharacter::SwapWeapon(AWeapon* WeaponToSwap)
 
 void AShooterCharacter::FinishReloading()
 {
-	// TODO : AMMO map을 업데이트 한다
-
+	//combat State업데이트
 	CombatState = ECombatState::ECS_Unoccupied;
+
+	if (EquippedWeapon == nullptr)
+	{
+		return;
+	}
+
+	const auto AmmoType{ EquippedWeapon->GetAmmoType() };
+	//ammo map업데이트
+	if (AmmoMap.Contains(AmmoType))
+	{
+		//현재 캐릭터가 들고있는 무기의 현재 가지고 있는 탄약의 양
+		int32 CarriedAmmo = AmmoMap[AmmoType];
+
+		//얼마나 장전을 해야하는지 체크
+		const int32 MagEmptySpace =
+			EquippedWeapon->GetMagazineCapacity() -
+			EquippedWeapon->GetAmmo();
+		if (MagEmptySpace > CarriedAmmo)
+		{
+			//들고있는 탄약을 전부 재장전하기
+			EquippedWeapon->ReloadAmmo(CarriedAmmo);
+			CarriedAmmo = 0;
+			AmmoMap.Add(AmmoType, CarriedAmmo);
+		}
+		else
+		{
+			//최대 용량만큼 재장전하기
+			EquippedWeapon->ReloadAmmo(MagEmptySpace);
+			CarriedAmmo -= MagEmptySpace;
+			AmmoMap.Add(AmmoType, CarriedAmmo);
+		}
+	}
 }
+
 
 float AShooterCharacter::GetCrosshairSpreadMultiplier() const
 {

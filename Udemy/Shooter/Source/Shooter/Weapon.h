@@ -40,6 +40,10 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = WeaponProperties, meta = (AllowPrivateAccess = "true"))
 	int32 Ammo;
 
+	//Maximum ammo that our weapon can hold
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = WeaponProperties, meta = (AllowPrivateAccess = "true"))
+	int32 MagazineCapacity;
+
 	//the type of weapon
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = WeaponProperties, meta = (AllowPrivateAccess = "true"))
 	EWeaponType WeaponType;
@@ -48,11 +52,17 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = WeaponProperties, meta = (AllowPrivateAccess = "true"))
 	EAmmoType AmmoType;
 
+	//재장전 몽타주를 위해서 FName으로 섹션을 만들기
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = WeaponProperties, meta = (AllowPrivateAccess = "true"))
+	FName ReloadMontageSection;
+
 public:
 
 	void ThrowWeapon();
 
 	FORCEINLINE int32 GetAmmo()const { return Ammo; }
+
+	FORCEINLINE int32 GetMagazineCapacity()const { return MagazineCapacity; }
 
 	// 캐릭터클래스에서 무기를 발사할때 호출된다
 	void DecrementAmmo();
@@ -60,4 +70,8 @@ public:
 	FORCEINLINE EWeaponType GetWeaponType() const { return WeaponType; }
 
 	FORCEINLINE EAmmoType GetAmmoType() const { return AmmoType; }
+
+	FORCEINLINE FName GetReloadMontageSection() const { return ReloadMontageSection; }
+
+	void ReloadAmmo(int32 Amount);
 };
