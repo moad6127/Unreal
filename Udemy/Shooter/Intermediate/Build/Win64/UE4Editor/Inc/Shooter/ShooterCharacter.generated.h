@@ -18,6 +18,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
  \
 	DECLARE_FUNCTION(execGetCrosshairSpreadMultiplier); \
 	DECLARE_FUNCTION(execFinishReloading); \
+	DECLARE_FUNCTION(execReleaseClip); \
+	DECLARE_FUNCTION(execGrabClip); \
 	DECLARE_FUNCTION(execAutoFireReset); \
 	DECLARE_FUNCTION(execFinishCrosshairBulletFire);
 
@@ -26,6 +28,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
  \
 	DECLARE_FUNCTION(execGetCrosshairSpreadMultiplier); \
 	DECLARE_FUNCTION(execFinishReloading); \
+	DECLARE_FUNCTION(execReleaseClip); \
+	DECLARE_FUNCTION(execGrabClip); \
 	DECLARE_FUNCTION(execAutoFireReset); \
 	DECLARE_FUNCTION(execFinishCrosshairBulletFire);
 
@@ -107,7 +111,9 @@ public: \
 	FORCEINLINE static uint32 __PPO__Starting9mmAmmo() { return STRUCT_OFFSET(AShooterCharacter, Starting9mmAmmo); } \
 	FORCEINLINE static uint32 __PPO__StartingARAmmo() { return STRUCT_OFFSET(AShooterCharacter, StartingARAmmo); } \
 	FORCEINLINE static uint32 __PPO__CombatState() { return STRUCT_OFFSET(AShooterCharacter, CombatState); } \
-	FORCEINLINE static uint32 __PPO__ReloadMontage() { return STRUCT_OFFSET(AShooterCharacter, ReloadMontage); }
+	FORCEINLINE static uint32 __PPO__ReloadMontage() { return STRUCT_OFFSET(AShooterCharacter, ReloadMontage); } \
+	FORCEINLINE static uint32 __PPO__ClipTransform() { return STRUCT_OFFSET(AShooterCharacter, ClipTransform); } \
+	FORCEINLINE static uint32 __PPO__HandSceneComponent() { return STRUCT_OFFSET(AShooterCharacter, HandSceneComponent); }
 
 
 #define Shooter_Source_Shooter_ShooterCharacter_h_23_PROLOG

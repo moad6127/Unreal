@@ -274,6 +274,7 @@ void AItem::SetItemState(EItemState State)
 	SetItemProperties(State);
 }
 
+
 void AItem::StartItemCurve(AShooterCharacter* Char)
 {
 	//캐릭터를 저장
