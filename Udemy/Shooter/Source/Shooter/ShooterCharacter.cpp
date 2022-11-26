@@ -65,6 +65,7 @@ AShooterCharacter::AShooterCharacter() :
 	StartingARAmmo(120),
 	//Combat variable
 	CombatState(ECombatState::ECS_Unoccupied)
+
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -91,6 +92,9 @@ AShooterCharacter::AShooterCharacter() :
 	GetCharacterMovement()->RotationRate = FRotator(0.f, 540.f, 0.f);// 회전 
 	GetCharacterMovement()->JumpZVelocity = 600.f;
 	GetCharacterMovement()->AirControl = 0.2f;
+
+	//HandSceneCompont만들기(재장전 할때 클립분리시 필요)
+	HandSceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("HandSceneComp"));
 }
 
 // Called when the game starts or when spawned
@@ -635,6 +639,10 @@ bool AShooterCharacter::CarryingAmmo()
 void AShooterCharacter::GrabClip()
 {
 	if (EquippedWeapon == nullptr)
+	{
+		return;
+	}
+	if (HandSceneComponent == nullptr)
 	{
 		return;
 	}
