@@ -14,10 +14,16 @@ class SHOOTER_API UShooterAnimInstance : public UAnimInstance
 {
 	GENERATED_BODY()
 public:
+	UShooterAnimInstance();
+
 	UFUNCTION(BlueprintCallable)
 	void UpdateAnimationProperties(float DeltaTime);
 	
 	virtual void NativeInitializeAnimation() override;
+protected:
+
+	//handle turning in place variables
+	void TurnInPlace();
 
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
@@ -45,4 +51,14 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
 	bool bAiming;
+
+
+	//Yaw of the Character this frame
+	float CharacterYaw;
+
+	//Yaw of the Character the previous frame
+	float CharacterYawLastFrame;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = TurnInPlace, meta = (AllowPrivateAccess = "true"))
+	float RootYawOffset;
 };

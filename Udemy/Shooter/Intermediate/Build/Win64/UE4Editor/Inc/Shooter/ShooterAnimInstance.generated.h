@@ -44,7 +44,7 @@ public: \
 
 #define Shooter_Source_Shooter_ShooterAnimInstance_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API UShooterAnimInstance(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+	NO_API UShooterAnimInstance(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UShooterAnimInstance) \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UShooterAnimInstance); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UShooterAnimInstance); \
@@ -56,8 +56,6 @@ public:
 
 
 #define Shooter_Source_Shooter_ShooterAnimInstance_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API UShooterAnimInstance(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API UShooterAnimInstance(UShooterAnimInstance&&); \
@@ -65,7 +63,7 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UShooterAnimInstance); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UShooterAnimInstance); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UShooterAnimInstance)
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UShooterAnimInstance)
 
 
 #define Shooter_Source_Shooter_ShooterAnimInstance_h_15_PRIVATE_PROPERTY_OFFSET \
@@ -75,7 +73,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__bIsAccelerating() { return STRUCT_OFFSET(UShooterAnimInstance, bIsAccelerating); } \
 	FORCEINLINE static uint32 __PPO__MovementOffsetYaw() { return STRUCT_OFFSET(UShooterAnimInstance, MovementOffsetYaw); } \
 	FORCEINLINE static uint32 __PPO__LastMovementOffsetYaw() { return STRUCT_OFFSET(UShooterAnimInstance, LastMovementOffsetYaw); } \
-	FORCEINLINE static uint32 __PPO__bAiming() { return STRUCT_OFFSET(UShooterAnimInstance, bAiming); }
+	FORCEINLINE static uint32 __PPO__bAiming() { return STRUCT_OFFSET(UShooterAnimInstance, bAiming); } \
+	FORCEINLINE static uint32 __PPO__RootYawOffset() { return STRUCT_OFFSET(UShooterAnimInstance, RootYawOffset); }
 
 
 #define Shooter_Source_Shooter_ShooterAnimInstance_h_12_PROLOG
