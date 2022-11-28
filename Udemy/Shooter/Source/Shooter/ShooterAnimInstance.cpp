@@ -76,6 +76,11 @@ void UShooterAnimInstance::TurnInPlace()
 	if (Speed > 0)
 	{
 		//제자리에서 돌지않고 캐릭터가 움직인다
+		RootYawOffset = 0.f;
+		CharacterYaw = ShooterCharacter->GetActorRotation().Yaw;
+		CharacterYawLastFrame = CharacterYaw;
+		RotationCurveLastFrame = 0.f;
+		RotationCurve = 0.f;
 	}
 	else
 	{
@@ -84,17 +89,27 @@ void UShooterAnimInstance::TurnInPlace()
 
 		const float YawDelta{ CharacterYaw - CharacterYawLastFrame };
 
-		RootYawOffset -= YawDelta;
+		//Root Yaw Offset를 -180~180으로 고정하고 업데이트 한다
+		RootYawOffset = UKismetMathLibrary::NormalizeAxis(RootYawOffset - YawDelta);
+
+		//1.0f 이면 터닝하는것이고 아니면 안하는것이다.
+		const float Turning{ GetCurveValue(TEXT("Turning")) };
+		if (Turning > 0)
+		{
+			RotationCurveLastFrame = RotationCurve;
+			RotationCurve = GetCurveValue(TEXT("Rotation"));
+			const float DeltaRotation{ RotationCurve - RotationCurveLastFrame };
+
+			// RootYawOffset >0 이면 왼쪽으로 회전, RootYawOffset <0 이면 오른쪽으로 회전
+			RootYawOffset >0 ? RootYawOffset -= DeltaRotation : RootYawOffset += DeltaRotation;
+
+			const float ABSRootYawOffset{ FMath::Abs(RootYawOffset) };
+			if (ABSRootYawOffset > 90.f)
+			{
+				const float YawExess{ ABSRootYawOffset - 90.f };
+				RootYawOffset > 0 ? RootYawOffset -= YawExess : RootYawOffset += YawExess;
+			}
+		}
 		
-		if (GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(1, -1, FColor::Blue, FString::Printf(TEXT("CharacterYaw : %f"), CharacterYaw));
-
-		}
-		if (GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(2, -1, FColor::Red, FString::Printf(TEXT("RootYawOffset : %f"), RootYawOffset));
-
-		}
 	}
 }
