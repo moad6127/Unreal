@@ -15,7 +15,9 @@ UShooterAnimInstance::UShooterAnimInstance():
 	bAiming(false),
 	CharacterYaw(0.f),
 	CharacterYawLastFrame(0.f),
-	RootYawOffset(0.f)
+	RootYawOffset(0.f),
+	Pitch(0.f),
+	bReloading(false)
 {
 
 }
@@ -28,6 +30,7 @@ void UShooterAnimInstance::UpdateAnimationProperties(float DeltaTime)
 	}
 	if (ShooterCharacter)
 	{
+		bReloading = ShooterCharacter->GetCombatState() == ECombatState::ECS_Reloading;
 		// Velocity에서 캐릭터의 속도 얻기
 		FVector Velocity{ ShooterCharacter->GetVelocity() };
 		Velocity.Z = 0;
@@ -73,6 +76,8 @@ void UShooterAnimInstance::TurnInPlace()
 	{
 		return;
 	}
+	Pitch = ShooterCharacter->GetBaseAimRotation().Pitch;
+
 	if (Speed > 0)
 	{
 		//제자리에서 돌지않고 캐릭터가 움직인다

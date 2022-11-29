@@ -74,7 +74,9 @@ public: \
 	FORCEINLINE static uint32 __PPO__MovementOffsetYaw() { return STRUCT_OFFSET(UShooterAnimInstance, MovementOffsetYaw); } \
 	FORCEINLINE static uint32 __PPO__LastMovementOffsetYaw() { return STRUCT_OFFSET(UShooterAnimInstance, LastMovementOffsetYaw); } \
 	FORCEINLINE static uint32 __PPO__bAiming() { return STRUCT_OFFSET(UShooterAnimInstance, bAiming); } \
-	FORCEINLINE static uint32 __PPO__RootYawOffset() { return STRUCT_OFFSET(UShooterAnimInstance, RootYawOffset); }
+	FORCEINLINE static uint32 __PPO__RootYawOffset() { return STRUCT_OFFSET(UShooterAnimInstance, RootYawOffset); } \
+	FORCEINLINE static uint32 __PPO__Pitch() { return STRUCT_OFFSET(UShooterAnimInstance, Pitch); } \
+	FORCEINLINE static uint32 __PPO__bReloading() { return STRUCT_OFFSET(UShooterAnimInstance, bReloading); }
 
 
 #define Shooter_Source_Shooter_ShooterAnimInstance_h_12_PROLOG

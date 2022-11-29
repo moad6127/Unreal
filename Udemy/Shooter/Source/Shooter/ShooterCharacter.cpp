@@ -614,7 +614,7 @@ void AShooterCharacter::ReloadWeapon()
 		return;
 	}
 	//맞는 타입의 탄약이 있는지 확인하기
-	if (CarryingAmmo())
+	if (CarryingAmmo()&& !EquippedWeapon->ClipIsFull())
 	{
 		CombatState = ECombatState::ECS_Reloading;
 		UAnimInstance* Animinstance = GetMesh()->GetAnimInstance();

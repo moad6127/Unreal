@@ -68,4 +68,12 @@ private:
 
 	//이전 프레임값의 회전곡선값
 	float RotationCurveLastFrame;
+
+	//The Pitch of the aim rotation, use for Aim Offest
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = TurnInPlace, meta = (AllowPrivateAccess = "true"))
+	float Pitch;
+
+	//True when reloading, use to prevent Aim Offset while reloading 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = TurnInPlace, meta = (AllowPrivateAccess = "true"))
+	bool bReloading;
 };
