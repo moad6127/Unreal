@@ -14,12 +14,78 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeShooterAnimInstance() {}
 // Cross Module References
+	SHOOTER_API UEnum* Z_Construct_UEnum_Shooter_EOffsetState();
+	UPackage* Z_Construct_UPackage__Script_Shooter();
 	SHOOTER_API UClass* Z_Construct_UClass_UShooterAnimInstance_NoRegister();
 	SHOOTER_API UClass* Z_Construct_UClass_UShooterAnimInstance();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimInstance();
-	UPackage* Z_Construct_UPackage__Script_Shooter();
 	SHOOTER_API UClass* Z_Construct_UClass_AShooterCharacter_NoRegister();
 // End Cross Module References
+	static UEnum* EOffsetState_StaticEnum()
+	{
+		static UEnum* Singleton = nullptr;
+		if (!Singleton)
+		{
+			Singleton = GetStaticEnum(Z_Construct_UEnum_Shooter_EOffsetState, Z_Construct_UPackage__Script_Shooter(), TEXT("EOffsetState"));
+		}
+		return Singleton;
+	}
+	template<> SHOOTER_API UEnum* StaticEnum<EOffsetState>()
+	{
+		return EOffsetState_StaticEnum();
+	}
+	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_EOffsetState(EOffsetState_StaticEnum, TEXT("/Script/Shooter"), TEXT("EOffsetState"), false, nullptr, nullptr);
+	uint32 Get_Z_Construct_UEnum_Shooter_EOffsetState_Hash() { return 2786622511U; }
+	UEnum* Z_Construct_UEnum_Shooter_EOffsetState()
+	{
+#if WITH_HOT_RELOAD
+		UPackage* Outer = Z_Construct_UPackage__Script_Shooter();
+		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("EOffsetState"), 0, Get_Z_Construct_UEnum_Shooter_EOffsetState_Hash(), false);
+#else
+		static UEnum* ReturnEnum = nullptr;
+#endif // WITH_HOT_RELOAD
+		if (!ReturnEnum)
+		{
+			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
+				{ "EOffsetState::EOS_Aiming", (int64)EOffsetState::EOS_Aiming },
+				{ "EOffsetState::EOS_Hip", (int64)EOffsetState::EOS_Hip },
+				{ "EOffsetState::EOS_Reloading", (int64)EOffsetState::EOS_Reloading },
+				{ "EOffsetState::EOS_InAir", (int64)EOffsetState::EOS_InAir },
+				{ "EOffsetState::EOS_MAX", (int64)EOffsetState::EOS_MAX },
+			};
+#if WITH_METADATA
+			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+				{ "BlueprintType", "true" },
+				{ "EOS_Aiming.DisplayName", "Aiming" },
+				{ "EOS_Aiming.Name", "EOffsetState::EOS_Aiming" },
+				{ "EOS_Hip.DisplayName", "Hip" },
+				{ "EOS_Hip.Name", "EOffsetState::EOS_Hip" },
+				{ "EOS_InAir.DisplayName", "InAir" },
+				{ "EOS_InAir.Name", "EOffsetState::EOS_InAir" },
+				{ "EOS_MAX.DisplayName", "DefaultMAX" },
+				{ "EOS_MAX.Name", "EOffsetState::EOS_MAX" },
+				{ "EOS_Reloading.DisplayName", "Reloading" },
+				{ "EOS_Reloading.Name", "EOffsetState::EOS_Reloading" },
+				{ "ModuleRelativePath", "ShooterAnimInstance.h" },
+			};
+#endif
+			static const UE4CodeGen_Private::FEnumParams EnumParams = {
+				(UObject*(*)())Z_Construct_UPackage__Script_Shooter,
+				nullptr,
+				"EOffsetState",
+				"EOffsetState",
+				Enumerators,
+				UE_ARRAY_COUNT(Enumerators),
+				RF_Public|RF_Transient|RF_MarkAsNative,
+				EEnumFlags::None,
+				UE4CodeGen_Private::EDynamicType::NotDynamic,
+				(uint8)UEnum::ECppForm::EnumClass,
+				METADATA_PARAMS(Enum_MetaDataParams, UE_ARRAY_COUNT(Enum_MetaDataParams))
+			};
+			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
+		}
+		return ReturnEnum;
+	}
 	DEFINE_FUNCTION(UShooterAnimInstance::execUpdateAnimationProperties)
 	{
 		P_GET_PROPERTY(FFloatProperty,Z_Param_DeltaTime);
@@ -123,6 +189,11 @@ void EmptyLinkFunctionForGeneratedCodeShooterAnimInstance() {}
 #endif
 		static void NewProp_bReloading_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bReloading;
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_OffsetState_Underlying;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_OffsetState_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_OffsetState;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -252,6 +323,17 @@ void EmptyLinkFunctionForGeneratedCodeShooterAnimInstance() {}
 		((UShooterAnimInstance*)Obj)->bReloading = 1;
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_bReloading = { "bReloading", nullptr, (EPropertyFlags)0x0040000000020015, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UShooterAnimInstance), &Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_bReloading_SetBit, METADATA_PARAMS(Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_bReloading_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_bReloading_MetaData)) };
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_OffsetState_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_OffsetState_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "TurnInPlace" },
+		{ "Comment", "//Offset State use to determine which Aim Offset to use\n" },
+		{ "ModuleRelativePath", "ShooterAnimInstance.h" },
+		{ "ToolTip", "Offset State use to determine which Aim Offset to use" },
+	};
+#endif
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_OffsetState = { "OffsetState", nullptr, (EPropertyFlags)0x0040000000020015, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UShooterAnimInstance, OffsetState), Z_Construct_UEnum_Shooter_EOffsetState, METADATA_PARAMS(Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_OffsetState_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_OffsetState_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UShooterAnimInstance_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_ShooterCharacter,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_Speed,
@@ -263,6 +345,8 @@ void EmptyLinkFunctionForGeneratedCodeShooterAnimInstance() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_RootYawOffset,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_Pitch,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_bReloading,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_OffsetState_Underlying,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_OffsetState,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UShooterAnimInstance_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UShooterAnimInstance>::IsAbstract,
@@ -291,7 +375,7 @@ void EmptyLinkFunctionForGeneratedCodeShooterAnimInstance() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UShooterAnimInstance, 1803552516);
+	IMPLEMENT_CLASS(UShooterAnimInstance, 2149829978);
 	template<> SHOOTER_API UClass* StaticClass<UShooterAnimInstance>()
 	{
 		return UShooterAnimInstance::StaticClass();

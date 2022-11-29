@@ -6,6 +6,16 @@
 #include "Animation/AnimInstance.h"
 #include "ShooterAnimInstance.generated.h"
 
+UENUM(BlueprintType)
+enum class EOffsetState : uint8
+{
+	EOS_Aiming UMETA(DisplayName = "Aiming"),
+	EOS_Hip UMETA(DisplayName = "Hip"),
+	EOS_Reloading UMETA(DisplayName = "Reloading"),
+	EOS_InAir UMETA(DisplayName = "InAir"),
+
+	EOS_MAX UMETA(DisplayName = "DefaultMAX")
+};
 /**
  * 
  */
@@ -76,4 +86,8 @@ private:
 	//True when reloading, use to prevent Aim Offset while reloading 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = TurnInPlace, meta = (AllowPrivateAccess = "true"))
 	bool bReloading;
+
+	//Offset State use to determine which Aim Offset to use
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = TurnInPlace, meta = (AllowPrivateAccess = "true"))
+	EOffsetState OffsetState;
 };
