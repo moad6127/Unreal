@@ -13,8 +13,8 @@ UShooterAnimInstance::UShooterAnimInstance():
 	MovementOffsetYaw(0.f),
 	LastMovementOffsetYaw(0.f),
 	bAiming(false),
-	CharacterYaw(0.f),
-	CharacterYawLastFrame(0.f),
+	TIPCharacterYaw(0.f),
+	TIPCharacterYawLastFrame(0.f),
 	RootYawOffset(0.f),
 	Pitch(0.f),
 	bReloading(false),
@@ -81,6 +81,7 @@ void UShooterAnimInstance::UpdateAnimationProperties(float DeltaTime)
 		}
 	}
 	TurnInPlace();
+	Lean(DeltaTime);
 }
 
 void UShooterAnimInstance::NativeInitializeAnimation()
@@ -100,20 +101,20 @@ void UShooterAnimInstance::TurnInPlace()
 	{
 		//제자리에서 돌지않고 캐릭터가 움직인다
 		RootYawOffset = 0.f;
-		CharacterYaw = ShooterCharacter->GetActorRotation().Yaw;
-		CharacterYawLastFrame = CharacterYaw;
+		TIPCharacterYaw = ShooterCharacter->GetActorRotation().Yaw;
+		TIPCharacterYawLastFrame = TIPCharacterYaw;
 		RotationCurveLastFrame = 0.f;
 		RotationCurve = 0.f;
 	}
 	else
 	{
-		CharacterYawLastFrame = CharacterYaw;
-		CharacterYaw = ShooterCharacter->GetActorRotation().Yaw;
+		TIPCharacterYawLastFrame = TIPCharacterYaw;
+		TIPCharacterYaw = ShooterCharacter->GetActorRotation().Yaw;
 
-		const float YawDelta{ CharacterYaw - CharacterYawLastFrame };
+		const float TIPYawDelta{ TIPCharacterYaw - TIPCharacterYawLastFrame };
 
 		//Root Yaw Offset를 -180~180으로 고정하고 업데이트 한다
-		RootYawOffset = UKismetMathLibrary::NormalizeAxis(RootYawOffset - YawDelta);
+		RootYawOffset = UKismetMathLibrary::NormalizeAxis(RootYawOffset - TIPYawDelta);
 
 		//1.0f 이면 터닝하는것이고 아니면 안하는것이다.
 		const float Turning{ GetCurveValue(TEXT("Turning")) };
@@ -135,4 +136,26 @@ void UShooterAnimInstance::TurnInPlace()
 		}
 		
 	}
+}
+
+void UShooterAnimInstance::Lean(float DeltaTime)
+{
+	if (ShooterCharacter == nullptr)
+	{
+		return;
+	}
+	CharacterYawLastFrame = CharacterYaw;
+	CharacterYaw = ShooterCharacter->GetActorRotation().Yaw;
+
+	const float Target{ (CharacterYaw - CharacterYawLastFrame) / DeltaTime };
+
+	const float Interp{ FMath::FInterpTo(YawDelta, Target,DeltaTime,6.f) };
+
+	YawDelta = FMath::Clamp(Interp, -90.f, 90.f);
+
+	if (GEngine)
+	{
+		GEngine->AddOnScreenDebugMessage(2, -1, FColor::Cyan, FString::Printf(TEXT("YawDelta : %f"), YawDelta));
+	}
+
 }
