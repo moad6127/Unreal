@@ -95,6 +95,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__ImpactParticles() { return STRUCT_OFFSET(AShooterCharacter, ImpactParticles); } \
 	FORCEINLINE static uint32 __PPO__BeamParticles() { return STRUCT_OFFSET(AShooterCharacter, BeamParticles); } \
 	FORCEINLINE static uint32 __PPO__bAiming() { return STRUCT_OFFSET(AShooterCharacter, bAiming); } \
+	FORCEINLINE static uint32 __PPO__CameraDefaultFOV() { return STRUCT_OFFSET(AShooterCharacter, CameraDefaultFOV); } \
+	FORCEINLINE static uint32 __PPO__CameraZoomedFOV() { return STRUCT_OFFSET(AShooterCharacter, CameraZoomedFOV); } \
 	FORCEINLINE static uint32 __PPO__ZoomInterSpeed() { return STRUCT_OFFSET(AShooterCharacter, ZoomInterSpeed); } \
 	FORCEINLINE static uint32 __PPO__CrosshairSpreadMultiplier() { return STRUCT_OFFSET(AShooterCharacter, CrosshairSpreadMultiplier); } \
 	FORCEINLINE static uint32 __PPO__CrosshairVelocityFactor() { return STRUCT_OFFSET(AShooterCharacter, CrosshairVelocityFactor); } \

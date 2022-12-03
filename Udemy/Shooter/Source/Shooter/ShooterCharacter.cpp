@@ -30,14 +30,14 @@ AShooterCharacter::AShooterCharacter() :
 	// 마우스의 감도들
 	MouseHipTurnRate(1.0f),
 	MouseHipLookUpRate(1.0f),
-	MouseAimingTurnRate(0.2f),
-	MouseAimingLookUpRate(0.2f),
+	MouseAimingTurnRate(0.6f),
+	MouseAimingLookUpRate(0.6f),
 
 	//조준을 했는지 않했는지 판단하는 변수
 	bAiming(false),
 	//카메라 뷰 값
 	CameraDefaultFOV(0.f), // beginplay에서 설정함
-	CameraZoomedFOV(35.f),
+	CameraZoomedFOV(25.f),
 	CameraCurrentFOV(0.f),
 	ZoomInterSpeed(20.f),
 
@@ -84,7 +84,7 @@ AShooterCharacter::AShooterCharacter() :
 	CameraBoom->SetupAttachment(RootComponent);
 	CameraBoom->TargetArmLength = 180.f;//카메라가 캐릭터 뒤에서 따라다닐 길이
 	CameraBoom->bUsePawnControlRotation = true;//컨트롤러를 기준으로 회전
-	CameraBoom->SocketOffset = FVector(0.f, 50.f,45.f);
+	CameraBoom->SocketOffset = FVector(0.f, 50.f,70.f);
 
 	//카메라 만들기
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));

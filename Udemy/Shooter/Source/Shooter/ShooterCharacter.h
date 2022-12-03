@@ -221,9 +221,11 @@ private:
 	bool bAiming;
 
 	//기본 카메라 시야값
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	float CameraDefaultFOV;
 
 	//줌했을때 카메라 시야값
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	float CameraZoomedFOV;
 
 	//지금 프레임에서의 카메라 뷰
