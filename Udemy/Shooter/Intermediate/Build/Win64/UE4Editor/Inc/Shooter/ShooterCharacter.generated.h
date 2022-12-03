@@ -116,7 +116,11 @@ public: \
 	FORCEINLINE static uint32 __PPO__HandSceneComponent() { return STRUCT_OFFSET(AShooterCharacter, HandSceneComponent); } \
 	FORCEINLINE static uint32 __PPO__bCrouching() { return STRUCT_OFFSET(AShooterCharacter, bCrouching); } \
 	FORCEINLINE static uint32 __PPO__BaseMovementSpeed() { return STRUCT_OFFSET(AShooterCharacter, BaseMovementSpeed); } \
-	FORCEINLINE static uint32 __PPO__CrouchMovemnetSpeed() { return STRUCT_OFFSET(AShooterCharacter, CrouchMovemnetSpeed); }
+	FORCEINLINE static uint32 __PPO__CrouchMovemnetSpeed() { return STRUCT_OFFSET(AShooterCharacter, CrouchMovemnetSpeed); } \
+	FORCEINLINE static uint32 __PPO__standingCapsuleHlfHeight() { return STRUCT_OFFSET(AShooterCharacter, standingCapsuleHlfHeight); } \
+	FORCEINLINE static uint32 __PPO__CrouchingCapsuleHalfHeight() { return STRUCT_OFFSET(AShooterCharacter, CrouchingCapsuleHalfHeight); } \
+	FORCEINLINE static uint32 __PPO__BaseGroundFriction() { return STRUCT_OFFSET(AShooterCharacter, BaseGroundFriction); } \
+	FORCEINLINE static uint32 __PPO__CrouchGrouundFriction() { return STRUCT_OFFSET(AShooterCharacter, CrouchGrouundFriction); }
 
 
 #define Shooter_Source_Shooter_ShooterCharacter_h_23_PROLOG

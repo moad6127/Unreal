@@ -15,6 +15,7 @@
 #include "Weapon.h"
 #include "Components/SphereComponent.h"
 #include "Components/BoxComponent.h"
+#include "Components/CapsuleComponent.h"
 
 // Sets default values
 AShooterCharacter::AShooterCharacter() :
@@ -67,7 +68,12 @@ AShooterCharacter::AShooterCharacter() :
 	CombatState(ECombatState::ECS_Unoccupied),
 	bCrouching(false),
 	BaseMovementSpeed(650.f),
-	CrouchMovemnetSpeed(300.f)
+	CrouchMovemnetSpeed(300.f),
+
+	standingCapsuleHlfHeight(88.f),
+	CrouchingCapsuleHalfHeight(44.f),
+	BaseGroundFriction(2.f),
+	CrouchGrouundFriction(100.f)
 
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -78,7 +84,7 @@ AShooterCharacter::AShooterCharacter() :
 	CameraBoom->SetupAttachment(RootComponent);
 	CameraBoom->TargetArmLength = 180.f;//카메라가 캐릭터 뒤에서 따라다닐 길이
 	CameraBoom->bUsePawnControlRotation = true;//컨트롤러를 기준으로 회전
-	CameraBoom->SocketOffset = FVector(0.f, 50.f, 70.f);
+	CameraBoom->SocketOffset = FVector(0.f, 50.f,45.f);
 
 	//카메라 만들기
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
@@ -681,10 +687,12 @@ void AShooterCharacter::CrouchButtonPressed()
 	if (bCrouching)
 	{
 		GetCharacterMovement()->MaxWalkSpeed = CrouchMovemnetSpeed;
+		GetCharacterMovement()->GroundFriction = CrouchGrouundFriction;
 	}
 	else
 	{
 		GetCharacterMovement()->MaxWalkSpeed = BaseMovementSpeed;
+		GetCharacterMovement()->GroundFriction = BaseGroundFriction;
 	}
 }
 
@@ -699,6 +707,33 @@ void AShooterCharacter::Jump()
 	{
 		Super::Jump();
 	}
+}
+
+void AShooterCharacter::InterpCapsuleHalfHeight(float DeltaTime)
+{
+	float TargetCapsulHalfHeight{};
+	if (bCrouching)
+	{
+		TargetCapsulHalfHeight = CrouchingCapsuleHalfHeight;
+	}
+	else
+	{
+		TargetCapsulHalfHeight = standingCapsuleHlfHeight;
+	}
+	const float InterpHalfHeight{ 
+		FMath::FInterpTo(GetCapsuleComponent()->GetScaledCapsuleHalfHeight(),
+		TargetCapsulHalfHeight,
+		DeltaTime,
+		20.f) };
+
+	//웅크리고 있으면 음수, 서있을경우 양수
+	const float DeltaCapsuleHalfHeight{ InterpHalfHeight - GetCapsuleComponent()->GetScaledCapsuleHalfHeight() };
+	const FVector MeshOffset{ 0.f,0.f, -DeltaCapsuleHalfHeight };
+	GetMesh()->AddLocalOffset(MeshOffset);
+
+
+	GetCapsuleComponent()->SetCapsuleHalfHeight(InterpHalfHeight);
+
 }
 
 // Called every frame
@@ -717,6 +752,9 @@ void AShooterCharacter::Tick(float DeltaTime)
 
 	//아이템 카운트를 체크하고 트루면 추적한다.
 	TraceForItem();
+
+	//캐릭터캡슐을 웅크리기와 서있을때 다르게 설정하기
+	InterpCapsuleHalfHeight(DeltaTime);
 }
 
 // Called to bind functionality to input
