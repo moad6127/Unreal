@@ -26,3 +26,52 @@ void AAmmo::BeginPlay()
 {
 	Super::BeginPlay();
 }
+
+void AAmmo::SetItemProperties(EItemState State)
+{
+	Super::SetItemProperties(State);
+	switch (State)
+	{
+	case EItemState::EIS_Pickup: //아이템이 바닥에 떨여져 있는 상태
+		//mesh 설정
+		AmmoMesh->SetSimulatePhysics(false);
+		AmmoMesh->SetEnableGravity(false);
+		AmmoMesh->SetVisibility(true);
+		AmmoMesh->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+		AmmoMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+
+
+		break;
+	case EItemState::EIS_Equipped: //현재 아이템을 캐릭터가 장착한 상태
+		//mesh 설정
+		AmmoMesh->SetSimulatePhysics(false);
+		AmmoMesh->SetEnableGravity(false);
+		AmmoMesh->SetVisibility(true);
+		AmmoMesh->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+		AmmoMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+
+		break;
+	case EItemState::EIS_Falling: //현재 아이템이 떨어지는 중
+		//mesh 설정
+		AmmoMesh->SetSimulatePhysics(true);
+		AmmoMesh->SetEnableGravity(true);
+		AmmoMesh->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+		AmmoMesh->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+		AmmoMesh->SetCollisionResponseToChannel(ECollisionChannel::ECC_WorldStatic, ECollisionResponse::ECR_Block);
+
+		break;
+	case EItemState::EIS_EquipInterping:
+		//mesh 설정
+		AmmoMesh->SetSimulatePhysics(false);
+		AmmoMesh->SetEnableGravity(false);
+		AmmoMesh->SetVisibility(true);
+		AmmoMesh->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+		AmmoMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+		break;
+	case EItemState::EIS_PickedUp:
+
+		break;
+
+
+	}
+}

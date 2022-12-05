@@ -65,7 +65,7 @@ protected:
 	void SetActiveStars();
 
 	//상태에 따라 아이템의 속성을 설정 
-	void SetItemProperties(EItemState State);
+	virtual void SetItemProperties(EItemState State);
 
 	//Called when ItemInterpTimer is finished
 	void FinishInterping();
