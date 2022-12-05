@@ -166,6 +166,7 @@ public:
 	FORCEINLINE USkeletalMeshComponent* GetItemMesh() const { return ItemMesh; }
 	FORCEINLINE USoundCue* GetPickupSound() const { return PickupSound; }
 	FORCEINLINE USoundCue* GetEquipSound() const { return EquipSound; }
+	FORCEINLINE int32 GetItmeCount() const { return ItemCount; }
 
 	//Called from the ShooterCharacter
 	void StartItemCurve(AShooterCharacter* Char);

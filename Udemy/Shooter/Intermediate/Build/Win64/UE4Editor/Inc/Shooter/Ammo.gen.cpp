@@ -18,6 +18,7 @@ void EmptyLinkFunctionForGeneratedCodeAmmo() {}
 	SHOOTER_API UClass* Z_Construct_UClass_AItem();
 	UPackage* Z_Construct_UPackage__Script_Shooter();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
+	SHOOTER_API UEnum* Z_Construct_UEnum_Shooter_EAmmoType();
 // End Cross Module References
 	void AAmmo::StaticRegisterNativesAAmmo()
 	{
@@ -36,6 +37,11 @@ void EmptyLinkFunctionForGeneratedCodeAmmo() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_AmmoMesh_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_AmmoMesh;
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_AmmoType_Underlying;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_AmmoType_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_AmmoType;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -62,8 +68,21 @@ void EmptyLinkFunctionForGeneratedCodeAmmo() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAmmo_Statics::NewProp_AmmoMesh = { "AmmoMesh", nullptr, (EPropertyFlags)0x00400000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AAmmo, AmmoMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AAmmo_Statics::NewProp_AmmoMesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AAmmo_Statics::NewProp_AmmoMesh_MetaData)) };
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_AAmmo_Statics::NewProp_AmmoType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AAmmo_Statics::NewProp_AmmoType_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Ammo" },
+		{ "Comment", "//Ammo type for the ammo\n" },
+		{ "ModuleRelativePath", "Ammo.h" },
+		{ "ToolTip", "Ammo type for the ammo" },
+	};
+#endif
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AAmmo_Statics::NewProp_AmmoType = { "AmmoType", nullptr, (EPropertyFlags)0x0040000000000005, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AAmmo, AmmoType), Z_Construct_UEnum_Shooter_EAmmoType, METADATA_PARAMS(Z_Construct_UClass_AAmmo_Statics::NewProp_AmmoType_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AAmmo_Statics::NewProp_AmmoType_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AAmmo_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAmmo_Statics::NewProp_AmmoMesh,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAmmo_Statics::NewProp_AmmoType_Underlying,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAmmo_Statics::NewProp_AmmoType,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AAmmo_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AAmmo>::IsAbstract,
@@ -92,7 +111,7 @@ void EmptyLinkFunctionForGeneratedCodeAmmo() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AAmmo, 1866217163);
+	IMPLEMENT_CLASS(AAmmo, 1712491325);
 	template<> SHOOTER_API UClass* StaticClass<AAmmo>()
 	{
 		return AAmmo::StaticClass();
