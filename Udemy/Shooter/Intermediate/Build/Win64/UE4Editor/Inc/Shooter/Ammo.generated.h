@@ -60,7 +60,8 @@ public: \
 
 #define Shooter_Source_Shooter_Ammo_h_17_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__AmmoMesh() { return STRUCT_OFFSET(AAmmo, AmmoMesh); } \
-	FORCEINLINE static uint32 __PPO__AmmoType() { return STRUCT_OFFSET(AAmmo, AmmoType); }
+	FORCEINLINE static uint32 __PPO__AmmoType() { return STRUCT_OFFSET(AAmmo, AmmoType); } \
+	FORCEINLINE static uint32 __PPO__AmmoIconTexture() { return STRUCT_OFFSET(AAmmo, AmmoIconTexture); }
 
 
 #define Shooter_Source_Shooter_Ammo_h_14_PROLOG
