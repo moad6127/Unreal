@@ -122,7 +122,14 @@ public: \
 	FORCEINLINE static uint32 __PPO__standingCapsuleHlfHeight() { return STRUCT_OFFSET(AShooterCharacter, standingCapsuleHlfHeight); } \
 	FORCEINLINE static uint32 __PPO__CrouchingCapsuleHalfHeight() { return STRUCT_OFFSET(AShooterCharacter, CrouchingCapsuleHalfHeight); } \
 	FORCEINLINE static uint32 __PPO__BaseGroundFriction() { return STRUCT_OFFSET(AShooterCharacter, BaseGroundFriction); } \
-	FORCEINLINE static uint32 __PPO__CrouchGrouundFriction() { return STRUCT_OFFSET(AShooterCharacter, CrouchGrouundFriction); }
+	FORCEINLINE static uint32 __PPO__CrouchGrouundFriction() { return STRUCT_OFFSET(AShooterCharacter, CrouchGrouundFriction); } \
+	FORCEINLINE static uint32 __PPO__WeaponInterpComp() { return STRUCT_OFFSET(AShooterCharacter, WeaponInterpComp); } \
+	FORCEINLINE static uint32 __PPO__InterComp() { return STRUCT_OFFSET(AShooterCharacter, InterComp); } \
+	FORCEINLINE static uint32 __PPO__InterComp2() { return STRUCT_OFFSET(AShooterCharacter, InterComp2); } \
+	FORCEINLINE static uint32 __PPO__InterComp3() { return STRUCT_OFFSET(AShooterCharacter, InterComp3); } \
+	FORCEINLINE static uint32 __PPO__InterComp4() { return STRUCT_OFFSET(AShooterCharacter, InterComp4); } \
+	FORCEINLINE static uint32 __PPO__InterComp5() { return STRUCT_OFFSET(AShooterCharacter, InterComp5); } \
+	FORCEINLINE static uint32 __PPO__InterComp6() { return STRUCT_OFFSET(AShooterCharacter, InterComp6); }
 
 
 #define Shooter_Source_Shooter_ShooterCharacter_h_23_PROLOG

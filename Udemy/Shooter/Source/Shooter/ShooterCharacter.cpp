@@ -105,6 +105,29 @@ AShooterCharacter::AShooterCharacter() :
 
 	//HandSceneCompont만들기(재장전 할때 클립분리시 필요)
 	HandSceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("HandSceneComp"));
+
+	//보간 구성요소 생성
+	WeaponInterpComp = CreateDefaultSubobject<USceneComponent>(TEXT("Weapon Interpolation Component"));
+	WeaponInterpComp->SetupAttachment(GetFollowCamera());
+
+	InterComp = CreateDefaultSubobject<USceneComponent>(TEXT("Interpolation Component "));
+	InterComp->SetupAttachment(GetFollowCamera());
+
+	InterComp2 = CreateDefaultSubobject<USceneComponent>(TEXT("Interpolation Component 2"));
+	InterComp2->SetupAttachment(GetFollowCamera());
+
+	InterComp3 = CreateDefaultSubobject<USceneComponent>(TEXT("Interpolation Component 3"));
+	InterComp3->SetupAttachment(GetFollowCamera());
+
+	InterComp4 = CreateDefaultSubobject<USceneComponent>(TEXT("Interpolation Component 4"));
+	InterComp4->SetupAttachment(GetFollowCamera());
+
+	InterComp5 = CreateDefaultSubobject<USceneComponent>(TEXT("Interpolation Component 5"));
+	InterComp5->SetupAttachment(GetFollowCamera());
+
+	InterComp6 = CreateDefaultSubobject<USceneComponent>(TEXT("Interpolation Component 6"));
+	InterComp6->SetupAttachment(GetFollowCamera());
+
 }
 
 // Called when the game starts or when spawned
