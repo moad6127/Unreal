@@ -812,24 +812,40 @@ void AShooterCharacter::initializeInterpLocation()
 	FInterpLocation WeaponLocation{ WeaponInterpComp, 0 };
 	InterpLocation.Add(WeaponLocation);
 
-	FInterpLocation InterpLoc1{ InterComp,1 };
+	FInterpLocation InterpLoc1{ InterComp,0 };
 	InterpLocation.Add(InterpLoc1);
 
-	FInterpLocation InterpLoc2{ InterComp2,2 };
+	FInterpLocation InterpLoc2{ InterComp2,0 };
 	InterpLocation.Add(InterpLoc2);
 
-	FInterpLocation InterpLoc3{ InterComp3,3 };
+	FInterpLocation InterpLoc3{ InterComp3,0 };
 	InterpLocation.Add(InterpLoc3);
 
-	FInterpLocation InterpLoc4{ InterComp4,4 };
+	FInterpLocation InterpLoc4{ InterComp4,0 };
 	InterpLocation.Add(InterpLoc4);
 
-	FInterpLocation InterpLoc5{ InterComp5,5 };
+	FInterpLocation InterpLoc5{ InterComp5,0 };
 	InterpLocation.Add(InterpLoc5);
 
-	FInterpLocation InterpLoc6{ InterComp6,6 };
+	FInterpLocation InterpLoc6{ InterComp6,0 };
 	InterpLocation.Add(InterpLoc6);
 }
+
+int32 AShooterCharacter::GetInterpLocationIndex()
+{
+	int32 LowestIndex = 1;
+	int32 LowestCount = INT_MAX;
+	for (int32 i = 1; i < InterpLocation.Num(); i++)
+	{
+		if (InterpLocation[i].ItemCount < LowestCount)
+		{
+			LowestIndex = i;
+			LowestCount = InterpLocation[i].ItemCount;
+		}
+	}
+	return LowestIndex;
+}
+
 
 // Called every frame
 void AShooterCharacter::Tick(float DeltaTime)
@@ -954,16 +970,17 @@ void AShooterCharacter::IncrementOverlappedItemCount(int8 Amount)
 	}
 }
 
-FVector AShooterCharacter::GetCameraInterpLocation()
-{
-	const FVector CameraWorldLocation{ FollowCamera->GetComponentLocation() };
-	const FVector CameraForward{ FollowCamera->GetForwardVector() };
-
-	// 원하는 위치는 = CameraWorldLocation +CameraForward * A + Up * B;
-	return CameraWorldLocation + CameraForward * CameraInterpDistance
-		+ FVector(0.f, 0.f, CameraInterpElevtion);
-
-}
+//AItem에 InterpLocaiton을 얻는 함수가 있어서 더이상 필요 없음
+//FVector AShooterCharacter::GetCameraInterpLocation()
+//{
+//	const FVector CameraWorldLocation{ FollowCamera->GetComponentLocation() };
+//	const FVector CameraForward{ FollowCamera->GetForwardVector() };
+//
+//	// 원하는 위치는 = CameraWorldLocation +CameraForward * A + Up * B;
+//	return CameraWorldLocation + CameraForward * CameraInterpDistance
+//		+ FVector(0.f, 0.f, CameraInterpElevtion);
+//
+//}
 
 void AShooterCharacter::GetPickupItem(AItem* Item)
 {
@@ -992,5 +1009,18 @@ FInterpLocation AShooterCharacter::GetInterpLocation(int32 Index)
 		return InterpLocation[Index];
 	}
 	return FInterpLocation();
+}
+
+
+void AShooterCharacter::IncrementInterpLocItemCount(int32 Index, int32 Amount)
+{
+	if (Amount < -1 || Amount > 1)
+	{
+		return;
+	}
+	if (InterpLocation.Num() >= Index)
+	{
+		InterpLocation[Index].ItemCount += Amount;
+	}
 }
 

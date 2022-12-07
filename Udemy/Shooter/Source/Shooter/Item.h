@@ -80,6 +80,9 @@ protected:
 
 	//아이템 획득하는 과정에서 강조효과 넣기
 	void ItemInterp(float DeltaTime);
+
+	//Interp위치를 아이템 타입에 따라 정하고 얻는함수
+	FVector GetInterpLocation();
 public:	
 	// Called every frame 
 	virtual void Tick(float DeltaTime) override;
@@ -170,6 +173,9 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = ItemProperties, meta = (AllowPrivateAccess = "true"))
 	EItemType ItemType;
 
+	//Index of the Interp location this item is interping to
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = ItemProperties, meta = (AllowPrivateAccess = "true"))
+	int32 InterpLocIndex;
 public:
 	FORCEINLINE UWidgetComponent* GetPickupWidget() const { return PickupWidget; }
 	FORCEINLINE USphereComponent* GetAreaSphere() const { return AreaSphere; }

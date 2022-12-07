@@ -90,7 +90,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__ItemScaleCurve() { return STRUCT_OFFSET(AItem, ItemScaleCurve); } \
 	FORCEINLINE static uint32 __PPO__PickupSound() { return STRUCT_OFFSET(AItem, PickupSound); } \
 	FORCEINLINE static uint32 __PPO__EquipSound() { return STRUCT_OFFSET(AItem, EquipSound); } \
-	FORCEINLINE static uint32 __PPO__ItemType() { return STRUCT_OFFSET(AItem, ItemType); }
+	FORCEINLINE static uint32 __PPO__ItemType() { return STRUCT_OFFSET(AItem, ItemType); } \
+	FORCEINLINE static uint32 __PPO__InterpLocIndex() { return STRUCT_OFFSET(AItem, InterpLocIndex); }
 
 
 #define Shooter_Source_Shooter_Item_h_43_PROLOG

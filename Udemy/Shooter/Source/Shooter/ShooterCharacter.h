@@ -157,6 +157,8 @@ protected:
 
 	void initializeInterpLocation();
 
+
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -429,7 +431,8 @@ public:
 	//오버랩카운트를 더하거나 뺀다 그리고 bShouldTraceForItem을 업데이트 한다
 	void IncrementOverlappedItemCount(int8 Amount);
 
-	FVector GetCameraInterpLocation();
+	//AItem에 InterpLocaiton을 얻는 함수가 있어서 더이상 필요 없음
+	//FVector GetCameraInterpLocation();
 
 	void GetPickupItem(AItem* Item);
 
@@ -438,4 +441,9 @@ public:
 	FORCEINLINE bool GetCrouching() const { return bCrouching; }
 
 	FInterpLocation GetInterpLocation(int32 Index);
+
+	//가장 작은 인덱스를 반환한다
+	int32 GetInterpLocationIndex();
+
+	void IncrementInterpLocItemCount(int32 Index, int32 Amount);
 };

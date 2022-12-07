@@ -24,7 +24,8 @@ AItem::AItem() :
 	ItemInterpX(0.f),
 	ItemInterpY(0.f),
 	InterpInitalYawOffset(0.f),
-	ItemType(EItemType::EIT_MAX)
+	ItemType(EItemType::EIT_MAX),
+	InterpLocIndex(0)
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -206,6 +207,8 @@ void AItem::FinishInterping()
 	bInterping = false;
 	if (Character)
 	{
+		//효과가끝나면 interpLocIndex의 배열에 -1 한다
+		Character->IncrementInterpLocItemCount(InterpLocIndex, -1);
 		Character->GetPickupItem(this);
 	}
 	//줄인 스케일을 다시 원상태로 복귀하기
@@ -226,7 +229,7 @@ void AItem::ItemInterp(float DeltaTime)
 		//인터핑이 시작된 아이템의 위치
 		FVector ItemLocation = ItemIterpStartLocation;
 		//카메라 앞의 위치얻기
-		const FVector CameraInterpLocation{ Character->GetCameraInterpLocation() };
+		const FVector CameraInterpLocation{ GetInterpLocation()};
 
 		//카메라에 보이는 위치와 아이템의 시작위치 차이(x와 y는 0인)
 		const FVector ItemToCamera{ FVector(0.f,0.f,(CameraInterpLocation - ItemLocation).Z) };
@@ -262,6 +265,24 @@ void AItem::ItemInterp(float DeltaTime)
 
 }
 
+FVector AItem::GetInterpLocation()
+{
+	if (Character == nullptr)
+	{
+		return FVector(0.f);
+	}
+	switch (ItemType)
+	{
+	case EItemType::EIT_Ammo:
+		return Character->GetInterpLocation(InterpLocIndex).SceneComponent->GetComponentLocation();
+		break;
+	case EItemType::EIT_Weapon:
+		return Character->GetInterpLocation(0).SceneComponent->GetComponentLocation();
+		break;
+	}
+	return FVector();
+}
+
 // Called every frame
 void AItem::Tick(float DeltaTime)
 {
@@ -283,6 +304,11 @@ void AItem::StartItemCurve(AShooterCharacter* Char)
 {
 	//캐릭터를 저장
 	Character = Char;
+	//배열의 인덱스를 가져온다
+	InterpLocIndex = Character->GetInterpLocationIndex();
+	// 배열의 인덱스에 아이템 카운트를 +1 한다
+	Character->IncrementInterpLocItemCount(InterpLocIndex, 1);
+
 	if (PickupSound)
 	{
 		UGameplayStatics::PlaySound2D(this, PickupSound);
