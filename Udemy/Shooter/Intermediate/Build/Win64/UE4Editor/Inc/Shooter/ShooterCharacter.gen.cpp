@@ -15,6 +15,8 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 // Cross Module References
 	SHOOTER_API UEnum* Z_Construct_UEnum_Shooter_ECombatState();
 	UPackage* Z_Construct_UPackage__Script_Shooter();
+	SHOOTER_API UScriptStruct* Z_Construct_UScriptStruct_FInterpLocation();
+	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 	SHOOTER_API UClass* Z_Construct_UClass_AShooterCharacter_NoRegister();
 	SHOOTER_API UClass* Z_Construct_UClass_AShooterCharacter();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
@@ -28,7 +30,6 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	SHOOTER_API UEnum* Z_Construct_UEnum_Shooter_EAmmoType();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FTransform();
-	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 // End Cross Module References
 	static UEnum* ECombatState_StaticEnum()
 	{
@@ -92,6 +93,107 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 		}
 		return ReturnEnum;
 	}
+class UScriptStruct* FInterpLocation::StaticStruct()
+{
+	static class UScriptStruct* Singleton = NULL;
+	if (!Singleton)
+	{
+		extern SHOOTER_API uint32 Get_Z_Construct_UScriptStruct_FInterpLocation_Hash();
+		Singleton = GetStaticStruct(Z_Construct_UScriptStruct_FInterpLocation, Z_Construct_UPackage__Script_Shooter(), TEXT("InterpLocation"), sizeof(FInterpLocation), Get_Z_Construct_UScriptStruct_FInterpLocation_Hash());
+	}
+	return Singleton;
+}
+template<> SHOOTER_API UScriptStruct* StaticStruct<FInterpLocation>()
+{
+	return FInterpLocation::StaticStruct();
+}
+static FCompiledInDeferStruct Z_CompiledInDeferStruct_UScriptStruct_FInterpLocation(FInterpLocation::StaticStruct, TEXT("/Script/Shooter"), TEXT("InterpLocation"), false, nullptr, nullptr);
+static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
+{
+	FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation()
+	{
+		UScriptStruct::DeferCppStructOps<FInterpLocation>(FName(TEXT("InterpLocation")));
+	}
+} ScriptStruct_Shooter_StaticRegisterNativesFInterpLocation;
+	struct Z_Construct_UScriptStruct_FInterpLocation_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
+#endif
+		static void* NewStructOps();
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SceneComponent_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_SceneComponent;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ItemCount_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_ItemCount;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UE4CodeGen_Private::FStructParams ReturnStructParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FInterpLocation_Statics::Struct_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "ModuleRelativePath", "ShooterCharacter.h" },
+	};
+#endif
+	void* Z_Construct_UScriptStruct_FInterpLocation_Statics::NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FInterpLocation>();
+	}
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FInterpLocation_Statics::NewProp_SceneComponent_MetaData[] = {
+		{ "Category", "InterpLocation" },
+		{ "Comment", "//ScecnComponent to use for its location for interping\n" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "ShooterCharacter.h" },
+		{ "ToolTip", "ScecnComponent to use for its location for interping" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FInterpLocation_Statics::NewProp_SceneComponent = { "SceneComponent", nullptr, (EPropertyFlags)0x00100000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FInterpLocation, SceneComponent), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UScriptStruct_FInterpLocation_Statics::NewProp_SceneComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInterpLocation_Statics::NewProp_SceneComponent_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FInterpLocation_Statics::NewProp_ItemCount_MetaData[] = {
+		{ "Category", "InterpLocation" },
+		{ "Comment", "//Number of items interping to/at this scene comp location\n" },
+		{ "ModuleRelativePath", "ShooterCharacter.h" },
+		{ "ToolTip", "Number of items interping to/at this scene comp location" },
+	};
+#endif
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FInterpLocation_Statics::NewProp_ItemCount = { "ItemCount", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FInterpLocation, ItemCount), METADATA_PARAMS(Z_Construct_UScriptStruct_FInterpLocation_Statics::NewProp_ItemCount_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInterpLocation_Statics::NewProp_ItemCount_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FInterpLocation_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInterpLocation_Statics::NewProp_SceneComponent,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInterpLocation_Statics::NewProp_ItemCount,
+	};
+	const UE4CodeGen_Private::FStructParams Z_Construct_UScriptStruct_FInterpLocation_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_Shooter,
+		nullptr,
+		&NewStructOps,
+		"InterpLocation",
+		sizeof(FInterpLocation),
+		alignof(FInterpLocation),
+		Z_Construct_UScriptStruct_FInterpLocation_Statics::PropPointers,
+		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInterpLocation_Statics::PropPointers),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000005),
+		METADATA_PARAMS(Z_Construct_UScriptStruct_FInterpLocation_Statics::Struct_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInterpLocation_Statics::Struct_MetaDataParams))
+	};
+	UScriptStruct* Z_Construct_UScriptStruct_FInterpLocation()
+	{
+#if WITH_HOT_RELOAD
+		extern uint32 Get_Z_Construct_UScriptStruct_FInterpLocation_Hash();
+		UPackage* Outer = Z_Construct_UPackage__Script_Shooter();
+		static UScriptStruct* ReturnStruct = FindExistingStructIfHotReloadOrDynamic(Outer, TEXT("InterpLocation"), sizeof(FInterpLocation), Get_Z_Construct_UScriptStruct_FInterpLocation_Hash(), false);
+#else
+		static UScriptStruct* ReturnStruct = nullptr;
+#endif
+		if (!ReturnStruct)
+		{
+			UE4CodeGen_Private::ConstructUScriptStruct(ReturnStruct, Z_Construct_UScriptStruct_FInterpLocation_Statics::ReturnStructParams);
+		}
+		return ReturnStruct;
+	}
+	uint32 Get_Z_Construct_UScriptStruct_FInterpLocation_Hash() { return 4190114197U; }
 	DEFINE_FUNCTION(AShooterCharacter::execGetCrosshairSpreadMultiplier)
 	{
 		P_FINISH;
@@ -522,6 +624,11 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_InterComp6_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_InterComp6;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_InterpLocation_Inner;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_InterpLocation_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_InterpLocation;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -1095,6 +1202,17 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AShooterCharacter_Statics::NewProp_InterComp6 = { "InterComp6", nullptr, (EPropertyFlags)0x004000000009001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AShooterCharacter, InterComp6), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_InterComp6_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_InterComp6_MetaData)) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AShooterCharacter_Statics::NewProp_InterpLocation_Inner = { "InterpLocation", nullptr, (EPropertyFlags)0x0000008000000000, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FInterpLocation, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AShooterCharacter_Statics::NewProp_InterpLocation_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "ShooterCharacter" },
+		{ "Comment", "//Array of interp location struct\n" },
+		{ "ModuleRelativePath", "ShooterCharacter.h" },
+		{ "ToolTip", "Array of interp location struct" },
+	};
+#endif
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AShooterCharacter_Statics::NewProp_InterpLocation = { "InterpLocation", nullptr, (EPropertyFlags)0x0040008000010015, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AShooterCharacter, InterpLocation), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_InterpLocation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_InterpLocation_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AShooterCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_CameraBoom,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_FollowCamera,
@@ -1153,6 +1271,8 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_InterComp4,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_InterComp5,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_InterComp6,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_InterpLocation_Inner,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_InterpLocation,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AShooterCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AShooterCharacter>::IsAbstract,
@@ -1181,7 +1301,7 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AShooterCharacter, 2691526431);
+	IMPLEMENT_CLASS(AShooterCharacter, 1423244715);
 	template<> SHOOTER_API UClass* StaticClass<AShooterCharacter>()
 	{
 		return AShooterCharacter::StaticClass();

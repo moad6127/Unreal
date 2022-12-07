@@ -144,6 +144,9 @@ void AShooterCharacter::BeginPlay()
 
 	InitializeAmmoMap();
 	GetCharacterMovement()->MaxWalkSpeed = BaseMovementSpeed;
+
+	//배열을 위해서 FInterpLocation구조체를 만든다
+	initializeInterpLocation();
 }
 
 void AShooterCharacter::MoveForward(float Value)
@@ -804,6 +807,30 @@ void AShooterCharacter::PickupAmmo(AAmmo* Ammo)
 	Ammo->Destroy();
 }
 
+void AShooterCharacter::initializeInterpLocation()
+{
+	FInterpLocation WeaponLocation{ WeaponInterpComp, 0 };
+	InterpLocation.Add(WeaponLocation);
+
+	FInterpLocation InterpLoc1{ InterComp,1 };
+	InterpLocation.Add(InterpLoc1);
+
+	FInterpLocation InterpLoc2{ InterComp2,2 };
+	InterpLocation.Add(InterpLoc2);
+
+	FInterpLocation InterpLoc3{ InterComp3,3 };
+	InterpLocation.Add(InterpLoc3);
+
+	FInterpLocation InterpLoc4{ InterComp4,4 };
+	InterpLocation.Add(InterpLoc4);
+
+	FInterpLocation InterpLoc5{ InterComp5,5 };
+	InterpLocation.Add(InterpLoc5);
+
+	FInterpLocation InterpLoc6{ InterComp6,6 };
+	InterpLocation.Add(InterpLoc6);
+}
+
 // Called every frame
 void AShooterCharacter::Tick(float DeltaTime)
 {
@@ -956,5 +983,14 @@ void AShooterCharacter::GetPickupItem(AItem* Item)
 	{
 		PickupAmmo(Ammo);
 	}
+}
+
+FInterpLocation AShooterCharacter::GetInterpLocation(int32 Index)
+{
+	if (Index <= InterpLocation.Num())
+	{
+		return InterpLocation[Index];
+	}
+	return FInterpLocation();
 }
 

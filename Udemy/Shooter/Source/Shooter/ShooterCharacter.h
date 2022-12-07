@@ -17,7 +17,19 @@ enum class ECombatState : uint8
 
 	ECS_MAX UMETA(DisplayName = "DefaultMAX")
 };
+USTRUCT(BlueprintType)
+struct FInterpLocation
+{
+	GENERATED_BODY()
 
+		//ScecnComponent to use for its location for interping
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	USceneComponent* SceneComponent;
+
+	//Number of items interping to/at this scene comp location
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	int32 ItemCount;
+};
 
 
 UCLASS()
@@ -142,6 +154,9 @@ protected:
 	void StopAiming();
 
 	void PickupAmmo(class AAmmo* Ammo);
+
+	void initializeInterpLocation();
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -379,7 +394,6 @@ private:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	USceneComponent* InterComp;
 
-
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	USceneComponent* InterComp2;
 
@@ -395,6 +409,9 @@ private:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	USceneComponent* InterComp6;
 
+	//Array of interp location struct
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	TArray<FInterpLocation> InterpLocation;
 public:
 	/*return CameraBoom subobject*/
 	FORCEINLINE USpringArmComponent* GetCarmeraBoom() const { return CameraBoom; }
@@ -419,4 +436,6 @@ public:
 	FORCEINLINE ECombatState GetCombatState() const { return CombatState; }
 
 	FORCEINLINE bool GetCrouching() const { return bCrouching; }
+
+	FInterpLocation GetInterpLocation(int32 Index);
 };
