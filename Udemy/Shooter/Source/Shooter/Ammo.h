@@ -27,6 +27,15 @@ protected:
 
 	//SetItmeProperties를 AmmoMesh로 설정할수있개 재정의 하기
 	virtual void SetItemProperties(EItemState State) override;
+
+	//겹침이 발생했을때 불려지는 함수
+	UFUNCTION()
+	void AmmoSphereOverlap(UPrimitiveComponent* OverlapComponent,
+		AActor* OtherActor,
+		UPrimitiveComponent* OtherComp,
+		int32 OterBodyIndex,
+		bool bFromSweep,
+		const FHitResult& SweepResult);
 private:
 	//Mesh for the Ammo pickup
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Ammo, meta = (AllowPrivateAccess = "true"))
@@ -39,6 +48,10 @@ private:
 	// The Texture for the ammo icon
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Ammo, meta = (AllowPrivateAccess = "true"))
 	UTexture2D* AmmoIconTexture;
+
+	//Overlap sphere for picking up the ammo
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Ammo, meta = (AllowPrivateAccess = "true"))
+	class USphereComponent* AmmoCollisionSphere;
 
 public:
 

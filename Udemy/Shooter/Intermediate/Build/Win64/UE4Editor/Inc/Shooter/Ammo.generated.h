@@ -8,14 +8,25 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UPrimitiveComponent;
+class AActor;
+struct FHitResult;
 #ifdef SHOOTER_Ammo_generated_h
 #error "Ammo.generated.h already included, missing '#pragma once' in Ammo.h"
 #endif
 #define SHOOTER_Ammo_generated_h
 
 #define Shooter_Source_Shooter_Ammo_h_17_SPARSE_DATA
-#define Shooter_Source_Shooter_Ammo_h_17_RPC_WRAPPERS
-#define Shooter_Source_Shooter_Ammo_h_17_RPC_WRAPPERS_NO_PURE_DECLS
+#define Shooter_Source_Shooter_Ammo_h_17_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execAmmoSphereOverlap);
+
+
+#define Shooter_Source_Shooter_Ammo_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execAmmoSphereOverlap);
+
+
 #define Shooter_Source_Shooter_Ammo_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAAmmo(); \
@@ -61,7 +72,8 @@ public: \
 #define Shooter_Source_Shooter_Ammo_h_17_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__AmmoMesh() { return STRUCT_OFFSET(AAmmo, AmmoMesh); } \
 	FORCEINLINE static uint32 __PPO__AmmoType() { return STRUCT_OFFSET(AAmmo, AmmoType); } \
-	FORCEINLINE static uint32 __PPO__AmmoIconTexture() { return STRUCT_OFFSET(AAmmo, AmmoIconTexture); }
+	FORCEINLINE static uint32 __PPO__AmmoIconTexture() { return STRUCT_OFFSET(AAmmo, AmmoIconTexture); } \
+	FORCEINLINE static uint32 __PPO__AmmoCollisionSphere() { return STRUCT_OFFSET(AAmmo, AmmoCollisionSphere); }
 
 
 #define Shooter_Source_Shooter_Ammo_h_14_PROLOG
