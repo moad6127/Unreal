@@ -83,10 +83,15 @@ protected:
 
 	//Interp위치를 아이템 타입에 따라 정하고 얻는함수
 	FVector GetInterpLocation();
+
+	void PlayPickupSound();
+
 public:	
 	// Called every frame 
 	virtual void Tick(float DeltaTime) override;
 
+	//Called in AShooterCharacter
+	void PlayEquipSound();
 private:
 	//아이템에 대한 스켈레톤 메쉬
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = ItemProperties, meta = (AllowPrivateAccess = "true"))
