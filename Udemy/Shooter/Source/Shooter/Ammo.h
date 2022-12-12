@@ -36,6 +36,8 @@ protected:
 		int32 OterBodyIndex,
 		bool bFromSweep,
 		const FHitResult& SweepResult);
+
+
 private:
 	//Mesh for the Ammo pickup
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Ammo, meta = (AllowPrivateAccess = "true"))
@@ -57,4 +59,8 @@ public:
 
 	FORCEINLINE UStaticMeshComponent* GetAmmoMesh() const { return AmmoMesh; }
 	FORCEINLINE EAmmoType GetAmmoType() const { return AmmoType; }
+
+
+	virtual void EnableCustomDepth() override;
+	virtual void DisableCustomDepth() override;
 };

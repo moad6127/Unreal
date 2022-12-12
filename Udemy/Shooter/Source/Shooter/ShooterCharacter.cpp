@@ -487,6 +487,7 @@ void AShooterCharacter::TraceForItem()
 			{
 				// 아이템의 픽업 위젯을 보이게 만들기
 				TraceHitItem->GetPickupWidget()->SetVisibility(true);
+				TraceHitItem->EnableCustomDepth();
 			}
 			//
 			if (TraceHitItemLastFrame)
@@ -496,6 +497,7 @@ void AShooterCharacter::TraceForItem()
 					//이전프레임과 다른 아이템이면 가시성을 끈다
 					//또는 널일경우에도
 					TraceHitItemLastFrame->GetPickupWidget()->SetVisibility(false);
+					TraceHitItemLastFrame->DisableCustomDepth();
 				}
 			}
 			// hititem을 저장한다
@@ -507,6 +509,7 @@ void AShooterCharacter::TraceForItem()
 		//아무것도 겹치지 않았을때
 		//마지막 프레임의 아이템의 위젯이 표시되면 안된다.
 		TraceHitItemLastFrame->GetPickupWidget()->SetVisibility(false);
+		TraceHitItemLastFrame->DisableCustomDepth();
 	}
 
 }

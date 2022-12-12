@@ -67,6 +67,9 @@ void AItem::BeginPlay()
 
 	//아이템 상태를 기반으로 속성 설정하기
 	SetItemProperties(ItemState);
+
+	//custom depth를 비활성화로 설정하기
+	InitalizeCustomDepth();
 }
 
 void AItem::OnSphereOverlap(UPrimitiveComponent* OverlapComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OterBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
@@ -296,6 +299,21 @@ void AItem::PlayPickupSound()
 			}
 		}
 	}
+}
+
+void AItem::EnableCustomDepth()
+{
+	ItemMesh->SetRenderCustomDepth(true);
+}
+
+void AItem::DisableCustomDepth()
+{
+	ItemMesh->SetRenderCustomDepth(false);
+}
+
+void AItem::InitalizeCustomDepth()
+{
+	DisableCustomDepth();
 }
 
 void AItem::PlayEquipSound()
