@@ -90,6 +90,8 @@ protected:
 
 	virtual void OnConstruction(const FTransform& Transform) override;
 
+	void EnableGlowMeterial();
+	void DisableGlowMeterial();
 public:	
 	// Called every frame 
 	virtual void Tick(float DeltaTime) override;

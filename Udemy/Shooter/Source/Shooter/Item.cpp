@@ -217,6 +217,9 @@ void AItem::FinishInterping()
 	}
 	//줄인 스케일을 다시 원상태로 복귀하기
 	SetActorScale3D(FVector(1.f));
+
+	DisableGlowMeterial();
+	DisableCustomDepth();
 }
 
 void AItem::ItemInterp(float DeltaTime)
@@ -323,6 +326,23 @@ void AItem::OnConstruction(const FTransform& Transform)
 	{
 		DynamicMaterialInstance = UMaterialInstanceDynamic::Create(MaterialInstance, this);
 		ItemMesh->SetMaterial(MaterialIndex, DynamicMaterialInstance);
+	}
+	EnableGlowMeterial();
+}
+
+void AItem::EnableGlowMeterial()
+{
+	if (DynamicMaterialInstance)
+	{
+		DynamicMaterialInstance->SetScalarParameterValue(TEXT("GlowBlendAlpha"), 0);
+	}
+}
+
+void AItem::DisableGlowMeterial()
+{
+	if (DynamicMaterialInstance)
+	{
+		DynamicMaterialInstance->SetScalarParameterValue(TEXT("GlowBlendAlpha"), 1);
 	}
 }
 
