@@ -146,6 +146,8 @@ void AShooterCharacter::BeginPlay()
 	}
 	//기본무기를 소환하고 메쉬를 연결한다
 	EquipWeapon( SpawnDefaultWeapon());
+	EquippedWeapon->DisableCustomDepth();
+	EquippedWeapon->DisableGlowMeterial();
 
 	InitializeAmmoMap();
 	GetCharacterMovement()->MaxWalkSpeed = BaseMovementSpeed;
