@@ -26,7 +26,8 @@ AItem::AItem() :
 	InterpInitalYawOffset(0.f),
 	ItemType(EItemType::EIT_MAX),
 	InterpLocIndex(0),
-	MaterialIndex(0)
+	MaterialIndex(0),
+	bCanChangeCustomDepth(true)
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -219,7 +220,9 @@ void AItem::FinishInterping()
 	SetActorScale3D(FVector(1.f));
 
 	DisableGlowMeterial();
+	bCanChangeCustomDepth = true;
 	DisableCustomDepth();
+
 }
 
 void AItem::ItemInterp(float DeltaTime)
@@ -307,12 +310,18 @@ void AItem::PlayPickupSound()
 
 void AItem::EnableCustomDepth()
 {
-	ItemMesh->SetRenderCustomDepth(true);
+	if (bCanChangeCustomDepth)
+	{
+		ItemMesh->SetRenderCustomDepth(true);
+	}
 }
 
 void AItem::DisableCustomDepth()
 {
-	ItemMesh->SetRenderCustomDepth(false);
+	if (bCanChangeCustomDepth)
+	{
+		ItemMesh->SetRenderCustomDepth(false);
+	}
 }
 
 void AItem::InitalizeCustomDepth()
@@ -406,5 +415,7 @@ void AItem::StartItemCurve(AShooterCharacter* Char)
 	const float ItemRotationYaw{ GetActorRotation().Yaw };
 	//ÃÊ±â offset Yaw°ª
 	InterpInitalYawOffset = ItemRotationYaw - CameraRotationoYaw;
+
+	bCanChangeCustomDepth = false;
 }
 
