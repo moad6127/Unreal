@@ -96,6 +96,7 @@ public: \
 	FORCEINLINE static uint32 __PPO__DynamicMaterialInstance() { return STRUCT_OFFSET(AItem, DynamicMaterialInstance); } \
 	FORCEINLINE static uint32 __PPO__MaterialInstance() { return STRUCT_OFFSET(AItem, MaterialInstance); } \
 	FORCEINLINE static uint32 __PPO__PulseCurve() { return STRUCT_OFFSET(AItem, PulseCurve); } \
+	FORCEINLINE static uint32 __PPO__InterpPulseCurve() { return STRUCT_OFFSET(AItem, InterpPulseCurve); } \
 	FORCEINLINE static uint32 __PPO__PulseCurveTime() { return STRUCT_OFFSET(AItem, PulseCurveTime); } \
 	FORCEINLINE static uint32 __PPO__GlowAmount() { return STRUCT_OFFSET(AItem, GlowAmount); } \
 	FORCEINLINE static uint32 __PPO__FresnelExponent() { return STRUCT_OFFSET(AItem, FresnelExponent); } \

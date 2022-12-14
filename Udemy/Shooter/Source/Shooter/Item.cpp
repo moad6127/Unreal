@@ -223,6 +223,7 @@ void AItem::FinishInterping()
 		//효과가끝나면 interpLocIndex의 배열에 -1 한다
 		Character->IncrementInterpLocItemCount(InterpLocIndex, -1);
 		Character->GetPickupItem(this);
+		SetItemState(EItemState::EIS_PickedUp);
 	}
 	//줄인 스케일을 다시 원상태로 복귀하기
 	SetActorScale3D(FVector(1.f));
@@ -357,17 +358,32 @@ void AItem::EnableGlowMeterial()
 
 void AItem::UpdatePulse()
 {
-	if (ItemState != EItemState::EIS_Pickup)
-	{
-		return;
-	}
-	const float ElapsedTime{ GetWorldTimerManager().GetTimerElapsed(PulseTimer) };
-	if (PulseCurve)
-	{
-		const FVector CurveValue{ PulseCurve->GetVectorValue(ElapsedTime) };
+	float ElapsedTime{};
+	FVector CurveValue{};
 
+	switch (ItemState)
+	{
+	case EItemState::EIS_Pickup:
+		if (PulseCurve)
+		{
+			ElapsedTime = GetWorldTimerManager().GetTimerElapsed(PulseTimer);
+			CurveValue = PulseCurve->GetVectorValue(ElapsedTime);
+		}
+		break;
+
+	case EItemState::EIS_EquipInterping:
+		if (InterpPulseCurve)
+		{
+			ElapsedTime = GetWorldTimerManager().GetTimerElapsed(ItemInterpTimer);
+			CurveValue = InterpPulseCurve->GetVectorValue(ElapsedTime);
+		}
+		break;
+
+	}
+	if (DynamicMaterialInstance)
+	{
 		DynamicMaterialInstance->SetScalarParameterValue(TEXT("GlowAmount"), CurveValue.X * GlowAmount);
-		DynamicMaterialInstance->SetScalarParameterValue(TEXT("FresenlExponent"), CurveValue.Y* FresnelExponent);
+		DynamicMaterialInstance->SetScalarParameterValue(TEXT("FresenlExponent"), CurveValue.Y * FresnelExponent);
 		DynamicMaterialInstance->SetScalarParameterValue(TEXT("FresnelReflection"), CurveValue.Z * FresnelReflectFraction);
 	}
 }
@@ -442,7 +458,9 @@ void AItem::StartItemCurve(AShooterCharacter* Char)
 	ItemIterpStartLocation = GetActorLocation();
 	bInterping = true;
 	SetItemState(EItemState::EIS_EquipInterping);
-	
+
+	GetWorldTimerManager().ClearTimer(PulseTimer);
+
 	GetWorldTimerManager().SetTimer(
 		ItemInterpTimer,
 		this,
