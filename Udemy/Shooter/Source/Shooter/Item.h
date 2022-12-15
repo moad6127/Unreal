@@ -229,6 +229,10 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = ItemProperties, meta = (AllowPrivateAccess = "true"))
 	float FresnelReflectFraction;
 
+	//Background for this itme in the inventory
+	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true"))
+	UTexture2D* IconBackground;
+
 public:
 	FORCEINLINE UWidgetComponent* GetPickupWidget() const { return PickupWidget; }
 	FORCEINLINE USphereComponent* GetAreaSphere() const { return AreaSphere; }
