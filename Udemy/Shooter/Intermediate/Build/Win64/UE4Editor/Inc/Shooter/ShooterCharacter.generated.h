@@ -139,7 +139,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__InterComp6() { return STRUCT_OFFSET(AShooterCharacter, InterComp6); } \
 	FORCEINLINE static uint32 __PPO__InterpLocation() { return STRUCT_OFFSET(AShooterCharacter, InterpLocation); } \
 	FORCEINLINE static uint32 __PPO__PickupSoundResetTime() { return STRUCT_OFFSET(AShooterCharacter, PickupSoundResetTime); } \
-	FORCEINLINE static uint32 __PPO__EquipSoundResetTime() { return STRUCT_OFFSET(AShooterCharacter, EquipSoundResetTime); }
+	FORCEINLINE static uint32 __PPO__EquipSoundResetTime() { return STRUCT_OFFSET(AShooterCharacter, EquipSoundResetTime); } \
+	FORCEINLINE static uint32 __PPO__Inventory() { return STRUCT_OFFSET(AShooterCharacter, Inventory); }
 
 
 #define Shooter_Source_Shooter_ShooterCharacter_h_35_PROLOG
