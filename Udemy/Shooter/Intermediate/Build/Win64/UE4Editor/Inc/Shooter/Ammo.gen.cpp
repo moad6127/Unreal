@@ -252,7 +252,7 @@ void EmptyLinkFunctionForGeneratedCodeAmmo() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AAmmo, 449333678);
+	IMPLEMENT_CLASS(AAmmo, 2300148759);
 	template<> SHOOTER_API UClass* StaticClass<AAmmo>()
 	{
 		return AAmmo::StaticClass();

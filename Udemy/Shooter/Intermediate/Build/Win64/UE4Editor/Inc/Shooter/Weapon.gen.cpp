@@ -252,7 +252,7 @@ void EmptyLinkFunctionForGeneratedCodeWeapon() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AWeapon, 1799461411);
+	IMPLEMENT_CLASS(AWeapon, 3103783786);
 	template<> SHOOTER_API UClass* StaticClass<AWeapon>()
 	{
 		return AWeapon::StaticClass();
