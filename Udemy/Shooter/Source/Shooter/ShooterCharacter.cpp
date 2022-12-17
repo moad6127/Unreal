@@ -544,6 +544,19 @@ void AShooterCharacter::EquipWeapon(AWeapon* WeaponToEquip)
 			//손소켓에 무기 연결하기
 			HandSocket->AttachActor(WeaponToEquip, GetMesh());
 		}
+
+		if (EquippedWeapon == nullptr)
+		{
+			// -1 == 아직 장착된 무기가 없는 상황, 아이콘 애니메이션이 필요 없다
+			EquipItemDelegate.Broadcast(-1, WeaponToEquip->GetSlotIndex());
+		}
+		else
+		{
+			EquipItemDelegate.Broadcast(EquippedWeapon->GetSlotIndex(), WeaponToEquip->GetSlotIndex());
+		}
+
+		
+
 		//현재 장착중인 무기를 디폴트 웨폰으로 설정하기
 		EquippedWeapon = WeaponToEquip;
 		EquippedWeapon->SetItemState(EItemState::EIS_Equipped);

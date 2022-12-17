@@ -13,8 +13,9 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 // Cross Module References
-	SHOOTER_API UEnum* Z_Construct_UEnum_Shooter_ECombatState();
+	SHOOTER_API UFunction* Z_Construct_UDelegateFunction_Shooter_EquipItemDelegate__DelegateSignature();
 	UPackage* Z_Construct_UPackage__Script_Shooter();
+	SHOOTER_API UEnum* Z_Construct_UEnum_Shooter_ECombatState();
 	SHOOTER_API UScriptStruct* Z_Construct_UScriptStruct_FInterpLocation();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 	SHOOTER_API UClass* Z_Construct_UClass_AShooterCharacter_NoRegister();
@@ -31,6 +32,42 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 	SHOOTER_API UEnum* Z_Construct_UEnum_Shooter_EAmmoType();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FTransform();
 // End Cross Module References
+	struct Z_Construct_UDelegateFunction_Shooter_EquipItemDelegate__DelegateSignature_Statics
+	{
+		struct _Script_Shooter_eventEquipItemDelegate_Parms
+		{
+			int32 CurrentSlotIndex;
+			int32 NewSlotIndex;
+		};
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_CurrentSlotIndex;
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_NewSlotIndex;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UDelegateFunction_Shooter_EquipItemDelegate__DelegateSignature_Statics::NewProp_CurrentSlotIndex = { "CurrentSlotIndex", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_Shooter_eventEquipItemDelegate_Parms, CurrentSlotIndex), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UDelegateFunction_Shooter_EquipItemDelegate__DelegateSignature_Statics::NewProp_NewSlotIndex = { "NewSlotIndex", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_Shooter_eventEquipItemDelegate_Parms, NewSlotIndex), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_Shooter_EquipItemDelegate__DelegateSignature_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_Shooter_EquipItemDelegate__DelegateSignature_Statics::NewProp_CurrentSlotIndex,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_Shooter_EquipItemDelegate__DelegateSignature_Statics::NewProp_NewSlotIndex,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_Shooter_EquipItemDelegate__DelegateSignature_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ShooterCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_Shooter_EquipItemDelegate__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_Shooter, nullptr, "EquipItemDelegate__DelegateSignature", nullptr, nullptr, sizeof(_Script_Shooter_eventEquipItemDelegate_Parms), Z_Construct_UDelegateFunction_Shooter_EquipItemDelegate__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_Shooter_EquipItemDelegate__DelegateSignature_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_Shooter_EquipItemDelegate__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_Shooter_EquipItemDelegate__DelegateSignature_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UDelegateFunction_Shooter_EquipItemDelegate__DelegateSignature()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UDelegateFunction_Shooter_EquipItemDelegate__DelegateSignature_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	static UEnum* ECombatState_StaticEnum()
 	{
 		static UEnum* Singleton = nullptr;
@@ -642,6 +679,10 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Inventory_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_Inventory;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EquipItemDelegate_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FMulticastDelegatePropertyParams NewProp_EquipItemDelegate;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -1257,6 +1298,16 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 	};
 #endif
 	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AShooterCharacter_Statics::NewProp_Inventory = { "Inventory", nullptr, (EPropertyFlags)0x0040000000020015, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AShooterCharacter, Inventory), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_Inventory_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_Inventory_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AShooterCharacter_Statics::NewProp_EquipItemDelegate_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Delegate" },
+		{ "Comment", "//Delegate for sending slot information to InventoryBar when equipping\n" },
+		{ "ModuleRelativePath", "ShooterCharacter.h" },
+		{ "ToolTip", "Delegate for sending slot information to InventoryBar when equipping" },
+	};
+#endif
+	const UE4CodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_AShooterCharacter_Statics::NewProp_EquipItemDelegate = { "EquipItemDelegate", nullptr, (EPropertyFlags)0x0040000010080000, UE4CodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AShooterCharacter, EquipItemDelegate), Z_Construct_UDelegateFunction_Shooter_EquipItemDelegate__DelegateSignature, METADATA_PARAMS(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_EquipItemDelegate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_EquipItemDelegate_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AShooterCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_CameraBoom,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_FollowCamera,
@@ -1321,6 +1372,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_EquipSoundResetTime,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_Inventory_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_Inventory,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_EquipItemDelegate,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AShooterCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AShooterCharacter>::IsAbstract,
@@ -1349,7 +1401,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AShooterCharacter, 3070129341);
+	IMPLEMENT_CLASS(AShooterCharacter, 1758942446);
 	template<> SHOOTER_API UClass* StaticClass<AShooterCharacter>()
 	{
 		return AShooterCharacter::StaticClass();
