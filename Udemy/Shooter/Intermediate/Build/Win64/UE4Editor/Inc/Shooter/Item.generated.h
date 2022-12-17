@@ -103,7 +103,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__FresnelReflectFraction() { return STRUCT_OFFSET(AItem, FresnelReflectFraction); } \
 	FORCEINLINE static uint32 __PPO__IconBackground() { return STRUCT_OFFSET(AItem, IconBackground); } \
 	FORCEINLINE static uint32 __PPO__IconItem() { return STRUCT_OFFSET(AItem, IconItem); } \
-	FORCEINLINE static uint32 __PPO__AmmoItem() { return STRUCT_OFFSET(AItem, AmmoItem); }
+	FORCEINLINE static uint32 __PPO__AmmoItem() { return STRUCT_OFFSET(AItem, AmmoItem); } \
+	FORCEINLINE static uint32 __PPO__SlotIndex() { return STRUCT_OFFSET(AItem, SlotIndex); }
 
 
 #define Shooter_Source_Shooter_Item_h_43_PROLOG

@@ -147,6 +147,7 @@ void AShooterCharacter::BeginPlay()
 	//기본무기를 소환하고 메쉬를 연결한다
 	EquipWeapon( SpawnDefaultWeapon());
 	Inventory.Add(EquippedWeapon);
+	EquippedWeapon->SetSlotIndex(0);
 	EquippedWeapon->DisableCustomDepth();
 	EquippedWeapon->DisableGlowMeterial();
 
@@ -1012,7 +1013,9 @@ void AShooterCharacter::GetPickupItem(AItem* Item)
 	{
 		if (Inventory.Num() < INVENTORY_CAPACITY)
 		{
+			Weapon->SetSlotIndex(Inventory.Num());
 			Inventory.Add(Weapon);
+			Weapon->SetItemState(EItemState::EIS_PickedUp);
 		}
 		else // 인벤토리가 가득 차있을경우 무기를 바꾼다.
 		{
