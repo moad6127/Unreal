@@ -487,6 +487,10 @@ void AShooterCharacter::TraceForItem()
 		if (ItemTracceResult.bBlockingHit)
 		{
 			TraceHitItem = Cast<AItem>(ItemTracceResult.GetActor());
+			if (TraceHitItem && TraceHitItem->GetItemState() == EItemState::EIS_EquipInterping)
+			{
+				TraceHitItem = nullptr;
+			}
 			if (TraceHitItem && TraceHitItem->GetPickupWidget())
 			{
 				// 아이템의 픽업 위젯을 보이게 만들기
@@ -580,6 +584,8 @@ void AShooterCharacter::SelectButtonPressed()
 	if (TraceHitItem)
 	{
 		TraceHitItem->StartItemCurve(this);
+		TraceHitItem = nullptr;
+
 	}
 
 }
@@ -912,7 +918,7 @@ void AShooterCharacter::FiveKeyPressed()
 
 void AShooterCharacter::ExchangeInventoryItem(int32 CurrentItemIndex, int32 NewItemIndex)
 {
-	if ((CurrentItemIndex == NewItemIndex) && (NewItemIndex >= Inventory.Num()))
+	if ((CurrentItemIndex == NewItemIndex) || (NewItemIndex >= Inventory.Num()))
 	{
 		return;
 	}
@@ -1006,6 +1012,7 @@ void AShooterCharacter::SwapWeapon(AWeapon* WeaponToSwap)
 	if (Inventory.Num() - 1 >= EquippedWeapon->GetSlotIndex())
 	{
 		Inventory[EquippedWeapon->GetSlotIndex()] = WeaponToSwap;
+		WeaponToSwap->SetSlotIndex(EquippedWeapon->GetSlotIndex());
 	}
 
 

@@ -184,6 +184,7 @@ void AItem::SetItemProperties(EItemState State)
 		ItemMesh->SetSimulatePhysics(true);
 		ItemMesh->SetEnableGravity(true);
 		ItemMesh->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+		ItemMesh->SetVisibility(true);
 		ItemMesh->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
 		ItemMesh->SetCollisionResponseToChannel(ECollisionChannel::ECC_WorldStatic, ECollisionResponse::ECR_Block);
 		//AreaSphere설정
@@ -237,7 +238,6 @@ void AItem::FinishInterping()
 		//효과가끝나면 interpLocIndex의 배열에 -1 한다
 		Character->IncrementInterpLocItemCount(InterpLocIndex, -1);
 		Character->GetPickupItem(this);
-		SetItemState(EItemState::EIS_PickedUp);
 	}
 	//줄인 스케일을 다시 원상태로 복귀하기
 	SetActorScale3D(FVector(1.f));
