@@ -84,7 +84,7 @@ protected:
 	//Interp위치를 아이템 타입에 따라 정하고 얻는함수
 	FVector GetInterpLocation();
 
-	void PlayPickupSound();
+	void PlayPickupSound(bool bForcePlaySound = false);
 
 	virtual void InitalizeCustomDepth();
 
@@ -102,7 +102,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	//Called in AShooterCharacter
-	void PlayEquipSound();
+	void PlayEquipSound(bool bForcePlaySound = false);
 private:
 	//아이템에 대한 스켈레톤 메쉬
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = ItemProperties, meta = (AllowPrivateAccess = "true"))
@@ -259,8 +259,10 @@ public:
 	FORCEINLINE int32 GetSlotIndex()const { return SlotIndex; }
 	FORCEINLINE void SetSlotIndex(int32 Index) { SlotIndex = Index; }
 
+	FORCEINLINE void SetCharacter(AShooterCharacter* Char) { Character = Char; }
+
 	//Called from the ShooterCharacter
-	void StartItemCurve(AShooterCharacter* Char);
+	void StartItemCurve(AShooterCharacter* Char,bool bForcePlaySound = false);
 
 	virtual void EnableCustomDepth();
 	virtual void DisableCustomDepth();

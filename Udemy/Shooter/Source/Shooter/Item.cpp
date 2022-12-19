@@ -316,11 +316,18 @@ FVector AItem::GetInterpLocation()
 	return FVector();
 }
 
-void AItem::PlayPickupSound()
+void AItem::PlayPickupSound(bool bForcePlaySound)
 {
 	if (Character)
 	{
-		if (Character->ShouldPlayPickupSound())
+		if (bForcePlaySound)
+		{
+			if (PickupSound)
+			{
+				UGameplayStatics::PlaySound2D(this, PickupSound);
+			}
+		}
+		else if (Character->ShouldPlayPickupSound())
 		{
 			Character->StartPickupSoundTiemr();
 			if (PickupSound)
@@ -410,14 +417,21 @@ void AItem::DisableGlowMeterial()
 	}
 }
 
-void AItem::PlayEquipSound()
+void AItem::PlayEquipSound(bool bForcePlaySound)
 {
 	if (Character)
 	{
-		if (Character->ShouldPlayEquipSound())
+		if (bForcePlaySound)
+		{
+			if (EquipSound)
+			{
+				UGameplayStatics::PlaySound2D(this, EquipSound);
+			}
+		}
+		else if (Character->ShouldPlayEquipSound())
 		{
 			Character->StartEquipSoundTiemr();
-			if (PickupSound)
+			if (EquipSound)
 			{
 				UGameplayStatics::PlaySound2D(this, EquipSound);
 			}
@@ -457,7 +471,7 @@ void AItem::SetItemState(EItemState State)
 }
 
 
-void AItem::StartItemCurve(AShooterCharacter* Char)
+void AItem::StartItemCurve(AShooterCharacter* Char, bool bForcePlaySound)
 {
 	//캐릭터를 저장
 	Character = Char;
@@ -466,7 +480,7 @@ void AItem::StartItemCurve(AShooterCharacter* Char)
 	// 배열의 인덱스에 아이템 카운트를 +1 한다
 	Character->IncrementInterpLocItemCount(InterpLocIndex, 1);
 
-	PlayPickupSound();
+	PlayPickupSound(bForcePlaySound);
 
 	//아이템의 처음 위치를 저장
 	ItemIterpStartLocation = GetActorLocation();
