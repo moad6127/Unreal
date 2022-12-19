@@ -497,6 +497,17 @@ void AShooterCharacter::TraceForItem()
 				// 아이템의 픽업 위젯을 보이게 만들기
 				TraceHitItem->GetPickupWidget()->SetVisibility(true);
 				TraceHitItem->EnableCustomDepth();
+
+				if (Inventory.Num() >= INVENTORY_CAPACITY)
+				{
+					//인벤토리가 전부 찼을때
+					TraceHitItem->SetCharacterInventoryFull(true);
+				}
+				else
+				{
+					//인벤토리에 공간이 있을때
+					TraceHitItem->SetCharacterInventoryFull(false);
+				}
 			}
 			//
 			if (TraceHitItemLastFrame)
