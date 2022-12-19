@@ -108,7 +108,7 @@ protected:
 	class AWeapon* SpawnDefaultWeapon();
 
 	//무기를 장착하는 함수
-	void EquipWeapon(AWeapon* WeaponToEquip);
+	void EquipWeapon(AWeapon* WeaponToEquip , bool bSwaping =false);
 
 	//아이템을 분리하고 분리된 아이템을 떨어뜨리는 함수
 	void DropWeapon();

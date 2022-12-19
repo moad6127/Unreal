@@ -546,7 +546,7 @@ AWeapon* AShooterCharacter::SpawnDefaultWeapon()
 	return nullptr;
 }
 
-void AShooterCharacter::EquipWeapon(AWeapon* WeaponToEquip)
+void AShooterCharacter::EquipWeapon(AWeapon* WeaponToEquip, bool bSwaping)
 {
 	if (WeaponToEquip)
 	{
@@ -566,7 +566,7 @@ void AShooterCharacter::EquipWeapon(AWeapon* WeaponToEquip)
 			// -1 == 아직 장착된 무기가 없는 상황, 아이콘 애니메이션이 필요 없다
 			EquipItemDelegate.Broadcast(-1, WeaponToEquip->GetSlotIndex());
 		}
-		else
+		else if (!bSwaping)
 		{
 			EquipItemDelegate.Broadcast(EquippedWeapon->GetSlotIndex(), WeaponToEquip->GetSlotIndex());
 		}
@@ -933,25 +933,28 @@ void AShooterCharacter::FiveKeyPressed()
 
 void AShooterCharacter::ExchangeInventoryItem(int32 CurrentItemIndex, int32 NewItemIndex)
 {
-	if ((CurrentItemIndex == NewItemIndex) || (NewItemIndex >= Inventory.Num()) || (CombatState != ECombatState::ECS_Unoccupied))
+	const bool bCanExchangeItems = 
+		(CurrentItemIndex != NewItemIndex) &&
+		(NewItemIndex < Inventory.Num()) &&
+		((CombatState == ECombatState::ECS_Unoccupied) || CombatState == ECombatState::ECS_Equipping);
+	if (bCanExchangeItems)
 	{
-		return;
+		auto OldEquippedWeapon = EquippedWeapon;
+		auto NewWeapon = Cast<AWeapon>(Inventory[NewItemIndex]);
+		EquipWeapon(NewWeapon);
+
+		OldEquippedWeapon->SetItemState(EItemState::EIS_PickedUp);
+		NewWeapon->SetItemState(EItemState::EIS_Equipped);
+		CombatState = ECombatState::ECS_Equipping;
+		UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+		if (AnimInstance && EquipMontage)
+		{
+			AnimInstance->Montage_Play(EquipMontage, 1.f);
+			AnimInstance->Montage_JumpToSection(FName("Equip"));
+		}
+		NewWeapon->PlayEquipSound(true);
 	}
 
-	auto OldEquippedWeapon = EquippedWeapon;
-	auto NewWeapon = Cast<AWeapon>(Inventory[NewItemIndex]);
-	EquipWeapon(NewWeapon);
-
-	OldEquippedWeapon->SetItemState(EItemState::EIS_PickedUp);
-	NewWeapon->SetItemState(EItemState::EIS_Equipped);
-	CombatState = ECombatState::ECS_Equipping;
-	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
-	if (AnimInstance && EquipMontage)
-	{
-		AnimInstance->Montage_Play(EquipMontage, 1.f);
-		AnimInstance->Montage_JumpToSection(FName("Equip"));
-	}
-	NewWeapon->PlayEquipSound(true);
 }
 
 int32 AShooterCharacter::GetInterpLocationIndex()
@@ -1039,9 +1042,8 @@ void AShooterCharacter::SwapWeapon(AWeapon* WeaponToSwap)
 		WeaponToSwap->SetSlotIndex(EquippedWeapon->GetSlotIndex());
 	}
 
-
 	DropWeapon();
-	EquipWeapon(WeaponToSwap);
+	EquipWeapon(WeaponToSwap,true);
 	TraceHitItem = nullptr;
 	TraceHitItemLastFrame = nullptr;
 }
