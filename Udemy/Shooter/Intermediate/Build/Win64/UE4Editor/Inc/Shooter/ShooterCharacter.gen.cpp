@@ -82,7 +82,7 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 		return ECombatState_StaticEnum();
 	}
 	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_ECombatState(ECombatState_StaticEnum, TEXT("/Script/Shooter"), TEXT("ECombatState"), false, nullptr, nullptr);
-	uint32 Get_Z_Construct_UEnum_Shooter_ECombatState_Hash() { return 3208213375U; }
+	uint32 Get_Z_Construct_UEnum_Shooter_ECombatState_Hash() { return 460090507U; }
 	UEnum* Z_Construct_UEnum_Shooter_ECombatState()
 	{
 #if WITH_HOT_RELOAD
@@ -97,11 +97,14 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 				{ "ECombatState::ECS_Unoccupied", (int64)ECombatState::ECS_Unoccupied },
 				{ "ECombatState::ECS_FireTimerInProgress", (int64)ECombatState::ECS_FireTimerInProgress },
 				{ "ECombatState::ECS_Reloading", (int64)ECombatState::ECS_Reloading },
+				{ "ECombatState::ECS_Equipping", (int64)ECombatState::ECS_Equipping },
 				{ "ECombatState::ECS_MAX", (int64)ECombatState::ECS_MAX },
 			};
 #if WITH_METADATA
 			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
 				{ "BlueprintType", "true" },
+				{ "ECS_Equipping.DisplayName", "Equipping" },
+				{ "ECS_Equipping.Name", "ECombatState::ECS_Equipping" },
 				{ "ECS_FireTimerInProgress.DisplayName", "FireTimerInProgress" },
 				{ "ECS_FireTimerInProgress.Name", "ECombatState::ECS_FireTimerInProgress" },
 				{ "ECS_MAX.DisplayName", "DefaultMAX" },
@@ -238,6 +241,13 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		*(float*)Z_Param__Result=P_THIS->GetCrosshairSpreadMultiplier();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AShooterCharacter::execFinishEquipping)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->FinishEquipping();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AShooterCharacter::execFinishReloading)
 	{
 		P_FINISH;
@@ -279,6 +289,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		static const FNameNativePtrPair Funcs[] = {
 			{ "AutoFireReset", &AShooterCharacter::execAutoFireReset },
 			{ "FinishCrosshairBulletFire", &AShooterCharacter::execFinishCrosshairBulletFire },
+			{ "FinishEquipping", &AShooterCharacter::execFinishEquipping },
 			{ "FinishReloading", &AShooterCharacter::execFinishReloading },
 			{ "GetCrosshairSpreadMultiplier", &AShooterCharacter::execGetCrosshairSpreadMultiplier },
 			{ "GrabClip", &AShooterCharacter::execGrabClip },
@@ -327,6 +338,28 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AShooterCharacter_FinishCrosshairBulletFire_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AShooterCharacter_FinishEquipping_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AShooterCharacter_FinishEquipping_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ShooterCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AShooterCharacter_FinishEquipping_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AShooterCharacter, nullptr, "FinishEquipping", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AShooterCharacter_FinishEquipping_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AShooterCharacter_FinishEquipping_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AShooterCharacter_FinishEquipping()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AShooterCharacter_FinishEquipping_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -597,6 +630,10 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ReloadMontage;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EquipMontage_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_EquipMontage;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ClipTransform_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ClipTransform;
@@ -694,6 +731,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 	const FClassFunctionLinkInfo Z_Construct_UClass_AShooterCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AShooterCharacter_AutoFireReset, "AutoFireReset" }, // 1453503891
 		{ &Z_Construct_UFunction_AShooterCharacter_FinishCrosshairBulletFire, "FinishCrosshairBulletFire" }, // 4128212246
+		{ &Z_Construct_UFunction_AShooterCharacter_FinishEquipping, "FinishEquipping" }, // 2463802825
 		{ &Z_Construct_UFunction_AShooterCharacter_FinishReloading, "FinishReloading" }, // 712437738
 		{ &Z_Construct_UFunction_AShooterCharacter_GetCrosshairSpreadMultiplier, "GetCrosshairSpreadMultiplier" }, // 1013151514
 		{ &Z_Construct_UFunction_AShooterCharacter_GrabClip, "GrabClip" }, // 1307519431
@@ -1099,6 +1137,14 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AShooterCharacter_Statics::NewProp_ReloadMontage = { "ReloadMontage", nullptr, (EPropertyFlags)0x0040000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AShooterCharacter, ReloadMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_ReloadMontage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_ReloadMontage_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AShooterCharacter_Statics::NewProp_EquipMontage_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Combat" },
+		{ "ModuleRelativePath", "ShooterCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AShooterCharacter_Statics::NewProp_EquipMontage = { "EquipMontage", nullptr, (EPropertyFlags)0x0040000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AShooterCharacter, EquipMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_EquipMontage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_EquipMontage_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AShooterCharacter_Statics::NewProp_ClipTransform_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Combat" },
@@ -1350,6 +1396,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_CombatState_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_CombatState,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_ReloadMontage,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_EquipMontage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_ClipTransform,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_HandSceneComponent,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_bCrouching,
@@ -1401,7 +1448,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AShooterCharacter, 1758942446);
+	IMPLEMENT_CLASS(AShooterCharacter, 2441237212);
 	template<> SHOOTER_API UClass* StaticClass<AShooterCharacter>()
 	{
 		return AShooterCharacter::StaticClass();

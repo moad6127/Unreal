@@ -80,6 +80,7 @@ public: \
 	FORCEINLINE static uint32 __PPO__OffsetState() { return STRUCT_OFFSET(UShooterAnimInstance, OffsetState); } \
 	FORCEINLINE static uint32 __PPO__YawDelta() { return STRUCT_OFFSET(UShooterAnimInstance, YawDelta); } \
 	FORCEINLINE static uint32 __PPO__bCrouching() { return STRUCT_OFFSET(UShooterAnimInstance, bCrouching); } \
+	FORCEINLINE static uint32 __PPO__bEquipping() { return STRUCT_OFFSET(UShooterAnimInstance, bEquipping); } \
 	FORCEINLINE static uint32 __PPO__RecoilWeight() { return STRUCT_OFFSET(UShooterAnimInstance, RecoilWeight); } \
 	FORCEINLINE static uint32 __PPO__bTurningInPlace() { return STRUCT_OFFSET(UShooterAnimInstance, bTurningInPlace); }
 
