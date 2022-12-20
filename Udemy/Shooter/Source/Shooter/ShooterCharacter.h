@@ -167,6 +167,8 @@ protected:
 
 	void ExchangeInventoryItem(int32 CurrentItemIndex, int32 NewItemIndex);
 
+	int32 GetEmptyInventorySlot();
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

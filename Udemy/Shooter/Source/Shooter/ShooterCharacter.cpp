@@ -957,6 +957,22 @@ void AShooterCharacter::ExchangeInventoryItem(int32 CurrentItemIndex, int32 NewI
 
 }
 
+int32 AShooterCharacter::GetEmptyInventorySlot()
+{
+	for (int32 i = 0; i < Inventory.Num(); i++)
+	{
+		if (Inventory[i] == nullptr)
+		{
+			return i;
+		}
+	}
+	if (Inventory.Num() < INVENTORY_CAPACITY)
+	{
+		return Inventory.Num();
+	}
+	return -1; //인벤토리가 전부 차있을경우 음수 리턴
+}
+
 int32 AShooterCharacter::GetInterpLocationIndex()
 {
 	int32 LowestIndex = 1;
