@@ -79,7 +79,9 @@ AShooterCharacter::AShooterCharacter() :
 	bShouldPlayPickupSound(true),
 	bShouldPlayEquipSound(true),
 	PickupSoundResetTime(0.2f),
-	EquipSoundResetTime(0.2f)
+	EquipSoundResetTime(0.2f),
+	//Icon animation property
+	HighlightedSlot(-1)
 
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -488,6 +490,21 @@ void AShooterCharacter::TraceForItem()
 		if (ItemTracceResult.bBlockingHit)
 		{
 			TraceHitItem = Cast<AItem>(ItemTracceResult.GetActor());
+			const auto TraceHitWeapon = Cast<AWeapon>(TraceHitItem);
+			if (TraceHitWeapon)
+			{
+				if (HighlightedSlot == -1)
+				{
+					HighlightInventorySlot();
+				}
+			}
+			else
+			{
+				if (HighlightedSlot != -1)
+				{
+					UnHighlightInventorySlot();
+				}
+			}
 			if (TraceHitItem && TraceHitItem->GetItemState() == EItemState::EIS_EquipInterping)
 			{
 				TraceHitItem = nullptr;
@@ -971,6 +988,20 @@ int32 AShooterCharacter::GetEmptyInventorySlot()
 		return Inventory.Num();
 	}
 	return -1; //인벤토리가 전부 차있을경우 음수 리턴
+}
+
+void AShooterCharacter::HighlightInventorySlot()
+{
+	const int32 EmptySlot{ GetEmptyInventorySlot() };
+	HighlightIconDelegate.Broadcast(EmptySlot, true);
+	HighlightedSlot = EmptySlot;
+
+}
+
+void AShooterCharacter::UnHighlightInventorySlot()
+{
+	HighlightIconDelegate.Broadcast(HighlightedSlot, false);
+	HighlightedSlot = -1;
 }
 
 int32 AShooterCharacter::GetInterpLocationIndex()

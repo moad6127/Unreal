@@ -175,7 +175,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__EquipSoundResetTime() { return STRUCT_OFFSET(AShooterCharacter, EquipSoundResetTime); } \
 	FORCEINLINE static uint32 __PPO__Inventory() { return STRUCT_OFFSET(AShooterCharacter, Inventory); } \
 	FORCEINLINE static uint32 __PPO__EquipItemDelegate() { return STRUCT_OFFSET(AShooterCharacter, EquipItemDelegate); } \
-	FORCEINLINE static uint32 __PPO__HightlightIconDelegate() { return STRUCT_OFFSET(AShooterCharacter, HightlightIconDelegate); }
+	FORCEINLINE static uint32 __PPO__HighlightIconDelegate() { return STRUCT_OFFSET(AShooterCharacter, HighlightIconDelegate); } \
+	FORCEINLINE static uint32 __PPO__HighlightedSlot() { return STRUCT_OFFSET(AShooterCharacter, HighlightedSlot); }
 
 
 #define Shooter_Source_Shooter_ShooterCharacter_h_37_PROLOG
