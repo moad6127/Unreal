@@ -371,6 +371,17 @@ void AItem::OnConstruction(const FTransform& Transform)
 		ItemMesh->SetMaterial(MaterialIndex, DynamicMaterialInstance);
 	}
 	EnableGlowMeterial();
+
+	//만든 아이템 희귀도 데이터 테이블을 로드한다
+	
+	//만든 데이터 테이블의 경로
+	FString RarityTablePath(TEXT("DataTable'/Game/_Game/DataTable/ItemRarityDataTable.ItemRarityDataTable'"));
+	UDataTable* RarityTableObject = Cast<UDataTable>(StaticLoadObject(UDataTable::StaticClass(), nullptr, *RarityTablePath));
+
+	if (RarityTableObject)
+	{
+
+	}
 }
 
 void AItem::EnableGlowMeterial()
