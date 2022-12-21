@@ -365,12 +365,7 @@ void AItem::InitalizeCustomDepth()
 
 void AItem::OnConstruction(const FTransform& Transform)
 {
-	if (MaterialInstance)
-	{
-		DynamicMaterialInstance = UMaterialInstanceDynamic::Create(MaterialInstance, this);
-		ItemMesh->SetMaterial(MaterialIndex, DynamicMaterialInstance);
-	}
-	EnableGlowMeterial();
+
 
 	//만든 아이템 희귀도 데이터 테이블을 로드한다
 	
@@ -408,6 +403,15 @@ void AItem::OnConstruction(const FTransform& Transform)
 			IconBackground = RarityRow->IconBackground;
 		}
 	}
+	if (MaterialInstance)
+	{
+		DynamicMaterialInstance = UMaterialInstanceDynamic::Create(MaterialInstance, this);
+		DynamicMaterialInstance->SetVectorParameterValue(TEXT("FresnelColor"), GlowColor);
+		ItemMesh->SetMaterial(MaterialIndex, DynamicMaterialInstance);
+
+		EnableGlowMeterial();
+	}
+
 }
 
 void AItem::EnableGlowMeterial()
