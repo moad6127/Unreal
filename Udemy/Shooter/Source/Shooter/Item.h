@@ -151,7 +151,7 @@ private:
 	int32 ItemCount;
 
 	// 아이템 희귀도 - 위젯의 별을 설정하기위해 필요
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = ItemProperties, meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Rarity, meta = (AllowPrivateAccess = "true"))
 	EItemRarity ItemRarity;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = ItemProperties, meta = (AllowPrivateAccess = "true"))
@@ -251,10 +251,6 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = ItemProperties, meta = (AllowPrivateAccess = "true"))
 	float FresnelReflectFraction;
 
-	//Background for this itme in the inventory
-	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true"))
-	UTexture2D* IconBackground;
-
 	//Icon for this itme in the inventory
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Inventory, meta = (AllowPrivateAccess = "true"))
 	UTexture2D* IconItem;
@@ -274,6 +270,26 @@ private:
 	//Item Rarity data table
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = DataTable, meta = (AllowPrivateAccess = "true"))
 	class UDataTable* ItemRarityDataTable;
+
+	//Color in the glow material
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly,Category = Rarity, meta = (AllowPrivateAccess = "true"))
+	FLinearColor GlowColor;
+
+	//Light Color in the PickupWidget
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Rarity, meta = (AllowPrivateAccess = "true"))
+	FLinearColor LightColor;
+
+	//Dark Color in the PickupWidget
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Rarity, meta = (AllowPrivateAccess = "true"))
+	FLinearColor DarkColor;
+
+	//Number of the stars in the pickup widget
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Rarity, meta = (AllowPrivateAccess = "true"))
+	int32 NumberOfStars;
+
+	//Background icon for the inventory
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Rarity, meta = (AllowPrivateAccess = "true"))
+	UTexture2D* IconBackground;
 public:
 	FORCEINLINE UWidgetComponent* GetPickupWidget() const { return PickupWidget; }
 	FORCEINLINE USphereComponent* GetAreaSphere() const { return AreaSphere; }

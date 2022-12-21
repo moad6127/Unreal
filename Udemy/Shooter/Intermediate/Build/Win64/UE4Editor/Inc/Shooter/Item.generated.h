@@ -109,12 +109,16 @@ public: \
 	FORCEINLINE static uint32 __PPO__GlowAmount() { return STRUCT_OFFSET(AItem, GlowAmount); } \
 	FORCEINLINE static uint32 __PPO__FresnelExponent() { return STRUCT_OFFSET(AItem, FresnelExponent); } \
 	FORCEINLINE static uint32 __PPO__FresnelReflectFraction() { return STRUCT_OFFSET(AItem, FresnelReflectFraction); } \
-	FORCEINLINE static uint32 __PPO__IconBackground() { return STRUCT_OFFSET(AItem, IconBackground); } \
 	FORCEINLINE static uint32 __PPO__IconItem() { return STRUCT_OFFSET(AItem, IconItem); } \
 	FORCEINLINE static uint32 __PPO__AmmoItem() { return STRUCT_OFFSET(AItem, AmmoItem); } \
 	FORCEINLINE static uint32 __PPO__SlotIndex() { return STRUCT_OFFSET(AItem, SlotIndex); } \
 	FORCEINLINE static uint32 __PPO__bCharacterInventoryFull() { return STRUCT_OFFSET(AItem, bCharacterInventoryFull); } \
-	FORCEINLINE static uint32 __PPO__ItemRarityDataTable() { return STRUCT_OFFSET(AItem, ItemRarityDataTable); }
+	FORCEINLINE static uint32 __PPO__ItemRarityDataTable() { return STRUCT_OFFSET(AItem, ItemRarityDataTable); } \
+	FORCEINLINE static uint32 __PPO__GlowColor() { return STRUCT_OFFSET(AItem, GlowColor); } \
+	FORCEINLINE static uint32 __PPO__LightColor() { return STRUCT_OFFSET(AItem, LightColor); } \
+	FORCEINLINE static uint32 __PPO__DarkColor() { return STRUCT_OFFSET(AItem, DarkColor); } \
+	FORCEINLINE static uint32 __PPO__NumberOfStars() { return STRUCT_OFFSET(AItem, NumberOfStars); } \
+	FORCEINLINE static uint32 __PPO__IconBackground() { return STRUCT_OFFSET(AItem, IconBackground); }
 
 
 #define Shooter_Source_Shooter_Item_h_65_PROLOG
