@@ -38,9 +38,6 @@ struct FWeaponDataTable : public FTableRowBase
 	USoundCue* EquipSound;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UWidgetComponent* PickupWidget;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USkeletalMesh* ItemMesh;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -68,6 +65,8 @@ public:
 protected:
 
 	void StopFalling();
+
+	virtual void OnConstruction(const FTransform& Transform) override;
 private:
 	FTimerHandle ThrowWeaponTimer;
 	float ThrowWeaponTime;
