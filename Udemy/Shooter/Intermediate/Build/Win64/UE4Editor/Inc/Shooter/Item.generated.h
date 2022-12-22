@@ -24,20 +24,20 @@ struct FHitResult;
 
 template<> SHOOTER_API UScriptStruct* StaticStruct<struct FItemRarityTable>();
 
-#define Shooter_Source_Shooter_Item_h_68_SPARSE_DATA
-#define Shooter_Source_Shooter_Item_h_68_RPC_WRAPPERS \
+#define Shooter_Source_Shooter_Item_h_71_SPARSE_DATA
+#define Shooter_Source_Shooter_Item_h_71_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execOnSphereEndOverlap); \
 	DECLARE_FUNCTION(execOnSphereOverlap);
 
 
-#define Shooter_Source_Shooter_Item_h_68_RPC_WRAPPERS_NO_PURE_DECLS \
+#define Shooter_Source_Shooter_Item_h_71_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnSphereEndOverlap); \
 	DECLARE_FUNCTION(execOnSphereOverlap);
 
 
-#define Shooter_Source_Shooter_Item_h_68_INCLASS_NO_PURE_DECLS \
+#define Shooter_Source_Shooter_Item_h_71_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAItem(); \
 	friend struct Z_Construct_UClass_AItem_Statics; \
@@ -46,7 +46,7 @@ public: \
 	DECLARE_SERIALIZER(AItem)
 
 
-#define Shooter_Source_Shooter_Item_h_68_INCLASS \
+#define Shooter_Source_Shooter_Item_h_71_INCLASS \
 private: \
 	static void StaticRegisterNativesAItem(); \
 	friend struct Z_Construct_UClass_AItem_Statics; \
@@ -55,7 +55,7 @@ public: \
 	DECLARE_SERIALIZER(AItem)
 
 
-#define Shooter_Source_Shooter_Item_h_68_STANDARD_CONSTRUCTORS \
+#define Shooter_Source_Shooter_Item_h_71_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AItem(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AItem) \
@@ -68,7 +68,7 @@ private: \
 public:
 
 
-#define Shooter_Source_Shooter_Item_h_68_ENHANCED_CONSTRUCTORS \
+#define Shooter_Source_Shooter_Item_h_71_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AItem(AItem&&); \
@@ -79,7 +79,7 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AItem)
 
 
-#define Shooter_Source_Shooter_Item_h_68_PRIVATE_PROPERTY_OFFSET \
+#define Shooter_Source_Shooter_Item_h_71_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__ItemMesh() { return STRUCT_OFFSET(AItem, ItemMesh); } \
 	FORCEINLINE static uint32 __PPO__CollisionBox() { return STRUCT_OFFSET(AItem, CollisionBox); } \
 	FORCEINLINE static uint32 __PPO__PickupWidget() { return STRUCT_OFFSET(AItem, PickupWidget); } \
@@ -121,27 +121,27 @@ public: \
 	FORCEINLINE static uint32 __PPO__IconBackground() { return STRUCT_OFFSET(AItem, IconBackground); }
 
 
-#define Shooter_Source_Shooter_Item_h_65_PROLOG
-#define Shooter_Source_Shooter_Item_h_68_GENERATED_BODY_LEGACY \
+#define Shooter_Source_Shooter_Item_h_68_PROLOG
+#define Shooter_Source_Shooter_Item_h_71_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Shooter_Source_Shooter_Item_h_68_PRIVATE_PROPERTY_OFFSET \
-	Shooter_Source_Shooter_Item_h_68_SPARSE_DATA \
-	Shooter_Source_Shooter_Item_h_68_RPC_WRAPPERS \
-	Shooter_Source_Shooter_Item_h_68_INCLASS \
-	Shooter_Source_Shooter_Item_h_68_STANDARD_CONSTRUCTORS \
+	Shooter_Source_Shooter_Item_h_71_PRIVATE_PROPERTY_OFFSET \
+	Shooter_Source_Shooter_Item_h_71_SPARSE_DATA \
+	Shooter_Source_Shooter_Item_h_71_RPC_WRAPPERS \
+	Shooter_Source_Shooter_Item_h_71_INCLASS \
+	Shooter_Source_Shooter_Item_h_71_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Shooter_Source_Shooter_Item_h_68_GENERATED_BODY \
+#define Shooter_Source_Shooter_Item_h_71_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Shooter_Source_Shooter_Item_h_68_PRIVATE_PROPERTY_OFFSET \
-	Shooter_Source_Shooter_Item_h_68_SPARSE_DATA \
-	Shooter_Source_Shooter_Item_h_68_RPC_WRAPPERS_NO_PURE_DECLS \
-	Shooter_Source_Shooter_Item_h_68_INCLASS_NO_PURE_DECLS \
-	Shooter_Source_Shooter_Item_h_68_ENHANCED_CONSTRUCTORS \
+	Shooter_Source_Shooter_Item_h_71_PRIVATE_PROPERTY_OFFSET \
+	Shooter_Source_Shooter_Item_h_71_SPARSE_DATA \
+	Shooter_Source_Shooter_Item_h_71_RPC_WRAPPERS_NO_PURE_DECLS \
+	Shooter_Source_Shooter_Item_h_71_INCLASS_NO_PURE_DECLS \
+	Shooter_Source_Shooter_Item_h_71_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

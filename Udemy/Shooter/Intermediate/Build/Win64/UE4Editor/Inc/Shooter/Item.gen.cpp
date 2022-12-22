@@ -286,6 +286,10 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFItemRarityTable
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_IconBackground_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_IconBackground;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CustomDepthStencil_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_CustomDepthStencil;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UE4CodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -334,12 +338,20 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFItemRarityTable
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_IconBackground = { "IconBackground", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FItemRarityTable, IconBackground), Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_IconBackground_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_IconBackground_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_CustomDepthStencil_MetaData[] = {
+		{ "Category", "ItemRarityTable" },
+		{ "ModuleRelativePath", "Item.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_CustomDepthStencil = { "CustomDepthStencil", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FItemRarityTable, CustomDepthStencil), METADATA_PARAMS(Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_CustomDepthStencil_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_CustomDepthStencil_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FItemRarityTable_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_GlowColor,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_LightColor,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_DarkColor,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_NumberOfStars,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_IconBackground,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_CustomDepthStencil,
 	};
 	const UE4CodeGen_Private::FStructParams Z_Construct_UScriptStruct_FItemRarityTable_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_Shooter,
@@ -369,7 +381,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFItemRarityTable
 		}
 		return ReturnStruct;
 	}
-	uint32 Get_Z_Construct_UScriptStruct_FItemRarityTable_Hash() { return 3208445894U; }
+	uint32 Get_Z_Construct_UScriptStruct_FItemRarityTable_Hash() { return 3585015845U; }
 	DEFINE_FUNCTION(AItem::execOnSphereEndOverlap)
 	{
 		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OverlappedComponent);
