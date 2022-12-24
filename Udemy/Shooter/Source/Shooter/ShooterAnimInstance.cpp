@@ -25,7 +25,9 @@ UShooterAnimInstance::UShooterAnimInstance():
 	bReloading(false),
 	OffsetState(EOffsetState::EOS_Hip),
 	RecoilWeight(1.0f),
-	bTurningInPlace(false)
+	bTurningInPlace(false),
+	EquippedWeaponType(EWeaponType::EWT_MAX),
+	bShouldUseFABRIK(false)
 {
 
 }
@@ -41,6 +43,7 @@ void UShooterAnimInstance::UpdateAnimationProperties(float DeltaTime)
 		bCrouching = ShooterCharacter->GetCrouching();
 		bReloading = ShooterCharacter->GetCombatState() == ECombatState::ECS_Reloading;
 		bEquipping = ShooterCharacter->GetCombatState() == ECombatState::ECS_Equipping;
+		bShouldUseFABRIK = ShooterCharacter->GetCombatState() == ECombatState::ECS_Unoccupied || ShooterCharacter->GetCombatState() == ECombatState::ECS_FireTimerInProgress;
 		// Velocity에서 캐릭터의 속도 얻기
 		FVector Velocity{ ShooterCharacter->GetVelocity() };
 		Velocity.Z = 0;
