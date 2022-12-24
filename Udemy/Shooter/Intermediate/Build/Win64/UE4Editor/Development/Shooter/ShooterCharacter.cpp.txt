@@ -158,6 +158,7 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\In
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\UserWidget.generated.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\WidgetComponent.generated.h
 C:\Unreal\Udemy\Shooter\Source\Shooter\Weapon.h
+C:\Unreal\Udemy\Shooter\Source\Shooter\WeaponType.h
 C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\Weapon.generated.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/SphereComponent.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h

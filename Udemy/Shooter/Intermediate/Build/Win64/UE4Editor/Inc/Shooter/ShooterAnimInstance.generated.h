@@ -13,18 +13,18 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SHOOTER_ShooterAnimInstance_generated_h
 
-#define Shooter_Source_Shooter_ShooterAnimInstance_h_25_SPARSE_DATA
-#define Shooter_Source_Shooter_ShooterAnimInstance_h_25_RPC_WRAPPERS \
+#define Shooter_Source_Shooter_ShooterAnimInstance_h_26_SPARSE_DATA
+#define Shooter_Source_Shooter_ShooterAnimInstance_h_26_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execUpdateAnimationProperties);
 
 
-#define Shooter_Source_Shooter_ShooterAnimInstance_h_25_RPC_WRAPPERS_NO_PURE_DECLS \
+#define Shooter_Source_Shooter_ShooterAnimInstance_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execUpdateAnimationProperties);
 
 
-#define Shooter_Source_Shooter_ShooterAnimInstance_h_25_INCLASS_NO_PURE_DECLS \
+#define Shooter_Source_Shooter_ShooterAnimInstance_h_26_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUShooterAnimInstance(); \
 	friend struct Z_Construct_UClass_UShooterAnimInstance_Statics; \
@@ -33,7 +33,7 @@ public: \
 	DECLARE_SERIALIZER(UShooterAnimInstance)
 
 
-#define Shooter_Source_Shooter_ShooterAnimInstance_h_25_INCLASS \
+#define Shooter_Source_Shooter_ShooterAnimInstance_h_26_INCLASS \
 private: \
 	static void StaticRegisterNativesUShooterAnimInstance(); \
 	friend struct Z_Construct_UClass_UShooterAnimInstance_Statics; \
@@ -42,7 +42,7 @@ public: \
 	DECLARE_SERIALIZER(UShooterAnimInstance)
 
 
-#define Shooter_Source_Shooter_ShooterAnimInstance_h_25_STANDARD_CONSTRUCTORS \
+#define Shooter_Source_Shooter_ShooterAnimInstance_h_26_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UShooterAnimInstance(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UShooterAnimInstance) \
@@ -55,7 +55,7 @@ private: \
 public:
 
 
-#define Shooter_Source_Shooter_ShooterAnimInstance_h_25_ENHANCED_CONSTRUCTORS \
+#define Shooter_Source_Shooter_ShooterAnimInstance_h_26_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API UShooterAnimInstance(UShooterAnimInstance&&); \
@@ -66,7 +66,7 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UShooterAnimInstance)
 
 
-#define Shooter_Source_Shooter_ShooterAnimInstance_h_25_PRIVATE_PROPERTY_OFFSET \
+#define Shooter_Source_Shooter_ShooterAnimInstance_h_26_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__ShooterCharacter() { return STRUCT_OFFSET(UShooterAnimInstance, ShooterCharacter); } \
 	FORCEINLINE static uint32 __PPO__Speed() { return STRUCT_OFFSET(UShooterAnimInstance, Speed); } \
 	FORCEINLINE static uint32 __PPO__bIsInAir() { return STRUCT_OFFSET(UShooterAnimInstance, bIsInAir); } \
@@ -82,30 +82,31 @@ public: \
 	FORCEINLINE static uint32 __PPO__bCrouching() { return STRUCT_OFFSET(UShooterAnimInstance, bCrouching); } \
 	FORCEINLINE static uint32 __PPO__bEquipping() { return STRUCT_OFFSET(UShooterAnimInstance, bEquipping); } \
 	FORCEINLINE static uint32 __PPO__RecoilWeight() { return STRUCT_OFFSET(UShooterAnimInstance, RecoilWeight); } \
-	FORCEINLINE static uint32 __PPO__bTurningInPlace() { return STRUCT_OFFSET(UShooterAnimInstance, bTurningInPlace); }
+	FORCEINLINE static uint32 __PPO__bTurningInPlace() { return STRUCT_OFFSET(UShooterAnimInstance, bTurningInPlace); } \
+	FORCEINLINE static uint32 __PPO__EquippedWeaponType() { return STRUCT_OFFSET(UShooterAnimInstance, EquippedWeaponType); }
 
 
-#define Shooter_Source_Shooter_ShooterAnimInstance_h_22_PROLOG
-#define Shooter_Source_Shooter_ShooterAnimInstance_h_25_GENERATED_BODY_LEGACY \
+#define Shooter_Source_Shooter_ShooterAnimInstance_h_23_PROLOG
+#define Shooter_Source_Shooter_ShooterAnimInstance_h_26_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Shooter_Source_Shooter_ShooterAnimInstance_h_25_PRIVATE_PROPERTY_OFFSET \
-	Shooter_Source_Shooter_ShooterAnimInstance_h_25_SPARSE_DATA \
-	Shooter_Source_Shooter_ShooterAnimInstance_h_25_RPC_WRAPPERS \
-	Shooter_Source_Shooter_ShooterAnimInstance_h_25_INCLASS \
-	Shooter_Source_Shooter_ShooterAnimInstance_h_25_STANDARD_CONSTRUCTORS \
+	Shooter_Source_Shooter_ShooterAnimInstance_h_26_PRIVATE_PROPERTY_OFFSET \
+	Shooter_Source_Shooter_ShooterAnimInstance_h_26_SPARSE_DATA \
+	Shooter_Source_Shooter_ShooterAnimInstance_h_26_RPC_WRAPPERS \
+	Shooter_Source_Shooter_ShooterAnimInstance_h_26_INCLASS \
+	Shooter_Source_Shooter_ShooterAnimInstance_h_26_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Shooter_Source_Shooter_ShooterAnimInstance_h_25_GENERATED_BODY \
+#define Shooter_Source_Shooter_ShooterAnimInstance_h_26_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Shooter_Source_Shooter_ShooterAnimInstance_h_25_PRIVATE_PROPERTY_OFFSET \
-	Shooter_Source_Shooter_ShooterAnimInstance_h_25_SPARSE_DATA \
-	Shooter_Source_Shooter_ShooterAnimInstance_h_25_RPC_WRAPPERS_NO_PURE_DECLS \
-	Shooter_Source_Shooter_ShooterAnimInstance_h_25_INCLASS_NO_PURE_DECLS \
-	Shooter_Source_Shooter_ShooterAnimInstance_h_25_ENHANCED_CONSTRUCTORS \
+	Shooter_Source_Shooter_ShooterAnimInstance_h_26_PRIVATE_PROPERTY_OFFSET \
+	Shooter_Source_Shooter_ShooterAnimInstance_h_26_SPARSE_DATA \
+	Shooter_Source_Shooter_ShooterAnimInstance_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
+	Shooter_Source_Shooter_ShooterAnimInstance_h_26_INCLASS_NO_PURE_DECLS \
+	Shooter_Source_Shooter_ShooterAnimInstance_h_26_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

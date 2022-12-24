@@ -13,9 +13,8 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeWeapon() {}
 // Cross Module References
-	SHOOTER_API UEnum* Z_Construct_UEnum_Shooter_EWeaponType();
-	UPackage* Z_Construct_UPackage__Script_Shooter();
 	SHOOTER_API UScriptStruct* Z_Construct_UScriptStruct_FWeaponDataTable();
+	UPackage* Z_Construct_UPackage__Script_Shooter();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTableRowBase();
 	SHOOTER_API UEnum* Z_Construct_UEnum_Shooter_EAmmoType();
 	ENGINE_API UClass* Z_Construct_UClass_USoundCue_NoRegister();
@@ -25,67 +24,9 @@ void EmptyLinkFunctionForGeneratedCodeWeapon() {}
 	SHOOTER_API UClass* Z_Construct_UClass_AWeapon_NoRegister();
 	SHOOTER_API UClass* Z_Construct_UClass_AWeapon();
 	SHOOTER_API UClass* Z_Construct_UClass_AItem();
+	SHOOTER_API UEnum* Z_Construct_UEnum_Shooter_EWeaponType();
 	ENGINE_API UClass* Z_Construct_UClass_UDataTable_NoRegister();
 // End Cross Module References
-	static UEnum* EWeaponType_StaticEnum()
-	{
-		static UEnum* Singleton = nullptr;
-		if (!Singleton)
-		{
-			Singleton = GetStaticEnum(Z_Construct_UEnum_Shooter_EWeaponType, Z_Construct_UPackage__Script_Shooter(), TEXT("EWeaponType"));
-		}
-		return Singleton;
-	}
-	template<> SHOOTER_API UEnum* StaticEnum<EWeaponType>()
-	{
-		return EWeaponType_StaticEnum();
-	}
-	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_EWeaponType(EWeaponType_StaticEnum, TEXT("/Script/Shooter"), TEXT("EWeaponType"), false, nullptr, nullptr);
-	uint32 Get_Z_Construct_UEnum_Shooter_EWeaponType_Hash() { return 3930362426U; }
-	UEnum* Z_Construct_UEnum_Shooter_EWeaponType()
-	{
-#if WITH_HOT_RELOAD
-		UPackage* Outer = Z_Construct_UPackage__Script_Shooter();
-		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("EWeaponType"), 0, Get_Z_Construct_UEnum_Shooter_EWeaponType_Hash(), false);
-#else
-		static UEnum* ReturnEnum = nullptr;
-#endif // WITH_HOT_RELOAD
-		if (!ReturnEnum)
-		{
-			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
-				{ "EWeaponType::EWT_SubmachineGun", (int64)EWeaponType::EWT_SubmachineGun },
-				{ "EWeaponType::EWT_AssaultRifle", (int64)EWeaponType::EWT_AssaultRifle },
-				{ "EWeaponType::EWT_MAX", (int64)EWeaponType::EWT_MAX },
-			};
-#if WITH_METADATA
-			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
-				{ "BlueprintType", "true" },
-				{ "EWT_AssaultRifle.DisplayName", "AssaultRifle" },
-				{ "EWT_AssaultRifle.Name", "EWeaponType::EWT_AssaultRifle" },
-				{ "EWT_MAX.DisplayName", "DefaultMAX" },
-				{ "EWT_MAX.Name", "EWeaponType::EWT_MAX" },
-				{ "EWT_SubmachineGun.DisplayName", "SubmachineGun" },
-				{ "EWT_SubmachineGun.Name", "EWeaponType::EWT_SubmachineGun" },
-				{ "ModuleRelativePath", "Weapon.h" },
-			};
-#endif
-			static const UE4CodeGen_Private::FEnumParams EnumParams = {
-				(UObject*(*)())Z_Construct_UPackage__Script_Shooter,
-				nullptr,
-				"EWeaponType",
-				"EWeaponType",
-				Enumerators,
-				UE_ARRAY_COUNT(Enumerators),
-				RF_Public|RF_Transient|RF_MarkAsNative,
-				EEnumFlags::None,
-				UE4CodeGen_Private::EDynamicType::NotDynamic,
-				(uint8)UEnum::ECppForm::EnumClass,
-				METADATA_PARAMS(Enum_MetaDataParams, UE_ARRAY_COUNT(Enum_MetaDataParams))
-			};
-			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
-		}
-		return ReturnEnum;
-	}
 
 static_assert(std::is_polymorphic<FWeaponDataTable>() == std::is_polymorphic<FTableRowBase>(), "USTRUCT FWeaponDataTable cannot be polymorphic unless super FTableRowBase is polymorphic");
 

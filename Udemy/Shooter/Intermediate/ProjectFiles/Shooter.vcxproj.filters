@@ -84,4 +84,9 @@
       <Filter>Source\Shooter</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\Shooter\WeaponType.h">
+      <Filter>Source\Shooter</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

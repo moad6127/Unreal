@@ -8,4 +8,5 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Public\DataTabl
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DataTable.generated.h
 C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\Item.generated.h
 C:\Unreal\Udemy\Shooter\Source\Shooter\AmmoType.h
+C:\Unreal\Udemy\Shooter\Source\Shooter\WeaponType.h
 C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\Weapon.generated.h

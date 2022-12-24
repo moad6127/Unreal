@@ -20,6 +20,7 @@ void EmptyLinkFunctionForGeneratedCodeShooterAnimInstance() {}
 	SHOOTER_API UClass* Z_Construct_UClass_UShooterAnimInstance();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimInstance();
 	SHOOTER_API UClass* Z_Construct_UClass_AShooterCharacter_NoRegister();
+	SHOOTER_API UEnum* Z_Construct_UEnum_Shooter_EWeaponType();
 // End Cross Module References
 	static UEnum* EOffsetState_StaticEnum()
 	{
@@ -217,6 +218,11 @@ void EmptyLinkFunctionForGeneratedCodeShooterAnimInstance() {}
 #endif
 		static void NewProp_bTurningInPlace_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bTurningInPlace;
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_EquippedWeaponType_Underlying;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EquippedWeaponType_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FEnumPropertyParams NewProp_EquippedWeaponType;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -419,6 +425,17 @@ void EmptyLinkFunctionForGeneratedCodeShooterAnimInstance() {}
 		((UShooterAnimInstance*)Obj)->bTurningInPlace = 1;
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_bTurningInPlace = { "bTurningInPlace", nullptr, (EPropertyFlags)0x0040000000020005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UShooterAnimInstance), &Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_bTurningInPlace_SetBit, METADATA_PARAMS(Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_bTurningInPlace_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_bTurningInPlace_MetaData)) };
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_EquippedWeaponType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, nullptr, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_EquippedWeaponType_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Combat" },
+		{ "Comment", "//WeaponType for the currently equipped weapon\n" },
+		{ "ModuleRelativePath", "ShooterAnimInstance.h" },
+		{ "ToolTip", "WeaponType for the currently equipped weapon" },
+	};
+#endif
+	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_EquippedWeaponType = { "EquippedWeaponType", nullptr, (EPropertyFlags)0x0040000000020005, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UShooterAnimInstance, EquippedWeaponType), Z_Construct_UEnum_Shooter_EWeaponType, METADATA_PARAMS(Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_EquippedWeaponType_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_EquippedWeaponType_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UShooterAnimInstance_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_ShooterCharacter,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_Speed,
@@ -437,6 +454,8 @@ void EmptyLinkFunctionForGeneratedCodeShooterAnimInstance() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_bEquipping,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_RecoilWeight,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_bTurningInPlace,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_EquippedWeaponType_Underlying,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UShooterAnimInstance_Statics::NewProp_EquippedWeaponType,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UShooterAnimInstance_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UShooterAnimInstance>::IsAbstract,
@@ -465,7 +484,7 @@ void EmptyLinkFunctionForGeneratedCodeShooterAnimInstance() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UShooterAnimInstance, 2816090837);
+	IMPLEMENT_CLASS(UShooterAnimInstance, 4013531136);
 	template<> SHOOTER_API UClass* StaticClass<UShooterAnimInstance>()
 	{
 		return UShooterAnimInstance::StaticClass();
