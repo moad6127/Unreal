@@ -103,6 +103,10 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFWeaponDataTable
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_MaterialIndex_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_MaterialIndex;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ClipBoneName_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FNamePropertyParams NewProp_ClipBoneName;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UE4CodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -194,6 +198,13 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFWeaponDataTable
 	};
 #endif
 	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_MaterialIndex = { "MaterialIndex", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FWeaponDataTable, MaterialIndex), METADATA_PARAMS(Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_MaterialIndex_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_MaterialIndex_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_ClipBoneName_MetaData[] = {
+		{ "Category", "WeaponDataTable" },
+		{ "ModuleRelativePath", "Weapon.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FNamePropertyParams Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_ClipBoneName = { "ClipBoneName", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FWeaponDataTable, ClipBoneName), METADATA_PARAMS(Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_ClipBoneName_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_ClipBoneName_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FWeaponDataTable_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_AmmoType_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_AmmoType,
@@ -207,6 +218,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFWeaponDataTable
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_AmmoIcon,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_MaterialInstance,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_MaterialIndex,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_ClipBoneName,
 	};
 	const UE4CodeGen_Private::FStructParams Z_Construct_UScriptStruct_FWeaponDataTable_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_Shooter,
@@ -236,7 +248,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFWeaponDataTable
 		}
 		return ReturnStruct;
 	}
-	uint32 Get_Z_Construct_UScriptStruct_FWeaponDataTable_Hash() { return 945268463U; }
+	uint32 Get_Z_Construct_UScriptStruct_FWeaponDataTable_Hash() { return 2545632789U; }
 	void AWeapon::StaticRegisterNativesAWeapon()
 	{
 	}

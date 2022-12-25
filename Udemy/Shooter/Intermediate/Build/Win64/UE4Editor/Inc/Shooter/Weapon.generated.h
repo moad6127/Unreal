@@ -21,10 +21,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 template<> SHOOTER_API UScriptStruct* StaticStruct<struct FWeaponDataTable>();
 
-#define Shooter_Source_Shooter_Weapon_h_59_SPARSE_DATA
-#define Shooter_Source_Shooter_Weapon_h_59_RPC_WRAPPERS
-#define Shooter_Source_Shooter_Weapon_h_59_RPC_WRAPPERS_NO_PURE_DECLS
-#define Shooter_Source_Shooter_Weapon_h_59_INCLASS_NO_PURE_DECLS \
+#define Shooter_Source_Shooter_Weapon_h_62_SPARSE_DATA
+#define Shooter_Source_Shooter_Weapon_h_62_RPC_WRAPPERS
+#define Shooter_Source_Shooter_Weapon_h_62_RPC_WRAPPERS_NO_PURE_DECLS
+#define Shooter_Source_Shooter_Weapon_h_62_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAWeapon(); \
 	friend struct Z_Construct_UClass_AWeapon_Statics; \
@@ -33,7 +33,7 @@ public: \
 	DECLARE_SERIALIZER(AWeapon)
 
 
-#define Shooter_Source_Shooter_Weapon_h_59_INCLASS \
+#define Shooter_Source_Shooter_Weapon_h_62_INCLASS \
 private: \
 	static void StaticRegisterNativesAWeapon(); \
 	friend struct Z_Construct_UClass_AWeapon_Statics; \
@@ -42,7 +42,7 @@ public: \
 	DECLARE_SERIALIZER(AWeapon)
 
 
-#define Shooter_Source_Shooter_Weapon_h_59_STANDARD_CONSTRUCTORS \
+#define Shooter_Source_Shooter_Weapon_h_62_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AWeapon(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AWeapon) \
@@ -55,7 +55,7 @@ private: \
 public:
 
 
-#define Shooter_Source_Shooter_Weapon_h_59_ENHANCED_CONSTRUCTORS \
+#define Shooter_Source_Shooter_Weapon_h_62_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AWeapon(AWeapon&&); \
@@ -66,7 +66,7 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AWeapon)
 
 
-#define Shooter_Source_Shooter_Weapon_h_59_PRIVATE_PROPERTY_OFFSET \
+#define Shooter_Source_Shooter_Weapon_h_62_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__Ammo() { return STRUCT_OFFSET(AWeapon, Ammo); } \
 	FORCEINLINE static uint32 __PPO__MagazineCapacity() { return STRUCT_OFFSET(AWeapon, MagazineCapacity); } \
 	FORCEINLINE static uint32 __PPO__WeaponType() { return STRUCT_OFFSET(AWeapon, WeaponType); } \
@@ -77,27 +77,27 @@ public: \
 	FORCEINLINE static uint32 __PPO__WeaponDataTable() { return STRUCT_OFFSET(AWeapon, WeaponDataTable); }
 
 
-#define Shooter_Source_Shooter_Weapon_h_56_PROLOG
-#define Shooter_Source_Shooter_Weapon_h_59_GENERATED_BODY_LEGACY \
+#define Shooter_Source_Shooter_Weapon_h_59_PROLOG
+#define Shooter_Source_Shooter_Weapon_h_62_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Shooter_Source_Shooter_Weapon_h_59_PRIVATE_PROPERTY_OFFSET \
-	Shooter_Source_Shooter_Weapon_h_59_SPARSE_DATA \
-	Shooter_Source_Shooter_Weapon_h_59_RPC_WRAPPERS \
-	Shooter_Source_Shooter_Weapon_h_59_INCLASS \
-	Shooter_Source_Shooter_Weapon_h_59_STANDARD_CONSTRUCTORS \
+	Shooter_Source_Shooter_Weapon_h_62_PRIVATE_PROPERTY_OFFSET \
+	Shooter_Source_Shooter_Weapon_h_62_SPARSE_DATA \
+	Shooter_Source_Shooter_Weapon_h_62_RPC_WRAPPERS \
+	Shooter_Source_Shooter_Weapon_h_62_INCLASS \
+	Shooter_Source_Shooter_Weapon_h_62_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Shooter_Source_Shooter_Weapon_h_59_GENERATED_BODY \
+#define Shooter_Source_Shooter_Weapon_h_62_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Shooter_Source_Shooter_Weapon_h_59_PRIVATE_PROPERTY_OFFSET \
-	Shooter_Source_Shooter_Weapon_h_59_SPARSE_DATA \
-	Shooter_Source_Shooter_Weapon_h_59_RPC_WRAPPERS_NO_PURE_DECLS \
-	Shooter_Source_Shooter_Weapon_h_59_INCLASS_NO_PURE_DECLS \
-	Shooter_Source_Shooter_Weapon_h_59_ENHANCED_CONSTRUCTORS \
+	Shooter_Source_Shooter_Weapon_h_62_PRIVATE_PROPERTY_OFFSET \
+	Shooter_Source_Shooter_Weapon_h_62_SPARSE_DATA \
+	Shooter_Source_Shooter_Weapon_h_62_RPC_WRAPPERS_NO_PURE_DECLS \
+	Shooter_Source_Shooter_Weapon_h_62_INCLASS_NO_PURE_DECLS \
+	Shooter_Source_Shooter_Weapon_h_62_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
