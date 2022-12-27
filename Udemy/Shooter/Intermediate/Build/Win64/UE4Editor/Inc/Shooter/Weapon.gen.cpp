@@ -150,6 +150,10 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFWeaponDataTable
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireSound_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FireSound;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BoneToHide_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FNamePropertyParams NewProp_BoneToHide;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UE4CodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -318,6 +322,13 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFWeaponDataTable
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_FireSound = { "FireSound", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FWeaponDataTable, FireSound), Z_Construct_UClass_USoundCue_NoRegister, METADATA_PARAMS(Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_FireSound_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_FireSound_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_BoneToHide_MetaData[] = {
+		{ "Category", "WeaponDataTable" },
+		{ "ModuleRelativePath", "Weapon.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FNamePropertyParams Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_BoneToHide = { "BoneToHide", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FWeaponDataTable, BoneToHide), METADATA_PARAMS(Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_BoneToHide_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_BoneToHide_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FWeaponDataTable_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_AmmoType_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_AmmoType,
@@ -342,6 +353,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFWeaponDataTable
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_AutoFireRate,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_MuzzleFlash,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_FireSound,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FWeaponDataTable_Statics::NewProp_BoneToHide,
 	};
 	const UE4CodeGen_Private::FStructParams Z_Construct_UScriptStruct_FWeaponDataTable_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_Shooter,
@@ -371,7 +383,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFWeaponDataTable
 		}
 		return ReturnStruct;
 	}
-	uint32 Get_Z_Construct_UScriptStruct_FWeaponDataTable_Hash() { return 2102894491U; }
+	uint32 Get_Z_Construct_UScriptStruct_FWeaponDataTable_Hash() { return 3114535455U; }
 	void AWeapon::StaticRegisterNativesAWeapon()
 	{
 	}
@@ -452,6 +464,10 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFWeaponDataTable
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FireSound_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_FireSound;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BoneToHide_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FNamePropertyParams NewProp_BoneToHide;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -625,6 +641,16 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFWeaponDataTable
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AWeapon_Statics::NewProp_FireSound = { "FireSound", nullptr, (EPropertyFlags)0x0040000000020015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AWeapon, FireSound), Z_Construct_UClass_USoundCue_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AWeapon_Statics::NewProp_FireSound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AWeapon_Statics::NewProp_FireSound_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AWeapon_Statics::NewProp_BoneToHide_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "DataTable" },
+		{ "Comment", "//Name of the bone to hide on the weapon mesh\n" },
+		{ "ModuleRelativePath", "Weapon.h" },
+		{ "ToolTip", "Name of the bone to hide on the weapon mesh" },
+	};
+#endif
+	const UE4CodeGen_Private::FNamePropertyParams Z_Construct_UClass_AWeapon_Statics::NewProp_BoneToHide = { "BoneToHide", nullptr, (EPropertyFlags)0x0040000000020015, UE4CodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AWeapon, BoneToHide), METADATA_PARAMS(Z_Construct_UClass_AWeapon_Statics::NewProp_BoneToHide_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AWeapon_Statics::NewProp_BoneToHide_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AWeapon_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeapon_Statics::NewProp_Ammo,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeapon_Statics::NewProp_MagazineCapacity,
@@ -644,6 +670,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFWeaponDataTable
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeapon_Statics::NewProp_AutoFireRate,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeapon_Statics::NewProp_MuzzleFlash,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeapon_Statics::NewProp_FireSound,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeapon_Statics::NewProp_BoneToHide,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AWeapon_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AWeapon>::IsAbstract,
@@ -672,7 +699,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFWeaponDataTable
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AWeapon, 4012803918);
+	IMPLEMENT_CLASS(AWeapon, 3096971509);
 	template<> SHOOTER_API UClass* StaticClass<AWeapon>()
 	{
 		return AWeapon::StaticClass();

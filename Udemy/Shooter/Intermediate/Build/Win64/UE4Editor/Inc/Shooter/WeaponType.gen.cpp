@@ -30,7 +30,7 @@ void EmptyLinkFunctionForGeneratedCodeWeaponType() {}
 		return EWeaponType_StaticEnum();
 	}
 	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_EWeaponType(EWeaponType_StaticEnum, TEXT("/Script/Shooter"), TEXT("EWeaponType"), false, nullptr, nullptr);
-	uint32 Get_Z_Construct_UEnum_Shooter_EWeaponType_Hash() { return 3322629212U; }
+	uint32 Get_Z_Construct_UEnum_Shooter_EWeaponType_Hash() { return 2354817713U; }
 	UEnum* Z_Construct_UEnum_Shooter_EWeaponType()
 	{
 #if WITH_HOT_RELOAD
@@ -44,6 +44,7 @@ void EmptyLinkFunctionForGeneratedCodeWeaponType() {}
 			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
 				{ "EWeaponType::EWT_SubmachineGun", (int64)EWeaponType::EWT_SubmachineGun },
 				{ "EWeaponType::EWT_AssaultRifle", (int64)EWeaponType::EWT_AssaultRifle },
+				{ "EWeaponType::EWT_Pistol", (int64)EWeaponType::EWT_Pistol },
 				{ "EWeaponType::EWT_MAX", (int64)EWeaponType::EWT_MAX },
 			};
 #if WITH_METADATA
@@ -53,6 +54,8 @@ void EmptyLinkFunctionForGeneratedCodeWeaponType() {}
 				{ "EWT_AssaultRifle.Name", "EWeaponType::EWT_AssaultRifle" },
 				{ "EWT_MAX.DisplayName", "DefaultMAX" },
 				{ "EWT_MAX.Name", "EWeaponType::EWT_MAX" },
+				{ "EWT_Pistol.DisplayName", "Pistol" },
+				{ "EWT_Pistol.Name", "EWeaponType::EWT_Pistol" },
 				{ "EWT_SubmachineGun.DisplayName", "SubmachineGun" },
 				{ "EWT_SubmachineGun.Name", "EWeaponType::EWT_SubmachineGun" },
 				{ "ModuleRelativePath", "WeaponType.h" },
