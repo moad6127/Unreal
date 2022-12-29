@@ -190,6 +190,7 @@ private:
 	FTimerHandle SlideTimer;
 
 	//Time for displacing the slide during pistol fire
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pistol, meta = (AllowPrivateAccess = "true"))
 	float SlideDisplacementTime;
 
 	//True when moving the pistol Slide
@@ -199,6 +200,14 @@ private:
 	//Max Distance fore the slide on the pistol
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pistol, meta = (AllowPrivateAccess = "true"))
 	float MaxSlideDisplacement;
+
+	//Max rotation for pistol recoil
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pistol, meta = (AllowPrivateAccess = "true"))
+	float MaxRecoilRotation;
+
+	//Amount that the pistol will rotate during pistol fire
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Pistol, meta = (AllowPrivateAccess = "true"))
+	float RecoilRotation;
 public:
 
 	void ThrowWeapon();
