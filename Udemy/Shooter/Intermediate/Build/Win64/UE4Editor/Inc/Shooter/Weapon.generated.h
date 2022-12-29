@@ -83,7 +83,9 @@ public: \
 	FORCEINLINE static uint32 __PPO__AutoFireRate() { return STRUCT_OFFSET(AWeapon, AutoFireRate); } \
 	FORCEINLINE static uint32 __PPO__MuzzleFlash() { return STRUCT_OFFSET(AWeapon, MuzzleFlash); } \
 	FORCEINLINE static uint32 __PPO__FireSound() { return STRUCT_OFFSET(AWeapon, FireSound); } \
-	FORCEINLINE static uint32 __PPO__BoneToHide() { return STRUCT_OFFSET(AWeapon, BoneToHide); }
+	FORCEINLINE static uint32 __PPO__BoneToHide() { return STRUCT_OFFSET(AWeapon, BoneToHide); } \
+	FORCEINLINE static uint32 __PPO__SlideDisplacement() { return STRUCT_OFFSET(AWeapon, SlideDisplacement); } \
+	FORCEINLINE static uint32 __PPO__SlideDisplacementCurve() { return STRUCT_OFFSET(AWeapon, SlideDisplacementCurve); }
 
 
 #define Shooter_Source_Shooter_Weapon_h_92_PROLOG
