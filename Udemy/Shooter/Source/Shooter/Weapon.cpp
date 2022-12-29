@@ -30,6 +30,8 @@ void AWeapon::Tick(float DeltaTime)
 		const FRotator MeshRotation{ 0.f,GetItemMesh()->GetComponentRotation().Yaw,0.f };
 		GetItemMesh()->SetWorldRotation(MeshRotation, false, nullptr, ETeleportType::TeleportPhysics);
 	}
+	//무기가 권총일때 슬라이드가 움직이는것을 업데이트하기
+	UpdateSlideDispalcement();
 }
 
 void AWeapon::ThrowWeapon()
@@ -135,6 +137,15 @@ void AWeapon::BeginPlay()
 void AWeapon::FinishMovingSlide()
 {
 	bMovingSlide = false;
+}
+void AWeapon::UpdateSlideDispalcement()
+{
+	if (SlideDisplacementCurve && bMovingSlide)
+	{
+		const float ElapsedTime{ GetWorldTimerManager().GetTimerElapsed(SlideTimer) };
+		const float CurveValue{ SlideDisplacementCurve->GetFloatValue(ElapsedTime) };
+		SlideDisplacement = CurveValue * MaxSlideDisplacement;
+	}
 }
 void AWeapon::DecrementAmmo()
 {
