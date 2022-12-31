@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"C:\\Unreal\\inflearn\\TopDown\\Source\\TopDown\\TopDown.Build.cs",
+		"C:\\Unreal\\inflearn\\TopDown\\Source\\TopDown.Target.cs",
+		"C:\\Unreal\\inflearn\\TopDown\\Source\\TopDownEditor.Target.cs"
+	],
+	"EngineVersion": "4.27.2"
+}

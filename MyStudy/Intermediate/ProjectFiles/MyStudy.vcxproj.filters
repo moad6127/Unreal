@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\MyStudy.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{B528C8B7-E5A0-4D1B-AAD6-48FA2037B866}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\MyStudy.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\MyStudyEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{ADD680DB-5A4C-4C18-ABF9-812BA7F52AB8}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\MyStudy">
+      <UniqueIdentifier>{5189D4E5-52A7-47DC-AEB5-30F7CAFAAC5B}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MyStudy\BasicCharacter.cpp">
+      <Filter>Source\MyStudy</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyStudy\BasicCharacter.h">
+      <Filter>Source\MyStudy</Filter>
+    </ClInclude>
+    <None Include="..\..\Source\MyStudy\MyStudy.Build.cs">
+      <Filter>Source\MyStudy</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\MyStudy\MyStudy.cpp">
+      <Filter>Source\MyStudy</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyStudy\MyStudy.h">
+      <Filter>Source\MyStudy</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MyStudy\MyStudyGameModeBase.cpp">
+      <Filter>Source\MyStudy</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyStudy\MyStudyGameModeBase.h">
+      <Filter>Source\MyStudy</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MyStudy\MyTestActor.cpp">
+      <Filter>Source\MyStudy</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyStudy\MyTestActor.h">
+      <Filter>Source\MyStudy</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MyStudy\MyTestAnimNotifyState.cpp">
+      <Filter>Source\MyStudy</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyStudy\MyTestAnimNotifyState.h">
+      <Filter>Source\MyStudy</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MyStudy\MyTestCharacter.cpp">
+      <Filter>Source\MyStudy</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyStudy\MyTestCharacter.h">
+      <Filter>Source\MyStudy</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

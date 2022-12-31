@@ -1,0 +1,2 @@
+C:\Unreal\inflearn\FirstPlayer\Intermediate\Build\Win64\UE4Editor\Development\FirstPlayer\Definitions.FirstPlayer.h
+C:\Unreal\inflearn\FirstPlayer\Source\FirstPlayer\FirstPlayer.h
