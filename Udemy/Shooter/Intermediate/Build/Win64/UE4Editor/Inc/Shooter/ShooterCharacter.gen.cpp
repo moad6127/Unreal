@@ -296,6 +296,13 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		P_THIS->FinishReloading();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AShooterCharacter::execFootstep)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Footstep();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AShooterCharacter::execReleaseClip)
 	{
 		P_FINISH;
@@ -332,6 +339,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 			{ "FinishCrosshairBulletFire", &AShooterCharacter::execFinishCrosshairBulletFire },
 			{ "FinishEquipping", &AShooterCharacter::execFinishEquipping },
 			{ "FinishReloading", &AShooterCharacter::execFinishReloading },
+			{ "Footstep", &AShooterCharacter::execFootstep },
 			{ "GetCrosshairSpreadMultiplier", &AShooterCharacter::execGetCrosshairSpreadMultiplier },
 			{ "GrabClip", &AShooterCharacter::execGrabClip },
 			{ "ReleaseClip", &AShooterCharacter::execReleaseClip },
@@ -423,6 +431,28 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AShooterCharacter_FinishReloading_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AShooterCharacter_Footstep_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AShooterCharacter_Footstep_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ShooterCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AShooterCharacter_Footstep_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AShooterCharacter, nullptr, "Footstep", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AShooterCharacter_Footstep_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AShooterCharacter_Footstep_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AShooterCharacter_Footstep()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AShooterCharacter_Footstep_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -774,6 +804,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		{ &Z_Construct_UFunction_AShooterCharacter_FinishCrosshairBulletFire, "FinishCrosshairBulletFire" }, // 4128212246
 		{ &Z_Construct_UFunction_AShooterCharacter_FinishEquipping, "FinishEquipping" }, // 2463802825
 		{ &Z_Construct_UFunction_AShooterCharacter_FinishReloading, "FinishReloading" }, // 712437738
+		{ &Z_Construct_UFunction_AShooterCharacter_Footstep, "Footstep" }, // 1486610829
 		{ &Z_Construct_UFunction_AShooterCharacter_GetCrosshairSpreadMultiplier, "GetCrosshairSpreadMultiplier" }, // 1013151514
 		{ &Z_Construct_UFunction_AShooterCharacter_GrabClip, "GrabClip" }, // 1307519431
 		{ &Z_Construct_UFunction_AShooterCharacter_ReleaseClip, "ReleaseClip" }, // 337692770
@@ -1489,7 +1520,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AShooterCharacter, 1735483975);
+	IMPLEMENT_CLASS(AShooterCharacter, 2025870163);
 	template<> SHOOTER_API UClass* StaticClass<AShooterCharacter>()
 	{
 		return AShooterCharacter::StaticClass();
