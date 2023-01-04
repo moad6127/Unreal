@@ -22,6 +22,7 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 	SHOOTER_API UClass* Z_Construct_UClass_AShooterCharacter_NoRegister();
 	SHOOTER_API UClass* Z_Construct_UClass_AShooterCharacter();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
+	PHYSICSCORE_API UEnum* Z_Construct_UEnum_PhysicsCore_EPhysicalSurface();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
@@ -296,11 +297,11 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		P_THIS->FinishReloading();
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(AShooterCharacter::execFootstep)
+	DEFINE_FUNCTION(AShooterCharacter::execGetSurfaceType)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->Footstep();
+		*(TEnumAsByte<EPhysicalSurface>*)Z_Param__Result=P_THIS->GetSurfaceType();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(AShooterCharacter::execReleaseClip)
@@ -339,8 +340,8 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 			{ "FinishCrosshairBulletFire", &AShooterCharacter::execFinishCrosshairBulletFire },
 			{ "FinishEquipping", &AShooterCharacter::execFinishEquipping },
 			{ "FinishReloading", &AShooterCharacter::execFinishReloading },
-			{ "Footstep", &AShooterCharacter::execFootstep },
 			{ "GetCrosshairSpreadMultiplier", &AShooterCharacter::execGetCrosshairSpreadMultiplier },
+			{ "GetSurfaceType", &AShooterCharacter::execGetSurfaceType },
 			{ "GrabClip", &AShooterCharacter::execGrabClip },
 			{ "ReleaseClip", &AShooterCharacter::execReleaseClip },
 		};
@@ -434,28 +435,6 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_AShooterCharacter_Footstep_Statics
-	{
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AShooterCharacter_Footstep_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "ShooterCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AShooterCharacter_Footstep_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AShooterCharacter, nullptr, "Footstep", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AShooterCharacter_Footstep_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AShooterCharacter_Footstep_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_AShooterCharacter_Footstep()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AShooterCharacter_Footstep_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
 	struct Z_Construct_UFunction_AShooterCharacter_GetCrosshairSpreadMultiplier_Statics
 	{
 		struct ShooterCharacter_eventGetCrosshairSpreadMultiplier_Parms
@@ -485,6 +464,38 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AShooterCharacter_GetCrosshairSpreadMultiplier_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AShooterCharacter_GetSurfaceType_Statics
+	{
+		struct ShooterCharacter_eventGetSurfaceType_Parms
+		{
+			TEnumAsByte<EPhysicalSurface> ReturnValue;
+		};
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UFunction_AShooterCharacter_GetSurfaceType_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ShooterCharacter_eventGetSurfaceType_Parms, ReturnValue), Z_Construct_UEnum_PhysicsCore_EPhysicalSurface, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AShooterCharacter_GetSurfaceType_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AShooterCharacter_GetSurfaceType_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AShooterCharacter_GetSurfaceType_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ShooterCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AShooterCharacter_GetSurfaceType_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AShooterCharacter, nullptr, "GetSurfaceType", nullptr, nullptr, sizeof(ShooterCharacter_eventGetSurfaceType_Parms), Z_Construct_UFunction_AShooterCharacter_GetSurfaceType_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AShooterCharacter_GetSurfaceType_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AShooterCharacter_GetSurfaceType_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AShooterCharacter_GetSurfaceType_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AShooterCharacter_GetSurfaceType()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AShooterCharacter_GetSurfaceType_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -804,8 +815,8 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		{ &Z_Construct_UFunction_AShooterCharacter_FinishCrosshairBulletFire, "FinishCrosshairBulletFire" }, // 4128212246
 		{ &Z_Construct_UFunction_AShooterCharacter_FinishEquipping, "FinishEquipping" }, // 2463802825
 		{ &Z_Construct_UFunction_AShooterCharacter_FinishReloading, "FinishReloading" }, // 712437738
-		{ &Z_Construct_UFunction_AShooterCharacter_Footstep, "Footstep" }, // 1486610829
 		{ &Z_Construct_UFunction_AShooterCharacter_GetCrosshairSpreadMultiplier, "GetCrosshairSpreadMultiplier" }, // 1013151514
+		{ &Z_Construct_UFunction_AShooterCharacter_GetSurfaceType, "GetSurfaceType" }, // 2218513356
 		{ &Z_Construct_UFunction_AShooterCharacter_GrabClip, "GrabClip" }, // 1307519431
 		{ &Z_Construct_UFunction_AShooterCharacter_ReleaseClip, "ReleaseClip" }, // 337692770
 	};
@@ -1520,7 +1531,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AShooterCharacter, 2025870163);
+	IMPLEMENT_CLASS(AShooterCharacter, 2692113672);
 	template<> SHOOTER_API UClass* StaticClass<AShooterCharacter>()
 	{
 		return AShooterCharacter::StaticClass();

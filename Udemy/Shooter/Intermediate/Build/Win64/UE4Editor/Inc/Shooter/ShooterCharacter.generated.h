@@ -56,7 +56,7 @@ static inline void FEquipItemDelegate_DelegateWrapper(const FMulticastScriptDele
 	DECLARE_FUNCTION(execGetCrosshairSpreadMultiplier); \
 	DECLARE_FUNCTION(execFinishEquipping); \
 	DECLARE_FUNCTION(execFinishReloading); \
-	DECLARE_FUNCTION(execFootstep); \
+	DECLARE_FUNCTION(execGetSurfaceType); \
 	DECLARE_FUNCTION(execReleaseClip); \
 	DECLARE_FUNCTION(execGrabClip); \
 	DECLARE_FUNCTION(execAutoFireReset); \
@@ -68,7 +68,7 @@ static inline void FEquipItemDelegate_DelegateWrapper(const FMulticastScriptDele
 	DECLARE_FUNCTION(execGetCrosshairSpreadMultiplier); \
 	DECLARE_FUNCTION(execFinishEquipping); \
 	DECLARE_FUNCTION(execFinishReloading); \
-	DECLARE_FUNCTION(execFootstep); \
+	DECLARE_FUNCTION(execGetSurfaceType); \
 	DECLARE_FUNCTION(execReleaseClip); \
 	DECLARE_FUNCTION(execGrabClip); \
 	DECLARE_FUNCTION(execAutoFireReset); \
