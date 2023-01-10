@@ -1,0 +1,3 @@
+C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\Definitions.Shooter.h
+C:\Unreal\Udemy\Shooter\Source\Shooter\BulletHitInterface.h
+C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\BulletHitInterface.generated.h

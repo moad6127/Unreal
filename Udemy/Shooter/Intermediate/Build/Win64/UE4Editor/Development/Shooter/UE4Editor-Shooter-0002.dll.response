@@ -35,6 +35,8 @@
 /FUNCTIONPADMIN
 "C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\ShooterEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
 "C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\Ammo.cpp.obj"
+"C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\BulletHitInterface.cpp.obj"
+"C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\Enemy.cpp.obj"
 "C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\Item.cpp.obj"
 "C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\Shooter.cpp.obj"
 "C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\ShooterAnimInstance.cpp.obj"
@@ -44,6 +46,8 @@
 "C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\Weapon.cpp.obj"
 "C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\Ammo.gen.cpp.obj"
 "C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\AmmoType.gen.cpp.obj"
+"C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\BulletHitInterface.gen.cpp.obj"
+"C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\Enemy.gen.cpp.obj"
 "C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\Item.gen.cpp.obj"
 "C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\Shooter.init.gen.cpp.obj"
 "C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\ShooterAnimInstance.gen.cpp.obj"
