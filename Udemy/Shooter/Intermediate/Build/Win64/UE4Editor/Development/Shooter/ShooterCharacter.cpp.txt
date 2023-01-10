@@ -175,3 +175,5 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\PhysicsCore\Public\Phy
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\PhysicsCore\PhysicsSettingsEnums.generated.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\PhysicsCore\PhysicalMaterial.generated.h
 C:\Unreal\Udemy\Shooter\Source\Shooter\Shooter.h
+C:\Unreal\Udemy\Shooter\Source\Shooter\BulletHitInterface.h
+C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\BulletHitInterface.generated.h

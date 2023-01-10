@@ -72,7 +72,7 @@ protected:
 	//발사 버튼 누르기
 	void FireWeapon();
 
-	bool GetBeamEndLocation(const FVector& MuzzleSocketLocation, FVector& OutBeamLocation);
+	bool GetBeamEndLocation(const FVector& MuzzleSocketLocation, FHitResult& OutHitResult);
 
 	//에임 버튼을눌렀을때 나오는 함수들
 	void AimingButtonPressed();
