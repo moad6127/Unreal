@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Shooter.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{4CB594AD-F376-416A-B7F1-2F96762C12F6}</UniqueIdentifier>
+      <UniqueIdentifier>{C6AA7EAD-B9A7-4E3F-996F-84AE7E29B1C9}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Shooter.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{42687A2F-CCC4-4241-94BE-77E8B1229F3B}</UniqueIdentifier>
+      <UniqueIdentifier>{5DF60CFF-90FA-4113-968A-37045F1A5A65}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,7 +27,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Shooter">
-      <UniqueIdentifier>{E410ED1A-DC20-473B-BF97-B02C0FE42A23}</UniqueIdentifier>
+      <UniqueIdentifier>{3C0566F3-FE73-44F3-9C40-3D14668128BD}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Shooter\Ammo.cpp">
       <Filter>Source\Shooter</Filter>
@@ -48,6 +48,12 @@
       <Filter>Source\Shooter</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Shooter\Enemy.h">
+      <Filter>Source\Shooter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Shooter\Explosive.cpp">
+      <Filter>Source\Shooter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Shooter\Explosive.h">
       <Filter>Source\Shooter</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\Shooter\Item.cpp">
