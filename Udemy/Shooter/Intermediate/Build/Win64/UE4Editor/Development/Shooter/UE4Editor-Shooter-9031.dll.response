@@ -89,7 +89,7 @@
 "setupapi.lib"
 "dwmapi.lib"
 "imm32.lib"
-/OUT:"C:\Unreal\Udemy\Shooter\Binaries\Win64\UE4Editor-Shooter-0008.dll"
-/IMPLIB:"C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\UE4Editor-Shooter-0008.suppressed.lib"
-/PDB:"C:\Unreal\Udemy\Shooter\Binaries\Win64\UE4Editor-Shooter-0008.pdb"
+/OUT:"C:\Unreal\Udemy\Shooter\Binaries\Win64\UE4Editor-Shooter-9031.dll"
+/IMPLIB:"C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Development\Shooter\UE4Editor-Shooter-9031.suppressed.lib"
+/PDB:"C:\Unreal\Udemy\Shooter\Binaries\Win64\UE4Editor-Shooter-9031.pdb"
 /ignore:4078
