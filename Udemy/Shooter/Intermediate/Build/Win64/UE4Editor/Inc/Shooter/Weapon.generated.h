@@ -21,10 +21,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 template<> SHOOTER_API UScriptStruct* StaticStruct<struct FWeaponDataTable>();
 
-#define Shooter_Source_Shooter_Weapon_h_98_SPARSE_DATA
-#define Shooter_Source_Shooter_Weapon_h_98_RPC_WRAPPERS
-#define Shooter_Source_Shooter_Weapon_h_98_RPC_WRAPPERS_NO_PURE_DECLS
-#define Shooter_Source_Shooter_Weapon_h_98_INCLASS_NO_PURE_DECLS \
+#define Shooter_Source_Shooter_Weapon_h_104_SPARSE_DATA
+#define Shooter_Source_Shooter_Weapon_h_104_RPC_WRAPPERS
+#define Shooter_Source_Shooter_Weapon_h_104_RPC_WRAPPERS_NO_PURE_DECLS
+#define Shooter_Source_Shooter_Weapon_h_104_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAWeapon(); \
 	friend struct Z_Construct_UClass_AWeapon_Statics; \
@@ -33,7 +33,7 @@ public: \
 	DECLARE_SERIALIZER(AWeapon)
 
 
-#define Shooter_Source_Shooter_Weapon_h_98_INCLASS \
+#define Shooter_Source_Shooter_Weapon_h_104_INCLASS \
 private: \
 	static void StaticRegisterNativesAWeapon(); \
 	friend struct Z_Construct_UClass_AWeapon_Statics; \
@@ -42,7 +42,7 @@ public: \
 	DECLARE_SERIALIZER(AWeapon)
 
 
-#define Shooter_Source_Shooter_Weapon_h_98_STANDARD_CONSTRUCTORS \
+#define Shooter_Source_Shooter_Weapon_h_104_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AWeapon(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AWeapon) \
@@ -55,7 +55,7 @@ private: \
 public:
 
 
-#define Shooter_Source_Shooter_Weapon_h_98_ENHANCED_CONSTRUCTORS \
+#define Shooter_Source_Shooter_Weapon_h_104_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AWeapon(AWeapon&&); \
@@ -66,7 +66,7 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AWeapon)
 
 
-#define Shooter_Source_Shooter_Weapon_h_98_PRIVATE_PROPERTY_OFFSET \
+#define Shooter_Source_Shooter_Weapon_h_104_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__Ammo() { return STRUCT_OFFSET(AWeapon, Ammo); } \
 	FORCEINLINE static uint32 __PPO__MagazineCapacity() { return STRUCT_OFFSET(AWeapon, MagazineCapacity); } \
 	FORCEINLINE static uint32 __PPO__WeaponType() { return STRUCT_OFFSET(AWeapon, WeaponType); } \
@@ -91,30 +91,32 @@ public: \
 	FORCEINLINE static uint32 __PPO__MaxSlideDisplacement() { return STRUCT_OFFSET(AWeapon, MaxSlideDisplacement); } \
 	FORCEINLINE static uint32 __PPO__MaxRecoilRotation() { return STRUCT_OFFSET(AWeapon, MaxRecoilRotation); } \
 	FORCEINLINE static uint32 __PPO__RecoilRotation() { return STRUCT_OFFSET(AWeapon, RecoilRotation); } \
-	FORCEINLINE static uint32 __PPO__bAutomatic() { return STRUCT_OFFSET(AWeapon, bAutomatic); }
+	FORCEINLINE static uint32 __PPO__bAutomatic() { return STRUCT_OFFSET(AWeapon, bAutomatic); } \
+	FORCEINLINE static uint32 __PPO__Damage() { return STRUCT_OFFSET(AWeapon, Damage); } \
+	FORCEINLINE static uint32 __PPO__HeadShotDamage() { return STRUCT_OFFSET(AWeapon, HeadShotDamage); }
 
 
-#define Shooter_Source_Shooter_Weapon_h_95_PROLOG
-#define Shooter_Source_Shooter_Weapon_h_98_GENERATED_BODY_LEGACY \
+#define Shooter_Source_Shooter_Weapon_h_101_PROLOG
+#define Shooter_Source_Shooter_Weapon_h_104_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Shooter_Source_Shooter_Weapon_h_98_PRIVATE_PROPERTY_OFFSET \
-	Shooter_Source_Shooter_Weapon_h_98_SPARSE_DATA \
-	Shooter_Source_Shooter_Weapon_h_98_RPC_WRAPPERS \
-	Shooter_Source_Shooter_Weapon_h_98_INCLASS \
-	Shooter_Source_Shooter_Weapon_h_98_STANDARD_CONSTRUCTORS \
+	Shooter_Source_Shooter_Weapon_h_104_PRIVATE_PROPERTY_OFFSET \
+	Shooter_Source_Shooter_Weapon_h_104_SPARSE_DATA \
+	Shooter_Source_Shooter_Weapon_h_104_RPC_WRAPPERS \
+	Shooter_Source_Shooter_Weapon_h_104_INCLASS \
+	Shooter_Source_Shooter_Weapon_h_104_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Shooter_Source_Shooter_Weapon_h_98_GENERATED_BODY \
+#define Shooter_Source_Shooter_Weapon_h_104_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Shooter_Source_Shooter_Weapon_h_98_PRIVATE_PROPERTY_OFFSET \
-	Shooter_Source_Shooter_Weapon_h_98_SPARSE_DATA \
-	Shooter_Source_Shooter_Weapon_h_98_RPC_WRAPPERS_NO_PURE_DECLS \
-	Shooter_Source_Shooter_Weapon_h_98_INCLASS_NO_PURE_DECLS \
-	Shooter_Source_Shooter_Weapon_h_98_ENHANCED_CONSTRUCTORS \
+	Shooter_Source_Shooter_Weapon_h_104_PRIVATE_PROPERTY_OFFSET \
+	Shooter_Source_Shooter_Weapon_h_104_SPARSE_DATA \
+	Shooter_Source_Shooter_Weapon_h_104_RPC_WRAPPERS_NO_PURE_DECLS \
+	Shooter_Source_Shooter_Weapon_h_104_INCLASS_NO_PURE_DECLS \
+	Shooter_Source_Shooter_Weapon_h_104_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

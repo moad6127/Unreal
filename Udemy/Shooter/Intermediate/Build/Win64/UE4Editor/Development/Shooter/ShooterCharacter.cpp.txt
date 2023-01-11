@@ -177,3 +177,5 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\In
 C:\Unreal\Udemy\Shooter\Source\Shooter\Shooter.h
 C:\Unreal\Udemy\Shooter\Source\Shooter\BulletHitInterface.h
 C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\BulletHitInterface.generated.h
+C:\Unreal\Udemy\Shooter\Source\Shooter\Enemy.h
+C:\Unreal\Udemy\Shooter\Intermediate\Build\Win64\UE4Editor\Inc\Shooter\Enemy.generated.h
