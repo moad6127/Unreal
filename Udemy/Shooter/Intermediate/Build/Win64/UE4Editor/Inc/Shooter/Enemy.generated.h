@@ -14,8 +14,19 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define SHOOTER_Enemy_generated_h
 
 #define Shooter_Source_Shooter_Enemy_h_13_SPARSE_DATA
-#define Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS
-#define Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS_NO_PURE_DECLS
+#define Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS \
+	virtual void ShowHealthBar_Implementation(); \
+ \
+	DECLARE_FUNCTION(execShowHealthBar);
+
+
+#define Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execShowHealthBar);
+
+
+#define Shooter_Source_Shooter_Enemy_h_13_EVENT_PARMS
+#define Shooter_Source_Shooter_Enemy_h_13_CALLBACK_WRAPPERS
 #define Shooter_Source_Shooter_Enemy_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAEnemy(); \
@@ -65,16 +76,21 @@ public: \
 	FORCEINLINE static uint32 __PPO__ImpactSound() { return STRUCT_OFFSET(AEnemy, ImpactSound); } \
 	FORCEINLINE static uint32 __PPO__Health() { return STRUCT_OFFSET(AEnemy, Health); } \
 	FORCEINLINE static uint32 __PPO__MaxHealth() { return STRUCT_OFFSET(AEnemy, MaxHealth); } \
-	FORCEINLINE static uint32 __PPO__HeadBone() { return STRUCT_OFFSET(AEnemy, HeadBone); }
+	FORCEINLINE static uint32 __PPO__HeadBone() { return STRUCT_OFFSET(AEnemy, HeadBone); } \
+	FORCEINLINE static uint32 __PPO__HealthBarDisplayTime() { return STRUCT_OFFSET(AEnemy, HealthBarDisplayTime); }
 
 
-#define Shooter_Source_Shooter_Enemy_h_10_PROLOG
+#define Shooter_Source_Shooter_Enemy_h_10_PROLOG \
+	Shooter_Source_Shooter_Enemy_h_13_EVENT_PARMS
+
+
 #define Shooter_Source_Shooter_Enemy_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	Shooter_Source_Shooter_Enemy_h_13_PRIVATE_PROPERTY_OFFSET \
 	Shooter_Source_Shooter_Enemy_h_13_SPARSE_DATA \
 	Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS \
+	Shooter_Source_Shooter_Enemy_h_13_CALLBACK_WRAPPERS \
 	Shooter_Source_Shooter_Enemy_h_13_INCLASS \
 	Shooter_Source_Shooter_Enemy_h_13_STANDARD_CONSTRUCTORS \
 public: \
@@ -87,6 +103,7 @@ public: \
 	Shooter_Source_Shooter_Enemy_h_13_PRIVATE_PROPERTY_OFFSET \
 	Shooter_Source_Shooter_Enemy_h_13_SPARSE_DATA \
 	Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	Shooter_Source_Shooter_Enemy_h_13_CALLBACK_WRAPPERS \
 	Shooter_Source_Shooter_Enemy_h_13_INCLASS_NO_PURE_DECLS \
 	Shooter_Source_Shooter_Enemy_h_13_ENHANCED_CONSTRUCTORS \
 private: \
