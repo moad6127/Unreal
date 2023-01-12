@@ -693,6 +693,16 @@ void AShooterCharacter::SendBullet()
 				{
 					BulletHitInterface->BulletHit_Implementation(BeamHitReuslt);
 				}
+				else
+				{
+					// 기본 파티클 생성
+					if (ImpactParticles)
+					{
+						UGameplayStatics::SpawnEmitterAtLocation(GetWorld(),
+							ImpactParticles,
+							BeamHitReuslt.Location);
+					}
+				}
 				AEnemy* HitEnemy = Cast<AEnemy>(BeamHitReuslt.Actor.Get());
 				if (HitEnemy)
 				{
@@ -718,24 +728,14 @@ void AShooterCharacter::SendBullet()
 					}
 				}
 			}
-			else
-			{
-				// 기본 파티클 생성
-				if (ImpactParticles)
-				{
-					UGameplayStatics::SpawnEmitterAtLocation(GetWorld(),
-						ImpactParticles,
-						BeamHitReuslt.Location);
-				}
 
-				UParticleSystemComponent* Beam = UGameplayStatics::SpawnEmitterAtLocation(
-					GetWorld(),
-					BeamParticles,
-					SocketTransform);
-				if (Beam)
-				{
-					Beam->SetVectorParameter(FName("Target"), BeamHitReuslt.Location);
-				}
+			UParticleSystemComponent* Beam = UGameplayStatics::SpawnEmitterAtLocation(
+				GetWorld(),
+				BeamParticles,
+				SocketTransform);
+			if (Beam)
+			{
+				Beam->SetVectorParameter(FName("Target"), BeamHitReuslt.Location);
 			}
 		}
 	}
