@@ -19,12 +19,14 @@ struct FVector;
 #define Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS \
 	virtual void ShowHealthBar_Implementation(); \
  \
+	DECLARE_FUNCTION(execDestroyHitNumber); \
 	DECLARE_FUNCTION(execStoreHitNumber); \
 	DECLARE_FUNCTION(execShowHealthBar);
 
 
 #define Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execDestroyHitNumber); \
 	DECLARE_FUNCTION(execStoreHitNumber); \
 	DECLARE_FUNCTION(execShowHealthBar);
 
@@ -92,7 +94,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__HitMontage() { return STRUCT_OFFSET(AEnemy, HitMontage); } \
 	FORCEINLINE static uint32 __PPO__HitReactTimeMin() { return STRUCT_OFFSET(AEnemy, HitReactTimeMin); } \
 	FORCEINLINE static uint32 __PPO__HitReactTimeMax() { return STRUCT_OFFSET(AEnemy, HitReactTimeMax); } \
-	FORCEINLINE static uint32 __PPO__HitNumbers() { return STRUCT_OFFSET(AEnemy, HitNumbers); }
+	FORCEINLINE static uint32 __PPO__HitNumbers() { return STRUCT_OFFSET(AEnemy, HitNumbers); } \
+	FORCEINLINE static uint32 __PPO__HitNumberDestroyTime() { return STRUCT_OFFSET(AEnemy, HitNumberDestroyTime); }
 
 
 #define Shooter_Source_Shooter_Enemy_h_10_PROLOG \

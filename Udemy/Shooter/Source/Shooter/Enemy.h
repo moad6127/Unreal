@@ -35,6 +35,9 @@ protected:
 
 	UFUNCTION(BlueprintCallable)
 	void StoreHitNumber(UUserWidget* HitNumber, FVector Location);
+
+	UFUNCTION()
+	void DestroyHitNumber(UUserWidget* HitNumber);
 private:
 	//Particle to spawn when hitby bullets
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat , meta = (AllowPrivateAccess = "true"))
@@ -79,6 +82,10 @@ private:
 	//Map to store HitNumber widget and their hit location
 	UPROPERTY(VisibleAnywhere, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	TMap<UUserWidget*, FVector> HitNumbers;
+
+	//Time before a HitNubmer is remove from the screen
+	UPROPERTY(EditAnywhere, Category = Combat, meta = (AllowPrivateAccess = "true"))
+	float HitNumberDestroyTime;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
