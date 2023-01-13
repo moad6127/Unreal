@@ -8,6 +8,8 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UUserWidget;
+struct FVector;
 #ifdef SHOOTER_Enemy_generated_h
 #error "Enemy.generated.h already included, missing '#pragma once' in Enemy.h"
 #endif
@@ -17,15 +19,24 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS \
 	virtual void ShowHealthBar_Implementation(); \
  \
+	DECLARE_FUNCTION(execStoreHitNumber); \
 	DECLARE_FUNCTION(execShowHealthBar);
 
 
 #define Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execStoreHitNumber); \
 	DECLARE_FUNCTION(execShowHealthBar);
 
 
-#define Shooter_Source_Shooter_Enemy_h_13_EVENT_PARMS
+#define Shooter_Source_Shooter_Enemy_h_13_EVENT_PARMS \
+	struct Enemy_eventShowHitNumber_Parms \
+	{ \
+		int32 Damage; \
+		FVector HitLocation; \
+	};
+
+
 #define Shooter_Source_Shooter_Enemy_h_13_CALLBACK_WRAPPERS
 #define Shooter_Source_Shooter_Enemy_h_13_INCLASS_NO_PURE_DECLS \
 private: \
@@ -80,7 +91,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__HealthBarDisplayTime() { return STRUCT_OFFSET(AEnemy, HealthBarDisplayTime); } \
 	FORCEINLINE static uint32 __PPO__HitMontage() { return STRUCT_OFFSET(AEnemy, HitMontage); } \
 	FORCEINLINE static uint32 __PPO__HitReactTimeMin() { return STRUCT_OFFSET(AEnemy, HitReactTimeMin); } \
-	FORCEINLINE static uint32 __PPO__HitReactTimeMax() { return STRUCT_OFFSET(AEnemy, HitReactTimeMax); }
+	FORCEINLINE static uint32 __PPO__HitReactTimeMax() { return STRUCT_OFFSET(AEnemy, HitReactTimeMax); } \
+	FORCEINLINE static uint32 __PPO__HitNumbers() { return STRUCT_OFFSET(AEnemy, HitNumbers); }
 
 
 #define Shooter_Source_Shooter_Enemy_h_10_PROLOG \

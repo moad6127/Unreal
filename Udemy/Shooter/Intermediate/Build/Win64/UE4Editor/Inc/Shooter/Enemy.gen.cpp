@@ -17,11 +17,22 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 	SHOOTER_API UClass* Z_Construct_UClass_AEnemy();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	UPackage* Z_Construct_UPackage__Script_Shooter();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
+	UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UParticleSystem_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USoundCue_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 	SHOOTER_API UClass* Z_Construct_UClass_UBulletHitInterface_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(AEnemy::execStoreHitNumber)
+	{
+		P_GET_OBJECT(UUserWidget,Z_Param_HitNumber);
+		P_GET_STRUCT(FVector,Z_Param_Location);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->StoreHitNumber(Z_Param_HitNumber,Z_Param_Location);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AEnemy::execShowHealthBar)
 	{
 		P_FINISH;
@@ -39,11 +50,20 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 	{
 		ProcessEvent(FindFunctionChecked(NAME_AEnemy_ShowHealthBar),NULL);
 	}
+	static FName NAME_AEnemy_ShowHitNumber = FName(TEXT("ShowHitNumber"));
+	void AEnemy::ShowHitNumber(int32 Damage, FVector HitLocation)
+	{
+		Enemy_eventShowHitNumber_Parms Parms;
+		Parms.Damage=Damage;
+		Parms.HitLocation=HitLocation;
+		ProcessEvent(FindFunctionChecked(NAME_AEnemy_ShowHitNumber),&Parms);
+	}
 	void AEnemy::StaticRegisterNativesAEnemy()
 	{
 		UClass* Class = AEnemy::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "ShowHealthBar", &AEnemy::execShowHealthBar },
+			{ "StoreHitNumber", &AEnemy::execStoreHitNumber },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -88,6 +108,81 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AEnemy_ShowHealthBar_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics
+	{
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_Damage;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_HitLocation;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::NewProp_Damage = { "Damage", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Enemy_eventShowHitNumber_Parms, Damage), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::NewProp_HitLocation = { "HitLocation", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Enemy_eventShowHitNumber_Parms, HitLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::NewProp_Damage,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::NewProp_HitLocation,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Enemy.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AEnemy, nullptr, "ShowHitNumber", nullptr, nullptr, sizeof(Enemy_eventShowHitNumber_Parms), Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08820800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AEnemy_ShowHitNumber()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AEnemy_StoreHitNumber_Statics
+	{
+		struct Enemy_eventStoreHitNumber_Parms
+		{
+			UUserWidget* HitNumber;
+			FVector Location;
+		};
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HitNumber_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HitNumber;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_Location;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AEnemy_StoreHitNumber_Statics::NewProp_HitNumber_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AEnemy_StoreHitNumber_Statics::NewProp_HitNumber = { "HitNumber", nullptr, (EPropertyFlags)0x0010000000080080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Enemy_eventStoreHitNumber_Parms, HitNumber), Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(Z_Construct_UFunction_AEnemy_StoreHitNumber_Statics::NewProp_HitNumber_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemy_StoreHitNumber_Statics::NewProp_HitNumber_MetaData)) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AEnemy_StoreHitNumber_Statics::NewProp_Location = { "Location", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Enemy_eventStoreHitNumber_Parms, Location), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AEnemy_StoreHitNumber_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AEnemy_StoreHitNumber_Statics::NewProp_HitNumber,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AEnemy_StoreHitNumber_Statics::NewProp_Location,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AEnemy_StoreHitNumber_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Enemy.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AEnemy_StoreHitNumber_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AEnemy, nullptr, "StoreHitNumber", nullptr, nullptr, sizeof(Enemy_eventStoreHitNumber_Parms), Z_Construct_UFunction_AEnemy_StoreHitNumber_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemy_StoreHitNumber_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04880401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AEnemy_StoreHitNumber_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemy_StoreHitNumber_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AEnemy_StoreHitNumber()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AEnemy_StoreHitNumber_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -138,6 +233,12 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HitReactTimeMax_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_HitReactTimeMax;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_HitNumbers_ValueProp;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HitNumbers_Key_KeyProp;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HitNumbers_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FMapPropertyParams NewProp_HitNumbers;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UE4CodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
@@ -150,6 +251,8 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_AEnemy_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AEnemy_HideHealthBar, "HideHealthBar" }, // 1883682645
 		{ &Z_Construct_UFunction_AEnemy_ShowHealthBar, "ShowHealthBar" }, // 518458535
+		{ &Z_Construct_UFunction_AEnemy_ShowHitNumber, "ShowHitNumber" }, // 3291782280
+		{ &Z_Construct_UFunction_AEnemy_StoreHitNumber, "StoreHitNumber" }, // 1627575678
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AEnemy_Statics::Class_MetaDataParams[] = {
@@ -244,6 +347,18 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AEnemy_Statics::NewProp_HitReactTimeMax = { "HitReactTimeMax", nullptr, (EPropertyFlags)0x0040000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AEnemy, HitReactTimeMax), METADATA_PARAMS(Z_Construct_UClass_AEnemy_Statics::NewProp_HitReactTimeMax_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AEnemy_Statics::NewProp_HitReactTimeMax_MetaData)) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AEnemy_Statics::NewProp_HitNumbers_ValueProp = { "HitNumbers", nullptr, (EPropertyFlags)0x0000000000020001, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemy_Statics::NewProp_HitNumbers_Key_KeyProp = { "HitNumbers_Key", nullptr, (EPropertyFlags)0x00000000000a0001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AEnemy_Statics::NewProp_HitNumbers_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Combat" },
+		{ "Comment", "//Map to store HitNumber widget and their hit location\n" },
+		{ "ModuleRelativePath", "Enemy.h" },
+		{ "ToolTip", "Map to store HitNumber widget and their hit location" },
+	};
+#endif
+	const UE4CodeGen_Private::FMapPropertyParams Z_Construct_UClass_AEnemy_Statics::NewProp_HitNumbers = { "HitNumbers", nullptr, (EPropertyFlags)0x0040008000020001, UE4CodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AEnemy, HitNumbers), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AEnemy_Statics::NewProp_HitNumbers_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AEnemy_Statics::NewProp_HitNumbers_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AEnemy_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_ImpactParticles,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_ImpactSound,
@@ -254,6 +369,9 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_HitMontage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_HitReactTimeMin,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_HitReactTimeMax,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_HitNumbers_ValueProp,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_HitNumbers_Key_KeyProp,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_HitNumbers,
 	};
 		const UE4CodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_AEnemy_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UBulletHitInterface_NoRegister, (int32)VTABLE_OFFSET(AEnemy, IBulletHitInterface), false },
@@ -285,7 +403,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AEnemy, 2028845703);
+	IMPLEMENT_CLASS(AEnemy, 3392829415);
 	template<> SHOOTER_API UClass* StaticClass<AEnemy>()
 	{
 		return AEnemy::StaticClass();

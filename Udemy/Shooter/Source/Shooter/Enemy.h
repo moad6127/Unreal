@@ -33,7 +33,8 @@ protected:
 
 	void ResetHitRectTimer();
 
-
+	UFUNCTION(BlueprintCallable)
+	void StoreHitNumber(UUserWidget* HitNumber, FVector Location);
 private:
 	//Particle to spawn when hitby bullets
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat , meta = (AllowPrivateAccess = "true"))
@@ -75,6 +76,9 @@ private:
 
 	bool bCanHitRect;
 
+	//Map to store HitNumber widget and their hit location
+	UPROPERTY(VisibleAnywhere, Category = Combat, meta = (AllowPrivateAccess = "true"))
+	TMap<UUserWidget*, FVector> HitNumbers;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -87,5 +91,8 @@ public:
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser) override;
 
 	FORCEINLINE FString GetHeadBone() const { return HeadBone; }
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void ShowHitNumber(int32 Damage,FVector HitLocation);
 };
  

@@ -706,26 +706,25 @@ void AShooterCharacter::SendBullet()
 				AEnemy* HitEnemy = Cast<AEnemy>(BeamHitReuslt.Actor.Get());
 				if (HitEnemy)
 				{
+					int32 Damage{};
+
 					if (BeamHitReuslt.BoneName.ToString() == HitEnemy->GetHeadBone())
 					{
 						//HeadShot
-						UGameplayStatics::ApplyDamage(
-							BeamHitReuslt.Actor.Get(),
-							EquippedWeapon->GetHeadShotDamage(),
-							GetController(),
-							this,
-							UDamageType::StaticClass());
+						Damage = EquippedWeapon->GetHeadShotDamage();
 					}
 					else
 					{
 						//BodyShot
-						UGameplayStatics::ApplyDamage(
-							BeamHitReuslt.Actor.Get(),
-							EquippedWeapon->GetDamage(),
-							GetController(),
-							this,
-							UDamageType::StaticClass());
+						Damage = EquippedWeapon->GetDamage();
 					}
+					UGameplayStatics::ApplyDamage(
+						BeamHitReuslt.Actor.Get(),
+						Damage,
+						GetController(),
+						this,
+						UDamageType::StaticClass());
+					HitEnemy->ShowHitNumber(Damage, BeamHitReuslt.Location);
 				}
 			}
 
