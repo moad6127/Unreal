@@ -38,6 +38,8 @@ protected:
 
 	UFUNCTION()
 	void DestroyHitNumber(UUserWidget* HitNumber);
+
+	void UpdateHitNumber();
 private:
 	//Particle to spawn when hitby bullets
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat , meta = (AllowPrivateAccess = "true"))
