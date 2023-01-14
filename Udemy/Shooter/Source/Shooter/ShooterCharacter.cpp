@@ -707,11 +707,12 @@ void AShooterCharacter::SendBullet()
 				if (HitEnemy)
 				{
 					int32 Damage{};
-
+					bool bHeadShot{ false };
 					if (BeamHitReuslt.BoneName.ToString() == HitEnemy->GetHeadBone())
 					{
 						//HeadShot
 						Damage = EquippedWeapon->GetHeadShotDamage();
+						bHeadShot = true;
 					}
 					else
 					{
@@ -724,7 +725,7 @@ void AShooterCharacter::SendBullet()
 						GetController(),
 						this,
 						UDamageType::StaticClass());
-					HitEnemy->ShowHitNumber(Damage, BeamHitReuslt.Location);
+					HitEnemy->ShowHitNumber(Damage, BeamHitReuslt.Location,bHeadShot);
 				}
 			}
 

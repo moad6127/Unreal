@@ -59,11 +59,12 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		ProcessEvent(FindFunctionChecked(NAME_AEnemy_ShowHealthBar),NULL);
 	}
 	static FName NAME_AEnemy_ShowHitNumber = FName(TEXT("ShowHitNumber"));
-	void AEnemy::ShowHitNumber(int32 Damage, FVector HitLocation)
+	void AEnemy::ShowHitNumber(int32 Damage, FVector HitLocation, bool bHeadShot)
 	{
 		Enemy_eventShowHitNumber_Parms Parms;
 		Parms.Damage=Damage;
 		Parms.HitLocation=HitLocation;
+		Parms.bHeadShot=bHeadShot ? true : false;
 		ProcessEvent(FindFunctionChecked(NAME_AEnemy_ShowHitNumber),&Parms);
 	}
 	void AEnemy::StaticRegisterNativesAEnemy()
@@ -164,6 +165,8 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 	{
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_Damage;
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_HitLocation;
+		static void NewProp_bHeadShot_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bHeadShot;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -172,9 +175,15 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 	};
 	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::NewProp_Damage = { "Damage", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Enemy_eventShowHitNumber_Parms, Damage), METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::NewProp_HitLocation = { "HitLocation", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Enemy_eventShowHitNumber_Parms, HitLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(nullptr, 0) };
+	void Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::NewProp_bHeadShot_SetBit(void* Obj)
+	{
+		((Enemy_eventShowHitNumber_Parms*)Obj)->bHeadShot = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::NewProp_bHeadShot = { "bHeadShot", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(Enemy_eventShowHitNumber_Parms), &Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::NewProp_bHeadShot_SetBit, METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::NewProp_Damage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::NewProp_HitLocation,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::NewProp_bHeadShot,
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AEnemy_ShowHitNumber_Statics::Function_MetaDataParams[] = {
@@ -305,7 +314,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		{ &Z_Construct_UFunction_AEnemy_DestroyHitNumber, "DestroyHitNumber" }, // 1350635226
 		{ &Z_Construct_UFunction_AEnemy_HideHealthBar, "HideHealthBar" }, // 1883682645
 		{ &Z_Construct_UFunction_AEnemy_ShowHealthBar, "ShowHealthBar" }, // 518458535
-		{ &Z_Construct_UFunction_AEnemy_ShowHitNumber, "ShowHitNumber" }, // 3291782280
+		{ &Z_Construct_UFunction_AEnemy_ShowHitNumber, "ShowHitNumber" }, // 4260100740
 		{ &Z_Construct_UFunction_AEnemy_StoreHitNumber, "StoreHitNumber" }, // 1627575678
 	};
 #if WITH_METADATA
@@ -468,7 +477,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AEnemy, 2418153330);
+	IMPLEMENT_CLASS(AEnemy, 704804944);
 	template<> SHOOTER_API UClass* StaticClass<AEnemy>()
 	{
 		return AEnemy::StaticClass();

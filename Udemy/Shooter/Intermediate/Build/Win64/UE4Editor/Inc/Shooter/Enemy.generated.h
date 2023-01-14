@@ -36,6 +36,7 @@ struct FVector;
 	{ \
 		int32 Damage; \
 		FVector HitLocation; \
+		bool bHeadShot; \
 	};
 
 
