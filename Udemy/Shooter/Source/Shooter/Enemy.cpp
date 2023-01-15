@@ -6,6 +6,8 @@
 #include "Sound/SoundCue.h"
 #include "Particles/ParticleSystemComponent.h"
 #include "Blueprint/UserWidget.h"
+#include "Kismet/KismetMathLibrary.h"
+#include "DrawDebugHelpers.h"
 
 // Sets default values
 AEnemy::AEnemy() : 
@@ -26,7 +28,17 @@ AEnemy::AEnemy() :
 void AEnemy::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	GetMesh()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Visibility,ECollisionResponse::ECR_Block );
+
+	FVector WorldPatolPoint = UKismetMathLibrary::TransformLocation(GetActorTransform(),PatorlPoint);
+	DrawDebugSphere(
+		GetWorld(),
+		WorldPatolPoint,
+		25.f,
+		12,
+		FColor::Red,
+		true
+	);
 }
 
 void AEnemy::ShowHealthBar_Implementation()

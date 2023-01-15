@@ -92,6 +92,10 @@ private:
 	//BehaviorTree for the AI Character
 	UPROPERTY(EditAnywhere, Category = BehaviorTree, meta = (AllowPrivateAccess = "true"))
 	class UBehaviorTree* BehaviorTree;
+
+	//point fro the enemy to move to
+	UPROPERTY(EditAnywhere, Category = BehaviorTree, meta = (AllowPrivateAccess = "true",MakeEditWidget = "true"))
+	FVector PatorlPoint;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
