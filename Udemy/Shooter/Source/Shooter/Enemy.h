@@ -88,6 +88,10 @@ private:
 	//Time before a HitNubmer is remove from the screen
 	UPROPERTY(EditAnywhere, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	float HitNumberDestroyTime;
+
+	//BehaviorTree for the AI Character
+	UPROPERTY(EditAnywhere, Category = BehaviorTree, meta = (AllowPrivateAccess = "true"))
+	class UBehaviorTree* BehaviorTree;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -103,5 +107,7 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void ShowHitNumber(int32 Damage,FVector HitLocation,bool bHeadShot);
+
+	FORCEINLINE UBehaviorTree* GetBehaviorTree() const { return BehaviorTree; }
 };
  
