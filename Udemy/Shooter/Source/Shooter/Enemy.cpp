@@ -8,6 +8,8 @@
 #include "Blueprint/UserWidget.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "DrawDebugHelpers.h"
+#include "EnemyController.h"
+#include "BehaviorTree/BlackboardComponent.h"
 
 // Sets default values
 AEnemy::AEnemy() : 
@@ -30,7 +32,10 @@ void AEnemy::BeginPlay()
 	Super::BeginPlay();
 	GetMesh()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Visibility,ECollisionResponse::ECR_Block );
 
-	FVector WorldPatolPoint = UKismetMathLibrary::TransformLocation(GetActorTransform(),PatorlPoint);
+	//AI컨트롤러 가져오기
+	EnemyController = Cast<AEnemyController>(GetController());
+
+	const FVector WorldPatolPoint = UKismetMathLibrary::TransformLocation(GetActorTransform(),PatorlPoint);
 	DrawDebugSphere(
 		GetWorld(),
 		WorldPatolPoint,
@@ -39,6 +44,13 @@ void AEnemy::BeginPlay()
 		FColor::Red,
 		true
 	);
+	if (EnemyController)
+	{
+		EnemyController->GetBlackboardComponent()->SetValueAsVector(TEXT("PatrolPoint"), WorldPatolPoint);
+
+		EnemyController->RunBehaviorTree(BehaviorTree);
+	}
+	
 }
 
 void AEnemy::ShowHealthBar_Implementation()

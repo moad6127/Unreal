@@ -96,6 +96,8 @@ private:
 	//point fro the enemy to move to
 	UPROPERTY(EditAnywhere, Category = BehaviorTree, meta = (AllowPrivateAccess = "true",MakeEditWidget = "true"))
 	FVector PatorlPoint;
+
+	class AEnemyController* EnemyController;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
