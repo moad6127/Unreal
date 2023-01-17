@@ -115,6 +115,14 @@ private:
 	//Overlap shpere for when the enemy becomes hostile
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	class USphereComponent* AgroSphere;
+	
+	//True when playing the get Hit Animation
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite,Category = Combat, meta = (AllowPrivateAccess = "true"))
+	bool bStunned;
+
+	//chance of being stunned, 0: no stun change, 1: 100% stun chance
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
+	float StunChance;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

@@ -21,7 +21,9 @@ AEnemy::AEnemy() :
 	bCanHitRect(true),
 	HitReactTimeMin(.5f),
 	HitReactTimeMax(.75f),
-	HitNumberDestroyTime(1.5f)
+	HitNumberDestroyTime(1.5f),
+	bStunned(false),
+	StunChance(0.5f)
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -182,7 +184,15 @@ void AEnemy::BulletHit_Implementation(FHitResult HitReulst)
 		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ImpactParticles, HitReulst.Location, FRotator(0.f), true);
 	}
 	ShowHealthBar();
-	PlayHitMontage(FName("HitReactFront"));
+	//적이 기절하는지 체크하기
+	const float Stunned = FMath::FRandRange(0.f, 1.f);
+	if (Stunned <= StunChance)
+	{
+		//적 기절
+		PlayHitMontage(FName("HitRecatFront"));
+		bStunned = true;
+	}
+
 }
 
 float AEnemy::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
