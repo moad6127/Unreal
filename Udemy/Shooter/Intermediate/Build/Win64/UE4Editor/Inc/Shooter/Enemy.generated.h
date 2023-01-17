@@ -8,6 +8,9 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UPrimitiveComponent;
+class AActor;
+struct FHitResult;
 class UUserWidget;
 struct FVector;
 #ifdef SHOOTER_Enemy_generated_h
@@ -19,6 +22,7 @@ struct FVector;
 #define Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS \
 	virtual void ShowHealthBar_Implementation(); \
  \
+	DECLARE_FUNCTION(execAgroShpereOverlap); \
 	DECLARE_FUNCTION(execDestroyHitNumber); \
 	DECLARE_FUNCTION(execStoreHitNumber); \
 	DECLARE_FUNCTION(execShowHealthBar);
@@ -26,6 +30,7 @@ struct FVector;
 
 #define Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execAgroShpereOverlap); \
 	DECLARE_FUNCTION(execDestroyHitNumber); \
 	DECLARE_FUNCTION(execStoreHitNumber); \
 	DECLARE_FUNCTION(execShowHealthBar);
@@ -99,7 +104,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__HitNumberDestroyTime() { return STRUCT_OFFSET(AEnemy, HitNumberDestroyTime); } \
 	FORCEINLINE static uint32 __PPO__BehaviorTree() { return STRUCT_OFFSET(AEnemy, BehaviorTree); } \
 	FORCEINLINE static uint32 __PPO__PatrolPoint() { return STRUCT_OFFSET(AEnemy, PatrolPoint); } \
-	FORCEINLINE static uint32 __PPO__PatrolPoint2() { return STRUCT_OFFSET(AEnemy, PatrolPoint2); }
+	FORCEINLINE static uint32 __PPO__PatrolPoint2() { return STRUCT_OFFSET(AEnemy, PatrolPoint2); } \
+	FORCEINLINE static uint32 __PPO__AgroSphere() { return STRUCT_OFFSET(AEnemy, AgroSphere); }
 
 
 #define Shooter_Source_Shooter_Enemy_h_10_PROLOG \

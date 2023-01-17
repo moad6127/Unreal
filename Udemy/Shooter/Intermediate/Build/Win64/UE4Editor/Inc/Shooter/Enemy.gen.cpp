@@ -17,14 +17,31 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 	SHOOTER_API UClass* Z_Construct_UClass_AEnemy();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	UPackage* Z_Construct_UPackage__Script_Shooter();
+	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UClass* Z_Construct_UClass_UParticleSystem_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USoundCue_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 	AIMODULE_API UClass* Z_Construct_UClass_UBehaviorTree_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 	SHOOTER_API UClass* Z_Construct_UClass_UBulletHitInterface_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(AEnemy::execAgroShpereOverlap)
+	{
+		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OverlapComponent);
+		P_GET_OBJECT(AActor,Z_Param_OtherActor);
+		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OtherComp);
+		P_GET_PROPERTY(FIntProperty,Z_Param_OterBodyIndex);
+		P_GET_UBOOL(Z_Param_bFromSweep);
+		P_GET_STRUCT_REF(FHitResult,Z_Param_Out_SweepResult);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AgroShpereOverlap(Z_Param_OverlapComponent,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_OterBodyIndex,Z_Param_bFromSweep,Z_Param_Out_SweepResult);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AEnemy::execDestroyHitNumber)
 	{
 		P_GET_OBJECT(UUserWidget,Z_Param_HitNumber);
@@ -72,11 +89,95 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 	{
 		UClass* Class = AEnemy::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "AgroShpereOverlap", &AEnemy::execAgroShpereOverlap },
 			{ "DestroyHitNumber", &AEnemy::execDestroyHitNumber },
 			{ "ShowHealthBar", &AEnemy::execShowHealthBar },
 			{ "StoreHitNumber", &AEnemy::execStoreHitNumber },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics
+	{
+		struct Enemy_eventAgroShpereOverlap_Parms
+		{
+			UPrimitiveComponent* OverlapComponent;
+			AActor* OtherActor;
+			UPrimitiveComponent* OtherComp;
+			int32 OterBodyIndex;
+			bool bFromSweep;
+			FHitResult SweepResult;
+		};
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_OverlapComponent_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_OverlapComponent;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_OtherActor;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_OtherComp_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_OtherComp;
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_OterBodyIndex;
+		static void NewProp_bFromSweep_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bFromSweep;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SweepResult_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_SweepResult;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_OverlapComponent_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_OverlapComponent = { "OverlapComponent", nullptr, (EPropertyFlags)0x0010000000080080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Enemy_eventAgroShpereOverlap_Parms, OverlapComponent), Z_Construct_UClass_UPrimitiveComponent_NoRegister, METADATA_PARAMS(Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_OverlapComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_OverlapComponent_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_OtherActor = { "OtherActor", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Enemy_eventAgroShpereOverlap_Parms, OtherActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_OtherComp_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_OtherComp = { "OtherComp", nullptr, (EPropertyFlags)0x0010000000080080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Enemy_eventAgroShpereOverlap_Parms, OtherComp), Z_Construct_UClass_UPrimitiveComponent_NoRegister, METADATA_PARAMS(Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_OtherComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_OtherComp_MetaData)) };
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_OterBodyIndex = { "OterBodyIndex", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Enemy_eventAgroShpereOverlap_Parms, OterBodyIndex), METADATA_PARAMS(nullptr, 0) };
+	void Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_bFromSweep_SetBit(void* Obj)
+	{
+		((Enemy_eventAgroShpereOverlap_Parms*)Obj)->bFromSweep = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_bFromSweep = { "bFromSweep", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(Enemy_eventAgroShpereOverlap_Parms), &Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_bFromSweep_SetBit, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_SweepResult_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_SweepResult = { "SweepResult", nullptr, (EPropertyFlags)0x0010008008000182, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Enemy_eventAgroShpereOverlap_Parms, SweepResult), Z_Construct_UScriptStruct_FHitResult, METADATA_PARAMS(Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_SweepResult_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_SweepResult_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_OverlapComponent,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_OtherActor,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_OtherComp,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_OterBodyIndex,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_bFromSweep,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::NewProp_SweepResult,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "//called when something overlap with the agro sphere\n" },
+		{ "ModuleRelativePath", "Enemy.h" },
+		{ "ToolTip", "called when something overlap with the agro sphere" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AEnemy, nullptr, "AgroShpereOverlap", nullptr, nullptr, sizeof(Enemy_eventAgroShpereOverlap_Parms), Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00480401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AEnemy_AgroShpereOverlap()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AEnemy_AgroShpereOverlap_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_AEnemy_DestroyHitNumber_Statics
 	{
@@ -314,6 +415,10 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PatrolPoint2_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_PatrolPoint2;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_AgroSphere_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_AgroSphere;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UE4CodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
@@ -324,6 +429,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_Shooter,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AEnemy_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AEnemy_AgroShpereOverlap, "AgroShpereOverlap" }, // 2433633448
 		{ &Z_Construct_UFunction_AEnemy_DestroyHitNumber, "DestroyHitNumber" }, // 1350635226
 		{ &Z_Construct_UFunction_AEnemy_HideHealthBar, "HideHealthBar" }, // 1883682645
 		{ &Z_Construct_UFunction_AEnemy_ShowHealthBar, "ShowHealthBar" }, // 518458535
@@ -477,6 +583,17 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 	};
 #endif
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AEnemy_Statics::NewProp_PatrolPoint2 = { "PatrolPoint2", nullptr, (EPropertyFlags)0x0040000000000001, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AEnemy, PatrolPoint2), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_AEnemy_Statics::NewProp_PatrolPoint2_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AEnemy_Statics::NewProp_PatrolPoint2_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AEnemy_Statics::NewProp_AgroSphere_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Combat" },
+		{ "Comment", "//Overlap shpere for when the enemy becomes hostile\n" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Enemy.h" },
+		{ "ToolTip", "Overlap shpere for when the enemy becomes hostile" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemy_Statics::NewProp_AgroSphere = { "AgroSphere", nullptr, (EPropertyFlags)0x004000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AEnemy, AgroSphere), Z_Construct_UClass_USphereComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AEnemy_Statics::NewProp_AgroSphere_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AEnemy_Statics::NewProp_AgroSphere_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AEnemy_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_ImpactParticles,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_ImpactSound,
@@ -494,6 +611,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_BehaviorTree,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_PatrolPoint,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_PatrolPoint2,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_AgroSphere,
 	};
 		const UE4CodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_AEnemy_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UBulletHitInterface_NoRegister, (int32)VTABLE_OFFSET(AEnemy, IBulletHitInterface), false },
@@ -525,7 +643,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AEnemy, 194284687);
+	IMPLEMENT_CLASS(AEnemy, 1636837194);
 	template<> SHOOTER_API UClass* StaticClass<AEnemy>()
 	{
 		return AEnemy::StaticClass();

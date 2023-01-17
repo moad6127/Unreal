@@ -10,6 +10,8 @@
 #include "DrawDebugHelpers.h"
 #include "EnemyController.h"
 #include "BehaviorTree/BlackboardComponent.h"
+#include "Components/SphereComponent.h"
+#include "ShooterCharacter.h"
 
 // Sets default values
 AEnemy::AEnemy() : 
@@ -24,12 +26,17 @@ AEnemy::AEnemy() :
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	//어크로 구체 생성하기
+	AgroSphere = CreateDefaultSubobject<USphereComponent>(TEXT("AgroSphere"));
+	AgroSphere->SetupAttachment(GetRootComponent());
 }
 
 // Called when the game starts or when spawned
 void AEnemy::BeginPlay()
 {
 	Super::BeginPlay();
+	AgroSphere->OnComponentBeginOverlap.AddDynamic(this, &AEnemy::AgroShpereOverlap);
+	
 	GetMesh()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Visibility,ECollisionResponse::ECR_Block );
 
 	//AI컨트롤러 가져오기
@@ -131,6 +138,20 @@ void AEnemy::UpdateHitNumber()
 			Location,
 			ScreenPosition);
 		HitNumber->SetPositionInViewport(ScreenPosition);
+	}
+}
+
+void AEnemy::AgroShpereOverlap(UPrimitiveComponent* OverlapComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OterBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	if (OtherActor == nullptr)
+	{
+		return;
+	}
+	auto Character = Cast<AShooterCharacter>(OtherActor);
+	if (Character)
+	{
+		//겹쳐진 대상을 블랙보드의 Target에 동기화시키기
+		EnemyController->GetBlackboardComponent()->SetValueAsObject(TEXT("Target"), Character);
 	}
 }
 

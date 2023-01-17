@@ -40,6 +40,15 @@ protected:
 	void DestroyHitNumber(UUserWidget* HitNumber);
 
 	void UpdateHitNumber();
+
+	//called when something overlap with the agro sphere
+	UFUNCTION()
+	void AgroShpereOverlap(UPrimitiveComponent* OverlapComponent,
+		AActor* OtherActor,
+		UPrimitiveComponent* OtherComp,
+		int32 OterBodyIndex,
+		bool bFromSweep,
+		const FHitResult& SweepResult);
 private:
 	//Particle to spawn when hitby bullets
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat , meta = (AllowPrivateAccess = "true"))
@@ -102,6 +111,10 @@ private:
 	FVector PatrolPoint2;
 
 	class AEnemyController* EnemyController;
+
+	//Overlap shpere for when the enemy becomes hostile
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
+	class USphereComponent* AgroSphere;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
