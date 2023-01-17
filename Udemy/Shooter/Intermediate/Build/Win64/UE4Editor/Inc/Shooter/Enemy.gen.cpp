@@ -29,6 +29,14 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 	SHOOTER_API UClass* Z_Construct_UClass_UBulletHitInterface_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(AEnemy::execSetStunned)
+	{
+		P_GET_UBOOL(Z_Param_Stunned);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetStunned(Z_Param_Stunned);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AEnemy::execAgroShpereOverlap)
 	{
 		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OverlapComponent);
@@ -91,6 +99,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "AgroShpereOverlap", &AEnemy::execAgroShpereOverlap },
 			{ "DestroyHitNumber", &AEnemy::execDestroyHitNumber },
+			{ "SetStunned", &AEnemy::execSetStunned },
 			{ "ShowHealthBar", &AEnemy::execShowHealthBar },
 			{ "StoreHitNumber", &AEnemy::execStoreHitNumber },
 		};
@@ -238,6 +247,43 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AEnemy_HideHealthBar_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AEnemy_SetStunned_Statics
+	{
+		struct Enemy_eventSetStunned_Parms
+		{
+			bool Stunned;
+		};
+		static void NewProp_Stunned_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_Stunned;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_AEnemy_SetStunned_Statics::NewProp_Stunned_SetBit(void* Obj)
+	{
+		((Enemy_eventSetStunned_Parms*)Obj)->Stunned = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AEnemy_SetStunned_Statics::NewProp_Stunned = { "Stunned", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(Enemy_eventSetStunned_Parms), &Z_Construct_UFunction_AEnemy_SetStunned_Statics::NewProp_Stunned_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AEnemy_SetStunned_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AEnemy_SetStunned_Statics::NewProp_Stunned,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AEnemy_SetStunned_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Enemy.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AEnemy_SetStunned_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AEnemy, nullptr, "SetStunned", nullptr, nullptr, sizeof(Enemy_eventSetStunned_Parms), Z_Construct_UFunction_AEnemy_SetStunned_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemy_SetStunned_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AEnemy_SetStunned_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemy_SetStunned_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AEnemy_SetStunned()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AEnemy_SetStunned_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -441,6 +487,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		{ &Z_Construct_UFunction_AEnemy_AgroShpereOverlap, "AgroShpereOverlap" }, // 2433633448
 		{ &Z_Construct_UFunction_AEnemy_DestroyHitNumber, "DestroyHitNumber" }, // 1350635226
 		{ &Z_Construct_UFunction_AEnemy_HideHealthBar, "HideHealthBar" }, // 1883682645
+		{ &Z_Construct_UFunction_AEnemy_SetStunned, "SetStunned" }, // 3692008221
 		{ &Z_Construct_UFunction_AEnemy_ShowHealthBar, "ShowHealthBar" }, // 518458535
 		{ &Z_Construct_UFunction_AEnemy_ShowHitNumber, "ShowHitNumber" }, // 4260100740
 		{ &Z_Construct_UFunction_AEnemy_StoreHitNumber, "StoreHitNumber" }, // 1627575678
@@ -678,7 +725,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AEnemy, 903745538);
+	IMPLEMENT_CLASS(AEnemy, 2727727855);
 	template<> SHOOTER_API UClass* StaticClass<AEnemy>()
 	{
 		return AEnemy::StaticClass();

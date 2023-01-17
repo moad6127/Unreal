@@ -22,6 +22,7 @@ struct FVector;
 #define Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS \
 	virtual void ShowHealthBar_Implementation(); \
  \
+	DECLARE_FUNCTION(execSetStunned); \
 	DECLARE_FUNCTION(execAgroShpereOverlap); \
 	DECLARE_FUNCTION(execDestroyHitNumber); \
 	DECLARE_FUNCTION(execStoreHitNumber); \
@@ -30,6 +31,7 @@ struct FVector;
 
 #define Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execSetStunned); \
 	DECLARE_FUNCTION(execAgroShpereOverlap); \
 	DECLARE_FUNCTION(execDestroyHitNumber); \
 	DECLARE_FUNCTION(execStoreHitNumber); \
