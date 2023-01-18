@@ -12,6 +12,7 @@
 #include "BehaviorTree/BlackboardComponent.h"
 #include "Components/SphereComponent.h"
 #include "ShooterCharacter.h"
+#include "Components/CapsuleComponent.h"
 
 // Sets default values
 AEnemy::AEnemy() : 
@@ -50,7 +51,9 @@ void AEnemy::BeginPlay()
 	CombatRangeSphere->OnComponentEndOverlap.AddDynamic(this, &AEnemy::CombatRangeEndOverlap);
 
 	GetMesh()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Visibility,ECollisionResponse::ECR_Block );
-
+	// 카메라가 메쉬와 캡슐을 무시하도록 하기
+	GetMesh()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Camera, ECollisionResponse::ECR_Ignore);
+	GetCapsuleComponent()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Camera, ECollisionResponse::ECR_Ignore);
 	//AI컨트롤러 가져오기
 	EnemyController = Cast<AEnemyController>(GetController());
 
@@ -221,6 +224,28 @@ void AEnemy::PlayAttackMontage(FName Section, float PlayRate)
 		AnimInstacne->Montage_Play(AttackMontage);
 		AnimInstacne->Montage_JumpToSection(Section, AttackMontage);
 	}
+}
+
+FName AEnemy::GetAttackSectionName()
+{
+	FName SectionName;
+	const int32 Section{ FMath::RandRange(1,4) };
+	switch (Section)
+	{
+	case 1:
+		SectionName = AttackLFast;
+		break;	
+	case 2:
+		SectionName = AttackRFast;
+		break;
+	case 3:
+		SectionName = AttackL;
+		break;
+	case 4:
+		SectionName = AttackR;
+		break;
+	}
+	return SectionName;
 }
 
 // Called every frame
