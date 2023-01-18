@@ -22,6 +22,8 @@ struct FVector;
 #define Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS \
 	virtual void ShowHealthBar_Implementation(); \
  \
+	DECLARE_FUNCTION(execCombatRangeEndOverlap); \
+	DECLARE_FUNCTION(execCombatRangeOverlap); \
 	DECLARE_FUNCTION(execSetStunned); \
 	DECLARE_FUNCTION(execAgroShpereOverlap); \
 	DECLARE_FUNCTION(execDestroyHitNumber); \
@@ -31,6 +33,8 @@ struct FVector;
 
 #define Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execCombatRangeEndOverlap); \
+	DECLARE_FUNCTION(execCombatRangeOverlap); \
 	DECLARE_FUNCTION(execSetStunned); \
 	DECLARE_FUNCTION(execAgroShpereOverlap); \
 	DECLARE_FUNCTION(execDestroyHitNumber); \
@@ -109,7 +113,9 @@ public: \
 	FORCEINLINE static uint32 __PPO__PatrolPoint2() { return STRUCT_OFFSET(AEnemy, PatrolPoint2); } \
 	FORCEINLINE static uint32 __PPO__AgroSphere() { return STRUCT_OFFSET(AEnemy, AgroSphere); } \
 	FORCEINLINE static uint32 __PPO__bStunned() { return STRUCT_OFFSET(AEnemy, bStunned); } \
-	FORCEINLINE static uint32 __PPO__StunChance() { return STRUCT_OFFSET(AEnemy, StunChance); }
+	FORCEINLINE static uint32 __PPO__StunChance() { return STRUCT_OFFSET(AEnemy, StunChance); } \
+	FORCEINLINE static uint32 __PPO__bInAttackRange() { return STRUCT_OFFSET(AEnemy, bInAttackRange); } \
+	FORCEINLINE static uint32 __PPO__CombatRangeSphere() { return STRUCT_OFFSET(AEnemy, CombatRangeSphere); }
 
 
 #define Shooter_Source_Shooter_Enemy_h_10_PROLOG \

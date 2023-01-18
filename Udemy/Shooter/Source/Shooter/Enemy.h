@@ -52,6 +52,20 @@ protected:
 
 	UFUNCTION(BlueprintCallable)
 	void SetStunned(bool Stunned);
+
+	UFUNCTION()
+	void CombatRangeOverlap(UPrimitiveComponent* OverlapComponent,
+		AActor* OtherActor,
+		UPrimitiveComponent* OtherComp,
+		int32 OterBodyIndex,
+		bool bFromSweep,
+		const FHitResult& SweepResult);
+
+	UFUNCTION()
+	void CombatRangeEndOverlap(UPrimitiveComponent* OverlappedComponent,
+		AActor* OtherActor,
+		UPrimitiveComponent* OtherComp,
+		int32 OterBodyIndex);
 private:
 	//Particle to spawn when hitby bullets
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat , meta = (AllowPrivateAccess = "true"))
@@ -126,6 +140,14 @@ private:
 	//chance of being stunned, 0: no stun change, 1: 100% stun chance
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	float StunChance;
+
+	//True when in attack range; time to Attack;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
+	bool bInAttackRange;
+
+	//Sphere for attack range
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
+	USphereComponent* CombatRangeSphere;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
