@@ -73,6 +73,7 @@ protected:
 	UFUNCTION(BlueprintPure)
 	FName GetAttackSectionName();
 
+	UFUNCTION()
 	void OnLeftWeaponOverlap(UPrimitiveComponent* OverlapComponent,
 		AActor* OtherActor,
 		UPrimitiveComponent* OtherComp,
@@ -80,12 +81,24 @@ protected:
 		bool bFromSweep,
 		const FHitResult& SweepResult);
 
+	UFUNCTION()
 	void OnRightWeaponOverlap(UPrimitiveComponent* OverlapComponent,
 		AActor* OtherActor,
 		UPrimitiveComponent* OtherComp,
 		int32 OterBodyIndex,
 		bool bFromSweep,
 		const FHitResult& SweepResult);
+
+	//무기 박스 콜리전을 활성화/비활성화 하기
+	UFUNCTION(BlueprintCallable)
+	void ActivateLeftWeapon();
+	UFUNCTION(BlueprintCallable)
+	void DeactivateLeftWeapon();
+	UFUNCTION(BlueprintCallable)
+	void ActivateRightWeapon();
+	UFUNCTION(BlueprintCallable)
+	void DeactivateRightWeapon();
+
 private:
 	//Particle to spawn when hitby bullets
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat , meta = (AllowPrivateAccess = "true"))

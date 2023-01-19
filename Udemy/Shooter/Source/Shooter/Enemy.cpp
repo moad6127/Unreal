@@ -278,6 +278,26 @@ void AEnemy::OnRightWeaponOverlap(UPrimitiveComponent* OverlapComponent, AActor*
 
 }
 
+void AEnemy::ActivateLeftWeapon()
+{
+	LeftWeaopnCollision->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+}
+
+void AEnemy::DeactivateLeftWeapon()
+{
+	LeftWeaopnCollision->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+}
+
+void AEnemy::ActivateRightWeapon()
+{
+	RightWeaopnCollision->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+}
+
+void AEnemy::DeactivateRightWeapon()
+{
+	RightWeaopnCollision->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+}
+
 // Called every frame
 void AEnemy::Tick(float DeltaTime)
 {

@@ -22,6 +22,12 @@ struct FVector;
 #define Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS \
 	virtual void ShowHealthBar_Implementation(); \
  \
+	DECLARE_FUNCTION(execDeactivateRightWeapon); \
+	DECLARE_FUNCTION(execActivateRightWeapon); \
+	DECLARE_FUNCTION(execDeactivateLeftWeapon); \
+	DECLARE_FUNCTION(execActivateLeftWeapon); \
+	DECLARE_FUNCTION(execOnRightWeaponOverlap); \
+	DECLARE_FUNCTION(execOnLeftWeaponOverlap); \
 	DECLARE_FUNCTION(execGetAttackSectionName); \
 	DECLARE_FUNCTION(execPlayAttackMontage); \
 	DECLARE_FUNCTION(execCombatRangeEndOverlap); \
@@ -35,6 +41,12 @@ struct FVector;
 
 #define Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execDeactivateRightWeapon); \
+	DECLARE_FUNCTION(execActivateRightWeapon); \
+	DECLARE_FUNCTION(execDeactivateLeftWeapon); \
+	DECLARE_FUNCTION(execActivateLeftWeapon); \
+	DECLARE_FUNCTION(execOnRightWeaponOverlap); \
+	DECLARE_FUNCTION(execOnLeftWeaponOverlap); \
 	DECLARE_FUNCTION(execGetAttackSectionName); \
 	DECLARE_FUNCTION(execPlayAttackMontage); \
 	DECLARE_FUNCTION(execCombatRangeEndOverlap); \
