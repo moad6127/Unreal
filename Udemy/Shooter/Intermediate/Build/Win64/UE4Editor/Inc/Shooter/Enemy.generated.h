@@ -134,7 +134,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__CombatRangeSphere() { return STRUCT_OFFSET(AEnemy, CombatRangeSphere); } \
 	FORCEINLINE static uint32 __PPO__AttackMontage() { return STRUCT_OFFSET(AEnemy, AttackMontage); } \
 	FORCEINLINE static uint32 __PPO__LeftWeaopnCollision() { return STRUCT_OFFSET(AEnemy, LeftWeaopnCollision); } \
-	FORCEINLINE static uint32 __PPO__RightWeaopnCollision() { return STRUCT_OFFSET(AEnemy, RightWeaopnCollision); }
+	FORCEINLINE static uint32 __PPO__RightWeaopnCollision() { return STRUCT_OFFSET(AEnemy, RightWeaopnCollision); } \
+	FORCEINLINE static uint32 __PPO__BaseDamage() { return STRUCT_OFFSET(AEnemy, BaseDamage); }
 
 
 #define Shooter_Source_Shooter_Enemy_h_10_PROLOG \

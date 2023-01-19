@@ -85,7 +85,9 @@ AShooterCharacter::AShooterCharacter() :
 	PickupSoundResetTime(0.2f),
 	EquipSoundResetTime(0.2f),
 	//Icon animation property
-	HighlightedSlot(-1)
+	HighlightedSlot(-1),
+	Health(100.f),
+	MaxHealth(100.f)
 
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -140,6 +142,19 @@ AShooterCharacter::AShooterCharacter() :
 	InterComp6->SetupAttachment(GetFollowCamera());
 
 }
+
+	float AShooterCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
+	{
+		if (Health - DamageAmount <= 0.f)
+		{
+			Health = 0.f;
+		}
+		else
+		{
+			Health -= DamageAmount;
+		}
+		return DamageAmount;
+	}
 
 // Called when the game starts or when spawned
 void AShooterCharacter::BeginPlay()

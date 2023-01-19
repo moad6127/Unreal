@@ -29,7 +29,8 @@ AEnemy::AEnemy() :
 	AttackLFast(TEXT("AttackLFast")),
 	AttackRFast(TEXT("AttackRFast")),
 	AttackL(TEXT("AttackL")),
-	AttackR(TEXT("AttackR"))
+	AttackR(TEXT("AttackR")),
+	BaseDamage(20.f)
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -268,14 +269,33 @@ FName AEnemy::GetAttackSectionName()
 	return SectionName;
 }
 
+void AEnemy::DoDamage(AActor* Victim)
+{
+	if (Victim == nullptr)
+	{
+		return;
+	}
+	auto Character = Cast<AShooterCharacter>(Victim);
+	if (Character)
+	{
+		UGameplayStatics::ApplyDamage(
+			Character,
+			BaseDamage,
+			EnemyController,
+			this,
+			UDamageType::StaticClass()
+		);
+	}
+}
+
 void AEnemy::OnLeftWeaponOverlap(UPrimitiveComponent* OverlapComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OterBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-
+	DoDamage(OtherActor);
 }
 
 void AEnemy::OnRightWeaponOverlap(UPrimitiveComponent* OverlapComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OterBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-
+	DoDamage(OtherActor);
 }
 
 void AEnemy::ActivateLeftWeapon()

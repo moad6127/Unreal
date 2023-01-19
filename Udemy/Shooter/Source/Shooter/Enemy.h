@@ -73,6 +73,8 @@ protected:
 	UFUNCTION(BlueprintPure)
 	FName GetAttackSectionName();
 
+	void DoDamage(AActor* Victim);
+
 	UFUNCTION()
 	void OnLeftWeaponOverlap(UPrimitiveComponent* OverlapComponent,
 		AActor* OtherActor,
@@ -196,10 +198,13 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	class UBoxComponent* LeftWeaopnCollision;
 
-
 	//Collision volume for the right weapon
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	UBoxComponent* RightWeaopnCollision;
+
+	//base Damege
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
+	float BaseDamage;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
