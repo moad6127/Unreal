@@ -13,6 +13,7 @@
 #include "Components/SphereComponent.h"
 #include "ShooterCharacter.h"
 #include "Components/CapsuleComponent.h"
+#include "Components/BoxComponent.h"
 
 // Sets default values
 AEnemy::AEnemy() : 
@@ -40,6 +41,12 @@ AEnemy::AEnemy() :
 	//공격범위 구체 생성하기
 	CombatRangeSphere = CreateDefaultSubobject<USphereComponent>(TEXT("CombatRange"));
 	CombatRangeSphere->SetupAttachment(GetRootComponent());
+
+	//왼쪽과 오른쪽 무기충돌상자 구성
+	LeftWeaopnCollision = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftWeaponBox"));
+	LeftWeaopnCollision->SetupAttachment(GetMesh(), FName("LeftWeaponBone"));
+	RightWeaopnCollision = CreateDefaultSubobject<UBoxComponent>(TEXT("RightWeaponBox"));
+	RightWeaopnCollision->SetupAttachment(GetMesh(), FName("RightWeaponBone"));
 }
 
 // Called when the game starts or when spawned
@@ -49,6 +56,19 @@ void AEnemy::BeginPlay()
 	AgroSphere->OnComponentBeginOverlap.AddDynamic(this, &AEnemy::AgroShpereOverlap);
 	CombatRangeSphere->OnComponentBeginOverlap.AddDynamic(this, &AEnemy::CombatRangeOverlap);
 	CombatRangeSphere->OnComponentEndOverlap.AddDynamic(this, &AEnemy::CombatRangeEndOverlap);
+	//무기 박스에 오버랩될경우 함수 호출
+	LeftWeaopnCollision->OnComponentBeginOverlap.AddDynamic(this, &AEnemy::OnLeftWeaponOverlap);
+	RightWeaopnCollision->OnComponentBeginOverlap.AddDynamic(this, &AEnemy::OnRightWeaponOverlap);
+	//무기 박스 콜리전 설정하기
+	LeftWeaopnCollision->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	LeftWeaopnCollision->SetCollisionObjectType(ECollisionChannel::ECC_WorldDynamic);
+	LeftWeaopnCollision->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+	LeftWeaopnCollision->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
+
+	RightWeaopnCollision->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	RightWeaopnCollision->SetCollisionObjectType(ECollisionChannel::ECC_WorldDynamic);
+	RightWeaopnCollision->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+	RightWeaopnCollision->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
 
 	GetMesh()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Visibility,ECollisionResponse::ECR_Block );
 	// 카메라가 메쉬와 캡슐을 무시하도록 하기
@@ -246,6 +266,16 @@ FName AEnemy::GetAttackSectionName()
 		break;
 	}
 	return SectionName;
+}
+
+void AEnemy::OnLeftWeaponOverlap(UPrimitiveComponent* OverlapComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OterBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+
+}
+
+void AEnemy::OnRightWeaponOverlap(UPrimitiveComponent* OverlapComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OterBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+
 }
 
 // Called every frame

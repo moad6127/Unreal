@@ -27,6 +27,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 	AIMODULE_API UClass* Z_Construct_UClass_UBehaviorTree_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 	SHOOTER_API UClass* Z_Construct_UClass_UBulletHitInterface_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(AEnemy::execGetAttackSectionName)
@@ -740,6 +741,14 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_AttackMontage_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_AttackMontage;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_LeftWeaopnCollision_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_LeftWeaopnCollision;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RightWeaopnCollision_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_RightWeaopnCollision;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UE4CodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
@@ -979,6 +988,28 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemy_Statics::NewProp_AttackMontage = { "AttackMontage", nullptr, (EPropertyFlags)0x0040000000000005, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AEnemy, AttackMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AEnemy_Statics::NewProp_AttackMontage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AEnemy_Statics::NewProp_AttackMontage_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AEnemy_Statics::NewProp_LeftWeaopnCollision_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Combat" },
+		{ "Comment", "//Collision volume for the left weapon\n" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Enemy.h" },
+		{ "ToolTip", "Collision volume for the left weapon" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemy_Statics::NewProp_LeftWeaopnCollision = { "LeftWeaopnCollision", nullptr, (EPropertyFlags)0x00400000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AEnemy, LeftWeaopnCollision), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AEnemy_Statics::NewProp_LeftWeaopnCollision_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AEnemy_Statics::NewProp_LeftWeaopnCollision_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AEnemy_Statics::NewProp_RightWeaopnCollision_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Combat" },
+		{ "Comment", "//Collision volume for the right weapon\n" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Enemy.h" },
+		{ "ToolTip", "Collision volume for the right weapon" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemy_Statics::NewProp_RightWeaopnCollision = { "RightWeaopnCollision", nullptr, (EPropertyFlags)0x00400000000a000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AEnemy, RightWeaopnCollision), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AEnemy_Statics::NewProp_RightWeaopnCollision_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AEnemy_Statics::NewProp_RightWeaopnCollision_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AEnemy_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_ImpactParticles,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_ImpactSound,
@@ -1002,6 +1033,8 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_bInAttackRange,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_CombatRangeSphere,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_AttackMontage,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_LeftWeaopnCollision,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemy_Statics::NewProp_RightWeaopnCollision,
 	};
 		const UE4CodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_AEnemy_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UBulletHitInterface_NoRegister, (int32)VTABLE_OFFSET(AEnemy, IBulletHitInterface), false },
@@ -1033,7 +1066,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AEnemy, 2318561878);
+	IMPLEMENT_CLASS(AEnemy, 3040120024);
 	template<> SHOOTER_API UClass* StaticClass<AEnemy>()
 	{
 		return AEnemy::StaticClass();
