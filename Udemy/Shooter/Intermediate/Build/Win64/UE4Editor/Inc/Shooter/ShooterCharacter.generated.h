@@ -179,7 +179,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__HighlightedSlot() { return STRUCT_OFFSET(AShooterCharacter, HighlightedSlot); } \
 	FORCEINLINE static uint32 __PPO__Health() { return STRUCT_OFFSET(AShooterCharacter, Health); } \
 	FORCEINLINE static uint32 __PPO__MaxHealth() { return STRUCT_OFFSET(AShooterCharacter, MaxHealth); } \
-	FORCEINLINE static uint32 __PPO__MeleeImpactSound() { return STRUCT_OFFSET(AShooterCharacter, MeleeImpactSound); }
+	FORCEINLINE static uint32 __PPO__MeleeImpactSound() { return STRUCT_OFFSET(AShooterCharacter, MeleeImpactSound); } \
+	FORCEINLINE static uint32 __PPO__BloodParticles() { return STRUCT_OFFSET(AShooterCharacter, BloodParticles); }
 
 
 #define Shooter_Source_Shooter_ShooterCharacter_h_37_PROLOG

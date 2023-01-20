@@ -73,8 +73,8 @@ protected:
 	UFUNCTION(BlueprintPure)
 	FName GetAttackSectionName();
 
-	void DoDamage(AActor* Victim);
-
+	void DoDamage(class AShooterCharacter* Victim);
+	void SpawnBlood(AShooterCharacter* Victim,FName SocketName);
 	UFUNCTION()
 	void OnLeftWeaponOverlap(UPrimitiveComponent* OverlapComponent,
 		AActor* OtherActor,
@@ -100,6 +100,8 @@ protected:
 	void ActivateRightWeapon();
 	UFUNCTION(BlueprintCallable)
 	void DeactivateRightWeapon();
+
+	
 
 private:
 	//Particle to spawn when hitby bullets
@@ -205,6 +207,12 @@ private:
 	//base Damege
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	float BaseDamage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
+	FName LeftWeaponSocket;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
+	FName RightWeaponSocket;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
