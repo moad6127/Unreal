@@ -125,7 +125,7 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 		return ECombatState_StaticEnum();
 	}
 	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_ECombatState(ECombatState_StaticEnum, TEXT("/Script/Shooter"), TEXT("ECombatState"), false, nullptr, nullptr);
-	uint32 Get_Z_Construct_UEnum_Shooter_ECombatState_Hash() { return 460090507U; }
+	uint32 Get_Z_Construct_UEnum_Shooter_ECombatState_Hash() { return 2600262100U; }
 	UEnum* Z_Construct_UEnum_Shooter_ECombatState()
 	{
 #if WITH_HOT_RELOAD
@@ -141,6 +141,7 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 				{ "ECombatState::ECS_FireTimerInProgress", (int64)ECombatState::ECS_FireTimerInProgress },
 				{ "ECombatState::ECS_Reloading", (int64)ECombatState::ECS_Reloading },
 				{ "ECombatState::ECS_Equipping", (int64)ECombatState::ECS_Equipping },
+				{ "ECombatState::ECS_Stunned", (int64)ECombatState::ECS_Stunned },
 				{ "ECombatState::ECS_MAX", (int64)ECombatState::ECS_MAX },
 			};
 #if WITH_METADATA
@@ -154,6 +155,8 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 				{ "ECS_MAX.Name", "ECombatState::ECS_MAX" },
 				{ "ECS_Reloading.DisplayName", "Reloading" },
 				{ "ECS_Reloading.Name", "ECombatState::ECS_Reloading" },
+				{ "ECS_Stunned.DisplayName", "Stunned" },
+				{ "ECS_Stunned.Name", "ECombatState::ECS_Stunned" },
 				{ "ECS_Unoccupied.DisplayName", "Unoccupied" },
 				{ "ECS_Unoccupied.Name", "ECombatState::ECS_Unoccupied" },
 				{ "ModuleRelativePath", "ShooterCharacter.h" },
@@ -298,6 +301,13 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		P_THIS->FinishReloading();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AShooterCharacter::execEndStun)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->EndStun();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AShooterCharacter::execGetSurfaceType)
 	{
 		P_FINISH;
@@ -338,6 +348,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		UClass* Class = AShooterCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "AutoFireReset", &AShooterCharacter::execAutoFireReset },
+			{ "EndStun", &AShooterCharacter::execEndStun },
 			{ "FinishCrosshairBulletFire", &AShooterCharacter::execFinishCrosshairBulletFire },
 			{ "FinishEquipping", &AShooterCharacter::execFinishEquipping },
 			{ "FinishReloading", &AShooterCharacter::execFinishReloading },
@@ -367,6 +378,28 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AShooterCharacter_AutoFireReset_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AShooterCharacter_EndStun_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AShooterCharacter_EndStun_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ShooterCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AShooterCharacter_EndStun_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AShooterCharacter, nullptr, "EndStun", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AShooterCharacter_EndStun_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AShooterCharacter_EndStun_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AShooterCharacter_EndStun()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AShooterCharacter_EndStun_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -829,6 +862,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AShooterCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AShooterCharacter_AutoFireReset, "AutoFireReset" }, // 1453503891
+		{ &Z_Construct_UFunction_AShooterCharacter_EndStun, "EndStun" }, // 889669114
 		{ &Z_Construct_UFunction_AShooterCharacter_FinishCrosshairBulletFire, "FinishCrosshairBulletFire" }, // 4128212246
 		{ &Z_Construct_UFunction_AShooterCharacter_FinishEquipping, "FinishEquipping" }, // 2463802825
 		{ &Z_Construct_UFunction_AShooterCharacter_FinishReloading, "FinishReloading" }, // 712437738
@@ -1592,7 +1626,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AShooterCharacter, 2568325099);
+	IMPLEMENT_CLASS(AShooterCharacter, 16039812);
 	template<> SHOOTER_API UClass* StaticClass<AShooterCharacter>()
 	{
 		return AShooterCharacter::StaticClass();
