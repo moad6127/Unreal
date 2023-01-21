@@ -101,7 +101,8 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	void DeactivateRightWeapon();
 
-	
+	//캐릭터 기절 시도
+	void StunCharacter(AShooterCharacter* Victim);
 
 private:
 	//Particle to spawn when hitby bullets

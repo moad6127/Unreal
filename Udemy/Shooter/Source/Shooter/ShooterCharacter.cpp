@@ -87,7 +87,8 @@ AShooterCharacter::AShooterCharacter() :
 	//Icon animation property
 	HighlightedSlot(-1),
 	Health(100.f),
-	MaxHealth(100.f)
+	MaxHealth(100.f),
+	StunChance(.25f)
 
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -182,6 +183,10 @@ void AShooterCharacter::BeginPlay()
 
 void AShooterCharacter::MoveForward(float Value)
 {
+	if (CombatState == ECombatState::ECS_Stunned)
+	{
+		return;
+	}
 	if ((Controller != nullptr)&&(Value != 0.0f))
 	{
 		// 앞으로 갈 위치 찾기
@@ -196,6 +201,10 @@ void AShooterCharacter::MoveForward(float Value)
 
 void AShooterCharacter::MoveRight(float Value)
 {
+	if (CombatState == ECombatState::ECS_Stunned)
+	{
+		return;
+	}
 	if ((Controller != nullptr) && (Value != 0.0f))
 	{
 		// 옆으로 갈 위치 찾기
@@ -320,7 +329,9 @@ bool AShooterCharacter::GetBeamEndLocation(
 void AShooterCharacter::AimingButtonPressed()
 {
 	bAimingButtonPressed = true;
-	if (CombatState != ECombatState::ECS_Reloading && CombatState != ECombatState::ECS_Equipping && CombatState != ECombatState::ECS_Stunned)
+	if (CombatState != ECombatState::ECS_Reloading &&
+		CombatState != ECombatState::ECS_Equipping &&
+		CombatState != ECombatState::ECS_Stunned)
 	{
 		Aim();
 	}
@@ -1090,7 +1101,7 @@ EPhysicalSurface AShooterCharacter::GetSurfaceType()
 		ECollisionChannel::ECC_Visibility,
 		QueryParms);
 	return UPhysicalMaterial::DetermineSurfaceType(HitResult.PhysMaterial.Get());
-}
+} 
 
 void AShooterCharacter::EndStun()
 {
@@ -1105,6 +1116,17 @@ void AShooterCharacter::UnHighlightInventorySlot()
 {
 	HighlightIconDelegate.Broadcast(HighlightedSlot, false);
 	HighlightedSlot = -1;
+}
+
+void AShooterCharacter::Stun()
+{
+	CombatState = ECombatState::ECS_Stunned;
+
+	UAnimInstance* AnimInstnace = GetMesh()->GetAnimInstance();
+	if (AnimInstnace && HitReactMontage)
+	{
+		AnimInstnace->Montage_Play(HitReactMontage);
+	}
 }
 
 int32 AShooterCharacter::GetInterpLocationIndex()
