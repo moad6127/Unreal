@@ -184,7 +184,9 @@ public: \
 	FORCEINLINE static uint32 __PPO__MeleeImpactSound() { return STRUCT_OFFSET(AShooterCharacter, MeleeImpactSound); } \
 	FORCEINLINE static uint32 __PPO__BloodParticles() { return STRUCT_OFFSET(AShooterCharacter, BloodParticles); } \
 	FORCEINLINE static uint32 __PPO__HitReactMontage() { return STRUCT_OFFSET(AShooterCharacter, HitReactMontage); } \
-	FORCEINLINE static uint32 __PPO__StunChance() { return STRUCT_OFFSET(AShooterCharacter, StunChance); }
+	FORCEINLINE static uint32 __PPO__StunChance() { return STRUCT_OFFSET(AShooterCharacter, StunChance); } \
+	FORCEINLINE static uint32 __PPO__bChangeView() { return STRUCT_OFFSET(AShooterCharacter, bChangeView); } \
+	FORCEINLINE static uint32 __PPO__FPSFollowCamera() { return STRUCT_OFFSET(AShooterCharacter, FPSFollowCamera); }
 
 
 #define Shooter_Source_Shooter_ShooterCharacter_h_38_PROLOG
