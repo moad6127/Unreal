@@ -93,6 +93,7 @@ AShooterCharacter::AShooterCharacter() :
 	TPSCameraLength(265.f),
 	TPSCameraLocation(FVector(0.f, -70.f, 80.f))
 
+
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
