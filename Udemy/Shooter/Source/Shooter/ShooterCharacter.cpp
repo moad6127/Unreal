@@ -113,7 +113,14 @@ AShooterCharacter::AShooterCharacter() :
 	FollowCamera->bUsePawnControlRotation = false; //카메라는 회전하지 않는다
 
 	FPSFollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FPSFollowCamera"));
-	FPSFollowCamera->SetupAttachment(GetMesh(),FName("Head"));
+	FPSFollowCamera->SetupAttachment(GetMesh(), FName("head"));
+
+	FPSMeshComponen = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("FPSMesh"));
+	FPSMeshComponen->SetupAttachment(FPSFollowCamera);
+	FPSMeshComponen->SetOnlyOwnerSee(true);
+	FPSMeshComponen->bCastDynamicShadow = false;
+	FPSMeshComponen->CastShadow = false;
+	FPSMeshComponen->SetVisibility(false);
 
 	//회전할때 카메라만 회전하게 만들기
 	bUseControllerRotationPitch = false;

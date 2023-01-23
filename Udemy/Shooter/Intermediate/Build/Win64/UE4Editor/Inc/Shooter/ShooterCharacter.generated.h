@@ -186,7 +186,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__HitReactMontage() { return STRUCT_OFFSET(AShooterCharacter, HitReactMontage); } \
 	FORCEINLINE static uint32 __PPO__StunChance() { return STRUCT_OFFSET(AShooterCharacter, StunChance); } \
 	FORCEINLINE static uint32 __PPO__bChangeView() { return STRUCT_OFFSET(AShooterCharacter, bChangeView); } \
-	FORCEINLINE static uint32 __PPO__FPSFollowCamera() { return STRUCT_OFFSET(AShooterCharacter, FPSFollowCamera); }
+	FORCEINLINE static uint32 __PPO__FPSFollowCamera() { return STRUCT_OFFSET(AShooterCharacter, FPSFollowCamera); } \
+	FORCEINLINE static uint32 __PPO__FPSMeshComponen() { return STRUCT_OFFSET(AShooterCharacter, FPSMeshComponen); }
 
 
 #define Shooter_Source_Shooter_ShooterCharacter_h_38_PROLOG
