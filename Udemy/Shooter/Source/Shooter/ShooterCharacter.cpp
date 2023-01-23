@@ -90,7 +90,9 @@ AShooterCharacter::AShooterCharacter() :
 	MaxHealth(100.f),
 	StunChance(.25f),
 	bChangeView(true),
+	FPSCameraLength(0.f),
 	TPSCameraLength(265.f),
+	FPSCameraLocation(FVector(15.f,-40.f,0.f)),
 	TPSCameraLocation(FVector(0.f, -70.f, 80.f))
 
 
@@ -111,7 +113,7 @@ AShooterCharacter::AShooterCharacter() :
 	FollowCamera->bUsePawnControlRotation = false; //카메라는 회전하지 않는다
 
 	FPSFollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FPSFollowCamera"));
-	FPSFollowCamera->SetupAttachment(GetMesh(),FName("head"));
+	FPSFollowCamera->SetupAttachment(GetMesh(),FName("Head"));
 
 	//회전할때 카메라만 회전하게 만들기
 	bUseControllerRotationPitch = false;
