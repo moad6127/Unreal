@@ -90,9 +90,7 @@ AShooterCharacter::AShooterCharacter() :
 	MaxHealth(100.f),
 	StunChance(.25f),
 	bChangeView(true),
-	FPSCameraLength(0.f),
 	TPSCameraLength(265.f),
-	FPSCameraLocation(FVector(15.f,-40.f,0.f)),
 	TPSCameraLocation(FVector(0.f, -70.f, 80.f))
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -110,7 +108,7 @@ AShooterCharacter::AShooterCharacter() :
 	FollowCamera->bUsePawnControlRotation = false; //카메라는 회전하지 않는다
 
 	FPSFollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FPSFollowCamera"));
-	FPSFollowCamera->SetupAttachment(GetMesh(),FName("Head"));
+	FPSFollowCamera->SetupAttachment(GetMesh(),FName("head"));
 
 	//회전할때 카메라만 회전하게 만들기
 	bUseControllerRotationPitch = false;
@@ -1129,10 +1127,6 @@ void AShooterCharacter::ChangeViewButton(bool ViewChange)
 	if (ViewChange)
 	{
 		//3인칭
-		//CameraBoom->TargetArmLength = TPSCameraLength;//카메라가 캐릭터 뒤에서 따라다닐 길이
-		//CameraBoom->bUsePawnControlRotation = true;//컨트롤러를 기준으로 회전
-		//CameraBoom->SocketOffset = TPSCameraLocation;
-		//FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);//카메라를 카메라 붐끝에 
 		FPSFollowCamera->Deactivate();
 		FollowCamera->Activate();
 	}
@@ -1140,10 +1134,6 @@ void AShooterCharacter::ChangeViewButton(bool ViewChange)
 	{
 		
 		//1인칭
-		//CameraBoom->TargetArmLength = FPSCameraLength;//카메라가 캐릭터 뒤에서 따라다닐 길이
-		//CameraBoom->bUsePawnControlRotation = true;//컨트롤러를 기준으로 회전
-		//CameraBoom->SocketOffset = FPSCameraLocation;
-		//FollowCamera->SetupAttachment(GetMesh(), MeshComponentName);
 		FollowCamera->Deactivate();
 		FPSFollowCamera->Activate();
 	}

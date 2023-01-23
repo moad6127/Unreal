@@ -501,9 +501,7 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	bool bChangeView;
 
-	float FPSCameraLength;
 	float TPSCameraLength;
-	FVector FPSCameraLocation;
 	FVector TPSCameraLocation;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
