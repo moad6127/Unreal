@@ -184,9 +184,6 @@ protected:
 
 	UFUNCTION(BlueprintCallable)
 	void EndStun();
-
-	void ChangeViewButtonPressed();
-	void ChangeViewButton(bool ViewChange);
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -506,6 +503,7 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FPSFollowCamera;
+
 public:
 	/*return CameraBoom subobject*/
 	FORCEINLINE USpringArmComponent* GetCarmeraBoom() const { return CameraBoom; }
@@ -555,5 +553,4 @@ public:
 
 	void Stun();
 	FORCEINLINE float GetStunChance() const { return StunChance; }
-	FORCEINLINE bool GetChangeView()const { return bChangeView; }
 };

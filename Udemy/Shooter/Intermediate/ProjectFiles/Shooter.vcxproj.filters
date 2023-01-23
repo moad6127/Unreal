@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Shooter.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{A10E8EF8-04FB-4B62-A8C8-9318DB3D5A53}</UniqueIdentifier>
+      <UniqueIdentifier>{4B81FDDE-1C1E-4301-B74E-38B0A34CACAD}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Shooter.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{2A27DA06-AAD1-4746-A273-284F4F653D67}</UniqueIdentifier>
+      <UniqueIdentifier>{B6689F3D-7816-490A-9A79-3CEA3E141C4A}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,7 +27,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Shooter">
-      <UniqueIdentifier>{4AF47471-8FF7-4B0F-9218-4E3C151AA061}</UniqueIdentifier>
+      <UniqueIdentifier>{59B43009-4417-4603-9D63-8E44E5E3EF03}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Shooter\Ammo.cpp">
       <Filter>Source\Shooter</Filter>

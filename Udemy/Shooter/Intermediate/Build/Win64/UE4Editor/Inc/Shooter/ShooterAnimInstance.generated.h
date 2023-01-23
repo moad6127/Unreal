@@ -84,8 +84,7 @@ public: \
 	FORCEINLINE static uint32 __PPO__RecoilWeight() { return STRUCT_OFFSET(UShooterAnimInstance, RecoilWeight); } \
 	FORCEINLINE static uint32 __PPO__bTurningInPlace() { return STRUCT_OFFSET(UShooterAnimInstance, bTurningInPlace); } \
 	FORCEINLINE static uint32 __PPO__EquippedWeaponType() { return STRUCT_OFFSET(UShooterAnimInstance, EquippedWeaponType); } \
-	FORCEINLINE static uint32 __PPO__bShouldUseFABRIK() { return STRUCT_OFFSET(UShooterAnimInstance, bShouldUseFABRIK); } \
-	FORCEINLINE static uint32 __PPO__bChangeView() { return STRUCT_OFFSET(UShooterAnimInstance, bChangeView); }
+	FORCEINLINE static uint32 __PPO__bShouldUseFABRIK() { return STRUCT_OFFSET(UShooterAnimInstance, bShouldUseFABRIK); }
 
 
 #define Shooter_Source_Shooter_ShooterAnimInstance_h_23_PROLOG

@@ -92,6 +92,7 @@ AShooterCharacter::AShooterCharacter() :
 	bChangeView(true),
 	TPSCameraLength(265.f),
 	TPSCameraLocation(FVector(0.f, -70.f, 80.f))
+
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -99,9 +100,10 @@ AShooterCharacter::AShooterCharacter() :
 	//Create a CameraBoom (pulls in towards the characeter if there is a collision)
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(RootComponent);
-	CameraBoom->TargetArmLength = TPSCameraLength;//카메라가 캐릭터 뒤에서 따라다닐 길이
+	CameraBoom->TargetArmLength = 180.f;//카메라가 캐릭터 뒤에서 따라다닐 길이
 	CameraBoom->bUsePawnControlRotation = true;//컨트롤러를 기준으로 회전
-	CameraBoom->SocketOffset = TPSCameraLocation;
+	CameraBoom->SocketOffset = FVector(0.f, 50.f,70.f);
+
 	//카메라 만들기
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);//카메라를 카메라 붐끝에 연결
@@ -1116,6 +1118,7 @@ void AShooterCharacter::EndStun()
 	}
 }
 
+<<<<<<< HEAD
 void AShooterCharacter::ChangeViewButtonPressed()
 {
 	bChangeView = !bChangeView;
@@ -1140,6 +1143,8 @@ void AShooterCharacter::ChangeViewButton(bool ViewChange)
 }
 
 
+=======
+>>>>>>> parent of 372066bb (?좊뜲誘?媛뺤쥖 : 1?몄묶 異붽??섍린)
 void AShooterCharacter::UnHighlightInventorySlot()
 {
 	HighlightIconDelegate.Broadcast(HighlightedSlot, false);
@@ -1231,8 +1236,6 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 	PlayerInputComponent->BindAction("3Key", IE_Pressed, this, &AShooterCharacter::ThreeKeyPressed);
 	PlayerInputComponent->BindAction("4Key", IE_Pressed, this, &AShooterCharacter::FourKeyPressed);
 	PlayerInputComponent->BindAction("5Key", IE_Pressed, this, &AShooterCharacter::FiveKeyPressed);
-
-	PlayerInputComponent->BindAction("ChangeView", IE_Pressed, this, &AShooterCharacter::ChangeViewButtonPressed);
 
 }
 
