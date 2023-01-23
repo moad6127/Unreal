@@ -1118,33 +1118,6 @@ void AShooterCharacter::EndStun()
 	}
 }
 
-<<<<<<< HEAD
-void AShooterCharacter::ChangeViewButtonPressed()
-{
-	bChangeView = !bChangeView;
-	ChangeViewButton(bChangeView);
-}
-
-void AShooterCharacter::ChangeViewButton(bool ViewChange)
-{
-	if (ViewChange)
-	{
-		//3¿Œƒ™
-		FPSFollowCamera->Deactivate();
-		FollowCamera->Activate();
-	}
-	else
-	{
-		
-		//1¿Œƒ™
-		FollowCamera->Deactivate();
-		FPSFollowCamera->Activate();
-	}
-}
-
-
-=======
->>>>>>> parent of 372066bb (?†Îç∞ÎØ?Í∞ïÏ¢å : 1?∏Ïπ≠ Ï∂îÍ??òÍ∏∞)
 void AShooterCharacter::UnHighlightInventorySlot()
 {
 	HighlightIconDelegate.Broadcast(HighlightedSlot, false);
