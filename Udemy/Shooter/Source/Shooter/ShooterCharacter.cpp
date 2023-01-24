@@ -110,17 +110,12 @@ AShooterCharacter::AShooterCharacter() :
 	//카메라 만들기
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);//카메라를 카메라 붐끝에 연결
-	FollowCamera->bUsePawnControlRotation = false; //카메라는 회전하지 않는다
+	FollowCamera->bUsePawnControlRotation = false; //카메라는 회전하지 않는다 
 
 	FPSFollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FPSFollowCamera"));
 	FPSFollowCamera->SetupAttachment(GetMesh(), FName("head"));
 
-	FPSMeshComponen = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("FPSMesh"));
-	FPSMeshComponen->SetupAttachment(FPSFollowCamera);
-	FPSMeshComponen->SetOnlyOwnerSee(true);
-	FPSMeshComponen->bCastDynamicShadow = false;
-	FPSMeshComponen->CastShadow = false;
-	FPSMeshComponen->SetVisibility(false);
+
 
 	//회전할때 카메라만 회전하게 만들기
 	bUseControllerRotationPitch = false;
@@ -1128,6 +1123,32 @@ void AShooterCharacter::EndStun()
 	}
 }
 
+void AShooterCharacter::FPSChangeKeyPressed()
+{
+	bChangeView = !bChangeView;
+	FPSChange(bChangeView);
+}
+
+void AShooterCharacter::FPSChange(bool bChangeFPS)
+{
+	if (FPSFollowCamera == nullptr)
+	{
+		return;
+	}
+	if (bChangeFPS)
+	{
+		//3인칭
+		FPSFollowCamera->Deactivate();
+		FollowCamera->Activate();
+	}
+	else
+	{
+		//1인칭
+		FollowCamera->Deactivate();
+		FPSFollowCamera->Activate();
+	}
+}
+
 void AShooterCharacter::UnHighlightInventorySlot()
 {
 	HighlightIconDelegate.Broadcast(HighlightedSlot, false);
@@ -1219,6 +1240,8 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 	PlayerInputComponent->BindAction("3Key", IE_Pressed, this, &AShooterCharacter::ThreeKeyPressed);
 	PlayerInputComponent->BindAction("4Key", IE_Pressed, this, &AShooterCharacter::FourKeyPressed);
 	PlayerInputComponent->BindAction("5Key", IE_Pressed, this, &AShooterCharacter::FiveKeyPressed);
+
+	PlayerInputComponent->BindAction("FPSChange", IE_Pressed, this, &AShooterCharacter::FPSChangeKeyPressed);
 
 }
 

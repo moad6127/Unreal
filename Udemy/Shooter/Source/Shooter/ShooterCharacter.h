@@ -184,6 +184,10 @@ protected:
 
 	UFUNCTION(BlueprintCallable)
 	void EndStun();
+
+	void FPSChangeKeyPressed();
+	void FPSChange(bool bChangeFPS);
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -503,7 +507,7 @@ private:
 	FVector FPSCameraLocation;
 	FVector TPSCameraLocation;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FPSFollowCamera;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
