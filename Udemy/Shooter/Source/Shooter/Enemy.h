@@ -105,6 +105,7 @@ protected:
 	void StunCharacter(AShooterCharacter* Victim);
 
 	void ResetCanAttack();
+
 private:
 	//Particle to spawn when hitby bullets
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat , meta = (AllowPrivateAccess = "true"))
@@ -225,6 +226,10 @@ private:
 	//Minimum wait time between attack
 	UPROPERTY(EditAnywhere, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	float AttackWaitTime;
+
+	//DeathAnimMontage for the enemy
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
+	UAnimMontage* DeathMontage;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

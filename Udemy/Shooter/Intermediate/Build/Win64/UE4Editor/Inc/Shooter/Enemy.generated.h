@@ -139,7 +139,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__LeftWeaponSocket() { return STRUCT_OFFSET(AEnemy, LeftWeaponSocket); } \
 	FORCEINLINE static uint32 __PPO__RightWeaponSocket() { return STRUCT_OFFSET(AEnemy, RightWeaponSocket); } \
 	FORCEINLINE static uint32 __PPO__bCanAttack() { return STRUCT_OFFSET(AEnemy, bCanAttack); } \
-	FORCEINLINE static uint32 __PPO__AttackWaitTime() { return STRUCT_OFFSET(AEnemy, AttackWaitTime); }
+	FORCEINLINE static uint32 __PPO__AttackWaitTime() { return STRUCT_OFFSET(AEnemy, AttackWaitTime); } \
+	FORCEINLINE static uint32 __PPO__DeathMontage() { return STRUCT_OFFSET(AEnemy, DeathMontage); }
 
 
 #define Shooter_Source_Shooter_Enemy_h_10_PROLOG \
