@@ -30,6 +30,13 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 	SHOOTER_API UClass* Z_Construct_UClass_UBulletHitInterface_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(AEnemy::execFinishDeath)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->FinishDeath();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AEnemy::execDeactivateRightWeapon)
 	{
 		P_FINISH;
@@ -200,6 +207,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 			{ "DeactivateLeftWeapon", &AEnemy::execDeactivateLeftWeapon },
 			{ "DeactivateRightWeapon", &AEnemy::execDeactivateRightWeapon },
 			{ "DestroyHitNumber", &AEnemy::execDestroyHitNumber },
+			{ "FinishDeath", &AEnemy::execFinishDeath },
 			{ "GetAttackSectionName", &AEnemy::execGetAttackSectionName },
 			{ "OnLeftWeaponOverlap", &AEnemy::execOnLeftWeaponOverlap },
 			{ "OnRightWeaponOverlap", &AEnemy::execOnRightWeaponOverlap },
@@ -561,6 +569,28 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AEnemy_DestroyHitNumber_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AEnemy_FinishDeath_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AEnemy_FinishDeath_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Enemy.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AEnemy_FinishDeath_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AEnemy, nullptr, "FinishDeath", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AEnemy_FinishDeath_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemy_FinishDeath_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AEnemy_FinishDeath()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AEnemy_FinishDeath_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -1104,6 +1134,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		{ &Z_Construct_UFunction_AEnemy_DeactivateLeftWeapon, "DeactivateLeftWeapon" }, // 603325961
 		{ &Z_Construct_UFunction_AEnemy_DeactivateRightWeapon, "DeactivateRightWeapon" }, // 4141043856
 		{ &Z_Construct_UFunction_AEnemy_DestroyHitNumber, "DestroyHitNumber" }, // 1350635226
+		{ &Z_Construct_UFunction_AEnemy_FinishDeath, "FinishDeath" }, // 391689406
 		{ &Z_Construct_UFunction_AEnemy_GetAttackSectionName, "GetAttackSectionName" }, // 3523471707
 		{ &Z_Construct_UFunction_AEnemy_HideHealthBar, "HideHealthBar" }, // 1883682645
 		{ &Z_Construct_UFunction_AEnemy_OnLeftWeaponOverlap, "OnLeftWeaponOverlap" }, // 2279618815
@@ -1475,7 +1506,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemy() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AEnemy, 3097849468);
+	IMPLEMENT_CLASS(AEnemy, 2710208736);
 	template<> SHOOTER_API UClass* StaticClass<AEnemy>()
 	{
 		return AEnemy::StaticClass();

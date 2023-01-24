@@ -22,6 +22,7 @@ struct FVector;
 #define Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS \
 	virtual void ShowHealthBar_Implementation(); \
  \
+	DECLARE_FUNCTION(execFinishDeath); \
 	DECLARE_FUNCTION(execDeactivateRightWeapon); \
 	DECLARE_FUNCTION(execActivateRightWeapon); \
 	DECLARE_FUNCTION(execDeactivateLeftWeapon); \
@@ -41,6 +42,7 @@ struct FVector;
 
 #define Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execFinishDeath); \
 	DECLARE_FUNCTION(execDeactivateRightWeapon); \
 	DECLARE_FUNCTION(execActivateRightWeapon); \
 	DECLARE_FUNCTION(execDeactivateLeftWeapon); \
