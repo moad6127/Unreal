@@ -108,6 +108,9 @@ protected:
 
 	UFUNCTION(BlueprintCallable)
 	void FinishDeath();
+
+	UFUNCTION()
+	void DestroyEnemy();
 private:
 	//Particle to spawn when hitby bullets
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat , meta = (AllowPrivateAccess = "true"))
@@ -234,6 +237,13 @@ private:
 	UAnimMontage* DeathMontage;
 
 	bool bDying;
+
+	FTimerHandle DeathTimer;
+
+	//Time after death until Destroy
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
+	float DeathTime;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

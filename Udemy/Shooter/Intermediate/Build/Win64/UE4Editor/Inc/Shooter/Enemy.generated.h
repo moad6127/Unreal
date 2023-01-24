@@ -22,6 +22,7 @@ struct FVector;
 #define Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS \
 	virtual void ShowHealthBar_Implementation(); \
  \
+	DECLARE_FUNCTION(execDestroyEnemy); \
 	DECLARE_FUNCTION(execFinishDeath); \
 	DECLARE_FUNCTION(execDeactivateRightWeapon); \
 	DECLARE_FUNCTION(execActivateRightWeapon); \
@@ -42,6 +43,7 @@ struct FVector;
 
 #define Shooter_Source_Shooter_Enemy_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execDestroyEnemy); \
 	DECLARE_FUNCTION(execFinishDeath); \
 	DECLARE_FUNCTION(execDeactivateRightWeapon); \
 	DECLARE_FUNCTION(execActivateRightWeapon); \
@@ -142,7 +144,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__RightWeaponSocket() { return STRUCT_OFFSET(AEnemy, RightWeaponSocket); } \
 	FORCEINLINE static uint32 __PPO__bCanAttack() { return STRUCT_OFFSET(AEnemy, bCanAttack); } \
 	FORCEINLINE static uint32 __PPO__AttackWaitTime() { return STRUCT_OFFSET(AEnemy, AttackWaitTime); } \
-	FORCEINLINE static uint32 __PPO__DeathMontage() { return STRUCT_OFFSET(AEnemy, DeathMontage); }
+	FORCEINLINE static uint32 __PPO__DeathMontage() { return STRUCT_OFFSET(AEnemy, DeathMontage); } \
+	FORCEINLINE static uint32 __PPO__DeathTime() { return STRUCT_OFFSET(AEnemy, DeathTime); }
 
 
 #define Shooter_Source_Shooter_Enemy_h_10_PROLOG \
