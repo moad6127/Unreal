@@ -93,7 +93,8 @@ AShooterCharacter::AShooterCharacter() :
 	FPSCameraLength(0.f),
 	TPSCameraLength(265.f),
 	FPSCameraLocation(FVector(15.f,-40.f,0.f)),
-	TPSCameraLocation(FVector(0.f, -70.f, 80.f))
+	TPSCameraLocation(FVector(0.f, -70.f, 80.f)),
+	bDeath(false)
 
 
 {
@@ -1152,6 +1153,11 @@ void AShooterCharacter::FPSChange(bool bChangeFPS)
 
 void AShooterCharacter::Die()
 {
+	if (bDeath)
+	{
+		return;
+	}
+	bDeath = true;
 	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
 	if (AnimInstance && DeathMontage)
 	{
