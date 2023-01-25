@@ -188,6 +188,11 @@ protected:
 	void FPSChangeKeyPressed();
 	void FPSChange(bool bChangeFPS);
 
+	void Die();
+
+	UFUNCTION(BlueprintCallable)
+	void FinishDeath();
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -512,6 +517,10 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	USkeletalMeshComponent* FPSMeshComponen;
+
+	//Montage for character Death
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
+	UAnimMontage* DeathMontage;
 public:
 	/*return CameraBoom subobject*/
 	FORCEINLINE USpringArmComponent* GetCarmeraBoom() const { return CameraBoom; }

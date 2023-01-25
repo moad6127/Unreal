@@ -160,6 +160,7 @@ AShooterCharacter::AShooterCharacter() :
 		if (Health - DamageAmount <= 0.f)
 		{
 			Health = 0.f;
+			Die();
 		}
 		else
 		{
@@ -1149,6 +1150,25 @@ void AShooterCharacter::FPSChange(bool bChangeFPS)
 	}
 }
 
+void AShooterCharacter::Die()
+{
+	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+	if (AnimInstance && DeathMontage)
+	{
+		AnimInstance->Montage_Play(DeathMontage);
+	}
+}
+
+void AShooterCharacter::FinishDeath()
+{
+	GetMesh()->bPauseAnims = true;
+	APlayerController* PC =  UGameplayStatics::GetPlayerController(this, 0);
+	if (PC)
+	{
+		DisableInput(PC);
+	}
+}
+
 void AShooterCharacter::UnHighlightInventorySlot()
 {
 	HighlightIconDelegate.Broadcast(HighlightedSlot, false);
@@ -1157,6 +1177,10 @@ void AShooterCharacter::UnHighlightInventorySlot()
 
 void AShooterCharacter::Stun()
 {
+	if (Health <= 0.f)
+	{
+		return;
+	}
 	CombatState = ECombatState::ECS_Stunned;
 
 	UAnimInstance* AnimInstnace = GetMesh()->GetAnimInstance();

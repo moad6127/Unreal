@@ -56,6 +56,7 @@ static inline void FEquipItemDelegate_DelegateWrapper(const FMulticastScriptDele
 	DECLARE_FUNCTION(execGetCrosshairSpreadMultiplier); \
 	DECLARE_FUNCTION(execFinishEquipping); \
 	DECLARE_FUNCTION(execFinishReloading); \
+	DECLARE_FUNCTION(execFinishDeath); \
 	DECLARE_FUNCTION(execEndStun); \
 	DECLARE_FUNCTION(execGetSurfaceType); \
 	DECLARE_FUNCTION(execReleaseClip); \
@@ -69,6 +70,7 @@ static inline void FEquipItemDelegate_DelegateWrapper(const FMulticastScriptDele
 	DECLARE_FUNCTION(execGetCrosshairSpreadMultiplier); \
 	DECLARE_FUNCTION(execFinishEquipping); \
 	DECLARE_FUNCTION(execFinishReloading); \
+	DECLARE_FUNCTION(execFinishDeath); \
 	DECLARE_FUNCTION(execEndStun); \
 	DECLARE_FUNCTION(execGetSurfaceType); \
 	DECLARE_FUNCTION(execReleaseClip); \
@@ -187,7 +189,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__StunChance() { return STRUCT_OFFSET(AShooterCharacter, StunChance); } \
 	FORCEINLINE static uint32 __PPO__bChangeView() { return STRUCT_OFFSET(AShooterCharacter, bChangeView); } \
 	FORCEINLINE static uint32 __PPO__FPSFollowCamera() { return STRUCT_OFFSET(AShooterCharacter, FPSFollowCamera); } \
-	FORCEINLINE static uint32 __PPO__FPSMeshComponen() { return STRUCT_OFFSET(AShooterCharacter, FPSMeshComponen); }
+	FORCEINLINE static uint32 __PPO__FPSMeshComponen() { return STRUCT_OFFSET(AShooterCharacter, FPSMeshComponen); } \
+	FORCEINLINE static uint32 __PPO__DeathMontage() { return STRUCT_OFFSET(AShooterCharacter, DeathMontage); }
 
 
 #define Shooter_Source_Shooter_ShooterCharacter_h_38_PROLOG
