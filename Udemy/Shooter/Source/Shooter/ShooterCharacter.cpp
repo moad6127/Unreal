@@ -341,6 +341,7 @@ bool AShooterCharacter::GetBeamEndLocation(
 		WeaponTraceStart,
 		WeaponTraceEnd,
 		ECollisionChannel::ECC_Visibility);
+
 	if (!OutHitResult.bBlockingHit)
 	{
 		OutHitResult.Location = OutBeamLocation;
@@ -524,6 +525,8 @@ bool AShooterCharacter::TraceUnderCrosshair(FHitResult& OutHitResult,FVector& Ou
 
 	//화면에서의 크로스헤어의 위치
 	FVector2D CrosshairLocation(ViewportSize.X / 2.f, ViewportSize.Y / 2.f);
+	float SpreadAmount = 16 * CrosshairSpreadMultiplier;
+	CrosshairLocation += {FMath::FRandRange(-SpreadAmount, SpreadAmount), FMath::FRandRange(-SpreadAmount, SpreadAmount)};
 	FVector CrosshairWorldPosition;
 	FVector CrosshairWorldDirection;
 
@@ -537,6 +540,7 @@ bool AShooterCharacter::TraceUnderCrosshair(FHitResult& OutHitResult,FVector& Ou
 		// 크로스헤어 월드 위치 추적
 		const FVector Start{ CrosshairWorldPosition };
 		const FVector End{ CrosshairWorldPosition + CrosshairWorldDirection * 50'000.f };
+		const FVector SpreadEndLocation{ CrosshairVelocityFactor };
 		OutHitLocation = End;
 		GetWorld()->LineTraceSingleByChannel(
 			OutHitResult,
