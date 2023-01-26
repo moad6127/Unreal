@@ -23,6 +23,7 @@
 #include "Enemy.h"
 #include "EnemyController.h"
 #include "BehaviorTree/BlackboardComponent.h"
+#include "Camera/CameraShakeBase.h"
 
 
 // Sets default values
@@ -293,6 +294,7 @@ void AShooterCharacter::FireWeapon()
 	}
 	if (WeaponHasAmmo())
 	{
+
 		PlayFireSound();
 		SendBullet();
 		PlayGunFireMontage();
@@ -302,7 +304,10 @@ void AShooterCharacter::FireWeapon()
 		StartCrosshairBulletFire();
 
 		StartFireTimer();
-
+		if (FiringCameraShakeClass)
+		{
+			GetWorld()->GetFirstPlayerController()->ClientPlayCameraShake(FiringCameraShakeClass);
+		}
 		if (EquippedWeapon->GetWeaponType() == EWeaponType::EWT_Pistol)
 		{
 			//Start Moving slide Timer

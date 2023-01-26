@@ -523,6 +523,9 @@ private:
 	UAnimMontage* DeathMontage;
 
 	bool bDeath;
+
+	UPROPERTY(EditAnywhere, Category = Combat)
+	TSubclassOf<class UCameraShakeBase> FiringCameraShakeClass;
 public:
 	/*return CameraBoom subobject*/
 	FORCEINLINE USpringArmComponent* GetCarmeraBoom() const { return CameraBoom; }
