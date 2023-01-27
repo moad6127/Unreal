@@ -35,6 +35,7 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_USoundCue_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraShakeBase_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UCurveFloat_NoRegister();
 // End Cross Module References
 	struct Z_Construct_UDelegateFunction_Shooter_HighlightIconDelegate__DelegateSignature_Statics
 	{
@@ -303,6 +304,22 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		P_THIS->FinishReloading();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AShooterCharacter::execStartVerticalRecoil)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_Value);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->StartVerticalRecoil(Z_Param_Value);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AShooterCharacter::execStartHorizontalRecoil)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_Value);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->StartHorizontalRecoil(Z_Param_Value);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AShooterCharacter::execFinishDeath)
 	{
 		P_FINISH;
@@ -366,6 +383,8 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 			{ "GetSurfaceType", &AShooterCharacter::execGetSurfaceType },
 			{ "GrabClip", &AShooterCharacter::execGrabClip },
 			{ "ReleaseClip", &AShooterCharacter::execReleaseClip },
+			{ "StartHorizontalRecoil", &AShooterCharacter::execStartHorizontalRecoil },
+			{ "StartVerticalRecoil", &AShooterCharacter::execStartVerticalRecoil },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -610,6 +629,70 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AShooterCharacter_ReleaseClip_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AShooterCharacter_StartHorizontalRecoil_Statics
+	{
+		struct ShooterCharacter_eventStartHorizontalRecoil_Parms
+		{
+			float Value;
+		};
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_Value;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AShooterCharacter_StartHorizontalRecoil_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ShooterCharacter_eventStartHorizontalRecoil_Parms, Value), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AShooterCharacter_StartHorizontalRecoil_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AShooterCharacter_StartHorizontalRecoil_Statics::NewProp_Value,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AShooterCharacter_StartHorizontalRecoil_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ShooterCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AShooterCharacter_StartHorizontalRecoil_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AShooterCharacter, nullptr, "StartHorizontalRecoil", nullptr, nullptr, sizeof(ShooterCharacter_eventStartHorizontalRecoil_Parms), Z_Construct_UFunction_AShooterCharacter_StartHorizontalRecoil_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AShooterCharacter_StartHorizontalRecoil_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AShooterCharacter_StartHorizontalRecoil_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AShooterCharacter_StartHorizontalRecoil_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AShooterCharacter_StartHorizontalRecoil()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AShooterCharacter_StartHorizontalRecoil_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AShooterCharacter_StartVerticalRecoil_Statics
+	{
+		struct ShooterCharacter_eventStartVerticalRecoil_Parms
+		{
+			float Value;
+		};
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_Value;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AShooterCharacter_StartVerticalRecoil_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ShooterCharacter_eventStartVerticalRecoil_Parms, Value), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AShooterCharacter_StartVerticalRecoil_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AShooterCharacter_StartVerticalRecoil_Statics::NewProp_Value,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AShooterCharacter_StartVerticalRecoil_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "ShooterCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AShooterCharacter_StartVerticalRecoil_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AShooterCharacter, nullptr, "StartVerticalRecoil", nullptr, nullptr, sizeof(ShooterCharacter_eventStartVerticalRecoil_Parms), Z_Construct_UFunction_AShooterCharacter_StartVerticalRecoil_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AShooterCharacter_StartVerticalRecoil_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AShooterCharacter_StartVerticalRecoil_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AShooterCharacter_StartVerticalRecoil_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AShooterCharacter_StartVerticalRecoil()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AShooterCharacter_StartVerticalRecoil_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -913,6 +996,14 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_FiringCameraShakeClass_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FClassPropertyParams NewProp_FiringCameraShakeClass;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_VerticalCurve_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_VerticalCurve;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HorizontalCurve_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HorizontalCurve;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -932,6 +1023,8 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		{ &Z_Construct_UFunction_AShooterCharacter_GetSurfaceType, "GetSurfaceType" }, // 2218513356
 		{ &Z_Construct_UFunction_AShooterCharacter_GrabClip, "GrabClip" }, // 1307519431
 		{ &Z_Construct_UFunction_AShooterCharacter_ReleaseClip, "ReleaseClip" }, // 337692770
+		{ &Z_Construct_UFunction_AShooterCharacter_StartHorizontalRecoil, "StartHorizontalRecoil" }, // 3371125784
+		{ &Z_Construct_UFunction_AShooterCharacter_StartVerticalRecoil, "StartVerticalRecoil" }, // 770646564
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AShooterCharacter_Statics::Class_MetaDataParams[] = {
@@ -1657,6 +1750,22 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 	};
 #endif
 	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_AShooterCharacter_Statics::NewProp_FiringCameraShakeClass = { "FiringCameraShakeClass", nullptr, (EPropertyFlags)0x0044000000000001, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AShooterCharacter, FiringCameraShakeClass), Z_Construct_UClass_UCameraShakeBase_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_FiringCameraShakeClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_FiringCameraShakeClass_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AShooterCharacter_Statics::NewProp_VerticalCurve_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Recoil" },
+		{ "ModuleRelativePath", "ShooterCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AShooterCharacter_Statics::NewProp_VerticalCurve = { "VerticalCurve", nullptr, (EPropertyFlags)0x0040000000010015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AShooterCharacter, VerticalCurve), Z_Construct_UClass_UCurveFloat_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_VerticalCurve_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_VerticalCurve_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AShooterCharacter_Statics::NewProp_HorizontalCurve_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Recoil" },
+		{ "ModuleRelativePath", "ShooterCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AShooterCharacter_Statics::NewProp_HorizontalCurve = { "HorizontalCurve", nullptr, (EPropertyFlags)0x0040000000010015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AShooterCharacter, HorizontalCurve), Z_Construct_UClass_UCurveFloat_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_HorizontalCurve_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AShooterCharacter_Statics::NewProp_HorizontalCurve_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AShooterCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_CameraBoom,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_FollowCamera,
@@ -1734,6 +1843,8 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_FPSMeshComponen,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_DeathMontage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_FiringCameraShakeClass,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_VerticalCurve,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AShooterCharacter_Statics::NewProp_HorizontalCurve,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AShooterCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AShooterCharacter>::IsAbstract,
@@ -1762,7 +1873,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFInterpLocation
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AShooterCharacter, 1581035960);
+	IMPLEMENT_CLASS(AShooterCharacter, 2853172381);
 	template<> SHOOTER_API UClass* StaticClass<AShooterCharacter>()
 	{
 		return AShooterCharacter::StaticClass();

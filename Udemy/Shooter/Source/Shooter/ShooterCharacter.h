@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "AmmoType.h"
+#include "Components/TimelineComponent.h"
 #include "ShooterCharacter.generated.h"
 
 
@@ -192,6 +193,19 @@ protected:
 
 	UFUNCTION(BlueprintCallable)
 	void FinishDeath();
+
+	//반동 관련 
+	void InitializeRecoilTimeline();
+
+	UFUNCTION()
+	void StartHorizontalRecoil(float Value);
+
+	UFUNCTION()
+	void StartVerticalRecoil(float Value);
+
+	void StartRecoil();
+
+	void ReversRecoil();
 
 public:	
 	// Called every frame
@@ -526,6 +540,16 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = Combat)
 	TSubclassOf<class UCameraShakeBase> FiringCameraShakeClass;
+
+
+
+	FTimeline RecoilTimeline;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Recoil, meta = (AllowPrivateAccess = "true"))
+	UCurveFloat* VerticalCurve;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Recoil, meta = (AllowPrivateAccess = "true"))
+	UCurveFloat* HorizontalCurve;
 public:
 	/*return CameraBoom subobject*/
 	FORCEINLINE USpringArmComponent* GetCarmeraBoom() const { return CameraBoom; }

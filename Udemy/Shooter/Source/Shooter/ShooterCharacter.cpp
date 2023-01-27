@@ -205,6 +205,8 @@ void AShooterCharacter::BeginPlay()
 
 	//배열을 위해서 FInterpLocation구조체를 만든다
 	initializeInterpLocation();
+	InitializeRecoilTimeline();
+
 }
 
 void AShooterCharacter::MoveForward(float Value)
@@ -297,6 +299,7 @@ void AShooterCharacter::FireWeapon()
 
 		PlayFireSound();
 		SendBullet();
+		StartRecoil();
 		PlayGunFireMontage();
 		//무기 클래스에서 1씩 뺀다
 		EquippedWeapon->DecrementAmmo();
@@ -1196,6 +1199,44 @@ void AShooterCharacter::FinishDeath()
 	}
 }
 
+void AShooterCharacter::InitializeRecoilTimeline()
+{
+	if (HorizontalCurve == nullptr || VerticalCurve == nullptr)
+	{
+		return;
+	}
+
+	FOnTimelineFloat XRecoilCurve;
+	FOnTimelineFloat YRecoilCurve;
+
+	XRecoilCurve.BindUFunction(this, FName("StartHorizontalRecoil"));
+	YRecoilCurve.BindUFunction(this, FName("StartVerticalRecoil"));
+
+	RecoilTimeline.AddInterpFloat(HorizontalCurve, XRecoilCurve);
+	RecoilTimeline.AddInterpFloat(VerticalCurve, YRecoilCurve);
+
+}
+
+void AShooterCharacter::StartHorizontalRecoil(float Value)
+{
+	AddControllerYawInput(Value);
+}
+
+void AShooterCharacter::StartVerticalRecoil(float Value)
+{
+	AddControllerPitchInput(Value);
+}
+
+void AShooterCharacter::StartRecoil()
+{
+	RecoilTimeline.PlayFromStart();
+}
+
+void AShooterCharacter::ReversRecoil()
+{
+	RecoilTimeline.Reverse();
+}
+
 void AShooterCharacter::UnHighlightInventorySlot()
 {
 	HighlightIconDelegate.Broadcast(HighlightedSlot, false);
@@ -1252,6 +1293,10 @@ void AShooterCharacter::Tick(float DeltaTime)
 
 	//캐릭터캡슐을 웅크리기와 서있을때 다르게 설정하기
 	InterpCapsuleHalfHeight(DeltaTime);
+	if (RecoilTimeline.IsPlaying())
+	{
+		RecoilTimeline.TickTimeline(DeltaTime);
+	}
 }
 
 // Called to bind functionality to input

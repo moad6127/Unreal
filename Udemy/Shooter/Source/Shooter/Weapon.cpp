@@ -153,6 +153,7 @@ void AWeapon::UpdateSlideDispalcement()
 		RecoilRotation = CurveValue * MaxRecoilRotation;
 	}
 }
+
 void AWeapon::DecrementAmmo()
 {
 	if (Ammo - 1 <= 0)

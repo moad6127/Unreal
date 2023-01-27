@@ -13,14 +13,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SHOOTER_ShooterCharacter_generated_h
 
-#define Shooter_Source_Shooter_ShooterCharacter_h_25_GENERATED_BODY \
+#define Shooter_Source_Shooter_ShooterCharacter_h_26_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FInterpLocation_Statics; \
 	SHOOTER_API static class UScriptStruct* StaticStruct();
 
 
 template<> SHOOTER_API UScriptStruct* StaticStruct<struct FInterpLocation>();
 
-#define Shooter_Source_Shooter_ShooterCharacter_h_36_DELEGATE \
+#define Shooter_Source_Shooter_ShooterCharacter_h_37_DELEGATE \
 struct _Script_Shooter_eventHighlightIconDelegate_Parms \
 { \
 	int32 SlotIndex; \
@@ -35,7 +35,7 @@ static inline void FHighlightIconDelegate_DelegateWrapper(const FMulticastScript
 }
 
 
-#define Shooter_Source_Shooter_ShooterCharacter_h_35_DELEGATE \
+#define Shooter_Source_Shooter_ShooterCharacter_h_36_DELEGATE \
 struct _Script_Shooter_eventEquipItemDelegate_Parms \
 { \
 	int32 CurrentSlotIndex; \
@@ -50,12 +50,14 @@ static inline void FEquipItemDelegate_DelegateWrapper(const FMulticastScriptDele
 }
 
 
-#define Shooter_Source_Shooter_ShooterCharacter_h_41_SPARSE_DATA
-#define Shooter_Source_Shooter_ShooterCharacter_h_41_RPC_WRAPPERS \
+#define Shooter_Source_Shooter_ShooterCharacter_h_42_SPARSE_DATA
+#define Shooter_Source_Shooter_ShooterCharacter_h_42_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execGetCrosshairSpreadMultiplier); \
 	DECLARE_FUNCTION(execFinishEquipping); \
 	DECLARE_FUNCTION(execFinishReloading); \
+	DECLARE_FUNCTION(execStartVerticalRecoil); \
+	DECLARE_FUNCTION(execStartHorizontalRecoil); \
 	DECLARE_FUNCTION(execFinishDeath); \
 	DECLARE_FUNCTION(execEndStun); \
 	DECLARE_FUNCTION(execGetSurfaceType); \
@@ -65,11 +67,13 @@ static inline void FEquipItemDelegate_DelegateWrapper(const FMulticastScriptDele
 	DECLARE_FUNCTION(execFinishCrosshairBulletFire);
 
 
-#define Shooter_Source_Shooter_ShooterCharacter_h_41_RPC_WRAPPERS_NO_PURE_DECLS \
+#define Shooter_Source_Shooter_ShooterCharacter_h_42_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execGetCrosshairSpreadMultiplier); \
 	DECLARE_FUNCTION(execFinishEquipping); \
 	DECLARE_FUNCTION(execFinishReloading); \
+	DECLARE_FUNCTION(execStartVerticalRecoil); \
+	DECLARE_FUNCTION(execStartHorizontalRecoil); \
 	DECLARE_FUNCTION(execFinishDeath); \
 	DECLARE_FUNCTION(execEndStun); \
 	DECLARE_FUNCTION(execGetSurfaceType); \
@@ -79,7 +83,7 @@ static inline void FEquipItemDelegate_DelegateWrapper(const FMulticastScriptDele
 	DECLARE_FUNCTION(execFinishCrosshairBulletFire);
 
 
-#define Shooter_Source_Shooter_ShooterCharacter_h_41_INCLASS_NO_PURE_DECLS \
+#define Shooter_Source_Shooter_ShooterCharacter_h_42_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAShooterCharacter(); \
 	friend struct Z_Construct_UClass_AShooterCharacter_Statics; \
@@ -88,7 +92,7 @@ public: \
 	DECLARE_SERIALIZER(AShooterCharacter)
 
 
-#define Shooter_Source_Shooter_ShooterCharacter_h_41_INCLASS \
+#define Shooter_Source_Shooter_ShooterCharacter_h_42_INCLASS \
 private: \
 	static void StaticRegisterNativesAShooterCharacter(); \
 	friend struct Z_Construct_UClass_AShooterCharacter_Statics; \
@@ -97,7 +101,7 @@ public: \
 	DECLARE_SERIALIZER(AShooterCharacter)
 
 
-#define Shooter_Source_Shooter_ShooterCharacter_h_41_STANDARD_CONSTRUCTORS \
+#define Shooter_Source_Shooter_ShooterCharacter_h_42_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AShooterCharacter(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AShooterCharacter) \
@@ -110,7 +114,7 @@ private: \
 public:
 
 
-#define Shooter_Source_Shooter_ShooterCharacter_h_41_ENHANCED_CONSTRUCTORS \
+#define Shooter_Source_Shooter_ShooterCharacter_h_42_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AShooterCharacter(AShooterCharacter&&); \
@@ -121,7 +125,7 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AShooterCharacter)
 
 
-#define Shooter_Source_Shooter_ShooterCharacter_h_41_PRIVATE_PROPERTY_OFFSET \
+#define Shooter_Source_Shooter_ShooterCharacter_h_42_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__CameraBoom() { return STRUCT_OFFSET(AShooterCharacter, CameraBoom); } \
 	FORCEINLINE static uint32 __PPO__FollowCamera() { return STRUCT_OFFSET(AShooterCharacter, FollowCamera); } \
 	FORCEINLINE static uint32 __PPO__BaseTurnRate() { return STRUCT_OFFSET(AShooterCharacter, BaseTurnRate); } \
@@ -191,30 +195,32 @@ public: \
 	FORCEINLINE static uint32 __PPO__FPSFollowCamera() { return STRUCT_OFFSET(AShooterCharacter, FPSFollowCamera); } \
 	FORCEINLINE static uint32 __PPO__FPSMeshComponen() { return STRUCT_OFFSET(AShooterCharacter, FPSMeshComponen); } \
 	FORCEINLINE static uint32 __PPO__DeathMontage() { return STRUCT_OFFSET(AShooterCharacter, DeathMontage); } \
-	FORCEINLINE static uint32 __PPO__FiringCameraShakeClass() { return STRUCT_OFFSET(AShooterCharacter, FiringCameraShakeClass); }
+	FORCEINLINE static uint32 __PPO__FiringCameraShakeClass() { return STRUCT_OFFSET(AShooterCharacter, FiringCameraShakeClass); } \
+	FORCEINLINE static uint32 __PPO__VerticalCurve() { return STRUCT_OFFSET(AShooterCharacter, VerticalCurve); } \
+	FORCEINLINE static uint32 __PPO__HorizontalCurve() { return STRUCT_OFFSET(AShooterCharacter, HorizontalCurve); }
 
 
-#define Shooter_Source_Shooter_ShooterCharacter_h_38_PROLOG
-#define Shooter_Source_Shooter_ShooterCharacter_h_41_GENERATED_BODY_LEGACY \
+#define Shooter_Source_Shooter_ShooterCharacter_h_39_PROLOG
+#define Shooter_Source_Shooter_ShooterCharacter_h_42_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Shooter_Source_Shooter_ShooterCharacter_h_41_PRIVATE_PROPERTY_OFFSET \
-	Shooter_Source_Shooter_ShooterCharacter_h_41_SPARSE_DATA \
-	Shooter_Source_Shooter_ShooterCharacter_h_41_RPC_WRAPPERS \
-	Shooter_Source_Shooter_ShooterCharacter_h_41_INCLASS \
-	Shooter_Source_Shooter_ShooterCharacter_h_41_STANDARD_CONSTRUCTORS \
+	Shooter_Source_Shooter_ShooterCharacter_h_42_PRIVATE_PROPERTY_OFFSET \
+	Shooter_Source_Shooter_ShooterCharacter_h_42_SPARSE_DATA \
+	Shooter_Source_Shooter_ShooterCharacter_h_42_RPC_WRAPPERS \
+	Shooter_Source_Shooter_ShooterCharacter_h_42_INCLASS \
+	Shooter_Source_Shooter_ShooterCharacter_h_42_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Shooter_Source_Shooter_ShooterCharacter_h_41_GENERATED_BODY \
+#define Shooter_Source_Shooter_ShooterCharacter_h_42_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Shooter_Source_Shooter_ShooterCharacter_h_41_PRIVATE_PROPERTY_OFFSET \
-	Shooter_Source_Shooter_ShooterCharacter_h_41_SPARSE_DATA \
-	Shooter_Source_Shooter_ShooterCharacter_h_41_RPC_WRAPPERS_NO_PURE_DECLS \
-	Shooter_Source_Shooter_ShooterCharacter_h_41_INCLASS_NO_PURE_DECLS \
-	Shooter_Source_Shooter_ShooterCharacter_h_41_ENHANCED_CONSTRUCTORS \
+	Shooter_Source_Shooter_ShooterCharacter_h_42_PRIVATE_PROPERTY_OFFSET \
+	Shooter_Source_Shooter_ShooterCharacter_h_42_SPARSE_DATA \
+	Shooter_Source_Shooter_ShooterCharacter_h_42_RPC_WRAPPERS_NO_PURE_DECLS \
+	Shooter_Source_Shooter_ShooterCharacter_h_42_INCLASS_NO_PURE_DECLS \
+	Shooter_Source_Shooter_ShooterCharacter_h_42_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

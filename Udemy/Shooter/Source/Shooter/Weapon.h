@@ -116,6 +116,7 @@ protected:
 	void FinishMovingSlide();
 	void UpdateSlideDispalcement();
 
+
 private:
 	FTimerHandle ThrowWeaponTimer;
 	float ThrowWeaponTime;
@@ -229,6 +230,8 @@ private:
 	//Amount of damege when bullet hit head
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = WeaponProperties, meta = (AllowPrivateAccess = "true"))
 	float HeadShotDamage;
+
+
 public:
 
 	void ThrowWeapon();
