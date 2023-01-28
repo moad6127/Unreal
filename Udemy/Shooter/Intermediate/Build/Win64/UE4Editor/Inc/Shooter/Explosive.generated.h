@@ -62,7 +62,10 @@ public: \
 
 #define Shooter_Source_Shooter_Explosive_h_13_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__ExplodeParticles() { return STRUCT_OFFSET(AExplosive, ExplodeParticles); } \
-	FORCEINLINE static uint32 __PPO__ImpactSound() { return STRUCT_OFFSET(AExplosive, ImpactSound); }
+	FORCEINLINE static uint32 __PPO__ImpactSound() { return STRUCT_OFFSET(AExplosive, ImpactSound); } \
+	FORCEINLINE static uint32 __PPO__ExplosiveMesh() { return STRUCT_OFFSET(AExplosive, ExplosiveMesh); } \
+	FORCEINLINE static uint32 __PPO__OverlapSphere() { return STRUCT_OFFSET(AExplosive, OverlapSphere); } \
+	FORCEINLINE static uint32 __PPO__Damage() { return STRUCT_OFFSET(AExplosive, Damage); }
 
 
 #define Shooter_Source_Shooter_Explosive_h_10_PROLOG

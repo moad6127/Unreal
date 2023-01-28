@@ -9,6 +9,8 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 struct FHitResult;
+class AActor;
+class AController;
 #ifdef SHOOTER_BulletHitInterface_generated_h
 #error "BulletHitInterface.generated.h already included, missing '#pragma once' in BulletHitInterface.h"
 #endif
@@ -16,13 +18,13 @@ struct FHitResult;
 
 #define Shooter_Source_Shooter_BulletHitInterface_h_13_SPARSE_DATA
 #define Shooter_Source_Shooter_BulletHitInterface_h_13_RPC_WRAPPERS \
-	virtual void BulletHit_Implementation(FHitResult HitResult) {}; \
+	virtual void BulletHit_Implementation(FHitResult HitResult, AActor* Shooter, AController* ShooterController) {}; \
  \
 	DECLARE_FUNCTION(execBulletHit);
 
 
 #define Shooter_Source_Shooter_BulletHitInterface_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	virtual void BulletHit_Implementation(FHitResult HitResult) {}; \
+	virtual void BulletHit_Implementation(FHitResult HitResult, AActor* Shooter, AController* ShooterController) {}; \
  \
 	DECLARE_FUNCTION(execBulletHit);
 
@@ -31,6 +33,8 @@ struct FHitResult;
 	struct BulletHitInterface_eventBulletHit_Parms \
 	{ \
 		FHitResult HitResult; \
+		AActor* Shooter; \
+		AController* ShooterController; \
 	};
 
 
@@ -91,7 +95,7 @@ protected: \
 public: \
 	typedef UBulletHitInterface UClassType; \
 	typedef IBulletHitInterface ThisClass; \
-	static void Execute_BulletHit(UObject* O, FHitResult HitResult); \
+	static void Execute_BulletHit(UObject* O, FHitResult HitResult, AActor* Shooter, AController* ShooterController); \
 	virtual UObject* _getUObject() const { check(0 && "Missing required implementation."); return nullptr; }
 
 
@@ -101,7 +105,7 @@ protected: \
 public: \
 	typedef UBulletHitInterface UClassType; \
 	typedef IBulletHitInterface ThisClass; \
-	static void Execute_BulletHit(UObject* O, FHitResult HitResult); \
+	static void Execute_BulletHit(UObject* O, FHitResult HitResult, AActor* Shooter, AController* ShooterController); \
 	virtual UObject* _getUObject() const { check(0 && "Missing required implementation."); return nullptr; }
 
 

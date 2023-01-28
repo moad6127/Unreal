@@ -201,8 +201,14 @@ void AEnemy::AgroShpereOverlap(UPrimitiveComponent* OverlapComponent, AActor* Ot
 	auto Character = Cast<AShooterCharacter>(OtherActor);
 	if (Character)
 	{
-		//겹쳐진 대상을 블랙보드의 Target에 동기화시키기
-		EnemyController->GetBlackboardComponent()->SetValueAsObject(TEXT("Target"), Character);
+		if (EnemyController)
+		{
+			if (EnemyController->GetBlackboardComponent())
+			{
+				//겹쳐진 대상을 블랙보드의 Target에 동기화시키기
+				EnemyController->GetBlackboardComponent()->SetValueAsObject(TEXT("Target"), Character);
+			}
+		}
 	}
 }
 
@@ -432,7 +438,7 @@ void AEnemy::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 }
 
-void AEnemy::BulletHit_Implementation(FHitResult HitReulst)
+void AEnemy::BulletHit_Implementation(FHitResult HitReulst, AActor* Shooter, AController* ShooterController)
 {
 	if (ImpactSound)
 	{
@@ -443,20 +449,7 @@ void AEnemy::BulletHit_Implementation(FHitResult HitReulst)
 		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ImpactParticles, HitReulst.Location, FRotator(0.f), true);
 	}
 
-	if (bDying)
-	{
-		return;
-	}
 
-	ShowHealthBar();
-	//적이 기절하는지 체크하기
-	const float Stunned = FMath::FRandRange(0.f, 1.f);
-	if (Stunned <= StunChance)
-	{
-		//적 기절
-		PlayHitMontage(FName("HitRecatFront"));
-		SetStunned(true);
-	}
 
 }
 
@@ -476,6 +469,21 @@ float AEnemy::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AC
 	else
 	{
 		Health -= DamageAmount;
+	}
+
+	if (bDying)
+	{
+		return DamageAmount;
+	}
+
+	ShowHealthBar();
+	//적이 기절하는지 체크하기
+	const float Stunned = FMath::FRandRange(0.f, 1.f);
+	if (Stunned <= StunChance)
+	{
+		//적 기절
+		PlayHitMontage(FName("HitRecatFront"));
+		SetStunned(true);
 	}
 	return DamageAmount;
 }

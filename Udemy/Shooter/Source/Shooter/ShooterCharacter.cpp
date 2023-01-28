@@ -758,7 +758,7 @@ void AShooterCharacter::SendBullet()
 				IBulletHitInterface* BulletHitInterface = Cast<IBulletHitInterface>(BeamHitReuslt.Actor.Get());
 				if (BulletHitInterface)
 				{
-					BulletHitInterface->BulletHit_Implementation(BeamHitReuslt);
+					BulletHitInterface->BulletHit_Implementation(BeamHitReuslt,this,GetController());
 				}
 				else
 				{

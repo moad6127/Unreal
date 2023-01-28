@@ -18,16 +18,20 @@ void EmptyLinkFunctionForGeneratedCodeBulletHitInterface() {}
 	COREUOBJECT_API UClass* Z_Construct_UClass_UInterface();
 	UPackage* Z_Construct_UPackage__Script_Shooter();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_AController_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(IBulletHitInterface::execBulletHit)
 	{
 		P_GET_STRUCT(FHitResult,Z_Param_HitResult);
+		P_GET_OBJECT(AActor,Z_Param_Shooter);
+		P_GET_OBJECT(AController,Z_Param_ShooterController);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->BulletHit_Implementation(Z_Param_HitResult);
+		P_THIS->BulletHit_Implementation(Z_Param_HitResult,Z_Param_Shooter,Z_Param_ShooterController);
 		P_NATIVE_END;
 	}
-	void IBulletHitInterface::BulletHit(FHitResult HitResult)
+	void IBulletHitInterface::BulletHit(FHitResult HitResult, AActor* Shooter, AController* ShooterController)
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_BulletHit instead.");
 	}
@@ -42,6 +46,8 @@ void EmptyLinkFunctionForGeneratedCodeBulletHitInterface() {}
 	struct Z_Construct_UFunction_UBulletHitInterface_BulletHit_Statics
 	{
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_HitResult;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Shooter;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ShooterController;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -49,8 +55,12 @@ void EmptyLinkFunctionForGeneratedCodeBulletHitInterface() {}
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
 	};
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UBulletHitInterface_BulletHit_Statics::NewProp_HitResult = { "HitResult", nullptr, (EPropertyFlags)0x0010008000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(BulletHitInterface_eventBulletHit_Parms, HitResult), Z_Construct_UScriptStruct_FHitResult, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UBulletHitInterface_BulletHit_Statics::NewProp_Shooter = { "Shooter", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(BulletHitInterface_eventBulletHit_Parms, Shooter), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UBulletHitInterface_BulletHit_Statics::NewProp_ShooterController = { "ShooterController", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(BulletHitInterface_eventBulletHit_Parms, ShooterController), Z_Construct_UClass_AController_NoRegister, METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UBulletHitInterface_BulletHit_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBulletHitInterface_BulletHit_Statics::NewProp_HitResult,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBulletHitInterface_BulletHit_Statics::NewProp_Shooter,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBulletHitInterface_BulletHit_Statics::NewProp_ShooterController,
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBulletHitInterface_BulletHit_Statics::Function_MetaDataParams[] = {
@@ -86,7 +96,7 @@ void EmptyLinkFunctionForGeneratedCodeBulletHitInterface() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_Shooter,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UBulletHitInterface_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UBulletHitInterface_BulletHit, "BulletHit" }, // 1676440587
+		{ &Z_Construct_UFunction_UBulletHitInterface_BulletHit, "BulletHit" }, // 4255173662
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBulletHitInterface_Statics::Class_MetaDataParams[] = {
@@ -120,7 +130,7 @@ void EmptyLinkFunctionForGeneratedCodeBulletHitInterface() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UBulletHitInterface, 1299642913);
+	IMPLEMENT_CLASS(UBulletHitInterface, 3116931956);
 	template<> SHOOTER_API UClass* StaticClass<UBulletHitInterface>()
 	{
 		return UBulletHitInterface::StaticClass();
@@ -128,7 +138,7 @@ void EmptyLinkFunctionForGeneratedCodeBulletHitInterface() {}
 	static FCompiledInDefer Z_CompiledInDefer_UClass_UBulletHitInterface(Z_Construct_UClass_UBulletHitInterface, &UBulletHitInterface::StaticClass, TEXT("/Script/Shooter"), TEXT("UBulletHitInterface"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UBulletHitInterface);
 	static FName NAME_UBulletHitInterface_BulletHit = FName(TEXT("BulletHit"));
-	void IBulletHitInterface::Execute_BulletHit(UObject* O, FHitResult HitResult)
+	void IBulletHitInterface::Execute_BulletHit(UObject* O, FHitResult HitResult, AActor* Shooter, AController* ShooterController)
 	{
 		check(O != NULL);
 		check(O->GetClass()->ImplementsInterface(UBulletHitInterface::StaticClass()));
@@ -137,11 +147,13 @@ void EmptyLinkFunctionForGeneratedCodeBulletHitInterface() {}
 		if (Func)
 		{
 			Parms.HitResult=HitResult;
+			Parms.Shooter=Shooter;
+			Parms.ShooterController=ShooterController;
 			O->ProcessEvent(Func, &Parms);
 		}
 		else if (auto I = (IBulletHitInterface*)(O->GetNativeInterfaceAddress(UBulletHitInterface::StaticClass())))
 		{
-			I->BulletHit_Implementation(HitResult);
+			I->BulletHit_Implementation(HitResult,Shooter,ShooterController);
 		}
 	}
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
