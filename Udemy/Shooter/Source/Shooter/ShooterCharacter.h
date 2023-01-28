@@ -599,4 +599,9 @@ public:
 
 	void Stun();
 	FORCEINLINE float GetStunChance() const { return StunChance; }
+
+	FORCEINLINE float GetHealth() const { return Health; }
+	FORCEINLINE float GetMaxHealth() const { return MaxHealth; }
+	
+	void SetHealth(float Value);
 };

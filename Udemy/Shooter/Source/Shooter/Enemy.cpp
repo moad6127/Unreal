@@ -476,6 +476,8 @@ float AEnemy::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AC
 		return DamageAmount;
 	}
 
+
+
 	ShowHealthBar();
 	//적이 기절하는지 체크하기
 	const float Stunned = FMath::FRandRange(0.f, 1.f);

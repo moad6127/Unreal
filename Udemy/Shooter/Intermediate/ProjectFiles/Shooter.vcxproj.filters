@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Shooter.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{4B81FDDE-1C1E-4301-B74E-38B0A34CACAD}</UniqueIdentifier>
+      <UniqueIdentifier>{6E6F361B-BD30-4A1A-8A21-2BA9DE354D9D}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Shooter.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{B6689F3D-7816-490A-9A79-3CEA3E141C4A}</UniqueIdentifier>
+      <UniqueIdentifier>{301C122D-705E-4827-BFD9-0E7700135449}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,7 +27,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Shooter">
-      <UniqueIdentifier>{59B43009-4417-4603-9D63-8E44E5E3EF03}</UniqueIdentifier>
+      <UniqueIdentifier>{1B60AC52-56E7-49D8-8DDF-EB26CCA2ECA5}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Shooter\Ammo.cpp">
       <Filter>Source\Shooter</Filter>
@@ -66,6 +66,12 @@
       <Filter>Source\Shooter</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Shooter\GruxAnimInstance.h">
+      <Filter>Source\Shooter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Shooter\Health.cpp">
+      <Filter>Source\Shooter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Shooter\Health.h">
       <Filter>Source\Shooter</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\Shooter\Item.cpp">

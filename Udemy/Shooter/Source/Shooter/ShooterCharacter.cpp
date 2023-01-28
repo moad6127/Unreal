@@ -1258,6 +1258,18 @@ void AShooterCharacter::Stun()
 	}
 }
 
+void AShooterCharacter::SetHealth(float Value)
+{
+	if (Value <= MaxHealth)
+	{
+		Health = Value;
+	}
+	else
+	{
+		Health = MaxHealth;
+	}
+}
+
 int32 AShooterCharacter::GetInterpLocationIndex()
 {
 	int32 LowestIndex = 1;
