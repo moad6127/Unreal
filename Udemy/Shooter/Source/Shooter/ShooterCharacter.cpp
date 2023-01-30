@@ -98,7 +98,8 @@ AShooterCharacter::AShooterCharacter() :
 	TPSCameraLength(265.f),
 	FPSCameraLocation(FVector(15.f,-40.f,0.f)),
 	TPSCameraLocation(FVector(0.f, -70.f, 80.f)),
-	bDeath(false)
+	bDeath(false),
+	bFPSAiming(false)
 
 
 {
@@ -120,7 +121,11 @@ AShooterCharacter::AShooterCharacter() :
 	FPSFollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FPSFollowCamera"));
 	FPSFollowCamera->SetupAttachment(GetMesh(), FName("head"));
 
-
+	CheckGunMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("CheckGunMesh"));
+	CheckGunMesh->SetupAttachment(GetMesh(), FName("RightHandSocket"));
+	
+	FPSAimingCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FPSAimingCamera"));
+	FPSAimingCamera->SetupAttachment(GetMesh(), FName("RightHandSocket"));
 
 	//회전할때 카메라만 회전하게 만들기
 	bUseControllerRotationPitch = false;

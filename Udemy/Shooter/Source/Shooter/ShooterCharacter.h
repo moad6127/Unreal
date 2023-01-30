@@ -518,6 +518,7 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	float StunChance;
 
+	//인칭 변경변수들 Top
 	UPROPERTY(VisibleAnywhere, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	bool bChangeView;
 
@@ -531,6 +532,7 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	USkeletalMeshComponent* FPSMeshComponen;
+	//인칭 변경 변수들 Bottom
 
 	//Montage for character Death
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Combat, meta = (AllowPrivateAccess = "true"))
@@ -542,7 +544,7 @@ private:
 	TSubclassOf<class UCameraShakeBase> FiringCameraShakeClass;
 
 
-
+	// 반동 관련 변수들Top
 	FTimeline RecoilTimeline;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Recoil, meta = (AllowPrivateAccess = "true"))
@@ -550,6 +552,17 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Recoil, meta = (AllowPrivateAccess = "true"))
 	UCurveFloat* HorizontalCurve;
+	//반동 관련 변수들Bottom
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	USkeletalMeshComponent* CheckGunMesh;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Combat, meta = (AllowPrivateAccess = "true"))
+	bool bFPSAiming;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	UCameraComponent* FPSAimingCamera;
+
 public:
 	/*return CameraBoom subobject*/
 	FORCEINLINE USpringArmComponent* GetCarmeraBoom() const { return CameraBoom; }
