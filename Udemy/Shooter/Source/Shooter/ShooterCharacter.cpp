@@ -124,8 +124,10 @@ AShooterCharacter::AShooterCharacter() :
 	CheckGunMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("CheckGunMesh"));
 	CheckGunMesh->SetupAttachment(GetMesh(), FName("RightHandSocket"));
 	
+
 	FPSAimingCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FPSAimingCamera"));
-	FPSAimingCamera->SetupAttachment(GetMesh(), FName("RightHandSocket"));
+	FPSAimingCamera->SetupAttachment(CheckGunMesh, FName("BarrelSocket"));
+
 
 	//회전할때 카메라만 회전하게 만들기
 	bUseControllerRotationPitch = false;
@@ -1242,6 +1244,64 @@ void AShooterCharacter::ReversRecoil()
 	RecoilTimeline.Reverse();
 }
 
+
+void AShooterCharacter::FPSAimingKeyPressed()
+{
+	bFPSAiming = !bFPSAiming;
+	FPSAiming(bFPSAiming);
+}
+
+void AShooterCharacter::FPSAiming(bool bFPSAim)
+{
+	if (FPSAimingCamera == nullptr)
+	{
+		return;
+	}
+	if (bChangeView)
+	{
+		//3인칭에서 변환
+		if (bFPSAim)
+		{
+			//ADS상태
+			Aim();
+			FollowCamera->Deactivate();
+			FPSFollowCamera->Deactivate();
+			FPSAimingCamera->Activate();
+		}
+		else
+		{
+			//아닌 상태
+			StopAiming();
+			FPSAimingCamera->Deactivate();
+			FPSFollowCamera->Deactivate();
+			FollowCamera->Activate();
+		}
+	}
+	else
+	{
+		//1인칭에서 변환
+		if (bFPSAim)
+		{
+			//ADS상태
+			Aim();
+			FollowCamera->Deactivate();
+			FPSFollowCamera->Deactivate();
+			FPSAimingCamera->Activate();
+		}
+		else
+		{
+			//아닌 상태
+			StopAiming();
+			FPSAimingCamera->Deactivate();
+			FollowCamera->Deactivate();
+			FPSFollowCamera->Activate();
+		}
+	}
+
+}
+
+
+
 void AShooterCharacter::UnHighlightInventorySlot()
 {
 	HighlightIconDelegate.Broadcast(HighlightedSlot, false);
@@ -1356,6 +1416,7 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 	PlayerInputComponent->BindAction("FPSChange", IE_Pressed, this, &AShooterCharacter::FPSChangeKeyPressed);
 
+	PlayerInputComponent->BindAction("FPSAiming", IE_Pressed, this, &AShooterCharacter::FPSAimingKeyPressed);
 }
 
 void AShooterCharacter::SwapWeapon(AWeapon* WeaponToSwap)

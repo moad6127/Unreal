@@ -207,6 +207,9 @@ protected:
 
 	void ReversRecoil();
 
+	void FPSAimingKeyPressed();
+	void FPSAiming(bool bFPSAim);
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -560,8 +563,10 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	bool bFPSAiming;
 
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FPSAimingCamera;
+
 
 public:
 	/*return CameraBoom subobject*/
