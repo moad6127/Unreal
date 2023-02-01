@@ -1253,7 +1253,7 @@ void AShooterCharacter::FPSAimingKeyPressed()
 
 void AShooterCharacter::FPSAiming(bool bFPSAim)
 {
-	if (FPSAimingCamera == nullptr)
+	if (EquippedWeapon == nullptr)
 	{
 		return;
 	}
@@ -1275,6 +1275,7 @@ void AShooterCharacter::FPSAiming(bool bFPSAim)
 			FPSAimingCamera->Deactivate();
 			FPSFollowCamera->Deactivate();
 			FollowCamera->Activate();
+			
 		}
 	}
 	else
@@ -1293,8 +1294,8 @@ void AShooterCharacter::FPSAiming(bool bFPSAim)
 			//아닌 상태
 			StopAiming();
 			FPSAimingCamera->Deactivate();
-			FollowCamera->Deactivate();
-			FPSFollowCamera->Activate();
+			FPSFollowCamera->Deactivate();
+			FollowCamera->Activate();
 		}
 	}
 

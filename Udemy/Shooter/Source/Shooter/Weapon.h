@@ -230,8 +230,6 @@ private:
 	//Amount of damege when bullet hit head
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = WeaponProperties, meta = (AllowPrivateAccess = "true"))
 	float HeadShotDamage;
-
-
 public:
 
 	void ThrowWeapon();
@@ -260,7 +258,6 @@ public:
 	void ReloadAmmo(int32 Amount);
 
 	FORCEINLINE void SetMovingClip(bool Move) { bMovingClip = Move; }
-
 
 	bool ClipIsFull();
 };
