@@ -128,7 +128,7 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 		return ECombatState_StaticEnum();
 	}
 	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_ECombatState(ECombatState_StaticEnum, TEXT("/Script/Shooter"), TEXT("ECombatState"), false, nullptr, nullptr);
-	uint32 Get_Z_Construct_UEnum_Shooter_ECombatState_Hash() { return 2600262100U; }
+	uint32 Get_Z_Construct_UEnum_Shooter_ECombatState_Hash() { return 3018442016U; }
 	UEnum* Z_Construct_UEnum_Shooter_ECombatState()
 	{
 #if WITH_HOT_RELOAD
@@ -145,11 +145,14 @@ void EmptyLinkFunctionForGeneratedCodeShooterCharacter() {}
 				{ "ECombatState::ECS_Reloading", (int64)ECombatState::ECS_Reloading },
 				{ "ECombatState::ECS_Equipping", (int64)ECombatState::ECS_Equipping },
 				{ "ECombatState::ECS_Stunned", (int64)ECombatState::ECS_Stunned },
+				{ "ECombatState::ECS_Die", (int64)ECombatState::ECS_Die },
 				{ "ECombatState::ECS_MAX", (int64)ECombatState::ECS_MAX },
 			};
 #if WITH_METADATA
 			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
 				{ "BlueprintType", "true" },
+				{ "ECS_Die.DisplayName", "Die" },
+				{ "ECS_Die.Name", "ECombatState::ECS_Die" },
 				{ "ECS_Equipping.DisplayName", "Equipping" },
 				{ "ECS_Equipping.Name", "ECombatState::ECS_Equipping" },
 				{ "ECS_FireTimerInProgress.DisplayName", "FireTimerInProgress" },

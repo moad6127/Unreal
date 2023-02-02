@@ -401,6 +401,7 @@ void AItem::OnConstruction(const FTransform& Transform)
 			DarkColor = RarityRow->DarkColor;
 			NumberOfStars = RarityRow->NumberOfStars;
 			IconBackground = RarityRow->IconBackground;
+			RarPlusDamage = RarityRow->PlusDamage;
 			if (GetItemMesh())
 			{
 				GetItemMesh()->SetCustomDepthStencilValue(RarityRow->CustomDepthStencil);

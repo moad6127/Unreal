@@ -901,7 +901,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFWeaponDataTable
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AWeapon, 3303632831);
+	IMPLEMENT_CLASS(AWeapon, 3141767385);
 	template<> SHOOTER_API UClass* StaticClass<AWeapon>()
 	{
 		return AWeapon::StaticClass();

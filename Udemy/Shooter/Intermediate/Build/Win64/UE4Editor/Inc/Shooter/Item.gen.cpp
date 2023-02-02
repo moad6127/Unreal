@@ -290,6 +290,10 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFItemRarityTable
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CustomDepthStencil_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_CustomDepthStencil;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PlusDamage_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_PlusDamage;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UE4CodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -345,6 +349,13 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFItemRarityTable
 	};
 #endif
 	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_CustomDepthStencil = { "CustomDepthStencil", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FItemRarityTable, CustomDepthStencil), METADATA_PARAMS(Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_CustomDepthStencil_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_CustomDepthStencil_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_PlusDamage_MetaData[] = {
+		{ "Category", "ItemRarityTable" },
+		{ "ModuleRelativePath", "Item.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_PlusDamage = { "PlusDamage", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FItemRarityTable, PlusDamage), METADATA_PARAMS(Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_PlusDamage_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_PlusDamage_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FItemRarityTable_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_GlowColor,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_LightColor,
@@ -352,6 +363,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFItemRarityTable
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_NumberOfStars,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_IconBackground,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_CustomDepthStencil,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemRarityTable_Statics::NewProp_PlusDamage,
 	};
 	const UE4CodeGen_Private::FStructParams Z_Construct_UScriptStruct_FItemRarityTable_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_Shooter,
@@ -381,7 +393,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFItemRarityTable
 		}
 		return ReturnStruct;
 	}
-	uint32 Get_Z_Construct_UScriptStruct_FItemRarityTable_Hash() { return 3585015845U; }
+	uint32 Get_Z_Construct_UScriptStruct_FItemRarityTable_Hash() { return 490313648U; }
 	DEFINE_FUNCTION(AItem::execOnSphereEndOverlap)
 	{
 		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OverlappedComponent);
@@ -733,6 +745,10 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFItemRarityTable
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_IconBackground_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_IconBackground;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RarPlusDamage_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_RarPlusDamage;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -1146,6 +1162,14 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFItemRarityTable
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AItem_Statics::NewProp_IconBackground = { "IconBackground", nullptr, (EPropertyFlags)0x0040000000020015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AItem, IconBackground), Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AItem_Statics::NewProp_IconBackground_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AItem_Statics::NewProp_IconBackground_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AItem_Statics::NewProp_RarPlusDamage_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "WeaponProperties" },
+		{ "ModuleRelativePath", "Item.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AItem_Statics::NewProp_RarPlusDamage = { "RarPlusDamage", nullptr, (EPropertyFlags)0x0040000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AItem, RarPlusDamage), METADATA_PARAMS(Z_Construct_UClass_AItem_Statics::NewProp_RarPlusDamage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AItem_Statics::NewProp_RarPlusDamage_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AItem_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_ItemMesh,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_CollisionBox,
@@ -1190,6 +1214,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFItemRarityTable
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_DarkColor,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_NumberOfStars,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_IconBackground,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_RarPlusDamage,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AItem_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AItem>::IsAbstract,
@@ -1218,7 +1243,7 @@ static struct FScriptStruct_Shooter_StaticRegisterNativesFItemRarityTable
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AItem, 1365618783);
+	IMPLEMENT_CLASS(AItem, 4033347397);
 	template<> SHOOTER_API UClass* StaticClass<AItem>()
 	{
 		return AItem::StaticClass();

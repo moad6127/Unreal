@@ -101,7 +101,7 @@ AShooterCharacter::AShooterCharacter() :
 	bDeath(false),
 	bFPSAiming(false)
 
-
+	
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -372,7 +372,8 @@ void AShooterCharacter::AimingButtonPressed()
 	bAimingButtonPressed = true;
 	if (CombatState != ECombatState::ECS_Reloading &&
 		CombatState != ECombatState::ECS_Equipping &&
-		CombatState != ECombatState::ECS_Stunned)
+		CombatState != ECombatState::ECS_Stunned &&
+		CombatState != ECombatState::ECS_Die)
 	{
 		Aim();
 	}
@@ -1189,6 +1190,7 @@ void AShooterCharacter::Die()
 		return;
 	}
 	bDeath = true;
+	CombatState = ECombatState::ECS_Die;
 	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
 	if (AnimInstance && DeathMontage)
 	{

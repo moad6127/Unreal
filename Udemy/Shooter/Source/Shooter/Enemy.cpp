@@ -260,6 +260,10 @@ void AEnemy::CombatRangeEndOverlap(UPrimitiveComponent* OverlappedComponent, AAc
 
 void AEnemy::PlayAttackMontage(FName Section, float PlayRate)
 {
+	if (bDying)
+	{
+		return;
+	}
 	UAnimInstance* AnimInstacne = GetMesh()->GetAnimInstance();
 	if (AnimInstacne&& AttackMontage)
 	{

@@ -63,6 +63,9 @@ struct FItemRarityTable : public FTableRowBase
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 CustomDepthStencil;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float PlusDamage;
 };
 
 UCLASS()
@@ -293,6 +296,9 @@ private:
 	//Background icon for the inventory
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Rarity, meta = (AllowPrivateAccess = "true"))
 	UTexture2D* IconBackground;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = WeaponProperties, meta = (AllowPrivateAccess = "true"))
+	float RarPlusDamage;
 public:
 	FORCEINLINE UWidgetComponent* GetPickupWidget() const { return PickupWidget; }
 	FORCEINLINE USphereComponent* GetAreaSphere() const { return AreaSphere; }
@@ -328,6 +334,7 @@ public:
 	FORCEINLINE FLinearColor GetGlowColor() const { return GlowColor; }
 	FORCEINLINE int32 GetMaterialIndex() const { return MaterialIndex; }
 	FORCEINLINE void SetMaterialIndex(int32 Index) { MaterialIndex = Index; }
+	FORCEINLINE float GetRarPlusDamage() const { return RarPlusDamage; }
 	//Called from the ShooterCharacter
 	void StartItemCurve(AShooterCharacter* Char,bool bForcePlaySound = false);
 
