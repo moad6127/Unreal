@@ -199,8 +199,7 @@ public: \
 	FORCEINLINE static uint32 __PPO__VerticalCurve() { return STRUCT_OFFSET(AShooterCharacter, VerticalCurve); } \
 	FORCEINLINE static uint32 __PPO__HorizontalCurve() { return STRUCT_OFFSET(AShooterCharacter, HorizontalCurve); } \
 	FORCEINLINE static uint32 __PPO__CheckGunMesh() { return STRUCT_OFFSET(AShooterCharacter, CheckGunMesh); } \
-	FORCEINLINE static uint32 __PPO__bFPSAiming() { return STRUCT_OFFSET(AShooterCharacter, bFPSAiming); } \
-	FORCEINLINE static uint32 __PPO__FPSAimingCamera() { return STRUCT_OFFSET(AShooterCharacter, FPSAimingCamera); }
+	FORCEINLINE static uint32 __PPO__bFPSAiming() { return STRUCT_OFFSET(AShooterCharacter, bFPSAiming); }
 
 
 #define Shooter_Source_Shooter_ShooterCharacter_h_40_PROLOG

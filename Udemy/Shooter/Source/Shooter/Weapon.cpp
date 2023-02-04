@@ -2,7 +2,7 @@
 
 
 #include "Weapon.h"
-
+#include "Camera/CameraComponent.h"
 
 AWeapon::AWeapon() :
 	ThrowWeaponTime(0.7),
@@ -21,6 +21,10 @@ AWeapon::AWeapon() :
 	bAutomatic(true)
 {
 	PrimaryActorTick.bCanEverTick = true;
+	ADSCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("ADSCamera"));
+	ADSCamera->SetupAttachment(GetItemMesh(), FName("BarrelSocket"));
+
+	ADSCamera->bUsePawnControlRotation = true;
 }
 
 void AWeapon::Tick(float DeltaTime)
