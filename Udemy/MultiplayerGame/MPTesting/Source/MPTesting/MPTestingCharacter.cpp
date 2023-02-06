@@ -9,11 +9,12 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "Kismet/GameplayStatics.h"
 
 
 //////////////////////////////////////////////////////////////////////////
 // AMPTestingCharacter
-
+ 
 AMPTestingCharacter::AMPTestingCharacter()
 {
 	// Set size for collision capsule
@@ -63,6 +64,29 @@ void AMPTestingCharacter::BeginPlay()
 		{
 			Subsystem->AddMappingContext(DefaultMappingContext, 0);
 		}
+	}
+}
+
+void AMPTestingCharacter::OpenLobby()
+{
+	UWorld* World = GetWorld();
+	if (World)
+	{
+		World->ServerTravel("/Game/ThirdPerson/Maps/Lobby?listen");
+	}
+}
+
+void AMPTestingCharacter::CallOpenLevl(const FString& Address)
+{
+	UGameplayStatics::OpenLevel(this, *Address);
+}
+
+void AMPTestingCharacter::CallClientTravel(const FString& Address)
+{
+	APlayerController* PlayerController = GetGameInstance()->GetFirstLocalPlayerController();
+	if (PlayerController)
+	{
+		PlayerController->ClientTravel(Address, ETravelType::TRAVEL_Absolute);
 	}
 }
 
