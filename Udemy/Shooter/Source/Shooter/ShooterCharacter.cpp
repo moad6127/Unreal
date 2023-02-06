@@ -1257,12 +1257,16 @@ void AShooterCharacter::ADSSystem(bool FPSAiming)
 	{
 		if (FPSAiming)
 		{
+			Aim();
 			EquippedWeapon->GetADSCamera()->Activate();
-			PC->SetViewTarget(EquippedWeapon);
+			PC->SetViewTargetWithBlend(EquippedWeapon);
+			bUseControllerRotationPitch = true;
 		}
 		else
 		{
+			StopAiming();
 			PC->SetViewTarget(this);
+			bUseControllerRotationPitch = false;
 		}
 	}
 
