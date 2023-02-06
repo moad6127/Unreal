@@ -1261,9 +1261,10 @@ void AShooterCharacter::FPSAiming(bool bFPSAim)
 	{
 		//ADS»óÅÂ
 		Aim();
+		EquippedWeapon->GetADSCamera()->Activate();
 		FollowCamera->Deactivate();
 		FPSFollowCamera->Deactivate();
-		EquippedWeapon->GetADSCamera()->Activate();
+
 	}
 	else
 	{
