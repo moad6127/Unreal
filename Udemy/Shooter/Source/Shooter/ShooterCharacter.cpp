@@ -1247,35 +1247,27 @@ void AShooterCharacter::ReversRecoil()
 void AShooterCharacter::FPSAimingKeyPressed()
 {
 	bFPSAiming = !bFPSAiming;
-	FPSAiming(bFPSAiming);
+	ADSSystem(bFPSAiming);
 }
 
-void AShooterCharacter::FPSAiming(bool bFPSAim)
+void AShooterCharacter::ADSSystem(bool FPSAiming)
 {
-	if (EquippedWeapon == nullptr)
+	APlayerController* PC = UGameplayStatics::GetPlayerController(this, 0);
+	if (PC)
 	{
-		return;
-	}
-	//3인칭에서 변환
-	if (bFPSAim)
-	{
-		//ADS상태
-		Aim();
-		EquippedWeapon->GetADSCamera()->Activate();
-		FollowCamera->Deactivate();
-		FPSFollowCamera->Deactivate();
-
-	}
-	else
-	{
-		//아닌 상태
-		StopAiming();
-		FPSFollowCamera->Deactivate();
-		EquippedWeapon->GetADSCamera()->Deactivate();
-		FollowCamera->Activate();
+		if (FPSAiming)
+		{
+			EquippedWeapon->GetADSCamera()->Activate();
+			PC->SetViewTarget(EquippedWeapon);
+		}
+		else
+		{
+			PC->SetViewTarget(this);
+		}
 	}
 
 }
+
 
 
 

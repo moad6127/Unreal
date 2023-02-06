@@ -232,7 +232,11 @@ private:
 	float HeadShotDamage;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	class USpringArmComponent* CameraBoom;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* ADSCamera;
+
 public:
 
 	void ThrowWeapon();
@@ -261,7 +265,6 @@ public:
 	void ReloadAmmo(int32 Amount);
 
 	FORCEINLINE void SetMovingClip(bool Move) { bMovingClip = Move; }
-	FORCEINLINE  UCameraComponent* GetADSCamera() { return ADSCamera; }
-
+	UCameraComponent* GetADSCamera() const { return ADSCamera; }
 	bool ClipIsFull();
 };

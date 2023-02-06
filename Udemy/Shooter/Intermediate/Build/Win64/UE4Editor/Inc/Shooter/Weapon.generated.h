@@ -94,6 +94,7 @@ public: \
 	FORCEINLINE static uint32 __PPO__bAutomatic() { return STRUCT_OFFSET(AWeapon, bAutomatic); } \
 	FORCEINLINE static uint32 __PPO__Damage() { return STRUCT_OFFSET(AWeapon, Damage); } \
 	FORCEINLINE static uint32 __PPO__HeadShotDamage() { return STRUCT_OFFSET(AWeapon, HeadShotDamage); } \
+	FORCEINLINE static uint32 __PPO__CameraBoom() { return STRUCT_OFFSET(AWeapon, CameraBoom); } \
 	FORCEINLINE static uint32 __PPO__ADSCamera() { return STRUCT_OFFSET(AWeapon, ADSCamera); }
 
 

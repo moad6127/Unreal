@@ -2,6 +2,7 @@
 
 
 #include "Weapon.h"
+#include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 
 AWeapon::AWeapon() :
@@ -21,10 +22,15 @@ AWeapon::AWeapon() :
 	bAutomatic(true)
 {
 	PrimaryActorTick.bCanEverTick = true;
+	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
+	CameraBoom->SetupAttachment(GetItemMesh(), FName("BarrelSocket"));
+	CameraBoom->bUsePawnControlRotation = true;
+	CameraBoom->TargetArmLength = 0;
+	
 	ADSCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("ADSCamera"));
-	ADSCamera->SetupAttachment(GetItemMesh(), FName("BarrelSocket"));
 
-	ADSCamera->bUsePawnControlRotation = true;
+	ADSCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
+	ADSCamera->bUsePawnControlRotation = false;
 }
 
 void AWeapon::Tick(float DeltaTime)
