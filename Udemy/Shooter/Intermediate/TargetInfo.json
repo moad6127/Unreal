@@ -2,12 +2,12 @@
 	"Targets": [
 		{
 			"Name": "Shooter",
-			"Path": "C:\\Unreal\\Udemy\\Shooter\\Source\\Shooter.Target.cs",
+			"Path": "D:\\Shooter\\Unreal\\Udemy\\Shooter\\Source\\Shooter.Target.cs",
 			"Type": "Game"
 		},
 		{
 			"Name": "ShooterEditor",
-			"Path": "C:\\Unreal\\Udemy\\Shooter\\Source\\ShooterEditor.Target.cs",
+			"Path": "D:\\Shooter\\Unreal\\Udemy\\Shooter\\Source\\ShooterEditor.Target.cs",
 			"Type": "Editor"
 		}
 	]

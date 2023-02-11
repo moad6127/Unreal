@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"C:\\Unreal\\Udemy\\Shooter\\Source\\Shooter\\Shooter.Build.cs",
-		"C:\\Unreal\\Udemy\\Shooter\\Source\\Shooter.Target.cs",
-		"C:\\Unreal\\Udemy\\Shooter\\Source\\ShooterEditor.Target.cs"
+		"D:\\Shooter\\Unreal\\Udemy\\Shooter\\Source\\Shooter\\Shooter.Build.cs",
+		"D:\\Shooter\\Unreal\\Udemy\\Shooter\\Source\\Shooter.Target.cs",
+		"D:\\Shooter\\Unreal\\Udemy\\Shooter\\Source\\ShooterEditor.Target.cs"
 	],
 	"EngineVersion": "4.27.2"
 }
