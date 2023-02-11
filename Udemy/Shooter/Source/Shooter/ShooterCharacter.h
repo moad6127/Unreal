@@ -208,9 +208,9 @@ protected:
 
 	void ReversRecoil();
 
-	void FPSAimingKeyPressed();
+	//void FPSAimingKeyPressed();
 
-	void ADSSystem(bool FPSAiming);
+	//void ADSSystem(bool FPSAiming);
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

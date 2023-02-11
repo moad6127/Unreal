@@ -1244,34 +1244,34 @@ void AShooterCharacter::ReversRecoil()
 }
 
 
-void AShooterCharacter::FPSAimingKeyPressed()
-{
-	bFPSAiming = !bFPSAiming;
-	ADSSystem(bFPSAiming);
-}
-
-void AShooterCharacter::ADSSystem(bool FPSAiming)
-{
-	APlayerController* PC = UGameplayStatics::GetPlayerController(this, 0);
-	if (PC)
-	{
-		if (FPSAiming)
-		{
-			Aim();
-			EquippedWeapon->GetADSCamera()->Activate();
-			PC->SetViewTargetWithBlend(EquippedWeapon);
-			bUseControllerRotationPitch = true;
-		}
-		else
-		{
-			StopAiming();
-			PC->SetViewTarget(this);
-			bUseControllerRotationPitch = false;
-		}
-	}
-
-}
-
+//void AShooterCharacter::FPSAimingKeyPressed()
+//{
+//	bFPSAiming = !bFPSAiming;
+//	ADSSystem(bFPSAiming);
+//}
+//
+//void AShooterCharacter::ADSSystem(bool FPSAiming)
+//{
+//	APlayerController* PC = UGameplayStatics::GetPlayerController(this, 0);
+//	if (PC)
+//	{
+//		if (FPSAiming)
+//		{
+//			Aim();
+//			EquippedWeapon->GetADSCamera()->Activate();
+//			PC->SetViewTargetWithBlend(EquippedWeapon);
+//			bUseControllerRotationPitch = true;
+//		}
+//		else
+//		{
+//			StopAiming();
+//			PC->SetViewTarget(this);
+//			bUseControllerRotationPitch = false;
+//		}
+//	}
+//
+//}
+//
 
 
 
@@ -1389,7 +1389,7 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 	PlayerInputComponent->BindAction("FPSChange", IE_Pressed, this, &AShooterCharacter::FPSChangeKeyPressed);
 
-	PlayerInputComponent->BindAction("FPSAiming", IE_Pressed, this, &AShooterCharacter::FPSAimingKeyPressed);
+	//PlayerInputComponent->BindAction("FPSAiming", IE_Pressed, this, &AShooterCharacter::FPSAimingKeyPressed);
 }
 
 void AShooterCharacter::SwapWeapon(AWeapon* WeaponToSwap)
