@@ -101,6 +101,7 @@ private:
 	//Yaw of the Character the previous frame
 	FRotator CharacterFRotatorLastFrame;
 
+	FRotator DRotation;
 	//Yaw Delta Used for leaning in the running blendspace
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Lean, meta = (AllowPrivateAccess = "true"))
 	float YawDelta;
