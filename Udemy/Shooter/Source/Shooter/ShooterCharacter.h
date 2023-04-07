@@ -87,6 +87,8 @@ protected:
 	void AimingButtonPressed();
 	void AimingButtonReleased();
 
+	void AimDownSightPressed();
+
 	void CameraInterpZoom(float DeltaTime);
 
 
@@ -564,6 +566,14 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Combat, meta = (AllowPrivateAccess = "true"))
 	bool bFPSAiming;
 
+	// AimDownSight
+
+	FVector NowCameraLocation;
+	FRotator NowCameraRotation;
+
+	void AimDownSight();
+	void StopAimDownSight();
+	bool bAimDownSight =false; 
 public:
 	/*return CameraBoom subobject*/
 	FORCEINLINE USpringArmComponent* GetCarmeraBoom() const { return CameraBoom; }

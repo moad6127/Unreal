@@ -106,6 +106,7 @@ public:
 	AWeapon();
 
 	virtual void Tick(float DeltaTime) override;
+	void AttachCamera();
 protected:
 
 	void StopFalling();
@@ -115,7 +116,6 @@ protected:
 
 	void FinishMovingSlide();
 	void UpdateSlideDispalcement();
-
 
 private:
 	FTimerHandle ThrowWeaponTimer;
@@ -236,6 +236,8 @@ private:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* ADSCamera;
+
+
 
 public:
 

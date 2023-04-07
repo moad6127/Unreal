@@ -165,6 +165,27 @@ void AWeapon::UpdateSlideDispalcement()
 	}
 }
 
+void AWeapon::AttachCamera()
+{
+	// 캐릭터 찾기
+    APawn* MyPawn = Cast<APawn>(GetOwner());
+    if (!MyPawn) return;
+    
+    // 캐릭터의 카메라 컴포넌트 찾기
+    UCameraComponent* MyPawnCamera = MyPawn->FindComponentByClass<UCameraComponent>();
+    if (!MyPawnCamera) return;
+
+    // 카메라 위치, 회전값 적용하기
+    FVector CameraLocation = MyPawnCamera->GetComponentLocation() + MyPawnCamera->GetForwardVector() +
+        MyPawnCamera->GetRightVector() + MyPawnCamera->GetUpVector();
+    FRotator CameraRotation = MyPawnCamera->GetComponentRotation();
+    SetActorLocationAndRotation(CameraLocation, CameraRotation);
+    
+    // 캐릭터의 카메라로 설정하기
+    MyPawnCamera->AttachToComponent(GetRootComponent(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, FName("ADSSocket"));
+    MyPawnCamera->bUsePawnControlRotation = false;
+}
+
 void AWeapon::DecrementAmmo()
 {
 	if (Ammo - 1 <= 0)

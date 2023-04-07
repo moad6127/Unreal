@@ -24,7 +24,7 @@
 #include "EnemyController.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "Camera/CameraShakeBase.h"
-
+#include "Kismet/KismetMathLibrary.h"
 
 // Sets default values
 AShooterCharacter::AShooterCharacter() :
@@ -380,6 +380,14 @@ void AShooterCharacter::AimingButtonReleased()
 {
 	bAimingButtonPressed = false;
 	StopAiming();
+}
+
+void AShooterCharacter::AimDownSightPressed()
+{
+	bAimingButtonPressed = true;
+	bAimDownSight = !bAimDownSight;
+	
+	AimDownSight();
 }
 
 void AShooterCharacter::CameraInterpZoom(float DeltaTime)
@@ -1347,6 +1355,7 @@ void AShooterCharacter::Tick(float DeltaTime)
 	{
 		RecoilTimeline.TickTimeline(DeltaTime);
 	}
+
 }
 
 // Called to bind functionality to input
@@ -1389,7 +1398,7 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 	PlayerInputComponent->BindAction("FPSChange", IE_Pressed, this, &AShooterCharacter::FPSChangeKeyPressed);
 
-	//PlayerInputComponent->BindAction("FPSAiming", IE_Pressed, this, &AShooterCharacter::FPSAimingKeyPressed);
+	PlayerInputComponent->BindAction("AimDownSight", IE_Pressed, this, &AShooterCharacter::AimDownSightPressed);
 }
 
 void AShooterCharacter::SwapWeapon(AWeapon* WeaponToSwap)
@@ -1476,6 +1485,21 @@ void AShooterCharacter::ResetEquipSoundTimer()
 {
 	bShouldPlayEquipSound = true;
 }
+
+
+void AShooterCharacter::AimDownSight()
+{
+	if (EquippedWeapon)
+	{
+		FollowCamera->AttachToComponent(EquippedWeapon->GetItemMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, FName("ADSSocket"));
+
+	}
+}
+
+void AShooterCharacter::StopAimDownSight()
+{
+}
+
 
 float AShooterCharacter::GetCrosshairSpreadMultiplier() const
 {
