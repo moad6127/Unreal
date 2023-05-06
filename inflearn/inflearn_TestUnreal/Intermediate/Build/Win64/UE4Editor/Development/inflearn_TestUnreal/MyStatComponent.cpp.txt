@@ -1,17 +1,17 @@
-C:\Unreal\inflearn\inflearn_TestUnreal\Intermediate\Build\Win64\UE4Editor\Development\inflearn_TestUnreal\Definitions.inflearn_TestUnreal.h
-C:\Unreal\inflearn\inflearn_TestUnreal\Source\inflearn_TestUnreal\MyStatComponent.h
-C:\Unreal\inflearn\inflearn_TestUnreal\Intermediate\Build\Win64\UE4Editor\Inc\inflearn_TestUnreal\MyStatComponent.generated.h
-C:\Unreal\inflearn\inflearn_TestUnreal\Source\inflearn_TestUnreal\MyGameInstance.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/DataTable.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Public\DataTableUtils.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DataTable.generated.h
-C:\Unreal\inflearn\inflearn_TestUnreal\Intermediate\Build\Win64\UE4Editor\Inc\inflearn_TestUnreal\MyGameInstance.generated.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet/GameplayStatics.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet/KismetSystemLibrary.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/PropertyAccessUtil.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\KismetSystemLibrary.generated.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Sound/DialogueTypes.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DialogueTypes.generated.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet\GameplayStaticsTypes.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStaticsTypes.generated.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStatics.generated.h
+D:\Shooter\Unreal\inflearn\inflearn_TestUnreal\Intermediate\Build\Win64\UE4Editor\Development\inflearn_TestUnreal\Definitions.inflearn_TestUnreal.h
+D:\Shooter\Unreal\inflearn\inflearn_TestUnreal\Source\inflearn_TestUnreal\MyStatComponent.h
+D:\Shooter\Unreal\inflearn\inflearn_TestUnreal\Intermediate\Build\Win64\UE4Editor\Inc\inflearn_TestUnreal\MyStatComponent.generated.h
+D:\Shooter\Unreal\inflearn\inflearn_TestUnreal\Source\inflearn_TestUnreal\MyGameInstance.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/DataTable.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Public\DataTableUtils.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DataTable.generated.h
+D:\Shooter\Unreal\inflearn\inflearn_TestUnreal\Intermediate\Build\Win64\UE4Editor\Inc\inflearn_TestUnreal\MyGameInstance.generated.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet/GameplayStatics.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet/KismetSystemLibrary.h
+D:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/PropertyAccessUtil.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\KismetSystemLibrary.generated.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Sound/DialogueTypes.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DialogueTypes.generated.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet\GameplayStaticsTypes.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStaticsTypes.generated.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameplayStatics.generated.h

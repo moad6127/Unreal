@@ -2,12 +2,12 @@
 	"Targets": [
 		{
 			"Name": "inflearn_TestUnreal",
-			"Path": "C:\\Unreal\\inflearn\\inflearn_TestUnreal\\Source\\inflearn_TestUnreal.Target.cs",
+			"Path": "D:\\Shooter\\Unreal\\inflearn\\inflearn_TestUnreal\\Source\\inflearn_TestUnreal.Target.cs",
 			"Type": "Game"
 		},
 		{
 			"Name": "inflearn_TestUnrealEditor",
-			"Path": "C:\\Unreal\\inflearn\\inflearn_TestUnreal\\Source\\inflearn_TestUnrealEditor.Target.cs",
+			"Path": "D:\\Shooter\\Unreal\\inflearn\\inflearn_TestUnreal\\Source\\inflearn_TestUnrealEditor.Target.cs",
 			"Type": "Editor"
 		}
 	]

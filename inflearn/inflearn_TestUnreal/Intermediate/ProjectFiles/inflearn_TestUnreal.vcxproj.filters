@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\inflearn_TestUnreal.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{E091A100-D879-4A5E-B9DD-A89B58008FFD}</UniqueIdentifier>
+      <UniqueIdentifier>{508CCA6C-17CC-41BA-A2D7-AEEDE0FB4E2E}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\inflearn_TestUnreal.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{012594A9-F0F3-473C-95CA-ADA287C8434F}</UniqueIdentifier>
+      <UniqueIdentifier>{5032C52D-3211-4A94-9135-7819D1A43758}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,7 +27,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\inflearn_TestUnreal">
-      <UniqueIdentifier>{2D6FC7A7-96DE-479E-B40C-FCBA3193A739}</UniqueIdentifier>
+      <UniqueIdentifier>{71F08F0C-2D2B-43B9-9F8E-F5A8797F626E}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\inflearn_TestUnreal\BTDecorator_CanAttack.cpp">
       <Filter>Source\inflearn_TestUnreal</Filter>
@@ -51,21 +51,6 @@
       <Filter>Source\inflearn_TestUnreal</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\inflearn_TestUnreal\BTTask_FindPatrolNode.h">
-      <Filter>Source\inflearn_TestUnreal</Filter>
-    </ClInclude>
-    <None Include="..\..\Source\inflearn_TestUnreal\inflearn_TestUnreal.Build.cs">
-      <Filter>Source\inflearn_TestUnreal</Filter>
-    </None>
-    <ClCompile Include="..\..\Source\inflearn_TestUnreal\inflearn_TestUnreal.cpp">
-      <Filter>Source\inflearn_TestUnreal</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\inflearn_TestUnreal\inflearn_TestUnreal.h">
-      <Filter>Source\inflearn_TestUnreal</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\inflearn_TestUnreal\inflearn_TestUnrealGameModeBase.cpp">
-      <Filter>Source\inflearn_TestUnreal</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\inflearn_TestUnreal\inflearn_TestUnrealGameModeBase.h">
       <Filter>Source\inflearn_TestUnreal</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\inflearn_TestUnreal\MyAIController.cpp">
@@ -114,6 +99,21 @@
       <Filter>Source\inflearn_TestUnreal</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\inflearn_TestUnreal\Myweapon.h">
+      <Filter>Source\inflearn_TestUnreal</Filter>
+    </ClInclude>
+    <None Include="..\..\Source\inflearn_TestUnreal\inflearn_TestUnreal.Build.cs">
+      <Filter>Source\inflearn_TestUnreal</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\inflearn_TestUnreal\inflearn_TestUnreal.cpp">
+      <Filter>Source\inflearn_TestUnreal</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\inflearn_TestUnreal\inflearn_TestUnreal.h">
+      <Filter>Source\inflearn_TestUnreal</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\inflearn_TestUnreal\inflearn_TestUnrealGameModeBase.cpp">
+      <Filter>Source\inflearn_TestUnreal</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\inflearn_TestUnreal\inflearn_TestUnrealGameModeBase.h">
       <Filter>Source\inflearn_TestUnreal</Filter>
     </ClInclude>
   </ItemGroup>

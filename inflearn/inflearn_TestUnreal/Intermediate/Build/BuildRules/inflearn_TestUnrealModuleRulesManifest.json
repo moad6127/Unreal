@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"C:\\Unreal\\inflearn\\inflearn_TestUnreal\\Source\\inflearn_TestUnreal\\inflearn_TestUnreal.Build.cs",
-		"C:\\Unreal\\inflearn\\inflearn_TestUnreal\\Source\\inflearn_TestUnreal.Target.cs",
-		"C:\\Unreal\\inflearn\\inflearn_TestUnreal\\Source\\inflearn_TestUnrealEditor.Target.cs"
+		"D:\\Shooter\\Unreal\\inflearn\\inflearn_TestUnreal\\Source\\inflearn_TestUnreal\\inflearn_TestUnreal.Build.cs",
+		"D:\\Shooter\\Unreal\\inflearn\\inflearn_TestUnreal\\Source\\inflearn_TestUnreal.Target.cs",
+		"D:\\Shooter\\Unreal\\inflearn\\inflearn_TestUnreal\\Source\\inflearn_TestUnrealEditor.Target.cs"
 	],
 	"EngineVersion": "4.27.2"
 }
