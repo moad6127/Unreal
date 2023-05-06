@@ -1,4 +1,24 @@
 
+
+Binaries
+DerivedDataCache
+Intermediate
+Saved
+Build
+
+
+.vscode
+.vs
+*.VC.db
+*.opensdf
+*.opendb
+*.sdf
+*.sln
+*.suo
+*.xcodeproj
+*.xcworkspace
+
+
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudio,unrealengine
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudio,unrealengine
 
@@ -514,20 +534,4 @@ Udemy/Shooter/Content/KiteDemo/Environments/GroundTiles/RockyPath/T_GDC_StonePat
 Udemy/Shooter/Content/KiteDemo/Environments/GroundTiles/RockyPath/T_GDC_StonePath_Tile_N.uasset
 Udemy/Shooter/Content/KiteDemo/Environments/Cliffs/Cliff01/T_Cliff01_N.uasset
 Udemy/Shooter/Content/KiteDemo/Environments/Cliffs/Cliff01/T_Cliff01_D_CC_R.uasset
-Binaries
-DerivedDataCache
-Intermediate
-Saved
-Build
 
-
-.vscode
-.vs
-*.VC.db
-*.opensdf
-*.opendb
-*.sdf
-*.sln
-*.suo
-*.xcodeproj
-*.xcworkspace
